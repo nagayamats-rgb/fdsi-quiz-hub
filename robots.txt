@@ -1,3 +1,3 @@
 User-agent: *
-Allow: /quiz/
-Sitemap: https://fds.co.jp/quiz/sitemap.xml
+Allow: /fdsi-quiz-hub/
+Sitemap: https://nagayamats-rgb.github.io/fdsi-quiz-hub/sitemap.xml
