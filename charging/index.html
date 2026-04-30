@@ -8,16 +8,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>充電スタイル診断 | World Select</title>
   <meta name="description" content="あなたの充電スタイルは？ミニマリスト派？パワフル派？マルチデバイス派？モバイル派？7つの質問で診断します。">
-  <meta name="canonical" content="https://nagayamats-rgb.github.io/fdsi-quiz-hub/charging/">
+  <meta name="canonical" content="https://quiz.fds.co.jp/charging/">
   <meta property="og:title" content="充電スタイル診断">
   <meta property="og:description" content="7つの質問であなたの充電スタイルを診断。">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://nagayamats-rgb.github.io/fdsi-quiz-hub/charging/">
+  <meta property="og:url" content="https://quiz.fds.co.jp/charging/">
   <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Quiz","name":"充電スタイル診断","description":"7問であなたの充電タイプを診断。あなたはミニマリスト派？パワー派？","url":"https://nagayamats-rgb.github.io/fdsi-quiz-hub/charging/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://worldselect.net/"}}
+{"@context":"https://schema.org","@type":"Quiz","name":"充電スタイル診断","description":"7問であなたの充電タイプを診断。あなたはミニマリスト派？パワー派？","url":"https://quiz.fds.co.jp/charging/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://worldselect.net/"}}
 </script>
   <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FDSi","item":"https://worldselect.net/"},{"@type":"ListItem","position":2,"name":"Quiz Hub","item":"https://nagayamats-rgb.github.io/fdsi-quiz-hub/"},{"@type":"ListItem","position":3,"name":"充電スタイル診断","item":"https://nagayamats-rgb.github.io/fdsi-quiz-hub/charging/"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FDSi","item":"https://worldselect.net/"},{"@type":"ListItem","position":2,"name":"Quiz Hub","item":"https://quiz.fds.co.jp/"},{"@type":"ListItem","position":3,"name":"充電スタイル診断","item":"https://quiz.fds.co.jp/charging/"}]}
 </script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -894,7 +894,7 @@
       document.getElementById('resultRecommendation').textContent = result.recommendation;
 
       var shareText = 'I got "' + result.name + '" on the Charging Style Quiz! #WorldSelect #ChargeQuiz';
-      var shareUrl = 'https://nagayamats-rgb.github.io/fdsi-quiz-hub/charging/';
+      var shareUrl = 'https://quiz.fds.co.jp/charging/';
 
       document.getElementById('shareX').addEventListener('click', function() {
         var xUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(shareUrl);
@@ -967,7 +967,7 @@
 
     initTheme();
   </script>
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FDSi","item":"https://worldselect.net/"},{"@type":"ListItem","position":2,"name":"Quiz Hub","item":"https://nagayamats-rgb.github.io/fdsi-quiz-hub/"},{"@type":"ListItem","position":3,"name":"充電スタイル診断","item":"https://nagayamats-rgb.github.io/fdsi-quiz-hub/charging/"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FDSi","item":"https://worldselect.net/"},{"@type":"ListItem","position":2,"name":"Quiz Hub","item":"https://quiz.fds.co.jp/"},{"@type":"ListItem","position":3,"name":"充電スタイル診断","item":"https://quiz.fds.co.jp/charging/"}]}
 </script>
 
 <style>
@@ -1534,7 +1534,7 @@ function showResult(){
   pl.innerHTML = type.products.map(p => `<div class="product-item">${p}</div>`).join('');
 
   var msg = '充電スタイル診断で「' + type.title + '」でした！';
-  var url = 'https://nagayamats-rgb.github.io/fdsi-quiz-hub/charging/';
+  var url = 'https://quiz.fds.co.jp/charging/';
   document.getElementById('shareX').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(msg) + '%20' + url;
   document.getElementById('shareLine').href = 'https://line.me/R/msg/text/' + encodeURIComponent(msg + ' ' + url);
 

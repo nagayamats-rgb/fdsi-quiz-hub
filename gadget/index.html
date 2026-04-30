@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ガジェットオタク度チェック【20問】— World Select</title>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Quiz","name":"ガジェットオタク度チェック","description":"20問のガジェット知識クイズ。あなたはどこまで知っている？","url":"https://nagayamats-rgb.github.io/fdsi-quiz-hub/gadget/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://worldselect.net/"}}
+{"@context":"https://schema.org","@type":"Quiz","name":"ガジェットオタク度チェック","description":"20問のガジェット知識クイズ。あなたはどこまで知っている？","url":"https://quiz.fds.co.jp/gadget/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://worldselect.net/"}}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FDSi","item":"https://worldselect.net/"},{"@type":"ListItem","position":2,"name":"Quiz Hub","item":"https://nagayamats-rgb.github.io/fdsi-quiz-hub/"},{"@type":"ListItem","position":3,"name":"ガジェットオタク度","item":"https://nagayamats-rgb.github.io/fdsi-quiz-hub/gadget/"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FDSi","item":"https://worldselect.net/"},{"@type":"ListItem","position":2,"name":"Quiz Hub","item":"https://quiz.fds.co.jp/"},{"@type":"ListItem","position":3,"name":"ガジェットオタク度","item":"https://quiz.fds.co.jp/gadget/"}]}
 </script>
 <style>
 :root{
@@ -543,7 +543,7 @@ function shareTwitter() {
       break;
     }
   }
-  var text = 'ガジェットオタク度チェックで「' + level.level + '」でした！スコア：' + score + '/20 https://nagayamats-rgb.github.io/fdsi-quiz-hub/gadget/';
+  var text = 'ガジェットオタク度チェックで「' + level.level + '」でした！スコア：' + score + '/20 https://quiz.fds.co.jp/gadget/';
   var url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
   window.open(url, '_blank');
 }
@@ -557,7 +557,7 @@ function shareLine() {
     }
   }
   var text = 'ガジェットオタク度チェックで「' + level.level + '」でした！スコア：' + score + '/20';
-  var url = 'https://social-plugins.line.me/lineit/share?url=https://nagayamats-rgb.github.io/fdsi-quiz-hub/gadget/&text=' + encodeURIComponent(text);
+  var url = 'https://social-plugins.line.me/lineit/share?url=https://quiz.fds.co.jp/gadget/&text=' + encodeURIComponent(text);
   window.open(url, '_blank');
 }
 
@@ -569,7 +569,7 @@ function copyResult() {
       break;
     }
   }
-  var text = 'ガジェットオタク度チェック\n【' + level.level + '】\nスコア：' + score + '/20\n' + level.desc + '\nhttps://nagayamats-rgb.github.io/fdsi-quiz-hub/gadget/';
+  var text = 'ガジェットオタク度チェック\n【' + level.level + '】\nスコア：' + score + '/20\n' + level.desc + '\nhttps://quiz.fds.co.jp/gadget/';
   var el = document.createElement('textarea');
   el.value = text;
   document.body.appendChild(el);

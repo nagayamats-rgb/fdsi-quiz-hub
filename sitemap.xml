@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nagayamats-rgb.github.io/fdsi-quiz-hub/</loc>
+    <loc>https://quiz.fds.co.jp/</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://nagayamats-rgb.github.io/fdsi-quiz-hub/digital/</loc>
+    <loc>https://quiz.fds.co.jp/digital/</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nagayamats-rgb.github.io/fdsi-quiz-hub/travel/</loc>
+    <loc>https://quiz.fds.co.jp/travel/</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nagayamats-rgb.github.io/fdsi-quiz-hub/charging/</loc>
+    <loc>https://quiz.fds.co.jp/charging/</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nagayamats-rgb.github.io/fdsi-quiz-hub/gadget/</loc>
+    <loc>https://quiz.fds.co.jp/gadget/</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nagayamats-rgb.github.io/fdsi-quiz-hub/marathon/</loc>
+    <loc>https://quiz.fds.co.jp/marathon/</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nagayamats-rgb.github.io/fdsi-quiz-hub/survival/</loc>
+    <loc>https://quiz.fds.co.jp/survival/</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nagayamats-rgb.github.io/fdsi-quiz-hub/academy/</loc>
+    <loc>https://quiz.fds.co.jp/academy/</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
