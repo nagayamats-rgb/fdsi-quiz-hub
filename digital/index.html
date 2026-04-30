@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>デジタルライフ偏差値テスト | Quiz Hub</title>
+<meta name="description" content="25問の質問であなたのデジタル活用度を偏差値で診断。ランク判定と改善ヒント付き。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="/quiz/digital/">
+<meta property="og:title" content="デジタルライフ偏差値テスト | World Select">
+<meta property="og:description" content="25問であなたのデジタル活用度を偏差値で診断">
+<meta property="og:url" content="https://fds.co.jp/quiz/digital/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"デジタルライフ偏差値テスト","description":"25問の質問であなたのデジタル活用度を偏差値で診断","url":"https://fds.co.jp/quiz/digital/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://fds.co.jp/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FDSi","item":"https://fds.co.jp/"},{"@type":"ListItem","position":2,"name":"Quiz Hub","item":"https://fds.co.jp/quiz/"},{"@type":"ListItem","position":3,"name":"デジタルライフ偏差値","item":"https://fds.co.jp/quiz/digital/"}]}
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+/* ═══════════════════════════════════════
+   Color System — Light default
+   ═══════════════════════════════════════ */
+:root{
+  --c-bg:#ffffff;
+  --c-surface:#f5f5f7;
+  --c-surface2:#e8e8ed;
+  --c-border:#d2d2d7;
+  --c-border-h:#86868b;
+  --c-text:#1d1d1f;
+  --c-text2:#6e6e73;
+  --c-text3:#86868b;
+  --c-primary:#0071e3;
+  --c-primary-h:#0077ED;
+  --c-primary-t:rgba(0,113,227,.08);
+  --c-primary-g:rgba(0,113,227,.18);
+  --c-ok:#34c759;
+  --c-ok-bg:rgba(52,199,89,.10);
+  --c-err:#ff3b30;
+  --c-err-bg:rgba(255,59,48,.08);
+  --c-shadow1:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);
+  --c-shadow2:0 4px 12px rgba(0,0,0,.08);
+  --radius:16px;
+  --radius-s:10px;
+  --radius-xs:6px;
+  --radius-full:9999px;
+  --nav-h:52px;
+}
+[data-theme="dark"]{
+  --c-bg:#000000;
+  --c-surface:#1c1c1e;
+  --c-surface2:#2c2c2e;
+  --c-border:#38383a;
+  --c-border-h:#545456;
+  --c-text:#f5f5f7;
+  --c-text2:#a1a1a6;
+  --c-text3:#6e6e73;
+  --c-primary:#2997ff;
+  --c-primary-h:#40a9ff;
+  --c-primary-t:rgba(41,151,255,.12);
+  --c-primary-g:rgba(41,151,255,.22);
+  --c-ok:#30d158;
+  --c-ok-bg:rgba(48,209,88,.12);
+  --c-err:#ff453a;
+  --c-err-bg:rgba(255,69,58,.12);
+  --c-shadow1:0 1px 3px rgba(0,0,0,.3);
+  --c-shadow2:0 4px 12px rgba(0,0,0,.35);
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --c-bg:#000000;--c-surface:#1c1c1e;--c-surface2:#2c2c2e;
+    --c-border:#38383a;--c-border-h:#545456;
+    --c-text:#f5f5f7;--c-text2:#a1a1a6;--c-text3:#6e6e73;
+    --c-primary:#2997ff;--c-primary-h:#40a9ff;
+    --c-primary-t:rgba(41,151,255,.12);--c-primary-g:rgba(41,151,255,.22);
+    --c-ok:#30d158;--c-ok-bg:rgba(48,209,88,.12);
+    --c-err:#ff453a;--c-err-bg:rgba(255,69,58,.12);
+    --c-shadow1:0 1px 3px rgba(0,0,0,.3);--c-shadow2:0 4px 12px rgba(0,0,0,.35);
+  }
+}
+
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Noto Sans JP','Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--c-bg);color:var(--c-text);
+  line-height:1.7;min-height:100dvh;
+  display:flex;flex-direction:column;
+  transition:background .25s,color .25s;
+}
+
+/* ── Theme Toggle ── */
+.thm{
+  position:fixed;top:16px;right:16px;z-index:100;
+  width:42px;height:42px;border-radius:50%;
+  border:1px solid var(--c-border);background:var(--c-surface);
+  box-shadow:var(--c-shadow1);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;transition:all .2s;
+}
+.thm:hover{border-color:var(--c-border-h);box-shadow:var(--c-shadow2);transform:scale(1.08)}
+[data-theme="dark"] .thm .ic-s{display:none}
+:root:not([data-theme="dark"]) .thm .ic-m{display:none}
+
+/* ── Layout ── */
+.wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:32px 20px}
+.card{
+  width:100%;max-width:580px;
+  background:var(--c-surface);border:1px solid var(--c-border);
+  border-radius:var(--radius);box-shadow:var(--c-shadow2);
+  padding:40px 36px;
+  transition:background .25s,border-color .25s;
+}
+
+/* ── Header ── */
+.ttl{font-family:'Inter','Noto Sans JP',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.02em;text-align:center;margin-bottom:6px}
+.sub{text-align:center;font-size:15px;color:var(--c-text2);margin-bottom:32px}
+
+/* ── Progress ── */
+.prog{margin-bottom:28px}
+.prog-h{display:flex;justify-content:space-between;margin-bottom:6px}
+.prog-n{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;color:var(--c-primary)}
+.prog-p{font-family:'Inter',sans-serif;font-size:12px;color:var(--c-text3)}
+.prog-t{width:100%;height:5px;background:var(--c-surface2);border-radius:3px;overflow:hidden}
+.prog-f{height:100%;background:var(--c-primary);border-radius:3px;transition:width .4s cubic-bezier(.22,1,.36,1)}
+
+/* ── Question ── */
+.qs{margin-bottom:28px}
+.q-num{
+  display:inline-block;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.05em;color:var(--c-primary);background:var(--c-primary-t);
+  padding:3px 12px;border-radius:var(--radius-full);margin-bottom:14px;
+}
+.q-txt{font-size:18px;font-weight:700;line-height:1.55;margin-bottom:22px;color:var(--c-text)}
+
+/* ── Options ── */
+.opts{display:flex;flex-direction:column;gap:10px}
+.op{
+  display:flex;align-items:center;gap:14px;
+  padding:15px 18px;
+  background:var(--c-bg);
+  border:2px solid var(--c-border);
+  border-radius:var(--radius-s);
+  cursor:pointer;transition:all .15s;
+  -webkit-tap-highlight-color:transparent;
+}
+.op:hover{background:var(--c-surface2);border-color:var(--c-border-h)}
+/* ★ Selected = 背景を主色に、テキスト白 → 明確に区別 */
+.op.sel{
+  background:var(--c-primary);
+  border-color:var(--c-primary);
+  box-shadow:0 0 0 3px var(--c-primary-g);
+}
+.op.sel .op-t{color:#fff}
+.op-c{
+  width:20px;height:20px;border-radius:50%;
+  border:2px solid var(--c-border);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;
+}
+.op.sel .op-c{border-color:#fff}
+.op.sel .op-c::after{content:'';width:10px;height:10px;border-radius:50%;background:#fff}
+.op-t{flex:1;font-size:15px;line-height:1.55;color:var(--c-text);transition:color .15s}
+
+/* ── Buttons ── */
+.brow{display:flex;gap:12px;margin-top:28px}
+.btn{
+  flex:1;padding:14px 20px;border:none;border-radius:var(--radius-s);
+  font-family:'Inter','Noto Sans JP',sans-serif;font-size:15px;font-weight:700;
+  cursor:pointer;transition:all .15s;
+}
+.btn-p{background:var(--c-primary);color:#fff;box-shadow:0 2px 8px var(--c-primary-g)}
+.btn-p:hover:not(:disabled){background:var(--c-primary-h);transform:translateY(-1px)}
+.btn-p:disabled{opacity:.4;cursor:not-allowed}
+.btn-g{background:transparent;color:var(--c-text2);border:1px solid var(--c-border)}
+.btn-g:hover{background:var(--c-surface2);border-color:var(--c-border-h)}
+.hid{display:none!important}
+
+/* ── Result ── */
+.res{text-align:center;animation:up .5s ease-out}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.res h2{font-family:'Inter','Noto Sans JP',sans-serif;font-size:26px;font-weight:800;margin-bottom:4px}
+.res .rs{font-size:14px;color:var(--c-text2);margin-bottom:36px}
+.ring{position:relative;width:172px;height:172px;margin:0 auto 10px}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring .rb{fill:none;stroke:var(--c-border);stroke-width:7}
+.ring .rf{fill:none;stroke:var(--c-primary);stroke-width:7;stroke-linecap:round;stroke-dasharray:478;stroke-dashoffset:478;transition:stroke-dashoffset 1.8s cubic-bezier(.16,1,.3,1)}
+.ring-n{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Inter',sans-serif;font-size:50px;font-weight:800;color:var(--c-text);letter-spacing:-.03em}
+.ring-l{font-size:13px;font-weight:600;color:var(--c-text3);letter-spacing:.06em}
+.rnk{display:inline-block;padding:8px 24px;border-radius:var(--radius-full);font-size:15px;font-weight:700;color:#fff;margin:22px 0}
+.sbox{background:var(--c-surface2);border:1px solid var(--c-border);border-radius:var(--radius-s);padding:16px;margin:22px 0}
+.sbox strong{color:var(--c-text)}
+.sbox .big{font-family:'Inter',sans-serif;font-size:24px;font-weight:800;color:var(--c-primary)}
+.hint{background:var(--c-primary-t);border-left:3px solid var(--c-primary);border-radius:0 var(--radius-s) var(--radius-s) 0;padding:16px 20px;text-align:left;margin:22px 0;font-size:14px;line-height:1.7;color:var(--c-text2)}
+.hint b{color:var(--c-text);display:block;margin-bottom:4px}
+.shr{display:flex;gap:10px;justify-content:center;margin:22px 0}
+.sb{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius-s);font-size:13px;font-weight:700;text-decoration:none;transition:opacity .2s}
+.sb:hover{opacity:.85}
+.sb-x{background:#0f1419;color:#fff}
+.sb-l{background:#06c755;color:#fff}
+.arow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.ab{padding:12px 24px;border-radius:var(--radius-s);font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;border:none;width:100%;-webkit-appearance:none;appearance:none;touch-action:manipulation;transition:background-color 0.2s, color 0.2s, font-weight 0.2s, opacity 0.2s}
+.ab-r{background:var(--c-primary);color:#fff}
+.ab-r:hover{opacity:.9}
+.ab-h{background:var(--c-surface2);border:1px solid var(--c-border);color:var(--c-text2)}
+.ab-h:hover{background:var(--c-border)}
+
+/* ── Footer ── */
+.ft{max-width:580px;margin:0 auto;padding:32px 20px 48px;width:100%}
+.ft-nav{font-size:12px;color:var(--c-text3);text-align:center;margin-bottom:22px}
+.ft-nav a{color:var(--c-primary);text-decoration:none}
+.ft-hd{font-size:15px;font-weight:700;color:var(--c-text);text-align:center;margin-bottom:14px}
+.xlinks{display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
+.xl{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);text-decoration:none;color:var(--c-text);transition:all .15s}
+.xl:hover{background:var(--c-surface2);border-color:var(--c-border-h)}
+.xl-i{font-size:20px;width:30px;text-align:center;flex-shrink:0}
+.xl-n{flex:1;font-size:14px;font-weight:600}
+.xl-t{font-size:11px;font-weight:600;color:var(--c-text3);background:var(--c-surface2);padding:2px 8px;border-radius:var(--radius-full)}
+.hb-w{text-align:center;margin:18px 0}
+.hb{display:inline-block;padding:12px 28px;background:var(--c-primary);color:#fff;border-radius:var(--radius-s);font-size:14px;font-weight:700;text-decoration:none;transition:opacity .2s}
+.hb:hover{opacity:.9}
+.st{text-align:center;margin-top:22px;padding-top:18px;border-top:1px solid var(--c-border)}
+.st h3{font-size:12px;font-weight:600;color:var(--c-text3);margin-bottom:10px}
+.st-b{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.st-a{display:inline-block;padding:8px 18px;border-radius:var(--radius-s);font-size:12px;font-weight:700;text-decoration:none;color:#fff;transition:opacity .2s}
+.st-a:hover{opacity:.85}
+.st-r{background:#ff3b30}.st-y{background:#ea580c}.st-s{background:var(--c-primary)}
+.exp-link{margin:12px 0 4px;padding:12px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);display:flex;align-items:center;gap:10px;transition:border-color .2s,box-shadow .2s}
+.exp-link:hover{border-color:var(--c-primary);box-shadow:var(--c-shadow1)}
+.exp-link::before{content:"";display:block;width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--c-primary-t),var(--c-primary-g));flex-shrink:0}
+.exp-link a{color:var(--c-primary);text-decoration:none;font-weight:600;font-size:13px;line-height:1.4}
+.exp-link a:hover{text-decoration:underline}
+.cp{text-align:center;padding:18px 16px 0;font-size:11px;color:var(--c-text3)}
+.cp a{color:var(--c-primary);text-decoration:none}
+.prods{margin:24px 0}
+.prods-h{font-size:15px;font-weight:700;color:var(--c-text);margin-bottom:14px;text-align:center}
+.prod{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);margin-bottom:10px;transition:border-color .15s}
+.prod:hover{border-color:var(--c-border-h)}
+.prod-info{flex:1;min-width:0}
+.prod-name{font-size:13px;font-weight:700;color:var(--c-text);margin-bottom:4px}
+.prod-desc{font-size:11px;color:var(--c-text2);margin-bottom:8px}
+.prod-links{display:flex;gap:6px;flex-wrap:wrap}
+.prod-a{font-size:10px;font-weight:700;padding:3px 10px;border-radius:var(--radius-full);text-decoration:none;color:#fff;transition:opacity .2s}
+.prod-a:hover{opacity:.85}
+.prod-r{background:#ff3b30}.prod-y{background:#ea580c}.prod-s{background:var(--c-primary)}
+
+@media(max-width:480px){
+  .card{padding:28px 18px;border-radius:var(--radius-s)}
+  .brow{flex-direction:column-reverse}
+  .shr{flex-direction:column;align-items:stretch}
+  .sb{justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* ── Sticky Nav (Apple-style) ── */
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--c-border);height:var(--nav-h);transition:background .3s}
+[data-theme="dark"] .site-nav{background:rgba(0,0,0,.72)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .site-nav{background:rgba(0,0,0,.72)}}
+.nav-inner{max-width:980px;margin:0 auto;padding:0 20px;display:flex;align-items:center;height:100%;gap:8px}
+.nav-brand{font-weight:700;font-size:15px;color:var(--c-text);text-decoration:none;margin-right:auto;white-space:nowrap;letter-spacing:-.02em}
+.nav-links{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-link{font-size:12px;color:var(--c-text2);text-decoration:none;padding:6px 10px;border-radius:var(--radius-full);white-space:nowrap;transition:color .2s,background .2s}
+.nav-link:hover{color:var(--c-text);background:var(--c-primary-t)}
+.nav-link.active{color:var(--c-primary);font-weight:600}
+.nav-acts{display:flex;align-items:center;gap:8px;margin-left:auto}
+.nav-theme{background:none;border:none;cursor:pointer;font-size:16px;padding:4px 8px;border-radius:var(--radius-full);transition:background .2s}
+.nav-theme:hover{background:var(--c-primary-t)}
+.nav-shop{font-size:12px;font-weight:600;color:var(--c-primary);text-decoration:none;padding:5px 12px;border:1.5px solid var(--c-primary);border-radius:var(--radius-full);transition:all .2s;white-space:nowrap}
+.nav-shop:hover{background:var(--c-primary);color:#fff}
+
+/* ── Enhanced Footer ── */
+.site-footer{border-top:1px solid var(--c-border);margin-top:60px;padding:40px 0 24px;background:var(--c-surface)}
+.footer-inner{max-width:980px;margin:0 auto;padding:0 20px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr 1fr;gap:20px}}
+.footer-brand{font-size:15px;font-weight:700;color:var(--c-text);margin-bottom:8px}
+.footer-brand-sub{font-size:12px;color:var(--c-text3);line-height:1.5}
+.footer-col-title{font-size:12px;font-weight:700;color:var(--c-text);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em}
+.footer-col a{display:block;font-size:12px;color:var(--c-text2);text-decoration:none;padding:3px 0;transition:color .2s}
+.footer-col a:hover{color:var(--c-primary)}
+.footer-bottom{border-top:1px solid var(--c-border);padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-copy{font-size:11px;color:var(--c-text3)}
+.footer-legal{display:flex;gap:16px}
+.footer-legal a{font-size:11px;color:var(--c-text3);text-decoration:none}
+.footer-legal a:hover{color:var(--c-primary)}
+
+</style>
+</head>
+<body>
+<button class="thm" id="thm" aria-label="テーマ切替">
+  <span class="ic-s">&#9788;</span>
+  <span class="ic-m">&#9790;</span>
+</button>
+
+<div class="wrap">
+  <div class="card">
+    <div id="qz">
+      <h1 class="ttl">デジタルライフ偏差値</h1>
+      <p class="sub">25問であなたのデジタル活用度を診断</p>
+      <div class="prog">
+        <div class="prog-h">
+          <span class="prog-n" id="pN">1 / 25</span>
+          <span class="prog-p" id="pP">4%</span>
+        </div>
+        <div class="prog-t"><div class="prog-f" id="pB" style="width:4%"></div></div>
+      </div>
+      <div class="qs" id="qs">
+        <div class="q-num" id="qN">Q1</div>
+        <div class="q-txt" id="qT"></div>
+        <div class="opts" id="opts"></div>
+      </div>
+      <div class="brow">
+        <button class="btn btn-g hid" id="bP">&#8592; 戻る</button>
+        <button class="btn btn-p" id="bN" disabled>次へ &#8594;</button>
+      </div>
+    </div>
+
+    <div id="res" class="res hid">
+      <h2>診断結果</h2>
+      <p class="rs">あなたのデジタルライフ充実度</p>
+      <div class="ring">
+        <svg viewBox="0 0 170 170"><circle cx="85" cy="85" r="76" class="rb"/><circle cx="85" cy="85" r="76" class="rf" id="rF"/></svg>
+        <div class="ring-n" id="rN">0</div>
+      </div>
+      <div class="ring-l">偏差値</div>
+      <div class="rnk" id="rB"></div>
+      <div class="sbox"><div>あなたのスコア</div><div><span class="big" id="sV">0</span> <span style="color:var(--c-text3)">/ 125点</span></div></div>
+      <div class="hint"><b>生活をもっと便利にするヒント</b><div id="hT"></div></div>
+      <div class="prods">
+        <div class="prods-h">デジタルライフをもっと快適に</div>
+        <div class="prod">
+          <div class="prod-info">
+            <div class="prod-name">6in1 マルチケーブル（60W対応）</div>
+            <div class="prod-desc">USB-C / Lightning / Micro USB 全対応。旅行にこれ1本で完結</div>
+            <div class="prod-links">
+              <a href="https://worldselect.net/products/60w-6in1cable?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=digital" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>
+              <a href="https://item.rakuten.co.jp/world11select/60w-6in1cable/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>
+              <a href="https://store.shopping.yahoo.co.jp/world1select/60w-6in1cable.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>
+            </div>
+          </div>
+        </div>
+        <div class="prod">
+          <div class="prod-info">
+            <div class="prod-name">MagSafe対応 ワイヤレス充電器 15W</div>
+            <div class="prod-desc">置くだけ充電で毎日がスマートに。iPhone 12以降対応</div>
+            <div class="prod-links">
+              <a href="https://worldselect.net/products/magsafe-charger-2?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=digital" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>
+              <a href="https://item.rakuten.co.jp/world11select/magsafe-charger-2/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>
+              <a href="https://store.shopping.yahoo.co.jp/world1select/ws-magsafe-charger-15w-2.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>
+            </div>
+          </div>
+        </div>
+        <div class="prod">
+          <div class="prod-info">
+            <div class="prod-name">2in1 USB-C &amp; Lightning 100Wケーブル</div>
+            <div class="prod-desc">急速充電対応。iPhone もMacBookもこれ1本で充電</div>
+            <div class="prod-links">
+              公式ストア
+              <a href="https://www.rakuten.co.jp/world11select/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>
+              <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="shr">
+        <a class="sb sb-x" id="shX" target="_blank" rel="noopener">&#120143; シェア</a>
+        <a class="sb sb-l" id="shL" target="_blank" rel="noopener">LINE</a>
+      </div>
+      <div class="arow">
+        <button class="ab ab-r" onclick="location.reload()">もう一度</button>
+        <a class="ab ab-h" href="/quiz/">Quiz Hub</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WS_QUIZ_STORE_SEARCH -->
+    <div style="margin:24px 0;padding:20px;background:var(--c-surface,#f5f5f7);border-radius:12px;text-align:center;">
+      <div style="font-size:15px;font-weight:700;color:var(--c-text,#1d1d1f);margin-bottom:12px;">&#128722; World Select &#12391;&#25506;&#12377;</div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;">
+      <a href="https://search.rakuten.co.jp/search/mall/USB-C+ケーブル/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; USB-Cケーブル</a>
+      <a href="https://search.rakuten.co.jp/search/mall/MacBook+ケース/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; MacBookケース</a>
+      <a href="https://search.rakuten.co.jp/search/mall/ガジェット+ポーチ/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; ガジェットポーチ</a>
+      <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener" style="display:inline-block;background:#ff0033;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">Yahoo! &#12473;&#12488;&#12450;</a>
+      <a href="https://worldselect.net/" target="_blank" rel="noopener" style="display:inline-block;background:#0071e3;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
+      </div>
+      <div style="font-size:11px;color:var(--c-text3,#86868b);margin-top:8px;">&#27005;&#22825;&#24066;&#22580;&#12398;World Select&#24215;&#33303;&#20869;&#12391;&#26908;&#32034;&#12375;&#12414;&#12377;</div>
+    </div>
+<!-- /WS_QUIZ_STORE_SEARCH -->
+<footer class="site-footer">
+<div class="footer-inner">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">World Select</div>
+      <div class="footer-brand-sub">Quiz Hub</div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#127918; &#12463;&#12452;&#12474;</div>
+    <a href="/quiz/marathon/">&#127939; テク雑学マラソン (100問)</a>
+    <a href="/quiz/academy/">&#127891; ガジェット検定 (60問)</a>
+    <a href="/quiz/travel/">&#9992; 旅行スタイル診断 (10問)</a>
+    <a href="/quiz/survival/">&#128680; 旅先サバイバル (3分岐)</a>
+    <a href="/quiz/charging/">&#128267; 充電スタイル診断 (7問)</a>
+    <a href="/quiz/gadget/">&#129504; ガジェットオタク度 (10問)</a>
+    <a href="/quiz/">&#127968; &#20840;&#12463;&#12452;&#12474;&#19968;&#35239;</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#128722; &#12471;&#12519;&#12483;&#12503;</div>
+      <a href="https://www.rakuten.co.jp/world11select/" target="_blank" rel="noopener">&#27005;&#22825;&#24066;&#22580;</a>
+      <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener">Yahoo!</a>
+      <a href="https://worldselect.net/" target="_blank" rel="noopener">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#8505;&#65039; &#12452;&#12531;&#12501;&#12457;</div>
+      <a href="https://fds.co.jp/">FDSi</a>
+      <a href="https://worldselect.net/policies/privacy-policy" target="_blank" rel="noopener">&#12503;&#12521;&#12452;&#12496;&#12471;&#12540;</a>
+      <a href="https://worldselect.net/policies/terms-of-service" target="_blank" rel="noopener">&#21033;&#29992;&#35215;&#32004;</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2024-2026 World Select / FDSi Inc.</span>
+    <div class="footer-legal">
+      <a href="https://worldselect.net/policies/legal-notice" target="_blank" rel="noopener">&#29305;&#21830;&#27861;&#34920;&#35352;</a>
+    </div>
+  </div>
+</div>
+</footer>
+
+<script>
+/* ── Theme ── */
+(function(){
+  var t=document.getElementById('thm'),h=document.documentElement,
+      s=localStorage.getItem('ws-theme');
+  if(s)h.setAttribute('data-theme',s);
+  t.onclick=function(){
+    var d=h.getAttribute('data-theme')==='dark'||
+      (!h.hasAttribute('data-theme')&&matchMedia('(prefers-color-scheme:dark)').matches);
+    var n=d?'light':'dark';
+    h.setAttribute('data-theme',n);localStorage.setItem('ws-theme',n);
+  };
+})();
+
+/* ── Quiz Data ── */
+var Q=[
+  {t:"スマートフォンの充電、いつしますか？",o:[
+    {s:1,x:"バッテリーが切れてから慌てて充電"},
+    {s:2,x:"毎日夜寝る前に充電するのが日課"},
+    {s:3,x:"朝と夜の2回、使用量で調整している"},
+    {s:4,x:"ワイヤレス充電パッドで常時スタンバイ"},
+    {s:5,x:"複数の充電器を場所別に使い分け"}
+  ]},
+  {t:"写真やファイルのバックアップは？",o:[
+    {s:1,x:"特にしていない"},
+    {s:2,x:"時々パソコンに手動コピー"},
+    {s:3,x:"クラウドストレージを1つ使用"},
+    {s:4,x:"複数のクラウドサービスを併用"},
+    {s:5,x:"自動バックアップで全デバイス管理"}
+  ]},
+  {t:"旅行時のガジェット準備は？",o:[
+    {s:1,x:"スマートフォンだけあればOK"},
+    {s:2,x:"スマートフォンと充電器"},
+    {s:3,x:"スマホ・タブレット・充電器のセット"},
+    {s:4,x:"複数デバイスとモバイルバッテリー"},
+    {s:5,x:"周辺機器・ケーブル・変換アダプタ完全装備"}
+  ]},
+  {t:"充電ケーブルは何本持っていますか？",o:[
+    {s:1,x:"1本で全部まかなっている"},
+    {s:2,x:"2〜3本"},
+    {s:5,x:"マルチポート充電器で統一管理"},
+    {s:3,x:"5〜8本くらい"},
+    {s:4,x:"10本以上、整理して保管"}
+  ]},
+  {t:"ワイヤレス充電は使っていますか？",o:[
+    {s:3,x:"自宅で1台使用中"},
+    {s:1,x:"使ったことがない"},
+    {s:5,x:"MagSafe対応で複数デバイスを同時充電"},
+    {s:2,x:"試したけど常用はしていない"},
+    {s:4,x:"自宅と職場の両方に設置"}
+  ]},
+  {t:"画面保護フィルムやケースの使い方は？",o:[
+    {s:2,x:"ケースだけ付けている"},
+    {s:4,x:"ガラスフィルムと耐衝撃ケースの組み合わせ"},
+    {s:1,x:"何もつけずに裸で使用"},
+    {s:3,x:"ケースとフィルム両方使用"},
+    {s:5,x:"端末ごとに最適な保護を選んで常に最新"}
+  ]},
+  {t:"イヤホン・ヘッドフォンはどんなタイプ？",o:[
+    {s:4,x:"ワイヤレスイヤホンを複数使い分け"},
+    {s:1,x:"スマホに付属していたもの"},
+    {s:3,x:"ワイヤレスイヤホンを1つ愛用"},
+    {s:5,x:"ノイキャン搭載ハイエンドを複数所有"},
+    {s:2,x:"好きな有線イヤホンがある"}
+  ]},
+  {t:"スマートウォッチなどのウェアラブル端末は？",o:[
+    {s:1,x:"持っていない"},
+    {s:3,x:"Apple WatchやGalaxy Watchを使用"},
+    {s:2,x:"興味はあるけどまだ買っていない"},
+    {s:5,x:"複数デバイスで健康・運動データを統合管理"},
+    {s:4,x:"スマートウォッチ＋フィットネストラッカー併用"}
+  ]},
+  {t:"動画配信サービスの利用状況は？",o:[
+    {s:2,x:"Netflix（またはAmazon Prime）だけ"},
+    {s:5,x:"複数デバイスで最適なサービスを選んで視聴"},
+    {s:1,x:"ほぼ利用していない"},
+    {s:4,x:"4つ以上のサービスを使い分け"},
+    {s:3,x:"2〜3サービスを気分で併用"}
+  ]},
+  {t:"スマートホーム機器の導入状況は？",o:[
+    {s:3,x:"Alexaなどスマートスピーカーを使用"},
+    {s:1,x:"導入していない"},
+    {s:4,x:"照明・温度・セキュリティなど複数連携"},
+    {s:2,x:"1〜2個を検討中・お試し中"},
+    {s:5,x:"家中の家電がスマートホーム化済み"}
+  ]},
+  {t:"クラウドサービスの活用度は？",o:[
+    {s:5,x:"チーム・家族で複数クラウドをフル活用"},
+    {s:2,x:"たまにGoogleドライブを使う程度"},
+    {s:4,x:"複数サービスで共有・コラボ作業"},
+    {s:1,x:"よくわからない・使っていない"},
+    {s:3,x:"iCloudやGoogle Driveを日常的に利用"}
+  ]},
+  {t:"セキュリティ対策は？",o:[
+    {s:3,x:"パスワードは使い回さず基本対策"},
+    {s:1,x:"特に意識していない"},
+    {s:4,x:"2段階認証を主要サービスに設定"},
+    {s:5,x:"パスワードマネージャー＋多要素認証を完全導入"},
+    {s:2,x:"同じパスワードを使い回している"}
+  ]},
+  {t:"モバイルバッテリーの所有状況は？",o:[
+    {s:2,x:"1個持っているけどあまり使わない"},
+    {s:4,x:"複数個＋ワイヤレスタイプも所有"},
+    {s:1,x:"持っていない"},
+    {s:5,x:"PD対応の大容量を複数・旅行にも完備"},
+    {s:3,x:"2〜3個を用途別に使い分け"}
+  ]},
+  {t:"パソコンの使い方は？",o:[
+    {s:1,x:"ほぼ使わない・スマホで十分"},
+    {s:4,x:"複数台を用途別に使い分け"},
+    {s:3,x:"毎日使っている・スマホと連携"},
+    {s:5,x:"全端末でファイル・ブックマーク完全同期"},
+    {s:2,x:"週に数回ネットや動画視聴に使う程度"}
+  ]},
+  {t:"今のデジタルライフへの満足度は？",o:[
+    {s:3,x:"充実しているが、もっと便利にしたい"},
+    {s:5,x:"最高。自分に合ったツールを完全に使いこなしている"},
+    {s:1,x:"正直よくわからない・特に考えたことがない"},
+    {s:4,x:"かなり満足。効率化をさらに追求中"},
+    {s:2,x:"まあまあ。不便さは感じていない"}
+  ]},
+  {t:"スマートフォン画面の保護・ブルーライト対策は？",o:[
+    {s:1,x:"何もしていない"},
+    {s:2,x:"フィルムを検討中"},
+    {s:3,x:"通常のガラスフィルムを使用"},
+    {s:4,x:"アンチグレア・ブルーライトカット両対応"},
+    {s:5,x:"端末・用途別に最適な保護フィルムを使い分け"}
+  ]},
+  {t:"自宅のケーブル整理・収納状況は？",o:[
+    {s:1,x:"ごちゃごちゃで何本あるか把握していない"},
+    {s:2,x:"丸めて適当にしまっている"},
+    {s:3,x:"ケーブルボックスで簡易整理"},
+    {s:4,x:"マルチケーブルで本数を減らし、ラベル付けで管理"},
+    {s:5,x:"プロフェッショナルな配線・マグネット式など完全整理"}
+  ]},
+  {t:"Apple Watchなどウェアラブルのバンド交換は？",o:[
+    {s:1,x:"デフォルトバンドのままにしている"},
+    {s:2,x:"興味はあるが替えたことがない"},
+    {s:3,x:"純正バンドを1〜2本所有"},
+    {s:4,x:"複数の社外製バンドで用途別に交換"},
+    {s:5,x:"スポーツ・フォーマル・日常用など豊富に備えている"}
+  ]},
+  {t:"プライバシー・セキュリティフィルムの使用状況は？",o:[
+    {s:1,x:"知らない・必要ないと思う"},
+    {s:2,x:"必要性は感じるが未購入"},
+    {s:3,x:"持ち歩き用スマホに1枚"},
+    {s:4,x:"複数デバイスに覗き見防止フィルムを装着"},
+    {s:5,x:"セキュリティポリシーに基づいて全端末に導入"}
+  ]},
+  {t:"ノートパソコンやiPadの画面保護は？",o:[
+    {s:1,x:"何もしていない"},
+    {s:2,x:"ケースだけで保護"},
+    {s:3,x:"フィルムを貼っている"},
+    {s:4,x:"ブルーライトカット＋アンチグレア両対応"},
+    {s:5,x:"仕事・プライベートで使い分け、複数フィルム装備"}
+  ]},
+  {t:"スマートディスペンサーなどIoT機器は？",o:[
+    {s:1,x:"導入していない・興味なし"},
+    {s:2,x:"便利そうだが検討中"},
+    {s:3,x:"1個試してみている"},
+    {s:4,x:"複数のスマートデバイスで生活を効率化"},
+    {s:5,x:"スマートホーム構想で段階的に統合中"}
+  ]},
+  {t:"旅行・外出時のデジタルガジェットポーチは？",o:[
+    {s:1,x:"持ち歩かない・何でも出し入れ"},
+    {s:2,x:"バッグに入ってればいい程度"},
+    {s:3,x:"小さいポーチで最小限"},
+    {s:4,x:"専用ポーチでケーブル・変換器をまとめている"},
+    {s:5,x:"機内モード対応多機能ポーチで完全装備"}
+  ]},
+  {t:"CFast・SDカード・複数メディアの管理は？",o:[
+    {s:1,x:"ほぼ使わない"},
+    {s:2,x:"1〜2枚持っているが管理は雑"},
+    {s:3,x:"カードリーダーで定期的にバックアップ"},
+    {s:4,x:"複数フォーマット・容量別に整理管理"},
+    {s:5,x:"写真家・ビデオグラファー向けシステムを構築"}
+  ]},
+  {t:"スマートフォンケースの選び方は？",o:[
+    {s:1,x:"とりあえずあるもので十分"},
+    {s:2,x:"デザイン重視で保護は二の次"},
+    {s:3,x:"機能性とデザインのバランス重視"},
+    {s:4,x:"MagSafe対応など機能豊富なケースを選定"},
+    {s:5,x:"用途・シーン別にケース・スタンド等を完全装備"}
+  ]}
+];
+
+var RANKS=[
+  {min:65,n:'デジタルマスター',c:'#7c3aed'},
+  {min:55,n:'デジタルネイティブ',c:'#0071e3'},
+  {min:45,n:'デジタル市民',c:'#34c759'},
+  {min:30,n:'デジタル一般人',c:'#d97706'},
+  {min:0, n:'デジタルビギナー',c:'#64748b'}
+];
+var HINTS=[
+  {min:65,t:'デジタルツールを最大限に活用しています。次はデバイス間の自動連携やスマートホーム化で、さらに快適な生活を目指しましょう。<span class="exp-link"><a href="https://worldselect.net/products/dispenser-1?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=digital" target="_blank">スマートディスペンサーで家をアップグレード →</a> <a href="https://item.rakuten.co.jp/world11select/dispenser-1/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/dispenser-1.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span>'},
+  {min:55,t:'デジタル生活が充実しています。マルチポート充電器やケーブル整理でデスク周りをスッキリさせるのがおすすめです。<span class="exp-link"><a href="https://worldselect.net/products/60w-6in1cable?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=digital" target="_blank">ケーブル整理で快適に →</a> <a href="https://item.rakuten.co.jp/world11select/60w-6in1cable/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/60w-6in1cable.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span>'},
+  {min:45,t:'バランスが取れています。ワイヤレス充電やクラウドバックアップをもっと活用してみましょう。<span class="exp-link"><a href="https://worldselect.net/products/magsafe-charger-2?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=digital" target="_blank">MagSafe充電で手軽に →</a> <a href="https://item.rakuten.co.jp/world11select/magsafe-charger-2/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/ws-magsafe-charger-15w-2.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span>'},
+  {min:30,t:'基本はOK。まずはクラウドバックアップとセキュリティ対策の強化から始めてみては？<span class="exp-link"><a href="https://worldselect.net/products/ws112?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=digital" target="_blank">プライバシーフィルムで安心 →</a> <a href="https://item.rakuten.co.jp/world11select/ws112/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/ws112.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span>'},
+  {min:0, t:'伸びしろたっぷり！ワイヤレスイヤホンやクラウド写真バックアップなど、1つずつ試してみましょう。<span class="exp-link"><a href="https://worldselect.net/products/ws54?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=digital" target="_blank">ガジェットポーチで準備万端に →</a> <a href="https://item.rakuten.co.jp/world11select/ws54/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/ws54.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span>'}
+];
+
+/* ── Fisher-Yates Shuffle ── */
+function shuffle(arr){
+  var a=arr.slice(),i=a.length,j,tmp;
+  while(i>1){j=Math.floor(Math.random()*(i--));tmp=a[i];a[i]=a[j];a[j]=tmp;}
+  return a;
+}
+
+/* ── State ── */
+var cur=0,ans=new Array(Q.length),shuffled=[];
+// Pre-shuffle all questions' options
+for(var qi=0;qi<Q.length;qi++){shuffled[qi]=shuffle(Q[qi].o);}
+
+function render(){
+  var q=Q[cur],so=shuffled[cur];
+  document.getElementById('qN').textContent='Q'+(cur+1);
+  document.getElementById('qT').textContent=q.t;
+  document.getElementById('pN').textContent=(cur+1)+' / '+Q.length;
+  var pct=Math.round((cur+1)/Q.length*100);
+  document.getElementById('pP').textContent=pct+'%';
+  document.getElementById('pB').style.width=pct+'%';
+
+  var c=document.getElementById('opts');
+  c.innerHTML='';
+  for(var i=0;i<so.length;i++){
+    var opt=so[i];
+    var d=document.createElement('div');
+    d.className='op'+(ans[cur]===opt.s?' sel':'');
+    d.setAttribute('data-score', opt.s);
+    d.innerHTML='<div class="op-c"></div><div class="op-t">'+opt.x+'</div>';
+    c.appendChild(d);
+  }
+
+  var sec=document.getElementById('qs');
+  sec.style.animation='none';sec.offsetHeight;
+  sec.style.animation='up .3s ease-out';
+
+  var pb=document.getElementById('bP');
+  pb.className='btn btn-g'+(cur===0?' hid':'');
+  var nb=document.getElementById('bN');
+  nb.disabled=!ans[cur];
+  nb.innerHTML=cur===Q.length-1?'結果を見る &#10003;':'次へ &#8594;';
+}
+
+document.getElementById('bN').onclick=function(){
+  if(cur<Q.length-1){cur++;render();}else showResult();
+};
+document.getElementById('bP').onclick=function(){
+  if(cur>0){cur--;render();}
+};
+
+/* iOS Safari touch event delegation */
+(function(){
+  var optsEl=document.getElementById('opts');
+  var touchMoved=false;
+  optsEl.addEventListener('touchstart',function(){touchMoved=false;},false);
+  optsEl.addEventListener('touchmove',function(){touchMoved=true;},false);
+  optsEl.addEventListener('touchend',function(e){
+    if(touchMoved)return;
+    var t=e.target;
+    while(t&&t!==optsEl){
+      if(t.className&&t.className.indexOf('op')!==-1&&t.getAttribute('data-score')!==null){
+        e.preventDefault();
+        var sc=parseInt(t.getAttribute('data-score'),10);
+        ans[cur]=sc;render();
+        return;
+      }
+      t=t.parentNode;
+    }
+  },false);
+  optsEl.addEventListener('click',function(e){
+    var t=e.target;
+    while(t&&t!==optsEl){
+      if(t.className&&t.className.indexOf('op')!==-1&&t.getAttribute('data-score')!==null){
+        var sc=parseInt(t.getAttribute('data-score'),10);
+        ans[cur]=sc;render();
+        return;
+      }
+      t=t.parentNode;
+    }
+  },false);
+})();
+
+function showResult(){
+  var total=0;
+  for(var i=0;i<ans.length;i++)total+=ans[i]||0;
+  var dev=Math.max(20,Math.min(80,Math.round(50+10*(total-62.5)/25)));
+  var rank,hint;
+  for(var r=0;r<RANKS.length;r++){if(dev>=RANKS[r].min){rank=RANKS[r];break;}}
+  for(var h=0;h<HINTS.length;h++){if(dev>=HINTS[h].min){hint=HINTS[h];break;}}
+
+  document.getElementById('qz').classList.add('hid');
+  document.getElementById('res').classList.remove('hid');
+
+  var circ=2*Math.PI*76;
+  var off=circ-(dev/80)*circ;
+  setTimeout(function(){document.getElementById('rF').style.strokeDashoffset=off;},100);
+  animN(document.getElementById('rN'),0,dev,1600);
+
+  document.getElementById('sV').textContent=total;
+  var rb=document.getElementById('rB');
+  rb.textContent=rank.n;rb.style.backgroundColor=rank.c;
+  document.getElementById('hT').innerHTML=hint.t;
+
+  var msg='デジタルライフ偏差値テストで'+rank.n+'（偏差値'+dev+'）でした！';
+  var url='https://fds.co.jp/quiz/digital/';
+  document.getElementById('shX').href='https://twitter.com/intent/tweet?text='+encodeURIComponent(msg)+' '+url;
+  document.getElementById('shL').href='https://line.me/R/msg/text/'+encodeURIComponent(msg+' '+url);
+}
+
+function animN(el,f,t,ms){
+  var t0=performance.now();
+  (function tick(now){
+    var p=Math.min((now-t0)/ms,1);
+    var e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(f+(t-f)*e);
+    if(p<1)requestAnimationFrame(tick);
+  })(t0);
+}
+
+render();
+</script>
+</body>
+</html>

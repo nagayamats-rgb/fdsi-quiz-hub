@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Quiz Hub | World Select — テック＆ライフスタイル診断</title>
+<meta name="description" content="全7種・270問のクイズ＆診断であなたのテック力を測ろう。旅行スタイル診断、テック雑学マラソン100問、デジタルライフ偏差値、サバイバルシミュレーションなど。">
+<meta property="og:title" content="Quiz Hub | World Select — テック＆ライフスタイル診断">
+<meta property="og:description" content="全7種・270問のクイズ＆診断であなたのテック力を測ろう">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fds.co.jp/quiz/">
+<link rel="canonical" href="https://fds.co.jp/quiz/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Quiz Hub | World Select","description":"全7種・270問のクイズ＆診断であなたのテック力を測ろう","url":"https://fds.co.jp/quiz/","publisher":{"@type":"Organization","name":"World Select (FDSi)","url":"https://worldselect.net/"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"テク雑学マラソン","url":"https://fds.co.jp/quiz/marathon/"},{"@type":"ListItem","position":2,"name":"ガジェット検定アカデミー","url":"https://fds.co.jp/quiz/academy/"},{"@type":"ListItem","position":3,"name":"デジタルライフ偏差値","url":"https://fds.co.jp/quiz/digital/"},{"@type":"ListItem","position":4,"name":"旅行スタイル診断","url":"https://fds.co.jp/quiz/travel/"},{"@type":"ListItem","position":5,"name":"旅先サバイバル","url":"https://fds.co.jp/quiz/survival/"},{"@type":"ListItem","position":6,"name":"充電スタイル診断","url":"https://fds.co.jp/quiz/charging/"},{"@type":"ListItem","position":7,"name":"ガジェットオタク度","url":"https://fds.co.jp/quiz/gadget/"}]}}
+</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+/* ── Apple-inspired Color System ── */
+:root{
+  --c-bg:#ffffff;
+  --c-surface:#f5f5f7;
+  --c-surface2:#e8e8ed;
+  --c-border:#d2d2d7;
+  --c-border-h:#86868b;
+  --c-text:#1d1d1f;
+  --c-text2:#6e6e73;
+  --c-text3:#86868b;
+  --c-primary:#0071e3;
+  --c-primary-h:#0077ED;
+  --c-primary-t:rgba(0,113,227,.08);
+  --c-accent:#34c759;
+  --c-accent-t:rgba(52,199,89,.10);
+  --c-shadow1:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);
+  --c-shadow2:0 4px 12px rgba(0,0,0,.08);
+  --c-shadow3:0 12px 40px rgba(0,0,0,.12);
+  --radius:16px;
+  --radius-s:10px;
+  --radius-xs:6px;
+  --radius-full:9999px;
+  --nav-h:56px;
+}
+[data-theme="dark"]{
+  --c-bg:#000000;
+  --c-surface:#1c1c1e;
+  --c-surface2:#2c2c2e;
+  --c-border:#38383a;
+  --c-border-h:#545456;
+  --c-text:#f5f5f7;
+  --c-text2:#a1a1a6;
+  --c-text3:#6e6e73;
+  --c-primary:#2997ff;
+  --c-primary-h:#40a9ff;
+  --c-primary-t:rgba(41,151,255,.12);
+  --c-accent:#30d158;
+  --c-accent-t:rgba(48,209,88,.12);
+  --c-shadow1:0 1px 3px rgba(0,0,0,.3);
+  --c-shadow2:0 4px 12px rgba(0,0,0,.35);
+  --c-shadow3:0 12px 40px rgba(0,0,0,.5);
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --c-bg:#000000;--c-surface:#1c1c1e;--c-surface2:#2c2c2e;
+    --c-border:#38383a;--c-border-h:#545456;
+    --c-text:#f5f5f7;--c-text2:#a1a1a6;--c-text3:#6e6e73;
+    --c-primary:#2997ff;--c-primary-h:#40a9ff;
+    --c-primary-t:rgba(41,151,255,.12);
+    --c-accent:#30d158;--c-accent-t:rgba(48,209,88,.12);
+    --c-shadow1:0 1px 3px rgba(0,0,0,.3);--c-shadow2:0 4px 12px rgba(0,0,0,.35);
+    --c-shadow3:0 12px 40px rgba(0,0,0,.5);
+  }
+}
+html{font-size:16px;-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 16px)}
+body{font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN','Yu Gothic Medium',sans-serif;background:var(--c-bg);color:var(--c-text);line-height:1.75;min-height:100dvh;transition:background .3s,color .3s;-webkit-font-smoothing:antialiased}
+
+/* ── Sticky Navigation (Apple-style) ── */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--c-border);height:var(--nav-h);transition:background .3s}
+[data-theme="dark"] .nav,
+:root:not([data-theme="light"]) .nav{background:rgba(0,0,0,.72)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) .nav{background:rgba(255,255,255,.72)}}
+.nav-inner{max-width:1000px;margin:0 auto;padding:0 20px;height:100%;display:flex;align-items:center;gap:8px}
+.nav-logo{font-weight:900;font-size:15px;letter-spacing:-.02em;color:var(--c-text);text-decoration:none;white-space:nowrap}
+.nav-logo span{color:var(--c-primary)}
+.nav-spacer{flex:1}
+.nav-links{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-link{font-size:12px;font-weight:500;color:var(--c-text2);text-decoration:none;padding:6px 12px;border-radius:var(--radius-full);white-space:nowrap;transition:all .2s}
+.nav-link:hover{color:var(--c-text);background:var(--c-primary-t)}
+.nav-acts{display:flex;align-items:center;gap:6px}
+.nav-btn{width:34px;height:34px;border-radius:50%;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--c-text2);font-size:15px;transition:all .2s}
+.nav-btn:hover{background:var(--c-surface);color:var(--c-text)}
+[data-theme="dark"] .nav-btn-sun{display:none}
+:root:not([data-theme="dark"]) .nav-btn-moon{display:none}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .nav-btn-sun{display:none}:root:not([data-theme="light"]) .nav-btn-moon{display:flex}}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) .nav-btn-moon{display:none}:root:not([data-theme="dark"]) .nav-btn-sun{display:flex}}
+.nav-shop{font-size:12px;font-weight:600;color:var(--c-primary);text-decoration:none;padding:6px 14px;border:1.5px solid var(--c-primary);border-radius:var(--radius-full);white-space:nowrap;transition:all .2s}
+.nav-shop:hover{background:var(--c-primary);color:#fff}
+
+/* ── Hero (Apple-style large typography) ── */
+.hero{text-align:center;padding:72px 20px 56px;max-width:680px;margin:0 auto}
+.hero-kicker{font-size:13px;font-weight:600;color:var(--c-primary);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(32px,6vw,56px);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,var(--c-text) 0%,var(--c-text2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:clamp(16px,2.5vw,19px);color:var(--c-text2);line-height:1.6;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto}
+.hero-stats{display:flex;justify-content:center;gap:32px;margin-bottom:36px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat-num{font-size:28px;font-weight:900;color:var(--c-primary);line-height:1.2}
+.hero-stat-label{font-size:11px;color:var(--c-text3);font-weight:500}
+.hero-ctas{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:6px;padding:12px 28px;background:var(--c-primary);color:#fff;border:none;border-radius:var(--radius-full);font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .2s}
+.btn-primary:hover{background:var(--c-primary-h);transform:translateY(-1px);box-shadow:var(--c-shadow2)}
+.btn-secondary{display:inline-flex;align-items:center;gap:6px;padding:12px 28px;background:transparent;color:var(--c-primary);border:1.5px solid var(--c-primary);border-radius:var(--radius-full);font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .2s}
+.btn-secondary:hover{background:var(--c-primary-t)}
+
+/* ── Section Headers ── */
+.section{max-width:1000px;margin:0 auto;padding:0 20px 64px}
+.section-head{text-align:center;margin-bottom:32px}
+.section-head h2{font-size:clamp(22px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+.section-head p{font-size:14px;color:var(--c-text2)}
+
+/* ── Quiz Cards (Anker + Apple hybrid) ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{background:var(--c-surface);border:1px solid transparent;border-radius:var(--radius);padding:0;text-decoration:none;color:var(--c-text);box-shadow:var(--c-shadow1);transition:all .25s;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{box-shadow:var(--c-shadow3);transform:translateY(-3px);border-color:var(--c-border-h)}
+.card-visual{height:80px;display:flex;align-items:center;justify-content:center;font-size:36px;position:relative;overflow:hidden}
+.card-visual-bg{position:absolute;inset:0;opacity:.15}
+.card-badge{position:absolute;top:10px;right:10px;font-size:10px;font-weight:700;padding:3px 10px;border-radius:var(--radius-full);color:#fff;line-height:1.4}
+.badge-hot{background:linear-gradient(135deg,#ff6b35,#f7418f)}
+.badge-new{background:linear-gradient(135deg,#00b4d8,#7209b7)}
+.badge-long{background:linear-gradient(135deg,#06d6a0,#118ab2)}
+.card-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.card-title{font-size:17px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
+.card-desc{font-size:13px;color:var(--c-text2);line-height:1.6;flex:1;margin-bottom:14px}
+.card-footer{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.card-meta-left{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.card-tag{font-size:10.5px;font-weight:600;color:var(--c-primary);background:var(--c-primary-t);padding:3px 10px;border-radius:var(--radius-full)}
+.card-tag-time{font-size:10.5px;font-weight:500;color:var(--c-text3);background:var(--c-surface2);padding:3px 10px;border-radius:var(--radius-full)}
+.card-cta{font-size:12px;font-weight:600;color:var(--c-primary);display:flex;align-items:center;gap:4px;white-space:nowrap;transition:gap .2s}
+.card:hover .card-cta{gap:8px}
+
+/* ── Gradient backgrounds for card visuals ── */
+.g-marathon{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%)}
+.g-academy{background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%)}
+.g-digital{background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%)}
+.g-travel{background:linear-gradient(135deg,#43e97b 0%,#38f9d7 100%)}
+.g-survival{background:linear-gradient(135deg,#fa709a 0%,#fee140 100%)}
+.g-charging{background:linear-gradient(135deg,#a18cd1 0%,#fbc2eb 100%)}
+.g-gadget{background:linear-gradient(135deg,#fccb90 0%,#d57eeb 100%)}
+
+/* ── Store Section ── */
+.store-section{background:var(--c-surface);border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border);padding:48px 20px}
+.store-inner{max-width:680px;margin:0 auto;text-align:center}
+.store-inner h2{font-size:20px;font-weight:800;margin-bottom:6px}
+.store-inner p{font-size:13px;color:var(--c-text2);margin-bottom:20px}
+.store-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.store-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:var(--radius-full);font-size:13px;font-weight:700;text-decoration:none;color:#fff;transition:all .2s}
+.store-btn:hover{opacity:.88;transform:translateY(-1px)}
+.store-btn.r{background:#bf0000}
+.store-btn.y{background:#ff5200}
+.store-btn.s{background:var(--c-primary)}
+
+/* ── Footer (Dyson/Anker-style) ── */
+.footer{max-width:1000px;margin:0 auto;padding:48px 20px 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+.footer-brand h3{font-size:16px;font-weight:800;margin-bottom:8px}
+.footer-brand p{font-size:12px;color:var(--c-text2);line-height:1.7}
+.footer-col h4{font-size:12px;font-weight:700;color:var(--c-text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px}
+.footer-col a{display:block;font-size:13px;color:var(--c-text2);text-decoration:none;padding:3px 0;transition:color .2s}
+.footer-col a:hover{color:var(--c-primary)}
+.footer-bottom{border-top:1px solid var(--c-border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-copy{font-size:11px;color:var(--c-text3)}
+.footer-copy a{color:var(--c-text3);text-decoration:none}
+.footer-copy a:hover{color:var(--c-primary)}
+@media(max-width:640px){
+  .hero{padding:48px 16px 40px}
+  .hero-stats{gap:20px}
+  .section{padding:0 16px 48px}
+  .grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .nav-links{display:none}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/quiz/" class="nav-logo">World <span>Select</span></a>
+    <div class="nav-links">
+      <a href="/quiz/marathon/" class="nav-link">知識</a>
+      <a href="/quiz/travel/" class="nav-link">診断</a>
+      <a href="/quiz/digital/" class="nav-link">偏差値</a>
+      <a href="/quiz/survival/" class="nav-link">シナリオ</a>
+      <a href="/quiz/academy/" class="nav-link">検定</a>
+    </div>
+    <div class="nav-spacer"></div>
+    <div class="nav-acts">
+      <button class="nav-btn nav-btn-sun" id="thm-sun" aria-label="ダークモード">&#9790;</button>
+      <button class="nav-btn nav-btn-moon" id="thm-moon" aria-label="ライトモード">&#9788;</button>
+      <a href="https://worldselect.net/" target="_blank" rel="noopener" class="nav-shop">Shop</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-kicker">Quiz Hub</div>
+  <h1>テック&amp;ライフスタイルの知識を試そう</h1>
+  <p class="hero-sub">USB-C、AI、セキュリティから旅行の豆知識まで。<br>7種のクイズであなたのデジタルリテラシーを測定します。</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">7</div>
+      <div class="hero-stat-label">クイズ種類</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">270+</div>
+      <div class="hero-stat-label">問題数</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">5</div>
+      <div class="hero-stat-label">診断タイプ</div>
+    </div>
+  </div>
+  <div class="hero-ctas">
+    <a href="/quiz/marathon/" class="btn-primary">人気No.1を試す &#8594;</a>
+    <a href="#quizzes" class="btn-secondary">全クイズを見る</a>
+  </div>
+</section>
+
+<!-- ── Quiz Grid ── -->
+<section class="section" id="quizzes">
+  <div class="section-head">
+    <h2>クイズ一覧</h2>
+    <p>気になるジャンルから始めてみよう</p>
+  </div>
+  <div class="grid">
+
+    <a href="/quiz/marathon/" class="card">
+      <div class="card-visual">
+        <div class="card-visual-bg g-marathon"></div>
+        <span style="position:relative;z-index:1">&#128218;</span>
+        <span class="card-badge badge-hot">人気 No.1</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">テク雑学マラソン</div>
+        <div class="card-desc">USB、スマホ、AI、宇宙まで幅広いテック雑学100問に挑戦。どこまで正解できる？</div>
+        <div class="card-footer">
+          <div class="card-meta-left">
+            <span class="card-tag">100問・知識</span>
+            <span class="card-tag-time">約20分</span>
+          </div>
+          <span class="card-cta">挑戦する &#8594;</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/quiz/academy/" class="card">
+      <div class="card-visual">
+        <div class="card-visual-bg g-academy"></div>
+        <span style="position:relative;z-index:1">&#127891;</span>
+        <span class="card-badge badge-long">大ボリューム</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">ガジェット検定アカデミー</div>
+        <div class="card-desc">基礎からマスターまで4レベル制。全77問のガジェット知識検定</div>
+        <div class="card-footer">
+          <div class="card-meta-left">
+            <span class="card-tag">77問・レベル制</span>
+            <span class="card-tag-time">約25分</span>
+          </div>
+          <span class="card-cta">受験する &#8594;</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/quiz/digital/" class="card">
+      <div class="card-visual">
+        <div class="card-visual-bg g-digital"></div>
+        <span style="position:relative;z-index:1">&#128200;</span>
+        <span class="card-badge badge-new">偏差値判定</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">デジタルライフ偏差値</div>
+        <div class="card-desc">充電習慣からセキュリティ対策まで、24問でデジタル活用度を偏差値判定</div>
+        <div class="card-footer">
+          <div class="card-meta-left">
+            <span class="card-tag">24問・偏差値</span>
+            <span class="card-tag-time">約8分</span>
+          </div>
+          <span class="card-cta">測定する &#8594;</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/quiz/travel/" class="card">
+      <div class="card-visual">
+        <div class="card-visual-bg g-travel"></div>
+        <span style="position:relative;z-index:1">&#9992;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">旅行スタイル診断</div>
+        <div class="card-desc">10問の質問でソロ派・アクティブ派・グルメ派など5つの旅行タイプを判定</div>
+        <div class="card-footer">
+          <div class="card-meta-left">
+            <span class="card-tag">10問・性格診断</span>
+            <span class="card-tag-time">約3分</span>
+          </div>
+          <span class="card-cta">診断する &#8594;</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/quiz/survival/" class="card">
+      <div class="card-visual">
+        <div class="card-visual-bg g-survival"></div>
+        <span style="position:relative;z-index:1">&#128680;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">旅先サバイバル</div>
+        <div class="card-desc">空港・ホテル・キャンプ・台風の4シナリオ。ガジェットトラブルを切り抜けろ</div>
+        <div class="card-footer">
+          <div class="card-meta-left">
+            <span class="card-tag">4シナリオ・分岐型</span>
+            <span class="card-tag-time">約10分</span>
+          </div>
+          <span class="card-cta">挑戦する &#8594;</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/quiz/charging/" class="card">
+      <div class="card-visual">
+        <div class="card-visual-bg g-charging"></div>
+        <span style="position:relative;z-index:1">&#9889;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">充電スタイル診断</div>
+        <div class="card-desc">ミニマリスト派？パワフル急速派？14問であなたの充電ライフを診断</div>
+        <div class="card-footer">
+          <div class="card-meta-left">
+            <span class="card-tag">14問・性格診断</span>
+            <span class="card-tag-time">約5分</span>
+          </div>
+          <span class="card-cta">診断する &#8594;</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/quiz/gadget/" class="card">
+      <div class="card-visual">
+        <div class="card-visual-bg g-gadget"></div>
+        <span style="position:relative;z-index:1">&#128295;</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title">ガジェットオタク度チェック</div>
+        <div class="card-desc">USB-C、PD、GaN…20問のガジェット知識であなたのオタク度を判定</div>
+        <div class="card-footer">
+          <div class="card-meta-left">
+            <span class="card-tag">20問・知識</span>
+            <span class="card-tag-time">約7分</span>
+          </div>
+          <span class="card-cta">チェックする &#8594;</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ── Store Section ── -->
+<section class="store-section">
+  <div class="store-inner">
+    <h2>World Select ストア</h2>
+    <p>iPhone / Apple Watch アクセサリを中心に、厳選したテック＆ライフスタイルアイテムをお届け</p>
+    <div class="store-btns">
+      <a href="https://www.rakuten.co.jp/world11select/" target="_blank" rel="noopener" class="store-btn r">楽天市場で見る</a>
+      <a href="https://store.shopping.yahoo.co.jp/worldselect/" target="_blank" rel="noopener" class="store-btn y">Yahoo!で見る</a>
+      <a href="https://worldselect.net/" target="_blank" rel="noopener" class="store-btn s">公式ストアへ</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>World Select</h3>
+      <p>テック＆ライフスタイルを楽しく。<br>iPhone / Apple Watch アクセサリ専門の<br>セレクトショップです。</p>
+    </div>
+    <div class="footer-col">
+      <h4>クイズ</h4>
+      <a href="/quiz/marathon/">テク雑学マラソン</a>
+      <a href="/quiz/academy/">ガジェット検定</a>
+      <a href="/quiz/digital/">偏差値テスト</a>
+      <a href="/quiz/travel/">旅行スタイル診断</a>
+      <a href="/quiz/survival/">旅先サバイバル</a>
+      <a href="/quiz/charging/">充電スタイル診断</a>
+      <a href="/quiz/gadget/">ガジェットオタク度</a>
+    </div>
+    <div class="footer-col">
+      <h4>ショップ</h4>
+      <a href="https://www.rakuten.co.jp/world11select/" target="_blank" rel="noopener">楽天市場</a>
+      <a href="https://store.shopping.yahoo.co.jp/worldselect/" target="_blank" rel="noopener">Yahoo!</a>
+      <a href="https://worldselect.net/" target="_blank" rel="noopener">公式ストア</a>
+    </div>
+    <div class="footer-col">
+      <h4>インフォ</h4>
+      <a href="https://fds.co.jp/" target="_blank" rel="noopener">会社概要</a>
+      <a href="https://worldselect.net/policies/privacy-policy" target="_blank" rel="noopener">プライバシー</a>
+      <a href="https://worldselect.net/policies/terms-of-service" target="_blank" rel="noopener">利用規約</a>
+      <a href="https://worldselect.net/policies/legal-notice" target="_blank" rel="noopener">特定商取引法</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 <a href="https://worldselect.net/" target="_blank">World Select</a> / <a href="https://fds.co.jp/" target="_blank">有限会社FDSi</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var h=document.documentElement;
+  var s=localStorage.getItem('ws-theme');
+  if(s)h.setAttribute('data-theme',s);
+  function toggle(){
+    var isDark=h.getAttribute('data-theme')==='dark'||(!h.hasAttribute('data-theme')&&matchMedia('(prefers-color-scheme:dark)').matches);
+    var n=isDark?'light':'dark';
+    h.setAttribute('data-theme',n);
+    localStorage.setItem('ws-theme',n);
+  }
+  var sunBtn=document.getElementById('thm-sun');
+  var moonBtn=document.getElementById('thm-moon');
+  if(sunBtn)sunBtn.onclick=toggle;
+  if(moonBtn)moonBtn.onclick=toggle;
+})();
+</script>
+</body>
+</html>

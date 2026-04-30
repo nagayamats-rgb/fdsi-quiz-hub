@@ -1,0 +1,901 @@
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>旅行スタイル診断 — World Select</title>
+  <meta name="description" content="あなたの旅行スタイルは？15問の診断で、5つの旅人タイプから自分のスタイルが分かります。">
+  <link rel="canonical" href="/quiz/travel/">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"旅行スタイル診断","description":"15問であなたの旅行タイプを診断。ソロ派？アクティブ派？","url":"https://fds.co.jp/quiz/travel/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://fds.co.jp/"}}
+</script>
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FDSi","item":"https://fds.co.jp/"},{"@type":"ListItem","position":2,"name":"Quiz Hub","item":"https://fds.co.jp/quiz/"},{"@type":"ListItem","position":3,"name":"旅行スタイル診断","item":"https://fds.co.jp/quiz/travel/"}]}
+</script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; }
+    body {
+      font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN',sans-serif;-webkit-font-smoothing:antialiased;
+      background-color: var(--c-bg);
+      color: var(--c-text);
+      transition: background-color 0.3s, color 0.3s;
+      line-height: 1.6;
+    }
+    :root{
+  --c-bg:#ffffff;
+  --c-surface:#f5f5f7;
+  --c-surface2:#e8e8ed;
+  --c-border:#d2d2d7;
+  --c-border-h:#86868b;
+  --c-text:#1d1d1f;
+  --c-text2:#6e6e73;
+  --c-text3:#86868b;
+  --c-primary:#0071e3;
+  --c-primary-h:#0077ED;
+  --c-primary-t:rgba(0,113,227,.08);
+  --c-primary-g:rgba(0,113,227,.18);
+  --c-ok:#34c759;
+  --c-ok-bg:rgba(52,199,89,.10);
+  --c-err:#ff3b30;
+  --c-err-bg:rgba(255,59,48,.08);
+  --c-shadow1:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);
+  --c-shadow2:0 4px 12px rgba(0,0,0,.08);
+  --radius:16px;
+  --radius-s:10px;
+  --radius-xs:6px;
+  --radius-full:9999px;
+  --nav-h:52px;
+}
+[data-theme="dark"]{
+  --c-bg:#000000;
+  --c-surface:#1c1c1e;
+  --c-surface2:#2c2c2e;
+  --c-border:#38383a;
+  --c-border-h:#545456;
+  --c-text:#f5f5f7;
+  --c-text2:#a1a1a6;
+  --c-text3:#6e6e73;
+  --c-primary:#2997ff;
+  --c-primary-h:#40a9ff;
+  --c-primary-t:rgba(41,151,255,.12);
+  --c-primary-g:rgba(41,151,255,.22);
+  --c-ok:#30d158;
+  --c-ok-bg:rgba(48,209,88,.12);
+  --c-err:#ff453a;
+  --c-err-bg:rgba(255,69,58,.12);
+  --c-shadow1:0 1px 3px rgba(0,0,0,.3);
+  --c-shadow2:0 4px 12px rgba(0,0,0,.35);
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --c-bg:#000000;--c-surface:#1c1c1e;--c-surface2:#2c2c2e;
+    --c-border:#38383a;--c-border-h:#545456;
+    --c-text:#f5f5f7;--c-text2:#a1a1a6;--c-text3:#6e6e73;
+    --c-primary:#2997ff;--c-primary-h:#40a9ff;
+    --c-primary-t:rgba(41,151,255,.12);--c-primary-g:rgba(41,151,255,.22);
+    --c-ok:#30d158;--c-ok-bg:rgba(48,209,88,.12);
+    --c-err:#ff453a;--c-err-bg:rgba(255,69,58,.12);
+    --c-shadow1:0 1px 3px rgba(0,0,0,.3);--c-shadow2:0 4px 12px rgba(0,0,0,.35);
+  }
+}
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding: 15px 0;
+    }
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--c-primary);
+      text-decoration: none;
+    }
+    .theme-toggle {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: all 0.2s;
+      color: var(--c-text2);
+    }
+    .theme-toggle:hover {
+      background: var(--c-surface2);
+      border-color: var(--c-border-h);
+    }
+    .quiz-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 4px;
+      background: var(--c-surface);
+      border-radius: var(--radius-full);
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--c-primary);
+      transition: width 0.3s ease;
+    }
+    .progress-text {
+      text-align: center;
+      font-size: 12px;
+      color: var(--c-text3);
+      margin-top: 8px;
+      margin-bottom: 20px;
+    }
+    .question-section {
+      opacity: 1;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .question-section.hidden {
+      display: none;
+    }
+    .question-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--c-text);
+      margin-bottom: 25px;
+      line-height: 1.4;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+    .option {
+      padding: 16px;
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+      touch-action: manipulation;
+      transition: border-color 0.2s, background-color 0.2s, color 0.2s, font-weight 0.2s;
+      color: var(--c-text);
+      font-size: 15px;
+      line-height: 1.5;
+      text-align: left;
+    }
+    .option:hover {
+      background: var(--c-surface2);
+      border-color: var(--c-border-h);
+    }
+    .option.selected {
+      background: var(--c-primary);
+      border-color: var(--c-primary);
+      color: white;
+      font-weight: 600;
+    }
+    .result-screen {
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .result-badge {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      line-height: 1;
+    }
+    .result-type {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--c-text);
+      margin-bottom: 15px;
+    }
+    .result-description {
+      font-size: 15px;
+      color: var(--c-text2);
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    .share-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+    .share-btn {
+      padding: 12px 20px;
+      border: 1px solid var(--c-border);
+      background: var(--c-surface);
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--c-text);
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .share-btn:hover {
+      background: var(--c-surface2);
+      border-color: var(--c-border-h);
+    }
+    .button-group {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+    .btn {
+      flex: 1;
+      padding: 14px 20px;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+    .btn-primary {
+      background: var(--c-primary);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: var(--c-primary-h);
+    }
+    .btn-secondary {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      color: var(--c-text);
+    }
+    .btn-secondary:hover {
+      background: var(--c-surface2);
+      border-color: var(--c-border-h);
+    }
+    .footer {
+      margin-top: 40px;
+      padding-top: 25px;
+      border-top: 1px solid var(--c-border);
+    }
+    .footer-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--c-text3);
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    .footer-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .footer-link {
+      padding: 10px;
+      background: var(--c-surface);
+      border-radius: var(--radius-s);
+      font-size: 12px;
+      color: var(--c-primary);
+      text-decoration: none;
+      transition: all 0.2s;
+      display: block;
+      text-align: center;
+    }
+    .footer-link:hover {
+      background: var(--c-primary-t);
+    }
+    .footer-copy {
+      font-size: 11px;
+      color: var(--c-text3);
+      text-align: center;
+    }
+    .store-links {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .store-link {
+      padding: 8px 16px;
+      background: var(--c-primary);
+      color: white;
+      border-radius: var(--radius-s);
+      font-size: 12px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .store-link:hover {
+      background: var(--c-primary-h);
+    }
+    .exp-link{margin:12px 0 4px;padding:12px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);display:flex;align-items:center;gap:10px;transition:border-color .2s,box-shadow .2s}
+.exp-link:hover{border-color:var(--c-primary);box-shadow:var(--c-shadow1)}
+.exp-link::before{content:"";display:block;width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--c-primary-t),var(--c-primary-g));flex-shrink:0}
+.exp-link a{color:var(--c-primary);text-decoration:none;font-weight:600;font-size:13px;line-height:1.4}
+.exp-link a:hover{text-decoration:underline}
+    .prods{margin:24px 0}
+    .prods-h{font-size:15px;font-weight:700;color:var(--c-text);margin-bottom:14px;text-align:center}
+    .prod{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);margin-bottom:10px;transition:border-color .15s}
+    .prod:hover{border-color:var(--c-border-h)}
+    .prod-info{flex:1;min-width:0}
+    .prod-name{font-size:13px;font-weight:700;color:var(--c-text);margin-bottom:4px}
+    .prod-desc{font-size:11px;color:var(--c-text2);margin-bottom:8px}
+    .prod-links{display:flex;gap:6px;flex-wrap:wrap}
+    .prod-a{font-size:10px;font-weight:700;padding:3px 10px;border-radius:var(--radius-full);text-decoration:none;color:#fff;transition:opacity .2s}
+    .prod-a:hover{opacity:.85}
+    .prod-r{background:#ff3b30}.prod-y{background:#ea580c}.prod-s{background:var(--c-primary)}
+  
+/* ── Sticky Nav (Apple-style) ── */
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--c-border);height:var(--nav-h);transition:background .3s}
+[data-theme="dark"] .site-nav{background:rgba(0,0,0,.72)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .site-nav{background:rgba(0,0,0,.72)}}
+.nav-inner{max-width:980px;margin:0 auto;padding:0 20px;display:flex;align-items:center;height:100%;gap:8px}
+.nav-brand{font-weight:700;font-size:15px;color:var(--c-text);text-decoration:none;margin-right:auto;white-space:nowrap;letter-spacing:-.02em}
+.nav-links{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-link{font-size:12px;color:var(--c-text2);text-decoration:none;padding:6px 10px;border-radius:var(--radius-full);white-space:nowrap;transition:color .2s,background .2s}
+.nav-link:hover{color:var(--c-text);background:var(--c-primary-t)}
+.nav-link.active{color:var(--c-primary);font-weight:600}
+.nav-acts{display:flex;align-items:center;gap:8px;margin-left:auto}
+.nav-theme{background:none;border:none;cursor:pointer;font-size:16px;padding:4px 8px;border-radius:var(--radius-full);transition:background .2s}
+.nav-theme:hover{background:var(--c-primary-t)}
+.nav-shop{font-size:12px;font-weight:600;color:var(--c-primary);text-decoration:none;padding:5px 12px;border:1.5px solid var(--c-primary);border-radius:var(--radius-full);transition:all .2s;white-space:nowrap}
+.nav-shop:hover{background:var(--c-primary);color:#fff}
+
+/* ── Enhanced Footer ── */
+.site-footer{border-top:1px solid var(--c-border);margin-top:60px;padding:40px 0 24px;background:var(--c-surface)}
+.footer-inner{max-width:980px;margin:0 auto;padding:0 20px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr 1fr;gap:20px}}
+.footer-brand{font-size:15px;font-weight:700;color:var(--c-text);margin-bottom:8px}
+.footer-brand-sub{font-size:12px;color:var(--c-text3);line-height:1.5}
+.footer-col-title{font-size:12px;font-weight:700;color:var(--c-text);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em}
+.footer-col a{display:block;font-size:12px;color:var(--c-text2);text-decoration:none;padding:3px 0;transition:color .2s}
+.footer-col a:hover{color:var(--c-primary)}
+.footer-bottom{border-top:1px solid var(--c-border);padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-copy{font-size:11px;color:var(--c-text3)}
+.footer-legal{display:flex;gap:16px}
+.footer-legal a{font-size:11px;color:var(--c-text3);text-decoration:none}
+.footer-legal a:hover{color:var(--c-primary)}
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="/" class="logo">World Select</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="テーマ切り替え">&#9788;</button>
+    </div>
+
+    <div class="quiz-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-text">
+        <span id="currentQuestion">1</span> / 15
+      </div>
+
+      <div id="questionScreen" class="question-section">
+        <div class="question-title" id="questionText"></div>
+        <div class="options" id="optionsContainer"></div>
+      </div>
+
+      <div id="resultScreen" class="result-screen hidden">
+        <div class="result-badge" id="resultBadge"></div>
+        <div class="result-type" id="resultType"></div>
+        <div class="result-description" id="resultDescription"></div>
+        <div class="prods">
+          <div class="prods-h">旅のお供におすすめ</div>
+          <div class="prod">
+            <div class="prod-info">
+              <div class="prod-name">6in1 マルチケーブル（60W対応）</div>
+              <div class="prod-desc">USB-C / Lightning / Micro USB 全対応。海外旅行にこれ1本</div>
+              <div class="prod-links">
+                <a href="https://worldselect.net/products/60w-6in1cable?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>
+                <a href="https://item.rakuten.co.jp/world11select/60w-6in1cable/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>
+                <a href="https://store.shopping.yahoo.co.jp/world1select/60w-6in1cable.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>
+              </div>
+            </div>
+          </div>
+          <div class="prod">
+            <div class="prod-info">
+              <div class="prod-name">iPhone MagSafe対応マグネットケース<span class=\"exp-link\"><a href=\"https://worldselect.net/products/iphone12bookcase-1?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel\" target=\"_blank\" rel=\"noopener\">\u25b6 手帳型iPhoneケースを見る</a> <a href=\"https://item.rakuten.co.jp/world11select/iphone12bookcase-1/\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle\">楽天</a><a href=\"https://store.shopping.yahoo.co.jp/world1select/ws-iphone12bookcovercase-1.html\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle\">Yahoo!</a></span></div>
+              <div class="prod-desc">旅先でも安心の耐衝撃保護。MagSafeアクセサリ対応</div>
+              <div class="prod-links">
+                <a href="https://worldselect.net/products/iphone-magnetcase?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>
+                <a href="https://item.rakuten.co.jp/world11select/iphone-magnetcase/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>
+                <a href="https://store.shopping.yahoo.co.jp/world1select/iphone-magnetcase.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>
+              </div>
+            </div>
+          </div>
+          <div class="prod">
+            <div class="prod-info">
+              <div class="prod-name">2in1 USB-C &amp; Lightning 100Wケーブル</div>
+              <div class="prod-desc">予備ケーブルに最適。急速充電でスマホもPCも対応</div>
+              <div class="prod-links">
+                公式ストア
+                <a href="https://www.rakuten.co.jp/world11select/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>
+                <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="share-buttons">
+          <a id="shareX" class="share-btn" target="_blank">X で共有</a>
+          <a id="shareLine" class="share-btn" target="_blank">LINE で共有</a>
+        </div>
+        <div class="button-group">
+          <button class="btn btn-primary" id="retryBtn">もう一度診断する</button>
+          <a href="/" class="btn btn-secondary">クイズハブへ</a>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+
+  <script>
+    var quizData = [
+      {
+        question: '理想の旅行先は？',
+        options: [
+          { text: '人里離れた秘境の島', type: 'solo' },
+          { text: '国立公園でトレッキング', type: 'active' },
+          { text: '本場のストリートフード巡り', type: 'gourmet' },
+          { text: '歴史ある古都の寺社仏閣', type: 'culture' },
+          { text: '5つ星リゾートでスパ三昧', type: 'luxury' }
+        ]
+      },
+      {
+        question: '旅行の荷物は？',
+        options: [
+          { text: 'バックパック1つで身軽に', type: 'solo' },
+          { text: 'アウトドアギア満載', type: 'active' },
+          { text: 'お気に入りの調味料持参', type: 'gourmet' },
+          { text: 'ガイドブックとカメラ', type: 'culture' },
+          { text: '大型スーツケースにお気に入り', type: 'luxury' }
+        ]
+      },
+      {
+        question: '旅先での朝の過ごし方は？',
+        options: [
+          { text: '日の出を見ながらコーヒー', type: 'solo' },
+          { text: '早朝ランニングやヨガ', type: 'active' },
+          { text: '地元の朝市で朝ごはん探し', type: 'gourmet' },
+          { text: '開館前に美術館や遺跡へ', type: 'culture' },
+          { text: 'ルームサービスでゆったり', type: 'luxury' }
+        ]
+      },
+      {
+        question: '一番テンションが上がる瞬間は？',
+        options: [
+          { text: '誰もいない絶景を独り占め', type: 'solo' },
+          { text: '山頂に到達した達成感', type: 'active' },
+          { text: '現地の人に教わった隠れた名店', type: 'gourmet' },
+          { text: 'ガイドブックにない歴史を知った時', type: 'culture' },
+          { text: '予想以上に素敵なホテルの部屋', type: 'luxury' }
+        ]
+      },
+      {
+        question: '旅行中のSNS投稿は？',
+        options: [
+          { text: '旅が終わってからまとめて', type: 'solo' },
+          { text: 'アクティビティ中の動画', type: 'active' },
+          { text: '料理の写真が9割', type: 'gourmet' },
+          { text: '建築や風景の写真中心', type: 'culture' },
+          { text: 'ホテルやラウンジの写真', type: 'luxury' }
+        ]
+      },
+      {
+        question: '旅行で絶対外せないことは？',
+        options: [
+          { text: '1人で静かに考える時間', type: 'solo' },
+          { text: '体を動かすアクティビティ', type: 'active' },
+          { text: '地元ならではの食体験', type: 'gourmet' },
+          { text: 'その土地の文化や歴史に触れる', type: 'culture' },
+          { text: '快適な宿泊と上質なサービス', type: 'luxury' }
+        ]
+      },
+      {
+        question: '旅のトラブルへの対応は？',
+        options: [
+          { text: '一人で黙々と解決策を探す', type: 'solo' },
+          { text: '体力で乗り切る・歩いてでも行く', type: 'active' },
+          { text: '食事が美味しければ全て許せる', type: 'gourmet' },
+          { text: 'トラブルも旅の思い出と割り切る', type: 'culture' },
+          { text: 'コンシェルジュに相談する', type: 'luxury' }
+        ]
+      },
+      {
+        question: 'お土産選びは？',
+        options: [
+          { text: '自分用の小さな記念品だけ', type: 'solo' },
+          { text: '現地のスポーツグッズ', type: 'active' },
+          { text: 'ご当地食材や調味料', type: 'gourmet' },
+          { text: '伝統工芸品やアート作品', type: 'culture' },
+          { text: 'ブランド品や高級スイーツ', type: 'luxury' }
+        ]
+      },
+      {
+        question: '次の旅行先の決め方は？',
+        options: [
+          { text: 'まだ誰も行ってない場所を探す', type: 'solo' },
+          { text: '新しいアウトドア体験ができる場所', type: 'active' },
+          { text: '食べログや食の評判で選ぶ', type: 'gourmet' },
+          { text: '世界遺産リストをチェック', type: 'culture' },
+          { text: 'ホテルのランキングから選ぶ', type: 'luxury' }
+        ]
+      },
+      {
+        question: '旅行から帰ってきたら？',
+        options: [
+          { text: '静かに写真を整理しながら余韻に浸る', type: 'solo' },
+          { text: '次のアクティビティを計画開始', type: 'active' },
+          { text: '再現レシピに挑戦する', type: 'gourmet' },
+          { text: '旅行記や感想をまとめる', type: 'culture' },
+          { text: '次の旅行の予約を入れる', type: 'luxury' }
+        ]
+      },
+      {
+        question: '旅の荷造りで最も時間がかかるのは？',
+        options: [
+          { text: 'ミニマル派・最小限の選別', type: 'solo' },
+          { text: 'スポーツ用品やアウトドアギアのチェック', type: 'active' },
+          { text: '調味料や食材の厳選', type: 'gourmet' },
+          { text: 'カメラや画材の準備', type: 'culture' },
+          { text: 'お気に入りアイテムの詰め込み', type: 'luxury' }
+        ]
+      },
+      {
+        question: 'ペットを連れた旅はどう？',
+        options: [
+          { text: '一人の時間が欲しい派、ペットは留守番', type: 'solo' },
+          { text: 'ペットとアウトドアアクティビティに挑戦', type: 'active' },
+          { text: 'ペット連れ可のグルメ施設巡り', type: 'gourmet' },
+          { text: 'ペットの歴史や背景を学ぶ機会', type: 'culture' },
+          { text: 'ペット専用の高級リゾート施設選び', type: 'luxury' }
+        ]
+      },
+      {
+        question: '日焼け・UV対策への向き合い方は？',
+        options: [
+          { text: '自然派・必要最小限', type: 'solo' },
+          { text: 'アウトドアスポーツ用の強力な日焼け止め', type: 'active' },
+          { text: 'おしゃれなラッシュガードで自然に対策', type: 'gourmet' },
+          { text: '日本製の高品質UVケアアイテム使用', type: 'culture' },
+          { text: 'プレミアム日焼け止めとスキンケアセット', type: 'luxury' }
+        ]
+      },
+      {
+        question: '旅先のスマートフォン保護は？',
+        options: [
+          { text: 'シンプルなポケットに入れるだけ', type: 'solo' },
+          { text: 'タフなアウトドアケースで耐衝撃性重視', type: 'active' },
+          { text: '撮影にこだわるのでレンズ保護が最優先', type: 'gourmet' },
+          { text: 'デザイン性と機能性のバランス型', type: 'culture' },
+          { text: 'ブランド物の洗練されたケース選び', type: 'luxury' }
+        ]
+      },
+      {
+        question: '旅中のケーブル・充電管理は？',
+        options: [
+          { text: '最小限・1本のケーブルだけ携帯', type: 'solo' },
+          { text: 'モバイルバッテリーとケーブル複数持ち', type: 'active' },
+          { text: 'キッチン周辺で充電器が必要（ドライヤー等）', type: 'gourmet' },
+          { text: 'カメラやPC周辺機器の充電管理', type: 'culture' },
+          { text: '全デバイス対応の高級マルチケーブル', type: 'luxury' }
+        ]
+      },
+      {
+        question: 'ガジェット類の旅荷造りで重要なのは？',
+        options: [
+          { text: 'スマホだけ・シンプル最小限派', type: 'solo' },
+          { text: 'アクションカメラやGPS装置も必携', type: 'active' },
+          { text: 'スマートウォッチ、カメラの充電ケーブル', type: 'gourmet' },
+          { text: 'PCやタブレットの電子機器セット', type: 'culture' },
+          { text: 'ワイヤレスイヤホン、ポータブル充電ステーション', type: 'luxury' }
+        ]
+      },
+      {
+        question: 'ペット連れ旅行での食事・水管理は？',
+        options: [
+          { text: 'ペットなし派・連れ出さない', type: 'solo' },
+          { text: 'ハイキング中のペット用水分補給が課題', type: 'active' },
+          { text: 'ペット可グルメ施設での一緒の食事体験', type: 'gourmet' },
+          { text: 'ペット同伴可の伝統的な宿泊施設探し', type: 'culture' },
+          { text: 'ペット用の食器セット・ポータブル水飲みを用意', type: 'luxury' }
+        ]
+      },
+      {
+        question: 'ビーチ・プール旅での日焼け・UV対策は？',
+        options: [
+          { text: '自然派・日焼け止めはほぼ不要', type: 'solo' },
+          { text: 'サーフィンやウォータースポーツ用の強力対策', type: 'active' },
+          { text: 'おしゃれなラッシュガード・水着スタイル重視', type: 'gourmet' },
+          { text: '日本ブランドの高品質UVケアアイテム', type: 'culture' },
+          { text: 'プレミアム日焼け止め＋プロフェッショナル対策', type: 'luxury' }
+        ]
+      },
+      {
+        question: 'スポーツウォッチ・スマートウォッチの旅での活用は？',
+        options: [
+          { text: '基本的に装着しない・シンプル派', type: 'solo' },
+          { text: 'トレッキング・アクティビティ記録機能を多用', type: 'active' },
+          { text: '時間管理・移動ルート記録', type: 'gourmet' },
+          { text: '観光地情報・ナビゲーション機能を活用', type: 'culture' },
+          { text: 'プレミアムスポーツバンド付きの高級ウォッチ', type: 'luxury' }
+        ]
+      },
+      {
+        question: '海外での子ども向けファッション・フォーマル着は？',
+        options: [
+          { text: 'Tシャツ・短パンで十分', type: 'solo' },
+          { text: '子どもらしいアクティブウェア・スポーツ系', type: 'active' },
+          { text: '現地の子ども文化・民族衣装体験', type: 'gourmet' },
+          { text: '式典・フォーマルイベント参加用の礼服', type: 'culture' },
+          { text: 'ブランド子ども服・プレミアムドレスアップ', type: 'luxury' }
+        ]
+      }
+    ];
+
+    var resultTypes = {
+      solo: {
+        name: 'ソロ探検家タイプ',
+        icon: '🧘',
+        color: '#6366f1',
+        description: '自分だけの時間と空間を大切にする旅人。秘境や穴場を見つける才能があります。<span class=<span class=\"exp-link\"><a href=\"https://worldselect.net/products/ws101?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel\" target=\"_blank\" rel=\"noopener\">\u25b6 USBポート付きビジネスリュックを見る</a> <a href=\"https://item.rakuten.co.jp/world11select/ws101/\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle\">楽天</a><a href=\"https://store.shopping.yahoo.co.jp/world1select/ws101.html\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle\">Yahoo!</a></span>"exp-link"><a href="https://worldselect.net/products/dogtravel-1?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel" target="_blank" rel="noopener">▶ ペット旅行グッズ</a></span>'
+      },
+      active: {
+        name: 'アクティブ冒険家タイプ',
+        icon: '⛰️',
+        color: '#34c759',
+        description: '体を動かすことが旅の醍醐味。山も海も全力で楽しむエネルギッシュな旅人。<span class="exp-link"><a href="https://worldselect.net/products/ws54?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel" target="_blank" rel="noopener">▶ ガジェット整理ポーチ</a> <a href="https://item.rakuten.co.jp/world11select/ws54/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/ws54.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span><span class="exp-link"><a href="https://worldselect.net/products/worldselect-0005-3s?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel" target="_blank" rel="noopener">▶ マルチケーブル</a> <a href="https://item.rakuten.co.jp/world11select/worldselect-0005-3s/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/worldselect-0005-3s.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span>'
+      },
+      gourmet: {
+        name: 'グルメ探求家タイプ',
+        icon: '🍽️',
+        color: '#ea580c',
+        description: '食は旅の最大の楽しみ。味覚のアンテナが鋭い美食家。<span class="exp-link"><a href="https://worldselect.net/products/rushguard-women2?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel" target="_blank" rel="noopener">▶ UVラッシュガード</a> <a href="https://item.rakuten.co.jp/world11select/rushguard-women2/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/rushguard-women2.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span><span class="exp-link"><a href="https://worldselect.net/products/rushguard-women?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel" target="_blank" rel="noopener">&#x25b6; レディース体型カバーラッシュガード</a> <a href="https://item.rakuten.co.jp/world11select/rushguard-women/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/rushguard-women.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span><span class="exp-link"><a href="https://worldselect.net/products/dogtravel-1?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel" target="_blank" rel="noopener">▶ ペット旅行ギア</a> <a href="https://item.rakuten.co.jp/world11select/dogtravel-1/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/dogtravel-1.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span>'
+      },
+      culture: {
+        name: 'カルチャー愛好家タイプ',
+        icon: '🏛️',
+        color: '#7c3aed',
+        description: '歴史・文化・芸術に深い関心。知的好奇心が旅の原動力。<span class="exp-link"><a href="https://worldselect.net/products/worldselect-0014?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel" target="_blank" rel="noopener">▶ 耐衝撃スマートケース</a> <a href="https://item.rakuten.co.jp/world11select/worldselect-0014/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/worldselect-0014.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span><span class="exp-link"><a href="https://worldselect.net/products/threebeads-band?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel" target="_blank" rel="noopener">▶ スマートウォッチバンド</a> <a href="https://item.rakuten.co.jp/world11select/threebeads-band/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/ws-applewatch-threebeads-band.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span>'
+      },
+      luxury: {
+        name: 'ラグジュアリー派タイプ',
+        icon: '✨',
+        color: '#be185d',
+        description: '快適さと上質な体験を重視。自分へのご褒美旅行が得意。<span class="exp-link"><a href="https://worldselect.net/products/worldselect-0005-3s?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel" target="_blank" rel="noopener">▶ プレミアム3in1ケーブル</a> <a href="https://item.rakuten.co.jp/world11select/worldselect-0005-3s/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/worldselect-0005-3s.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span><span class="exp-link"><a href="https://worldselect.net/products/kids-dress?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel" target="_blank" rel="noopener">▶ キッズドレス</a> <a href="https://item.rakuten.co.jp/world11select/kids-dress/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/kids-dress.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span>'
+      }
+    };
+
+    var state = {
+      currentQuestion: 0,
+      answers: [],
+      themeMode: localStorage.getItem('ws-theme') || 'light'
+    };
+
+    function shuffleArray(array) {
+      var result = array.slice();
+      var i = result.length - 1;
+      while (i > 0) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = result[i];
+        result[i] = result[j];
+        result[j] = temp;
+        i--;
+      }
+      return result;
+    }
+
+    function initTheme() {
+      var theme = state.themeMode;
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.getElementById('themeToggle').textContent = '☀';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        document.getElementById('themeToggle').textContent = '☽';
+      }
+    }
+
+    function toggleTheme() {
+      state.themeMode = state.themeMode === 'light' ? 'dark' : 'light';
+      localStorage.setItem('ws-theme', state.themeMode);
+      initTheme();
+    }
+
+    function renderQuestion() {
+      var question = quizData[state.currentQuestion];
+      var shuffledOptions = shuffleArray(question.options);
+
+      document.getElementById('questionText').textContent = question.question;
+      document.getElementById('currentQuestion').textContent = state.currentQuestion + 1;
+      document.getElementById('progressFill').style.width = ((state.currentQuestion + 1) / 15) * 100 + '%';
+
+      var container = document.getElementById('optionsContainer');
+      container.innerHTML = '';
+
+      for (var i = 0; i < shuffledOptions.length; i++) {
+        var option = shuffledOptions[i];
+        var btn = document.createElement('button');
+        btn.className = 'option';
+        btn.textContent = option.text;
+        btn.setAttribute('data-type', option.type);
+        container.appendChild(btn);
+      }
+    }
+
+    function selectAnswer(optionType) {
+      state.answers.push(optionType);
+
+      if (state.currentQuestion < 14) {
+        state.currentQuestion++;
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      var counts = {};
+      counts.solo = 0;
+      counts.active = 0;
+      counts.gourmet = 0;
+      counts.culture = 0;
+      counts.luxury = 0;
+
+      for (var i = 0; i < state.answers.length; i++) {
+        var answer = state.answers[i];
+        counts[answer]++;
+      }
+
+      var winner = 'solo';
+      var maxCount = counts.solo;
+      var keys = ['active', 'gourmet', 'culture', 'luxury'];
+      for (var i = 0; i < keys.length; i++) {
+        if (counts[keys[i]] > maxCount) {
+          maxCount = counts[keys[i]];
+          winner = keys[i];
+        }
+      }
+
+      var result = resultTypes[winner];
+      document.getElementById('resultBadge').style.backgroundColor = result.color;
+      document.getElementById('resultBadge').textContent = result.icon;
+      document.getElementById('resultType').textContent = result.name;
+      document.getElementById('resultType').style.color = result.color;
+      document.getElementById('resultDescription').innerHTML = result.description;
+
+      var shareText = '私は「' + result.name + '」でした！あなたの旅行スタイルは？ #旅行スタイル診断';
+      var shareUrl = 'https://fds.co.jp/quiz/travel/';
+
+      document.getElementById('shareX').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(shareUrl);
+      document.getElementById('shareLine').href = 'https://line.me/R/msg/text/?' + encodeURIComponent(shareText + ' ' + shareUrl);
+
+      document.getElementById('questionScreen').classList.add('hidden');
+      document.getElementById('resultScreen').classList.remove('hidden');
+    }
+
+    function resetQuiz() {
+      state.currentQuestion = 0;
+      state.answers = [];
+      document.getElementById('questionScreen').classList.remove('hidden');
+      document.getElementById('resultScreen').classList.add('hidden');
+      renderQuestion();
+    }
+
+    /* iOS Safari touch event delegation */
+    (function() {
+      var optsCont = document.getElementById('optionsContainer');
+      var touchMoved = false;
+      optsCont.addEventListener('touchstart', function() { touchMoved = false; }, false);
+      optsCont.addEventListener('touchmove', function() { touchMoved = true; }, false);
+      optsCont.addEventListener('touchend', function(e) {
+        if (touchMoved) return;
+        var t = e.target;
+        while (t && t !== optsCont) {
+          if (t.nodeName === 'BUTTON' && t.className.indexOf('option') !== -1) {
+            e.preventDefault();
+            var tp = t.getAttribute('data-type');
+            if (tp) selectAnswer(tp);
+            return;
+          }
+          t = t.parentNode;
+        }
+      }, false);
+      optsCont.addEventListener('click', function(e) {
+        var t = e.target;
+        while (t && t !== optsCont) {
+          if (t.nodeName === 'BUTTON' && t.className.indexOf('option') !== -1) {
+            var tp = t.getAttribute('data-type');
+            if (tp) selectAnswer(tp);
+            return;
+          }
+          t = t.parentNode;
+        }
+      }, false);
+    })();
+
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+    document.getElementById('retryBtn').addEventListener('click', resetQuiz);
+
+    initTheme();
+    renderQuestion();
+  </script>
+<!-- WS_QUIZ_STORE_SEARCH -->
+    <div style="margin:24px 0;padding:20px;background:var(--c-surface,#f5f5f7);border-radius:12px;text-align:center;">
+      <div style="font-size:15px;font-weight:700;color:var(--c-text,#1d1d1f);margin-bottom:12px;">&#128722; World Select &#12391;&#25506;&#12377;</div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;">
+      <a href="https://search.rakuten.co.jp/search/mall/充電+ケーブル/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; 充電ケーブル</a>
+      <a href="https://search.rakuten.co.jp/search/mall/ガジェット+ポーチ/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; ガジェットポーチ</a>
+      <a href="https://search.rakuten.co.jp/search/mall/iPhone+ケース/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; iPhoneケース</a>
+      <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener" style="display:inline-block;background:#ff0033;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">Yahoo! &#12473;&#12488;&#12450;</a>
+      <a href="https://worldselect.net/" target="_blank" rel="noopener" style="display:inline-block;background:#0071e3;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
+      </div>
+      <div style="font-size:11px;color:var(--c-text3,#86868b);margin-top:8px;">&#27005;&#22825;&#24066;&#22580;&#12398;World Select&#24215;&#33303;&#20869;&#12391;&#26908;&#32034;&#12375;&#12414;&#12377;</div>
+    </div>
+<!-- /WS_QUIZ_STORE_SEARCH -->
+<footer class="site-footer">
+<div class="footer-inner">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">World Select</div>
+      <div class="footer-brand-sub">Quiz Hub</div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#127918; &#12463;&#12452;&#12474;</div>
+    <a href="/quiz/marathon/">&#127939; テク雑学マラソン (100問)</a>
+    <a href="/quiz/academy/">&#127891; ガジェット検定 (60問)</a>
+    <a href="/quiz/digital/">&#128200; デジタル偏差値 (15問)</a>
+    <a href="/quiz/survival/">&#128680; 旅先サバイバル (3分岐)</a>
+    <a href="/quiz/charging/">&#128267; 充電スタイル診断 (7問)</a>
+    <a href="/quiz/gadget/">&#129504; ガジェットオタク度 (10問)</a>
+    <a href="/quiz/">&#127968; &#20840;&#12463;&#12452;&#12474;&#19968;&#35239;</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#128722; &#12471;&#12519;&#12483;&#12503;</div>
+      <a href="https://www.rakuten.co.jp/world11select/" target="_blank" rel="noopener">&#27005;&#22825;&#24066;&#22580;</a>
+      <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener">Yahoo!</a>
+      <a href="https://worldselect.net/" target="_blank" rel="noopener">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#8505;&#65039; &#12452;&#12531;&#12501;&#12457;</div>
+      <a href="https://fds.co.jp/">FDSi</a>
+      <a href="https://worldselect.net/policies/privacy-policy" target="_blank" rel="noopener">&#12503;&#12521;&#12452;&#12496;&#12471;&#12540;</a>
+      <a href="https://worldselect.net/policies/terms-of-service" target="_blank" rel="noopener">&#21033;&#29992;&#35215;&#32004;</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2024-2026 World Select / FDSi Inc.</span>
+    <div class="footer-legal">
+      <a href="https://worldselect.net/policies/legal-notice" target="_blank" rel="noopener">&#29305;&#21830;&#27861;&#34920;&#35352;</a>
+    </div>
+  </div>
+</div>
+</footer>
+</body>
+</html>

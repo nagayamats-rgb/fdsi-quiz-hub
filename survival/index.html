@@ -1,0 +1,1229 @@
+header('Content-Type: text/html; charset=utf-8');
+?><!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>旅先サバイバルシミュレーション</title>
+  <meta name="description" content="海外旅行で起きるデジタルトラブル。あなたは切り抜けられる？旅のサバイバル力を診断するシナリオベースのクイズです。">
+  <meta property="og:title" content="旅先サバイバルシミュレーション">
+  <meta property="og:description" content="4つのシナリオ、20問で旅のサバイバル力を診断。">
+  <meta property="og:url" content="https://fds.co.jp/quiz/survival/">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="/quiz/survival/">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"旅先サバイバルシミュレーション","description":"4つのシナリオ、20問で旅先トラブルへの対応力を測定。あなたは生還できる？","url":"https://fds.co.jp/quiz/survival/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://fds.co.jp/"}}
+</script>
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FDSi","item":"https://fds.co.jp/"},{"@type":"ListItem","position":2,"name":"Quiz Hub","item":"https://fds.co.jp/quiz/"},{"@type":"ListItem","position":3,"name":"旅先サバイバル","item":"https://fds.co.jp/quiz/survival/"}]}
+</script>
+  <style>
+:root{
+  --c-bg:#ffffff;
+  --c-surface:#f5f5f7;
+  --c-surface2:#e8e8ed;
+  --c-border:#d2d2d7;
+  --c-border-h:#86868b;
+  --c-text:#1d1d1f;
+  --c-text2:#6e6e73;
+  --c-text3:#86868b;
+  --c-primary:#0071e3;
+  --c-primary-h:#0077ED;
+  --c-primary-t:rgba(0,113,227,.08);
+  --c-primary-g:rgba(0,113,227,.18);
+  --c-shadow1:0 1px 3px rgba(0,0,0,.06);
+  --c-shadow2:0 4px 16px rgba(0,0,0,.08);
+  --radius:10px;
+  --radius-s:6px;
+  --radius-full:9999px;
+}
+
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --c-bg:#000000;
+    --c-surface:#1c1c1e;
+    --c-surface2:#2c2c2e;
+    --c-border:#38383a;
+    --c-border-h:#545456;
+    --c-text:#f5f5f7;
+    --c-text2:#a1a1a6;
+    --c-text3:#6e6e73;
+    --c-primary:#2997ff;
+    --c-primary-h:#40a9ff;
+    --c-primary-t:rgba(41,151,255,.12);
+    --c-primary-g:rgba(41,151,255,.22);
+    --c-shadow1:0 1px 3px rgba(0,0,0,.3);
+    --c-shadow2:0 4px 16px rgba(0,0,0,.35);
+  }
+}
+
+[data-theme="dark"]{
+  --c-bg:#000000;
+  --c-surface:#1c1c1e;
+  --c-surface2:#2c2c2e;
+  --c-border:#38383a;
+  --c-border-h:#545456;
+  --c-text:#f5f5f7;
+  --c-text2:#a1a1a6;
+  --c-text3:#6e6e73;
+  --c-primary:#2997ff;
+  --c-primary-h:#40a9ff;
+  --c-primary-t:rgba(41,151,255,.12);
+  --c-primary-g:rgba(41,151,255,.22);
+  --c-shadow1:0 1px 3px rgba(0,0,0,.3);
+  --c-shadow2:0 4px 16px rgba(0,0,0,.35);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN',sans-serif;-webkit-font-smoothing:antialiased;
+  background-color:var(--c-bg);
+  color:var(--c-text);
+  line-height:1.6;
+  transition:background-color .3s,color .3s;
+}
+
+.container{
+  max-width:700px;
+  margin:0 auto;
+  padding:20px;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:30px;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--c-border);
+}
+
+header h1{
+  font-size:24px;
+  font-weight:700;
+  margin:0;
+}
+
+.theme-toggle{
+  background:var(--c-surface);
+  border:1px solid var(--c-border);
+  border-radius:var(--radius-full);
+  padding:4px 8px;
+  cursor:pointer;
+  display:flex;
+  gap:4px;
+  align-items:center;
+  font-size:18px;
+}
+
+.theme-toggle button{
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:6px 10px;
+  border-radius:var(--radius-full);
+  color:var(--c-text2);
+  transition:all .2s;
+}
+
+.theme-toggle button.active{
+  background:var(--c-primary);
+  color:white;
+}
+
+.progress-bar-container{
+  margin-bottom:30px;
+}
+
+.progress-label{
+  font-size:12px;
+  color:var(--c-text3);
+  margin-bottom:8px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.progress-bar{
+  width:100%;
+  height:6px;
+  background:var(--c-surface2);
+  border-radius:var(--radius-full);
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  background:var(--c-primary);
+  width:0%;
+  transition:width .3s;
+}
+
+.scenario-header{
+  background:var(--c-primary);
+  color:white;
+  padding:20px;
+  border-radius:var(--radius);
+  margin-bottom:20px;
+}
+
+.scenario-header h2{
+  font-size:20px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.scenario-header p{
+  font-size:14px;
+  opacity:.95;
+}
+
+.scenario-label{
+  font-size:12px;
+  opacity:.85;
+  margin-bottom:8px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+}
+
+.question-card{
+  background:var(--c-surface);
+  border:1px solid var(--c-border);
+  border-radius:var(--radius);
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:var(--c-shadow1);
+}
+
+.question-number{
+  font-size:12px;
+  color:var(--c-text3);
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  margin-bottom:8px;
+}
+
+.question-text{
+  font-size:16px;
+  font-weight:600;
+  color:var(--c-text);
+  margin-bottom:16px;
+  line-height:1.5;
+}
+
+.options{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.option{
+  padding:12px 16px;
+  border:1px solid var(--c-border);
+  border-radius:var(--radius-s);
+  background:var(--c-bg);
+  cursor:pointer;
+  width:100%;-webkit-appearance:none;appearance:none;touch-action:manipulation;transition:border-color 0.2s, background-color 0.2s, color 0.2s, font-weight 0.2s;
+  font-size:14px;
+  color:var(--c-text);
+  text-align:left;
+  font-family:inherit;
+}
+
+.option:hover{
+  border-color:var(--c-primary);
+  background:var(--c-primary-t);
+}
+
+.option.selected{
+  background:var(--c-primary);
+  color:white;
+  border-color:var(--c-primary);
+}
+
+.scenario-transition{
+  background:var(--c-surface);
+  border:2px solid var(--c-primary);
+  border-radius:var(--radius);
+  padding:40px 20px;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.scenario-transition h2{
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:12px;
+  color:var(--c-primary);
+}
+
+.scenario-transition p{
+  font-size:14px;
+  color:var(--c-text2);
+  margin-bottom:24px;
+}
+
+.btn{
+  background:var(--c-primary);
+  color:white;
+  border:none;
+  padding:12px 24px;
+  border-radius:var(--radius-s);
+  cursor:pointer;
+  font-size:14px;
+  font-weight:600;
+  transition:all .2s;
+  font-family:inherit;
+}
+
+.btn:hover{
+  background:var(--c-primary-h);
+}
+
+.btn:active{
+  transform:scale(.98);
+}
+
+.btn:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+.btn.secondary{
+  background:var(--c-surface2);
+  color:var(--c-text);
+  border:1px solid var(--c-border);
+}
+
+.btn.secondary:hover{
+  background:var(--c-border);
+}
+
+.btn-group{
+  display:flex;
+  gap:12px;
+  margin-top:24px;
+  justify-content:center;
+}
+
+.btn-group .btn{
+  flex:1;
+}
+
+.result-screen{
+  background:var(--c-surface);
+  border:1px solid var(--c-border);
+  border-radius:var(--radius);
+  padding:40px 20px;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.result-rating{
+  font-size:48px;
+  font-weight:700;
+  margin-bottom:12px;
+  padding:20px;
+  border-radius:var(--radius);
+  color:white;
+  margin-bottom:20px;
+}
+
+.result-rating.master{
+  background:#34c759;
+}
+
+.result-rating.competent{
+  background:#0071e3;
+}
+
+.result-rating.apprentice{
+  background:#d97706;
+}
+
+.result-rating.beginner{
+  background:#ff3b30;
+}
+
+.result-score{
+  font-size:32px;
+  font-weight:700;
+  color:var(--c-primary);
+  margin-bottom:8px;
+}
+
+.result-max{
+  font-size:14px;
+  color:var(--c-text2);
+  margin-bottom:24px;
+}
+
+.result-description{
+  font-size:15px;
+  line-height:1.7;
+  color:var(--c-text2);
+  margin-bottom:24px;
+}
+
+.share-buttons{
+  display:flex;
+  gap:12px;
+  margin:24px 0;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.share-btn{
+  padding:10px 16px;
+  border:1px solid var(--c-border);
+  background:var(--c-surface);
+  color:var(--c-text);
+  border-radius:var(--radius-s);
+  cursor:pointer;
+  font-size:13px;
+  font-weight:600;
+  transition:all .2s;
+}
+
+.share-btn:hover{
+  background:var(--c-primary);
+  color:white;
+  border-color:var(--c-primary);
+}
+
+.hidden{
+  display:none !important;
+}
+
+.crosslinks{
+  margin-top:40px;
+  padding-top:20px;
+  border-top:1px solid var(--c-border);
+}
+
+.crosslinks-title{
+  font-size:12px;
+  color:var(--c-text3);
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  margin-bottom:12px;
+}
+
+.crosslinks-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;
+}
+
+.crosslink{
+  padding:10px 14px;
+  background:var(--c-surface);
+  border:1px solid var(--c-border);
+  border-radius:var(--radius-s);
+  text-decoration:none;
+  color:var(--c-primary);
+  font-size:13px;
+  font-weight:500;
+  text-align:center;
+  transition:all .2s;
+}
+
+.crosslink:hover{
+  background:var(--c-primary-g);
+  border-color:var(--c-primary);
+}
+
+.store-footer{
+  margin-top:40px;
+  padding:20px;
+  background:var(--c-surface);
+  border-radius:var(--radius);
+  text-align:center;
+  border:1px solid var(--c-border);
+}
+
+.store-footer p{
+  font-size:13px;
+  color:var(--c-text2);
+  margin-bottom:12px;
+}
+
+.store-link{
+  color:var(--c-primary);
+  text-decoration:none;
+  font-weight:600;
+}
+
+.store-link:hover{
+  text-decoration:underline;
+}
+
+footer{
+  margin-top:40px;
+  padding-top:20px;
+  border-top:1px solid var(--c-border);
+  text-align:center;
+  font-size:12px;
+  color:var(--c-text3);
+}
+
+@media(max-width:600px){
+  .container{
+    padding:16px;
+  }
+
+  header h1{
+    font-size:20px;
+  }
+
+  .question-text{
+    font-size:15px;
+  }
+
+  .result-rating{
+    font-size:36px;
+  }
+
+  .result-score{
+    font-size:28px;
+  }
+
+  .btn-group{
+    flex-direction:column;
+  }
+
+  .crosslinks-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+.prods{margin:24px 0}
+.prods-h{font-size:15px;font-weight:700;color:var(--c-text);margin-bottom:14px;text-align:center}
+.prod{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);margin-bottom:10px;transition:border-color .15s}
+.prod:hover{border-color:var(--c-border-h)}
+.prod-info{flex:1;min-width:0}
+.prod-name{font-size:13px;font-weight:700;color:var(--c-text);margin-bottom:4px}
+.prod-desc{font-size:11px;color:var(--c-text2);margin-bottom:8px}
+.prod-links{display:flex;gap:6px;flex-wrap:wrap}
+.prod-a{font-size:10px;font-weight:700;padding:3px 10px;border-radius:var(--radius-full);text-decoration:none;color:#fff;transition:opacity .2s}
+.prod-a:hover{opacity:.85}
+.prod-r{background:#ff3b30}.prod-y{background:#ea580c}.prod-s{background:var(--c-primary)}
+.exp-link{margin:12px 0 4px;padding:12px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);display:flex;align-items:center;gap:10px;transition:border-color .2s,box-shadow .2s}
+.exp-link:hover{border-color:var(--c-primary);box-shadow:var(--c-shadow1)}
+.exp-link::before{content:"";display:block;width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--c-primary-t),var(--c-primary-g));flex-shrink:0}
+.exp-link a{color:var(--c-primary);text-decoration:none;font-weight:600;font-size:13px;line-height:1.4}
+.exp-link a:hover{text-decoration:underline}
+  
+/* ── Sticky Nav (Apple-style) ── */
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--c-border);height:var(--nav-h);transition:background .3s}
+[data-theme="dark"] .site-nav{background:rgba(0,0,0,.72)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .site-nav{background:rgba(0,0,0,.72)}}
+.nav-inner{max-width:980px;margin:0 auto;padding:0 20px;display:flex;align-items:center;height:100%;gap:8px}
+.nav-brand{font-weight:700;font-size:15px;color:var(--c-text);text-decoration:none;margin-right:auto;white-space:nowrap;letter-spacing:-.02em}
+.nav-links{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-link{font-size:12px;color:var(--c-text2);text-decoration:none;padding:6px 10px;border-radius:var(--radius-full);white-space:nowrap;transition:color .2s,background .2s}
+.nav-link:hover{color:var(--c-text);background:var(--c-primary-t)}
+.nav-link.active{color:var(--c-primary);font-weight:600}
+.nav-acts{display:flex;align-items:center;gap:8px;margin-left:auto}
+.nav-theme{background:none;border:none;cursor:pointer;font-size:16px;padding:4px 8px;border-radius:var(--radius-full);transition:background .2s}
+.nav-theme:hover{background:var(--c-primary-t)}
+.nav-shop{font-size:12px;font-weight:600;color:var(--c-primary);text-decoration:none;padding:5px 12px;border:1.5px solid var(--c-primary);border-radius:var(--radius-full);transition:all .2s;white-space:nowrap}
+.nav-shop:hover{background:var(--c-primary);color:#fff}
+
+/* ── Enhanced Footer ── */
+.site-footer{border-top:1px solid var(--c-border);margin-top:60px;padding:40px 0 24px;background:var(--c-surface)}
+.footer-inner{max-width:980px;margin:0 auto;padding:0 20px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr 1fr;gap:20px}}
+.footer-brand{font-size:15px;font-weight:700;color:var(--c-text);margin-bottom:8px}
+.footer-brand-sub{font-size:12px;color:var(--c-text3);line-height:1.5}
+.footer-col-title{font-size:12px;font-weight:700;color:var(--c-text);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em}
+.footer-col a{display:block;font-size:12px;color:var(--c-text2);text-decoration:none;padding:3px 0;transition:color .2s}
+.footer-col a:hover{color:var(--c-primary)}
+.footer-bottom{border-top:1px solid var(--c-border);padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-copy{font-size:11px;color:var(--c-text3)}
+.footer-legal{display:flex;gap:16px}
+.footer-legal a{font-size:11px;color:var(--c-text3);text-decoration:none}
+.footer-legal a:hover{color:var(--c-primary)}
+
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+<div class="nav-inner">
+  <a class="nav-brand" href="/quiz/">WS Quiz Hub</a>
+  <div class="nav-links"><a class="nav-link" href="/quiz/marathon/">知識</a><a class="nav-link" href="/quiz/travel/">診断</a><a class="nav-link" href="/quiz/digital/">偏差値</a><a class="nav-link active" href="/quiz/survival/">シナリオ</a><a class="nav-link" href="/quiz/gadget/">検定</a></div>
+  <div class="nav-acts">
+    <button class="nav-theme" id="themeToggle" aria-label="テーマ切替">&#x2600;&#xFE0F;</button>
+    <a class="nav-shop" href="https://worldselect.net/">Shop</a>
+  </div>
+</div>
+</nav>
+
+<div class="container" style="padding-top:20px">
+
+  <div class="progress-bar-container">
+    <div class="progress-label">
+      <span>進捗</span>
+      <span id="progressText">0 / 20</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <div id="content"></div>
+
+</div>
+
+<!-- WS_QUIZ_STORE_SEARCH -->
+    <div style="margin:24px 0;padding:20px;background:var(--c-surface,#f5f5f7);border-radius:12px;text-align:center;">
+      <div style="font-size:15px;font-weight:700;color:var(--c-text,#1d1d1f);margin-bottom:12px;">&#128722; World Select &#12391;&#25506;&#12377;</div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;">
+      <a href="https://search.rakuten.co.jp/search/mall/充電器/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; 充電器</a>
+      <a href="https://search.rakuten.co.jp/search/mall/ケーブル/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; ケーブル</a>
+      <a href="https://search.rakuten.co.jp/search/mall/iPhone+ケース/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; ケース</a>
+      <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener" style="display:inline-block;background:#ff0033;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">Yahoo! &#12473;&#12488;&#12450;</a>
+      <a href="https://worldselect.net/" target="_blank" rel="noopener" style="display:inline-block;background:#0071e3;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
+      </div>
+      <div style="font-size:11px;color:var(--c-text3,#86868b);margin-top:8px;">&#27005;&#22825;&#24066;&#22580;&#12398;World Select&#24215;&#33303;&#20869;&#12391;&#26908;&#32034;&#12375;&#12414;&#12377;</div>
+    </div>
+<!-- /WS_QUIZ_STORE_SEARCH -->
+<footer class="site-footer">
+<div class="footer-inner">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">World Select</div>
+      <div class="footer-brand-sub">Quiz Hub</div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#127918; &#12463;&#12452;&#12474;</div>
+    <a href="/quiz/marathon/">&#127939; テク雑学マラソン (100問)</a>
+    <a href="/quiz/academy/">&#127891; ガジェット検定 (60問)</a>
+    <a href="/quiz/digital/">&#128200; デジタル偏差値 (15問)</a>
+    <a href="/quiz/travel/">&#9992; 旅行スタイル診断 (10問)</a>
+    <a href="/quiz/charging/">&#128267; 充電スタイル診断 (7問)</a>
+    <a href="/quiz/gadget/">&#129504; ガジェットオタク度 (10問)</a>
+    <a href="/quiz/">&#127968; &#20840;&#12463;&#12452;&#12474;&#19968;&#35239;</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#128722; &#12471;&#12519;&#12483;&#12503;</div>
+      <a href="https://www.rakuten.co.jp/world11select/" target="_blank" rel="noopener">&#27005;&#22825;&#24066;&#22580;</a>
+      <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener">Yahoo!</a>
+      <a href="https://worldselect.net/" target="_blank" rel="noopener">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#8505;&#65039; &#12452;&#12531;&#12501;&#12457;</div>
+      <a href="https://fds.co.jp/">FDSi</a>
+      <a href="https://worldselect.net/policies/privacy-policy" target="_blank" rel="noopener">&#12503;&#12521;&#12452;&#12496;&#12471;&#12540;</a>
+      <a href="https://worldselect.net/policies/terms-of-service" target="_blank" rel="noopener">&#21033;&#29992;&#35215;&#32004;</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2024-2026 World Select / FDSi Inc.</span>
+    <div class="footer-legal">
+      <a href="https://worldselect.net/policies/legal-notice" target="_blank" rel="noopener">&#29305;&#21830;&#27861;&#34920;&#35352;</a>
+    </div>
+  </div>
+</div>
+</footer>
+
+<script>
+var quizData = [
+  {
+    scenario: 1,
+    title: "空港パニック",
+    description: "海外旅行中、乗り継ぎ空港でトラブル発生！　(シナリオ 1 / 4)",
+    questions: [
+      {
+        id: "1-1",
+        text: "フライトが3時間遅延。スマホのバッテリーは残り15%。どうする？",
+        options: [
+          { text: "空港のUSB充電スポットを探す", points: 1 },
+          { text: "モバイルバッテリーで充電", points: 3 },
+          { text: "機内モードにして節約", points: 2 },
+          { text: "近くの人にケーブルを借りる", points: 1 }
+        ]
+      },
+      {
+        id: "1-2",
+        text: "Wi-Fiが有料で接続できない。急ぎのメールを送りたい。",
+        options: [
+          { text: "有料Wi-Fiを購入する", points: 2 },
+          { text: "eSIMを即日アクティベート", points: 3 },
+          { text: "空港スタッフにWi-Fiを聞く", points: 1 },
+          { text: "メールを諦めてSMSで要件だけ送る", points: 2 }
+        ]
+      },
+      {
+        id: "1-3",
+        text: "預けた荷物が届かない。充電器もスーツケースの中。",
+        options: [
+          { text: "航空会社カウンターで手続き＋補償を交渉", points: 3 },
+          { text: "ロストバゲージカウンターに行く", points: 2 },
+          { text: "SNSで航空会社にDM", points: 1 },
+          { text: "とりあえずホテルに向かう", points: 0 }
+        ]
+      },
+      {
+        id: "1-4",
+        text: "タクシーに乗ったがナビが動かず運転手が道に迷っている。",
+        options: [
+          { text: "オフラインマップを事前DLしていたので案内", points: 3 },
+          { text: "Google Mapsで現在地を確認して指示", points: 2 },
+          { text: "運転手に任せて待つ", points: 0 },
+          { text: "別のタクシーに乗り換える", points: 1 }
+        ]
+      },
+      {
+        id: "1-5",
+        text: "ホテルに着いたがコンセントの形状が違う。",
+        options: [
+          { text: "マルチ変換プラグを持参していた", points: 3 },
+          { text: "フロントに変換プラグを借りる", points: 2 },
+          { text: "USB充電できるカフェを探す", points: 1 },
+          { text: "コンビニで変換プラグを買いに行く", points: 1 }
+        ]
+      }
+    ]
+  },
+  {
+    scenario: 2,
+    title: "ホテルの夜",
+    description: "チェックイン後、デジタルトラブルが次々と…　(シナリオ 2 / 4)",
+    questions: [
+      {
+        id: "2-1",
+        text: "ホテルのWi-Fiが極端に遅い。明日の予約確認が必要。",
+        options: [
+          { text: "5GHz帯に手動で切り替え", points: 3 },
+          { text: "ロビーのWi-Fiを試す", points: 2 },
+          { text: "スマホのテザリングを使う", points: 2 },
+          { text: "明日フロントで確認する", points: 0 }
+        ]
+      },
+      {
+        id: "2-2",
+        text: "スマホの画面にヒビが入った！操作はできるが…",
+        options: [
+          { text: "保護フィルムの上からさらにテープで補強", points: 2 },
+          { text: "ホテル近くの修理ショップを検索", points: 3 },
+          { text: "そのまま使い続ける", points: 0 },
+          { text: "サブ端末（タブレット）に切り替え", points: 3 }
+        ]
+      },
+      {
+        id: "2-3",
+        text: "突然スマホが高温警告を出して使えない。",
+        options: [
+          { text: "ケースを外して涼しい場所で冷ます", points: 3 },
+          { text: "冷蔵庫に入れる", points: 0 },
+          { text: "電源を切って30分待つ", points: 2 },
+          { text: "エアコンの風を直接当てる", points: 1 }
+        ]
+      },
+      {
+        id: "2-4",
+        text: "充電ケーブルが断線した。予備はない。",
+        options: [
+          { text: "ホテルのビジネスセンターで充電", points: 2 },
+          { text: "近くのコンビニでケーブル購入", points: 3 },
+          { text: "同行者に借りる", points: 2 },
+          { text: "充電なしで翌日まで我慢", points: 0 }
+        ]
+      },
+      {
+        id: "2-5",
+        text: "翌朝、大事なデータが入ったクラウドにログインできない。",
+        options: [
+          { text: "パスワードマネージャーアプリで復旧", points: 3 },
+          { text: "秘密の質問で再設定", points: 2 },
+          { text: "別のメールアドレスでリセット", points: 2 },
+          { text: "諦めて現地で対応", points: 0 }
+        ]
+      }
+    ]
+  },
+  {
+    scenario: 3,
+    title: "キャンプの危機",
+    description: "アウトドアキャンプ中にガジェットトラブル　(シナリオ 3 / 4)",
+    questions: [
+      {
+        id: "3-1",
+        text: "山奥のキャンプ場。電波が届かない。緊急連絡手段は？",
+        options: [
+          { text: "事前に緊急連絡先をオフライン保存していた", points: 3 },
+          { text: "高い場所に移動して電波を探す", points: 2 },
+          { text: "他のキャンパーに助けを求める", points: 1 },
+          { text: "諦めて待つ", points: 0 }
+        ]
+      },
+      {
+        id: "3-2",
+        text: "突然の雨。テント内で電子機器を守るには？",
+        options: [
+          { text: "防水バッグにまとめて格納", points: 3 },
+          { text: "ジップロックに入れる", points: 2 },
+          { text: "タオルに包む", points: 1 },
+          { text: "テントの一番高い場所に置く", points: 1 }
+        ]
+      },
+      {
+        id: "3-3",
+        text: "夜、ランタン代わりにスマホのライトを使いたいが電池が心配。",
+        options: [
+          { text: "ソーラー充電器で日中に蓄電済み", points: 3 },
+          { text: "画面の明るさを最低にしてライト使用", points: 2 },
+          { text: "モバイルバッテリーで充電しながら使う", points: 2 },
+          { text: "焚き火の明かりだけで過ごす", points: 0 }
+        ]
+      },
+      {
+        id: "3-4",
+        text: "写真をたくさん撮ったらストレージが一杯になった。",
+        options: [
+          { text: "モバイルSSDにバックアップ転送", points: 3 },
+          { text: "不要な写真を選んで削除", points: 2 },
+          { text: "クラウドアップロード（電波復帰時）", points: 2 },
+          { text: "写真を諦めてキャンプを楽しむ", points: 0 }
+        ]
+      },
+      {
+        id: "3-5",
+        text: "帰り道、カーナビもスマホも電池切れ。",
+        options: [
+          { text: "紙の地図を常に車に積んでいた", points: 3 },
+          { text: "太陽の位置で方角を確認", points: 2 },
+          { text: "来た道の記憶で帰る", points: 1 },
+          { text: "他の車について行く", points: 0 }
+        ]
+      }
+    ]
+  },
+  {
+    scenario: 4,
+    title: "都会サバイバル — 台風で交通麻痺",
+    description: "大型台風で都会が機能停止。スマホとネットが頼り…　(シナリオ 4 / 4)",
+    questions: [
+      {
+        id: "4-1",
+        text: "停電が起きた。スマホの充電残量は30%。でも待機時間は12時間。",
+        options: [
+          { text: "モバイルバッテリーで確実に対応", points: 3 },
+          { text: "低電力モードにして節約", points: 2 },
+          { text: "WiFiをオフにするだけ", points: 1 },
+          { text: "別のバッテリーサービスを探す", points: 0 }
+        ]
+      },
+      {
+        id: "4-2",
+        text: "雨でスマホが濡れた。まだ動いているが故障が心配。",
+        options: [
+          { text: "防水ケースに入れてシリカゲルで乾燥", points: 3 },
+          { text: "タオルに包んで放置", points: 1 },
+          { text: "ドライヤーの温風で乾かす", points: 0 },
+          { text: "そのまま使い続ける", points: 0 }
+        ]
+      },
+      {
+        id: "4-3",
+        text: "交通網が全滅。帰宅に向けてスマホを活用したい。何を確認する？",
+        options: [
+          { text: "事前に保存したオフラインマップで迂回ルート確認", points: 3 },
+          { text: "Twitter/SNSで人流情報をリアルタイム取得", points: 2 },
+          { text: "タクシーの配車アプリを試す", points: 1 },
+          { text: "歩いて帰るか諦める", points: 0 }
+        ]
+      },
+      {
+        id: "4-4",
+        text: "停電でWi-Fiが使えない。LTE/5Gの節約方法は？",
+        options: [
+          { text: "データセーバーモード + 低電力モード両方ON", points: 3 },
+          { text: "Wi-Fiのみで接続待ち", points: 1 },
+          { text: "友人のeSIMをシェア", points: 2 },
+          { text: "通信なしで待つ", points: 0 }
+        ]
+      },
+      {
+        id: "4-5",
+        text: "スマホが唯一の連絡手段。バッテリー管理と情報取得の優先順位は？",
+        options: [
+          { text: "必要な連絡だけSMS / 通話に絞り、SNSは控える", points: 3 },
+          { text: "重要な情報をスクリーンショットして保存", points: 2 },
+          { text: "クラウド同期で全てをバックアップ", points: 1 },
+          { text: "とにかく全情報を集める", points: 0 }
+        ]
+      }
+    ]
+  }
+];
+
+var currentQuestion = 0;
+var totalQuestions = 20;
+var userAnswers = [];
+var currentScenario = 0;
+
+var resultLevels = [
+  { min: 50, max: 60, title: "サバイバルマスター", color: "#34c759", description: "どんなトラブルも華麗に解決。旅の達人です！準備万全で、トラブル時の判断も冷静。あなたの旅力はまさに最高峰。" },
+  { min: 37, max: 49, title: "危機管理上手", color: "#0071e3", description: "冷静な判断力。ほとんどのトラブルに対応できます。基本的なトラブル対策はバッチリ。さらに準備を深掘ると、次のステップが見えてきます。" },
+  { min: 24, max: 36, title: "サバイバル見習い", color: "#d97706", description: "基本はOK。事前準備をもう少し強化しましょう。アイテムや知識をちょっと増やすだけで、グッとスコアが上がります。" },
+  { min: 0, max: 23, title: "トラブル初心者", color: "#ff3b30", description: "準備不足が目立ちます。次の旅行前に対策をしっかり立てましょう。防水ケース、モバイルバッテリー、オフラインマップなど、小さな準備が大きな違いを生みます。" }
+];
+
+function initTheme(){
+  var stored = localStorage.getItem('ws-theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
+  var isDark = stored === 'dark' || (stored === null && prefersDark);
+  setTheme(isDark ? 'dark' : 'light');
+}
+
+function setTheme(theme){
+  var isDark = theme === 'dark';
+  if(isDark){
+    document.documentElement.setAttribute('data-theme','dark');
+  } else {
+    document.documentElement.setAttribute('data-theme','light');
+  }
+  var db = document.getElementById('themeDarkBtn');
+  var lb = document.getElementById('themeLightBtn');
+  if(db && lb){
+    if(isDark){ db.classList.add('active'); lb.classList.remove('active'); }
+    else { lb.classList.add('active'); db.classList.remove('active'); }
+  }
+  localStorage.setItem('ws-theme',theme);
+}
+
+function fisherYatesShuffle(arr){
+  var array = arr.slice();
+  for(var i = array.length - 1; i > 0; i--){
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
+function updateProgress(){
+  var percent = (userAnswers.length / totalQuestions) * 100;
+  document.getElementById('progressFill').style.width = percent + '%';
+  document.getElementById('progressText').textContent = userAnswers.length + ' / ' + totalQuestions;
+}
+
+function getScenarioInfo(index){
+  return quizData[index];
+}
+
+function getAllQuestions(){
+  var questions = [];
+  for(var s = 0; s < quizData.length; s++){
+    for(var q = 0; q < quizData[s].questions.length; q++){
+      questions.push(quizData[s].questions[q]);
+    }
+  }
+  return questions;
+}
+
+function getQuestionScenarioIndex(questionId){
+  var parts = questionId.split('-');
+  return parseInt(parts[0]) - 1;
+}
+
+function render(){
+  var content = document.getElementById('content');
+  var allQuestions = getAllQuestions();
+
+  if(userAnswers.length < totalQuestions){
+    var question = allQuestions[userAnswers.length];
+    var scenarioIndex = getQuestionScenarioIndex(question.id);
+    var scenario = getScenarioInfo(scenarioIndex);
+    var questionIndexInScenario = (userAnswers.length % 5);
+    var isFirstInScenario = (questionIndexInScenario === 0);
+    var isLastQuestion = (userAnswers.length === totalQuestions - 1);
+
+    var html = '';
+
+    if(isFirstInScenario && userAnswers.length > 0){
+      html += '<div class="scenario-transition">';
+      html += '<h2>' + scenario.title + '</h2>';
+      html += '<p>' + scenario.description + '</p>';
+      html += '<button class="btn" onclick="continueQuiz()">続ける</button>';
+      html += '</div>';
+    } else if(isFirstInScenario && userAnswers.length === 0){
+      html += '<div class="scenario-header">';
+      html += '<div class="scenario-label">シナリオ ' + (scenarioIndex + 1) + ' / 4</div>';
+      html += '<h2>' + scenario.title + '</h2>';
+      html += '<p>' + scenario.description + '</p>';
+      html += '</div>';
+    }
+
+    html += '<div class="question-card">';
+    html += '<div class="question-number">質問 ' + (userAnswers.length + 1) + ' / ' + totalQuestions + '</div>';
+    html += '<div class="question-text">' + question.text + '</div>';
+    html += '<div class="options" id="optionsContainer">';
+
+    var shuffledOptions = fisherYatesShuffle(question.options);
+    for(var i = 0; i < shuffledOptions.length; i++){
+      var opt = shuffledOptions[i];
+      html += '<button class="option" data-oidx="' + i + '">' + opt.text + '</button>';
+    }
+
+    html += '</div>';
+    html += '<div class="btn-group">';
+    if(userAnswers.length > 0){
+      html += '<button class="btn secondary" onclick="goBack()">戻る</button>';
+    }
+    html += '<button class="btn" id="nextBtn" disabled onclick="nextQuestion()">次へ</button>';
+    html += '</div>';
+    html += '</div>';
+
+    content.innerHTML = html;
+  } else {
+    renderResult();
+  }
+}
+
+function selectOption(btn, index){
+  var allOptions = document.querySelectorAll('.option');
+  for(var i = 0; i < allOptions.length; i++){
+    allOptions[i].classList.remove('selected');
+  }
+  btn.classList.add('selected');
+
+  var allQuestions = getAllQuestions();
+  var question = allQuestions[userAnswers.length];
+  var shuffledOptions = fisherYatesShuffle(question.options);
+  var selectedOption = shuffledOptions[index];
+
+  userAnswers[userAnswers.length] = selectedOption.points;
+
+  document.getElementById('nextBtn').disabled = false;
+}
+
+/* iOS Safari touch event delegation */
+(function(){
+  document.addEventListener('touchstart', function(e){
+    document.body._touchMoved = false;
+  }, false);
+  document.addEventListener('touchmove', function(e){
+    document.body._touchMoved = true;
+  }, false);
+  document.addEventListener('touchend', function(e){
+    if(document.body._touchMoved) return;
+    var t = e.target;
+    while(t){
+      if(t.nodeName === 'BUTTON' && t.className && t.className.indexOf('option') !== -1 && t.getAttribute('data-oidx') !== null){
+        e.preventDefault();
+        var idx = parseInt(t.getAttribute('data-oidx'), 10);
+        selectOption(t, idx);
+        return;
+      }
+      t = t.parentNode;
+    }
+  }, false);
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    while(t){
+      if(t.nodeName === 'BUTTON' && t.className && t.className.indexOf('option') !== -1 && t.getAttribute('data-oidx') !== null){
+        var idx = parseInt(t.getAttribute('data-oidx'), 10);
+        selectOption(t, idx);
+        return;
+      }
+      t = t.parentNode;
+    }
+  }, false);
+})();
+
+function nextQuestion(){
+  if(userAnswers.length < totalQuestions){
+    updateProgress();
+    render();
+    window.scrollTo(0,0);
+  }
+}
+
+function goBack(){
+  if(userAnswers.length > 0){
+    userAnswers.pop();
+    updateProgress();
+    render();
+    window.scrollTo(0,0);
+  }
+}
+
+function continueQuiz(){
+  render();
+}
+
+function renderResult(){
+  var totalScore = 0;
+  for(var i = 0; i < userAnswers.length; i++){
+    totalScore += userAnswers[i];
+  }
+
+  var resultLevel = null;
+  for(var i = 0; i < resultLevels.length; i++){
+    if(totalScore >= resultLevels[i].min && totalScore <= resultLevels[i].max){
+      resultLevel = resultLevels[i];
+      break;
+    }
+  }
+
+  var content = document.getElementById('content');
+  var html = '<div class="result-screen">';
+  html += '<div class="result-rating ' + (totalScore >= 38 ? 'master' : totalScore >= 28 ? 'competent' : totalScore >= 18 ? 'apprentice' : 'beginner') + '">';
+  html += resultLevel.title;
+  html += '</div>';
+  html += '<div class="result-score">' + totalScore + '</div>';
+  html += '<div class="result-max">/ 60 ポイント</div>';
+  html += '<div class="result-description">' + resultLevel.description + '</div>';
+
+  html += '<div class="prods">';
+  html += '<div class="prods-h">旅先トラブルに備えるアイテム</div>';
+  html += '<div class="prod">';
+  html += '<div class="prod-info">';
+  html += '<div class="prod-name">モバイルバッテリー 20000mAh USB-C対応</div>';
+  html += '<div class="prod-desc">最大12時間の待機時間をサポート。災害時の必須アイテム</div>';
+  html += '<div class="prod-links">';
+  html += '公式ストア';
+  html += '<a href="https://item.rakuten.co.jp/world11select/ws01/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>';
+  html += '<a href="https://store.shopping.yahoo.co.jp/world1select/search.html?p=MagSafe" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>';
+  html += '</div>';
+  html += '<span class="exp-link">▶ 詳細を見る</span>';
+  html += '</div>';
+  html += '</div>';
+  html += '<div class="prod">';
+  html += '<div class="prod-info">';
+  html += '<div class="prod-name">IP68防水スマートフォンケース</div>';
+  html += '<div class="prod-desc">雨や水濡れから完全保護。台風対策に最適</div>';
+  html += '<div class="prod-links">';
+  html += '<a href="https://worldselect.net/products/ws102?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=survival" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>';
+  html += '<a href="https://item.rakuten.co.jp/world11select/ws102/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>';
+  html += '<a href="https://store.shopping.yahoo.co.jp/world1select/search.html?p=iPhone+%E3%82%B1%E3%83%BC%E3%82%B9+%E3%83%9E%E3%82%B0%E3%83%8D%E3%83%83%E3%83%88" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>';
+  html += '</div>';
+  html += '<span class="exp-link"><a href="https://worldselect.net/products/ws102?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=survival">▶ 詳細を見る</a> <a href="https://item.rakuten.co.jp/world11select/ws102/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/search.html?p=iPhone+%E3%82%B1%E3%83%BC%E3%82%B9+%E3%83%9E%E3%82%B0%E3%83%8D%E3%83%83%E3%83%88" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span>';
+  html += '</div>';
+  html += '</div>';
+  html += '<div class="prod">';
+  html += '<div class="prod-info">';
+  html += '<div class="prod-name">Apple Watch用MagSafe急速充電器</div>';
+  html += '<div class="prod-desc">15分で50%充電。外出時の時間の無駄ゼロ</div>';
+  html += '<div class="prod-links">';
+  html += '<a href="https://worldselect.net/products/magsafe-charger-2?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=survival" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>';
+  html += '<a href="https://item.rakuten.co.jp/world11select/magsafe-charger-2/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>';
+  html += '<a href="https://store.shopping.yahoo.co.jp/world1select/ws-magsafe-charger-15w-2.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>';
+  html += '</div>';
+  html += '<span class="exp-link"><a href="https://worldselect.net/products/magsafe-charger-2?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=survival">▶ 詳細を見る</a> <a href="https://item.rakuten.co.jp/world11select/magsafe-charger-2/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/ws-magsafe-charger-15w-2.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span>';
+  html += '</div>';
+  html += '</div>';
+  html += '<div class="prod">';
+  html += '<div class="prod-info">';
+  html += '<div class="prod-name">6in1 マルチケーブル（60W対応）</div>';
+  html += '<div class="prod-desc">全端子対応で海外でも安心。緊急時の充電に1本</div>';
+  html += '<div class="prod-links">';
+  html += '<a href="https://worldselect.net/products/60w-6in1cable?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=survival" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>';
+  html += '<a href="https://item.rakuten.co.jp/world11select/60w-6in1cable/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>';
+  html += '<a href="https://store.shopping.yahoo.co.jp/world1select/60w-6in1cable.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>';
+  html += '</div>';
+  html += '<span class="exp-link"><a href="https://worldselect.net/products/60w-6in1cable?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=survival">▶ 詳細を見る</a> <a href="https://item.rakuten.co.jp/world11select/60w-6in1cable/" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/60w-6in1cable.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo!</a></span>';
+  html += '</div>';
+  html += '</div>';
+  html += '</div>';
+
+  html += '<div class="share-buttons">';
+  html += '<button class="share-btn" onclick="shareTwitter()">𝕏で共有</button>';
+  html += '<button class="share-btn" onclick="shareText()">結果をコピー</button>';
+  html += '</div>';
+
+  html += '<button class="btn" onclick="restart()" style="width:100%;margin-top:24px;">もう一度チャレンジ</button>';
+  html += '</div>';
+
+  html += '<div class="crosslinks">';
+  html += '<div class="crosslinks-title">関連クイズ</div>';
+  html += '<div class="crosslinks-grid">';
+  html += '<a href="/quiz/travel/" class="crosslink">旅行準備</a>';
+  html += '<a href="/quiz/marathon/" class="crosslink">マラソン</a>';
+  html += '<a href="/quiz/digital/" class="crosslink">デジタル対応</a>';
+  html += '<a href="/quiz/academy/" class="crosslink">学習診断</a>';
+  html += '<a href="/quiz/charging/" class="crosslink">充電効率</a>';
+  html += '<a href="/quiz/gadget/" class="crosslink">ガジェット</a>';
+  html += '</div>';
+  html += '</div>';
+
+  html += '<div class="store-footer">';
+  html += '<p>旅のトラブル対策は、適切なアイテムの準備から。</p>';
+  html += '<a href="https://worldselect.net" class="store-link">World Select公式ストアで対策アイテムをチェック →</a>';
+  html += '</div>';
+
+  content.innerHTML = html;
+  updateProgress();
+  window.scrollTo(0,0);
+}
+
+function shareTwitter(){
+  var resultLevel = null;
+  var totalScore = 0;
+  for(var i = 0; i < userAnswers.length; i++){
+    totalScore += userAnswers[i];
+  }
+  for(var i = 0; i < resultLevels.length; i++){
+    if(totalScore >= resultLevels[i].min && totalScore <= resultLevels[i].max){
+      resultLevel = resultLevels[i];
+      break;
+    }
+  }
+  var text = encodeURIComponent('旅先サバイバルシミュレーションで「' + resultLevel.title + '」(' + totalScore + '/60ポイント)を獲得しました！あなたのサバイバル力は？\nhttps://fds.co.jp/quiz/survival/');
+  window.open('https://x.com/intent/tweet?text=' + text,'_blank');
+}
+
+function shareText(){
+  var resultLevel = null;
+  var totalScore = 0;
+  for(var i = 0; i < userAnswers.length; i++){
+    totalScore += userAnswers[i];
+  }
+  for(var i = 0; i < resultLevels.length; i++){
+    if(totalScore >= resultLevels[i].min && totalScore <= resultLevels[i].max){
+      resultLevel = resultLevels[i];
+      break;
+    }
+  }
+  var text = '旅先サバイバルシミュレーション\n\n結果: ' + resultLevel.title + '\nスコア: ' + totalScore + ' / 60 ポイント\n\n' + resultLevel.description + '\n\nhttps://fds.co.jp/quiz/survival/';
+  navigator.clipboard.writeText(text).then(function(){
+    alert('結果をコピーしました！');
+  });
+}
+
+function restart(){
+  userAnswers = [];
+  currentQuestion = 0;
+  updateProgress();
+  render();
+  window.scrollTo(0,0);
+}
+
+var _tlb = document.getElementById('themeLightBtn');
+var _tdb = document.getElementById('themeDarkBtn');
+if(_tlb) _tlb.addEventListener('click',function(){ setTheme('light'); },false);
+if(_tdb) _tdb.addEventListener('click',function(){ setTheme('dark'); },false);
+
+initTheme();
+updateProgress();
+render();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /quiz/
+Sitemap: https://fds.co.jp/quiz/sitemap.xml
