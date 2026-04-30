@@ -11,14 +11,14 @@ header('Content-Type: text/html; charset=utf-8');
   <meta name="description" content="海外旅行で起きるデジタルトラブル。あなたは切り抜けられる？旅のサバイバル力を診断するシナリオベースのクイズです。">
   <meta property="og:title" content="旅先サバイバルシミュレーション">
   <meta property="og:description" content="4つのシナリオ、20問で旅のサバイバル力を診断。">
-  <meta property="og:url" content="https://fds.co.jp/quiz/survival/">
+  <meta property="og:url" content="https://nagayamats-rgb.github.io/fdsi-quiz-hub/survival/">
   <meta property="og:type" content="website">
   <link rel="canonical" href="/quiz/survival/">
   <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Quiz","name":"旅先サバイバルシミュレーション","description":"4つのシナリオ、20問で旅先トラブルへの対応力を測定。あなたは生還できる？","url":"https://fds.co.jp/quiz/survival/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://fds.co.jp/"}}
+{"@context":"https://schema.org","@type":"Quiz","name":"旅先サバイバルシミュレーション","description":"4つのシナリオ、20問で旅先トラブルへの対応力を測定。あなたは生還できる？","url":"https://nagayamats-rgb.github.io/fdsi-quiz-hub/survival/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://fds.co.jp/"}}
 </script>
   <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FDSi","item":"https://fds.co.jp/"},{"@type":"ListItem","position":2,"name":"Quiz Hub","item":"https://fds.co.jp/quiz/"},{"@type":"ListItem","position":3,"name":"旅先サバイバル","item":"https://fds.co.jp/quiz/survival/"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FDSi","item":"https://fds.co.jp/"},{"@type":"ListItem","position":2,"name":"Quiz Hub","item":"https://nagayamats-rgb.github.io/fdsi-quiz-hub/"},{"@type":"ListItem","position":3,"name":"旅先サバイバル","item":"https://nagayamats-rgb.github.io/fdsi-quiz-hub/survival/"}]}
 </script>
   <style>
 :root{
@@ -1185,7 +1185,7 @@ function shareTwitter(){
       break;
     }
   }
-  var text = encodeURIComponent('旅先サバイバルシミュレーションで「' + resultLevel.title + '」(' + totalScore + '/60ポイント)を獲得しました！あなたのサバイバル力は？\nhttps://fds.co.jp/quiz/survival/');
+  var text = encodeURIComponent('旅先サバイバルシミュレーションで「' + resultLevel.title + '」(' + totalScore + '/60ポイント)を獲得しました！あなたのサバイバル力は？\nhttps://nagayamats-rgb.github.io/fdsi-quiz-hub/survival/');
   window.open('https://x.com/intent/tweet?text=' + text,'_blank');
 }
 
@@ -1201,7 +1201,7 @@ function shareText(){
       break;
     }
   }
-  var text = '旅先サバイバルシミュレーション\n\n結果: ' + resultLevel.title + '\nスコア: ' + totalScore + ' / 60 ポイント\n\n' + resultLevel.description + '\n\nhttps://fds.co.jp/quiz/survival/';
+  var text = '旅先サバイバルシミュレーション\n\n結果: ' + resultLevel.title + '\nスコア: ' + totalScore + ' / 60 ポイント\n\n' + resultLevel.description + '\n\nhttps://nagayamats-rgb.github.io/fdsi-quiz-hub/survival/';
   navigator.clipboard.writeText(text).then(function(){
     alert('結果をコピーしました！');
   });
