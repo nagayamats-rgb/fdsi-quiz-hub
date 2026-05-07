@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>スマホ撮影スキル診断 | World Select</title>
+<meta name="description" content="構図、ライティング、ジンバル撮影、動画テクニック…20問であなたのスマホ撮影スキルを5段階診断。初心者からクリエイターまで楽しめます。">
+<link rel="canonical" href="https://quiz.fds.co.jp/photo-skill/">
+<meta property="og:url" content="https://quiz.fds.co.jp/photo-skill/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="スマホ撮影スキル診断 | World Select">
+<meta property="og:description" content="構図、ライティング、ジンバル撮影、動画テクニック…20問であなたのスマホ撮影スキルを5段階診断。初心者からクリエイターまで楽しめます。">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"スマホ撮影スキル診断","description":"20問のスマホ撮影スキルクイズ。構図、ライティング、ジンバル、動画テクニックをテスト。","url":"https://quiz.fds.co.jp/photo-skill/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FDSi","item":"https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill"},{"@type":"ListItem","position":2,"name":"Quiz Hub","item":"https://quiz.fds.co.jp/"},{"@type":"ListItem","position":3,"name":"スマホ撮影スキル診断","item":"https://quiz.fds.co.jp/photo-skill/"}]}
+</script>
+<style>
+:root{
+  --c-bg:#ffffff;
+  --c-surface:#f5f5f7;
+  --c-surface2:#e8e8ed;
+  --c-border:#d2d2d7;
+  --c-border-h:#86868b;
+  --c-text:#1d1d1f;
+  --c-text2:#6e6e73;
+  --c-text3:#86868b;
+  --c-primary:#0071e3;
+  --c-primary-h:#0077ED;
+  --c-primary-t:rgba(0,113,227,.08);
+  --c-primary-g:rgba(0,113,227,.18);
+  --c-ok:#34c759;
+  --c-ok-bg:rgba(52,199,89,.10);
+  --c-err:#ff3b30;
+  --c-err-bg:rgba(255,59,48,.08);
+  --c-shadow1:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);
+  --c-shadow2:0 4px 12px rgba(0,0,0,.08);
+  --radius:16px;
+  --radius-s:10px;
+  --radius-xs:6px;
+  --radius-full:9999px;
+  --nav-h:52px;
+}
+[data-theme="dark"]{
+  --c-bg:#000000;
+  --c-surface:#1c1c1e;
+  --c-surface2:#2c2c2e;
+  --c-border:#38383a;
+  --c-border-h:#545456;
+  --c-text:#f5f5f7;
+  --c-text2:#a1a1a6;
+  --c-text3:#6e6e73;
+  --c-primary:#2997ff;
+  --c-primary-h:#40a9ff;
+  --c-primary-t:rgba(41,151,255,.12);
+  --c-primary-g:rgba(41,151,255,.22);
+  --c-ok:#30d158;
+  --c-ok-bg:rgba(48,209,88,.12);
+  --c-err:#ff453a;
+  --c-err-bg:rgba(255,69,58,.12);
+  --c-shadow1:0 1px 3px rgba(0,0,0,.3);
+  --c-shadow2:0 4px 12px rgba(0,0,0,.35);
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --c-bg:#000000;--c-surface:#1c1c1e;--c-surface2:#2c2c2e;
+    --c-border:#38383a;--c-border-h:#545456;
+    --c-text:#f5f5f7;--c-text2:#a1a1a6;--c-text3:#6e6e73;
+    --c-primary:#2997ff;--c-primary-h:#40a9ff;
+    --c-primary-t:rgba(41,151,255,.12);--c-primary-g:rgba(41,151,255,.22);
+    --c-ok:#30d158;--c-ok-bg:rgba(48,209,88,.12);
+    --c-err:#ff453a;--c-err-bg:rgba(255,69,58,.12);
+    --c-shadow1:0 1px 3px rgba(0,0,0,.3);--c-shadow2:0 4px 12px rgba(0,0,0,.35);
+  }
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--c-bg);color:var(--c-text);font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;transition:background-color .3s,color .3s}
+.container{max-width:640px;margin:0 auto;padding:20px}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid var(--c-border)}
+.logo{font-size:18px;font-weight:700;color:var(--c-primary)}
+.theme-toggle{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-full);padding:6px 10px;cursor:pointer;font-size:14px;transition:background .2s}
+.theme-toggle:hover{background:var(--c-surface2)}
+.quiz-container{display:none}
+.quiz-container.active{display:block}
+.progress-bar{width:100%;height:6px;background:var(--c-surface2);border-radius:3px;margin-bottom:30px;overflow:hidden}
+.progress-fill{height:100%;background:var(--c-primary);transition:width .3s ease}
+.question-number{font-size:14px;color:var(--c-text3);margin-bottom:10px;font-weight:600}
+.question-text{font-size:20px;font-weight:700;color:var(--c-text);margin-bottom:25px;line-height:1.4}
+.options{display:flex;flex-direction:column;gap:12px;margin-bottom:25px}
+.option{padding:16px;background:var(--c-surface);border:2px solid var(--c-border);border-radius:var(--radius);cursor:pointer;width:100%;-webkit-appearance:none;appearance:none;touch-action:manipulation;transition:border-color 0.2s, background-color 0.2s, color 0.2s, font-weight 0.2s;position:relative;display:flex;align-items:center;gap:12px}
+.option:hover{background:var(--c-surface2);border-color:var(--c-border-h)}
+.option.selected:not(.answered){background:var(--c-primary);color:#ffffff;border-color:var(--c-primary)}
+.option.answered{cursor:not-allowed}
+.option.correct{background:var(--c-ok-bg);border-color:var(--c-ok);color:var(--c-ok)}
+.option.wrong{background:var(--c-err-bg);border-color:var(--c-err);color:var(--c-err)}
+.option-icon{font-size:20px;flex-shrink:0;width:24px;text-align:center}
+.option-text{flex:1;font-size:16px;font-weight:500}
+.explanation{display:none;padding:16px;background:var(--c-primary-t);border-left:4px solid var(--c-primary);border-radius:var(--radius-s);margin-bottom:20px;font-size:14px;color:var(--c-text2);line-height:1.5}
+.explanation.show{display:block}
+.next-btn{width:100%;padding:14px;background:var(--c-primary);color:#ffffff;border:none;border-radius:var(--radius);font-size:16px;font-weight:600;cursor:pointer;transition:background .2s}
+.next-btn:hover{background:var(--c-primary-h)}
+.next-btn:disabled{opacity:.5;cursor:not-allowed}
+.result-container{display:none;text-align:center;padding:30px 0}
+.result-container.active{display:block}
+.result-score{font-size:48px;font-weight:700;color:var(--c-primary);margin-bottom:10px}
+.result-level{font-size:28px;font-weight:700;margin-bottom:10px;padding:20px;border-radius:var(--radius);display:inline-block;color:#ffffff;margin-left:0;margin-right:0}
+.result-description{font-size:16px;color:var(--c-text2);margin:20px 0 30px 0;line-height:1.6}
+.level-badge{display:inline-block;padding:10px 20px;border-radius:var(--radius-full);background:var(--c-primary-g);color:var(--c-primary);font-size:14px;font-weight:600;margin-bottom:20px}
+.share-buttons{display:flex;gap:10px;justify-content:center;margin:30px 0}
+.share-btn{padding:10px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);cursor:pointer;font-size:14px;font-weight:600;color:var(--c-text);transition:all .2s}
+.share-btn:hover{background:var(--c-surface2);border-color:var(--c-border-h)}
+.restart-btn{padding:14px 30px;background:var(--c-primary);color:#ffffff;border:none;border-radius:var(--radius);font-size:16px;font-weight:600;cursor:pointer;transition:background .2s;margin:20px auto;display:block}
+.restart-btn:hover{background:var(--c-primary-h)}
+.crosslinks{margin-top:40px;padding-top:30px;border-top:1px solid var(--c-border)}
+.crosslinks-title{font-size:14px;font-weight:600;color:var(--c-text3);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+.crosslinks-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.crosslink{padding:12px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);text-decoration:none;color:var(--c-primary);font-size:13px;font-weight:600;text-align:center;transition:all .2s}
+.crosslink:hover{background:var(--c-primary-t);border-color:var(--c-primary)}
+footer{text-align:center;margin-top:40px;padding:20px;color:var(--c-text3);font-size:12px;border-top:1px solid var(--c-border)}
+.store-links{margin-top:15px;display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
+.store-link{color:var(--c-primary);text-decoration:none;font-size:12px;font-weight:600}
+.store-link:hover{text-decoration:underline}
+.exp-link{margin:12px 0 4px;padding:12px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);display:flex;align-items:center;gap:10px;transition:border-color .2s,box-shadow .2s}
+.exp-link:hover{border-color:var(--c-primary);box-shadow:var(--c-shadow1)}
+.exp-link::before{content:"";display:block;width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--c-primary-t),var(--c-primary-g));flex-shrink:0}
+.exp-link a{color:var(--c-primary);text-decoration:none;font-weight:600;font-size:13px;line-height:1.4}
+.exp-link a:hover{text-decoration:underline}
+.prods{margin:24px 0}
+.prods-h{font-size:15px;font-weight:700;color:var(--c-text);margin-bottom:14px;text-align:center}
+.prod{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);margin-bottom:10px;transition:border-color .15s}
+.prod:hover{border-color:var(--c-border-h)}
+.prod-info{flex:1;min-width:0}
+.prod-name{font-size:13px;font-weight:700;color:var(--c-text);margin-bottom:4px}
+.prod-desc{font-size:11px;color:var(--c-text2);margin-bottom:8px}
+.prod-links{display:flex;gap:6px;flex-wrap:wrap}
+.prod-a{font-size:10px;font-weight:700;padding:3px 10px;border-radius:var(--radius-full);text-decoration:none;color:#fff;transition:opacity .2s}
+.prod-a:hover{opacity:.85}
+.prod-r{background:#ff3b30}.prod-y{background:#ea580c}.prod-s{background:var(--c-primary)}
+
+/* ── Sticky Nav (Apple-style) ── */
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--c-border);height:var(--nav-h);transition:background .3s}
+[data-theme="dark"] .site-nav{background:rgba(0,0,0,.72)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .site-nav{background:rgba(0,0,0,.72)}}
+.nav-inner{max-width:980px;margin:0 auto;padding:0 20px;display:flex;align-items:center;height:100%;gap:8px}
+.nav-brand{font-weight:700;font-size:15px;color:var(--c-text);text-decoration:none;margin-right:auto;white-space:nowrap;letter-spacing:-.02em}
+.nav-links{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-link{font-size:12px;color:var(--c-text2);text-decoration:none;padding:6px 10px;border-radius:var(--radius-full);white-space:nowrap;transition:color .2s,background .2s}
+.nav-link:hover{color:var(--c-text);background:var(--c-primary-t)}
+.nav-link.active{color:var(--c-primary);font-weight:600}
+.nav-acts{display:flex;align-items:center;gap:8px;margin-left:auto}
+.nav-theme{background:none;border:none;cursor:pointer;font-size:16px;padding:4px 8px;border-radius:var(--radius-full);transition:background .2s}
+.nav-theme:hover{background:var(--c-primary-t)}
+.nav-shop{font-size:12px;font-weight:600;color:var(--c-primary);text-decoration:none;padding:5px 12px;border:1.5px solid var(--c-primary);border-radius:var(--radius-full);transition:all .2s;white-space:nowrap}
+.nav-shop:hover{background:var(--c-primary);color:#fff}
+
+/* ── Enhanced Footer ── */
+.site-footer{border-top:1px solid var(--c-border);margin-top:60px;padding:40px 0 24px;background:var(--c-surface)}
+.footer-inner{max-width:980px;margin:0 auto;padding:0 20px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr 1fr;gap:20px}}
+.footer-brand{font-size:15px;font-weight:700;color:var(--c-text);margin-bottom:8px}
+.footer-brand-sub{font-size:12px;color:var(--c-text3);line-height:1.5}
+.footer-col-title{font-size:12px;font-weight:700;color:var(--c-text);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em}
+.footer-col a{display:block;font-size:12px;color:var(--c-text2);text-decoration:none;padding:3px 0;transition:color .2s}
+.footer-col a:hover{color:var(--c-primary)}
+.footer-bottom{border-top:1px solid var(--c-border);padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-copy{font-size:11px;color:var(--c-text3)}
+.footer-legal{display:flex;gap:16px}
+.footer-legal a{font-size:11px;color:var(--c-text3);text-decoration:none}
+.footer-legal a:hover{color:var(--c-primary)}
+
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+<div class="nav-inner">
+  <a class="nav-brand" href="/">WS Quiz Hub</a>
+  <div class="nav-links"><a class="nav-link" href="/marathon/">知識</a><a class="nav-link" href="/travel/">診断</a><a class="nav-link" href="/digital/">偏差値</a><a class="nav-link" href="/survival/">シナリオ</a><a class="nav-link" href="/gadget/">検定</a><a class="nav-link active" href="/photo-skill/">撮影</a></div>
+  <div class="nav-acts">
+    <button class="nav-theme" id="themeToggle" aria-label="テーマ切替">&#x2600;&#xFE0F;</button>
+    <a class="nav-shop" href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill">Shop</a>
+  </div>
+</div>
+</nav>
+
+<div class="container" style="padding-top:20px">
+
+  <div class="quiz-container active" id="quizContainer">
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="question-number" id="questionNumber"></div>
+    <div class="question-text" id="questionText"></div>
+    <div class="options" id="optionsContainer"></div>
+    <div class="explanation" id="explanation"></div>
+    <button class="next-btn" id="nextBtn" disabled="disabled">次へ</button>
+  </div>
+
+  <div class="result-container" id="resultContainer">
+    <div style="margin-bottom:30px">
+      <div class="result-score" id="resultScore"></div>
+      <div class="level-badge" id="levelBadge"></div>
+      <div class="result-level" id="resultLevel"></div>
+    </div>
+    <div class="result-description" id="resultDescription"></div>
+    <div class="prods">
+      <div class="prods-h">スマホ撮影好きにおすすめ</div>
+      <div class="prod">
+        <div class="prod-info">
+          <div class="prod-name">3軸ジンバル</div>
+          <div class="prod-desc">動画撮影を劇的に安定化。プロ級の映像が実現可能</div>
+          <div class="prod-links">
+            <a href="https://worldselect.net/products/ws107?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>
+            <a href="https://item.rakuten.co.jp/world11select/ws107/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>
+            <a href="https://store.shopping.yahoo.co.jp/world1select/ws107.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>
+          </div>
+        </div>
+      </div>
+      <div class="prod">
+        <div class="prod-info">
+          <div class="prod-name">カメラレンズ保護フィルム</div>
+          <div class="prod-desc">レンズ傷&擦り傷を完全ガード。画質への影響ゼロ</div>
+          <div class="prod-links">
+            <a href="https://worldselect.net/products/ws01?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>
+            <a href="https://item.rakuten.co.jp/world11select/ws01/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>
+            <a href="https://store.shopping.yahoo.co.jp/world1select/ws01.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>
+          </div>
+        </div>
+      </div>
+      <div class="prod">
+        <div class="prod-info">
+          <div class="prod-name">iPhone保護フィルム</div>
+          <div class="prod-desc">ガラスフィルムでカメラ面を保護。高透明度維持</div>
+          <div class="prod-links">
+            <a href="https://worldselect.net/products/ws03?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>
+            <a href="https://item.rakuten.co.jp/world11select/ws03/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>
+            <a href="https://store.shopping.yahoo.co.jp/world1select/ws03.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="share-buttons">
+      <button class="share-btn" id="shareTwitter">X で共有</button>
+      <button class="share-btn" id="shareLine">LINE で共有</button>
+      <button class="share-btn" id="copyResult">結果をコピー</button>
+    </div>
+    <button class="restart-btn" id="restartBtn">もう一度チャレンジ</button>
+
+    <div class="crosslinks">
+      <div class="crosslinks-title">他のクイズも試してみよう</div>
+      <div class="crosslinks-grid">
+        <a href="/travel/" class="crosslink">旅行クイズ</a>
+        <a href="/marathon/" class="crosslink">マラソンクイズ</a>
+        <a href="/digital/" class="crosslink">デジタルクイズ</a>
+        <a href="/survival/" class="crosslink">サバイバルクイズ</a>
+        <a href="/academy/" class="crosslink">教育クイズ</a>
+        <a href="/charging/" class="crosslink">充電クイズ</a>
+        <a href="/gadget/" class="crosslink">検定クイズ</a>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+        <div class="prods">
+          <div class="prods-h">スマホ撮影を快適に</div>
+          <div class="prod">
+            <div class="prod-info">
+              <div class="prod-name">3軸ジンバル</div>
+              <div class="prod-desc">手ブレ補正で映画級の映像。アクティブトラック搭載</div>
+              <div class="prod-links">
+                <a href="https://worldselect.net/products/ws107?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>
+                <a href="https://item.rakuten.co.jp/world11select/ws107/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>
+                <a href="https://store.shopping.yahoo.co.jp/world1select/ws107.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>
+              </div>
+            </div>
+          </div>
+          <div class="prod">
+            <div class="prod-info">
+              <div class="prod-name">カメラレンズ保護フィルム 9H</div>
+              <div class="prod-desc">硬度9Hの強化ガラス。キズ・汚れからレンズをガード</div>
+              <div class="prod-links">
+                <a href="https://worldselect.net/products/ws01?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>
+                <a href="https://item.rakuten.co.jp/world11select/ws01/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>
+                <a href="https://store.shopping.yahoo.co.jp/world1select/ws01.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WS_QUIZ_STORE_SEARCH -->
+    <div style="margin:24px 0;padding:20px;background:var(--c-surface,#f5f5f7);border-radius:12px;text-align:center;">
+      <div style="font-size:15px;font-weight:700;color:var(--c-text,#1d1d1f);margin-bottom:12px;">&#128722; World Select &#12391;&#25506;&#12377;</div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;">
+      <a href="https://search.rakuten.co.jp/search/mall/ジンバル/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; ジンバル</a>
+      <a href="https://search.rakuten.co.jp/search/mall/カメラレンズ保護/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; レンズ保護</a>
+      <a href="https://search.rakuten.co.jp/search/mall/iPhone保護フィルム/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; iPhone保護</a>
+      <a href="https://search.rakuten.co.jp/search/mall/スマホアクセサリー/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; スマホアクセサリー</a>
+      <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener" style="display:inline-block;background:#ff0033;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">Yahoo! &#12473;&#12488;&#12450;</a>
+      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill" target="_blank" rel="noopener" style="display:inline-block;background:#0071e3;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
+      </div>
+      <div style="font-size:11px;color:var(--c-text3,#86868b);margin-top:8px;">&#27005;&#22825;&#24066;&#22580;&#12398;World Select&#24215;&#33303;&#20869;&#12391;&#26908;&#32034;&#12375;&#12414;&#12377;</div>
+    </div>
+<!-- /WS_QUIZ_STORE_SEARCH -->
+<footer class="site-footer">
+<div class="footer-inner">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">World Select</div>
+      <div class="footer-brand-sub">Quiz Hub</div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#127918; &#12463;&#12452;&#12474;</div>
+    <a href="/marathon/">&#127939; テク雑学マラソン (100問)</a>
+    <a href="/academy/">&#127891; ガジェット検定 (60問)</a>
+    <a href="/digital/">&#128200; デジタル偏差値 (15問)</a>
+    <a href="/travel/">&#9992; 旅行スタイル診断 (10問)</a>
+    <a href="/survival/">&#128680; 旅先サバイバル (3分岐)</a>
+    <a href="/charging/">&#128267; 充電スタイル診断 (7問)</a>
+    <a href="/gadget/">&#128718; ガジェット検定 (20問)</a>
+    <a href="/photo-skill/">&#128248; スマホ撮影スキル診断 (20問)</a>
+    <a href="/">&#127968; &#20840;&#12463;&#12452;&#12474;&#19968;&#35239;</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#128722; &#12471;&#12519;&#12483;&#12503;</div>
+      <a href="https://www.rakuten.co.jp/world11select/" target="_blank" rel="noopener">&#27005;&#22825;&#24066;&#22580;</a>
+      <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener">Yahoo!</a>
+      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill" target="_blank" rel="noopener">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#8505;&#65039; &#12452;&#12531;&#12501;&#12457;</div>
+      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill">FDSi</a>
+      <a href="https://worldselect.net/policies/privacy-policy" target="_blank" rel="noopener">&#12503;&#12521;&#12452;&#12496;&#12471;&#12540;</a>
+      <a href="https://worldselect.net/policies/terms-of-service" target="_blank" rel="noopener">&#21033;&#29992;&#35215;&#32004;</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2024-2026 World Select / FDSi Inc.</span>
+    <div class="footer-legal">
+      <a href="https://worldselect.net/policies/legal-notice" target="_blank" rel="noopener">&#29305;&#21830;&#27861;&#34920;&#35352;</a>
+    </div>
+  </div>
+</div>
+</footer>
+
+<script>
+var quizData = [
+  {t: "スマホ撮影で「三分割法」とは？", o: [{x: "画面を9分割し交点に被写体を置く構図", ok: true}, {x: "3枚連写して最良を選ぶ方法", ok: false}, {x: "画面を3等分して上部に空を入れる", ok: false}, {x: "3回タップでフォーカスする技法", ok: false}], e: "三分割法は画面を縦横3等分し、4つの交点に被写体を配置する基本構図法です"},
+  {t: "逆光で人物を撮影するときのベストな対処法は？", o: [{x: "HDRモードを使う", ok: true}, {x: "フラッシュを使わない", ok: false}, {x: "露出を下げる", ok: false}, {x: "ズームインする", ok: false}], e: "HDRは明暗差の大きいシーンで暗部と明部の両方を適正露出で合成します"},
+  {t: "ジンバルの3軸制御で安定化される動きは？", o: [{x: "パン・チルト・ロール", ok: true}, {x: "上下・左右・前後", ok: false}, {x: "ズーム・フォーカス・露出", ok: false}, {x: "X軸・Y軸・Z軸の直線移動", ok: false}], e: "ジンバルは回転3軸（水平回転・上下首振り・左右傾き）を電子的に安定化します<span class=\"exp-link\"><a href=\"https://worldselect.net/products/ws107?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill\" target=\"_blank\" rel=\"noopener\">▶ 3軸ジンバル</a> <a href=\"https://item.rakuten.co.jp/world11select/ws107/\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle\">楽天</a><a href=\"https://store.shopping.yahoo.co.jp/world1select/ws107.html\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle\">Yahoo!</a></span>"},
+  {t: "スマホカメラの「ポートレートモード」の仕組みは？", o: [{x: "被写界深度を計算し背景をぼかす", ok: true}, {x: "美肌フィルターを自動適用", ok: false}, {x: "縦構図に自動トリミング", ok: false}, {x: "顔認識で明るさを調整", ok: false}], e: "複数カメラや深度センサーで距離を測定し、AI処理で背景ボケを生成します"},
+  {t: "動画撮影で「24fps」が映画的に見える理由は？", o: [{x: "自然なモーションブラーが生まれる", ok: true}, {x: "ファイルサイズが小さくなる", ok: false}, {x: "色が鮮やかになる", ok: false}, {x: "手ブレが目立たなくなる", ok: false}], e: "24fpsは人間の目が「映画的」と感じるモーションブラー量を生み出すフレームレート"},
+  {t: "スマホの広角レンズで建物を撮ると歪む原因は？", o: [{x: "レンズの樽型歪曲収差", ok: true}, {x: "センサーサイズが小さい", ok: false}, {x: "シャッタースピードが遅い", ok: false}, {x: "解像度が不足している", ok: false}], e: "広角レンズは中心から離れるほど像が膨らむ樽型歪曲が発生しやすい特性があります"},
+  {t: "料理撮影に最適な自然光の条件は？", o: [{x: "窓際の柔らかい間接光", ok: true}, {x: "直射日光の下", ok: false}, {x: "蛍光灯の真下", ok: false}, {x: "完全な暗所＋フラッシュ", ok: false}], e: "窓からの間接自然光は柔らかい影を作り、料理の質感を美しく引き出します"},
+  {t: "スマホ動画で「ドリーズーム」効果を出すには？", o: [{x: "被写体に近づきながらズームアウト", ok: true}, {x: "フォーカスを手動で変える", ok: false}, {x: "スローモーションで撮影", ok: false}, {x: "パノラマモードで撮影", ok: false}], e: "ドリーズームは移動とズームを逆方向に同時操作し、背景が迫る不思議な効果を生みます"},
+  {t: "カメラレンズ保護フィルムの素材として最適なのは？", o: [{x: "9H強化ガラス", ok: true}, {x: "アクリル樹脂", ok: false}, {x: "ポリカーボネート", ok: false}, {x: "シリコン", ok: false}], e: "9H強化ガラスは透明度と硬度を両立し、レンズの画質を損なわず保護できます<span class=\"exp-link\"><a href=\"https://worldselect.net/products/ws01?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill\" target=\"_blank\" rel=\"noopener\">▶ カメラレンズ保護フィルム</a> <a href=\"https://item.rakuten.co.jp/world11select/ws01/\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle\">楽天</a><a href=\"https://store.shopping.yahoo.co.jp/world1select/ws01.html\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle\">Yahoo!</a></span>"},
+  {t: "夜景撮影でノイズを減らす方法は？", o: [{x: "三脚固定＋長時間露光", ok: true}, {x: "ISO感度を最大にする", ok: false}, {x: "フラッシュを使う", ok: false}, {x: "デジタルズームで拡大", ok: false}], e: "三脚で固定し長時間露光すれば、ISO感度を下げてノイズの少ない夜景が撮れます"},
+  {t: "スマホでプロっぽいタイムラプスを撮るコツは？", o: [{x: "三脚固定＋0.5秒間隔＋30分以上", ok: true}, {x: "手持ちで1分間撮影", ok: false}, {x: "スローモーションの逆再生", ok: false}, {x: "連写モードで撮る", ok: false}], e: "タイムラプスは安定した固定と長時間撮影が必須。雲や人の流れが映えます"},
+  {t: "ジンバル使用時の「インセプションモード」とは？", o: [{x: "ロール軸を360度回転させる撮影", ok: true}, {x: "逆さまに撮影するモード", ok: false}, {x: "夢の中のような色調補正", ok: false}, {x: "自動追従撮影のこと", ok: false}], e: "ロール軸を回転させ、映画「インセプション」のような非現実的な映像を作れます"},
+  {t: "商品撮影で「フラットレイ」とは？", o: [{x: "真上から俯瞰で撮影する手法", ok: true}, {x: "平らな背景紙を使う手法", ok: false}, {x: "商品を横に並べる構図", ok: false}, {x: "影をなくすライティング", ok: false}], e: "フラットレイは真上から撮影し、複数アイテムを美しく配置するSNS人気の構図です"},
+  {t: "動画の「Log撮影」のメリットは？", o: [{x: "カラーグレーディングの自由度が高い", ok: true}, {x: "ファイルサイズが小さくなる", ok: false}, {x: "手ブレ補正が効く", ok: false}, {x: "自動で色が鮮やかになる", ok: false}], e: "Logはダイナミックレンジを広く記録し、編集でシネマティックな色味に仕上げられます"},
+  {t: "スマホ撮影で「ゴールデンアワー」はいつ？", o: [{x: "日の出/日没前後の約1時間", ok: true}, {x: "正午の太陽が最も高い時間", ok: false}, {x: "真夜中のこと", ok: false}, {x: "曇天の日中全般", ok: false}], e: "ゴールデンアワーは暖色の柔らかい光が横から差し、被写体が美しく照らされます"},
+  {t: "iPhone ProRAWで撮影するメリットは？", o: [{x: "後から露出・ホワイトバランスを大幅に調整可能", ok: true}, {x: "写真のサイズが小さくなる", ok: false}, {x: "自動で加工される", ok: false}, {x: "連写速度が上がる", ok: false}], e: "ProRAWは12bitの広いデータを保持し、後処理での調整幅がJPEGより圧倒的に広い"},
+  {t: "動画手ブレ補正の「EIS」と「OIS」の違いは？", o: [{x: "EISはソフトウェア、OISはハードウェア", ok: true}, {x: "EISの方が高性能", ok: false}, {x: "OISはデジタルズームのこと", ok: false}, {x: "両方とも同じ技術", ok: false}], e: "OIS＝光学式（レンズが物理的に動く）、EIS＝電子式（画角をクロップして補正）"},
+  {t: "スマホで星空を撮影するために必要な条件は？", o: [{x: "三脚＋ナイトモード＋光害の少ない場所", ok: true}, {x: "フラッシュ＋望遠レンズ", ok: false}, {x: "HDRモード＋手持ち", ok: false}, {x: "ポートレートモード＋明るい場所", ok: false}], e: "星空撮影は長時間露光が必須。三脚固定＋ナイトモード＋暗い場所が三要素です"},
+  {t: "SNS映えする写真の「余白」の効果は？", o: [{x: "被写体を引き立て視線を集中させる", ok: true}, {x: "情報量を増やす", ok: false}, {x: "写真を大きく見せる", ok: false}, {x: "編集しやすくする", ok: false}], e: "余白（ネガティブスペース）は主題を際立たせ、洗練された印象を与えます"},
+  {t: "ジンバルの「アクティブトラック」機能とは？", o: [{x: "被写体を自動追従して撮影する機能", ok: true}, {x: "歩行時の振動を消す機能", ok: false}, {x: "360度パノラマ撮影", ok: false}, {x: "タイムラプス自動生成", ok: false}], e: "アクティブトラックは顔やオブジェクトを認識し、ジンバルが自動追従します<span class=\"exp-link\"><a href=\"https://worldselect.net/products/ws107?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill\" target=\"_blank\" rel=\"noopener\">▶ 3軸ジンバル</a></span>"}
+];
+
+var levelMap = [
+  {min: 18, max: 20, level: "撮影マスター", color: "#7c3aed", desc: "プロ級の撮影知識。作品をSNSに投稿したら即バズるレベル。"},
+  {min: 15, max: 17, level: "フォトグラファー", color: "#0071e3", desc: "本格的な撮影スキル。友人の撮影を任されるレベル。"},
+  {min: 11, max: 14, level: "撮影中級者", color: "#34c759", desc: "基本を押さえています。テクニックを磨けばさらにレベルアップ。"},
+  {min: 7, max: 10, level: "撮影入門者", color: "#d97706", desc: "まだまだ伸びしろあり。構図と光を意識するだけで激変します。"},
+  {min: 0, max: 6, level: "撮影ビギナー", color: "#64748b", desc: "ここからスタート！スマホでも十分プロ級の写真が撮れます。"}
+];
+
+var currentQuestion = 0;
+var score = 0;
+var answered = false;
+var selectedIndex = -1;
+
+function shuffleOptions(options) {
+  var arr = options.slice();
+  var len = arr.length;
+  for (var i = len - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
+  }
+  return arr;
+}
+
+function initTheme() {
+  var saved = localStorage.getItem('ws-theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    updateThemeButton();
+  } else {
+    var isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (isDark) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    updateThemeButton();
+  }
+}
+
+function updateThemeButton() {
+  var theme = document.documentElement.getAttribute('data-theme');
+  var btn = document.getElementById('themeToggle');
+  btn.textContent = theme === 'dark' ? '☀' : '☾';
+}
+
+function toggleTheme() {
+  var current = document.documentElement.getAttribute('data-theme');
+  var next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('ws-theme', next);
+  updateThemeButton();
+}
+
+function renderQuestion() {
+  var q = quizData[currentQuestion];
+  var shuffled = shuffleOptions(q.o);
+
+  document.getElementById('questionNumber').textContent = '問 ' + (currentQuestion + 1) + ' / 20';
+  document.getElementById('questionText').textContent = q.t;
+  document.getElementById('explanation').classList.remove('show');
+  document.getElementById('explanation').textContent = '';
+
+  var optHtml = '';
+  for (var i = 0; i < shuffled.length; i++) {
+    var opt = shuffled[i];
+    optHtml += '<div class="option" data-index="' + i + '"><span class="option-icon"></span><span class="option-text">' + opt.x + '</span></div>';
+  }
+  document.getElementById('optionsContainer').innerHTML = optHtml;
+
+  var pct = ((currentQuestion + 1) / 20) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+
+  answered = false;
+  selectedIndex = -1;
+  document.getElementById('nextBtn').disabled = true;
+}
+
+function selectOption(element) {
+  if (answered) return;
+
+  var all = document.querySelectorAll('.option');
+  for (var i = 0; i < all.length; i++) {
+    all[i].classList.remove('selected');
+  }
+
+  element.classList.add('selected');
+  selectedIndex = parseInt(element.getAttribute('data-index'));
+  document.getElementById('nextBtn').disabled = false;
+}
+
+function submitAnswer() {
+  if (answered || selectedIndex === -1) return;
+  answered = true;
+
+  var q = quizData[currentQuestion];
+  var opts = document.querySelectorAll('.option');
+  var shuffled = shuffleOptions(q.o);
+
+  var selected = opts[selectedIndex];
+  var isCorrect = shuffled[selectedIndex].ok;
+
+  if (isCorrect) {
+    selected.classList.remove('selected');
+    selected.classList.add('correct');
+    selected.querySelector('.option-icon').textContent = '✓';
+    score++;
+  } else {
+    selected.classList.remove('selected');
+    selected.classList.add('wrong');
+    selected.querySelector('.option-icon').textContent = '✗';
+
+    for (var i = 0; i < shuffled.length; i++) {
+      if (shuffled[i].ok) {
+        opts[i].classList.add('correct');
+        opts[i].querySelector('.option-icon').textContent = '✓';
+        break;
+      }
+    }
+  }
+
+  for (var i = 0; i < opts.length; i++) {
+    opts[i].classList.add('answered');
+  }
+
+  document.getElementById('explanation').innerHTML = q.e;
+  document.getElementById('explanation').classList.add('show');
+
+  if (currentQuestion < 19) {
+    document.getElementById('nextBtn').textContent = '次へ';
+  } else {
+    document.getElementById('nextBtn').textContent = '結果を見る';
+  }
+  document.getElementById('nextBtn').disabled = false;
+}
+
+function nextQuestion() {
+  if (currentQuestion < 19) {
+    currentQuestion++;
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  document.getElementById('quizContainer').classList.remove('active');
+  document.getElementById('resultContainer').classList.add('active');
+
+  var level = null;
+  for (var i = 0; i < levelMap.length; i++) {
+    if (score >= levelMap[i].min && score <= levelMap[i].max) {
+      level = levelMap[i];
+      break;
+    }
+  }
+
+  document.getElementById('resultScore').textContent = score + ' / 20';
+  document.getElementById('levelBadge').textContent = 'スコア ' + score;
+  document.getElementById('resultLevel').textContent = level.level;
+  document.getElementById('resultLevel').style.backgroundColor = level.color;
+  document.getElementById('resultDescription').textContent = level.desc;
+}
+
+function restart() {
+  currentQuestion = 0;
+  score = 0;
+  answered = false;
+  selectedIndex = -1;
+  document.getElementById('quizContainer').classList.add('active');
+  document.getElementById('resultContainer').classList.remove('active');
+  document.getElementById('nextBtn').textContent = '次へ';
+  renderQuestion();
+}
+
+function shareTwitter() {
+  var level = null;
+  for (var i = 0; i < levelMap.length; i++) {
+    if (score >= levelMap[i].min && score <= levelMap[i].max) {
+      level = levelMap[i];
+      break;
+    }
+  }
+  var text = 'スマホ撮影スキル診断で「' + level.level + '」でした！スコア：' + score + '/20 https://quiz.fds.co.jp/photo-skill/';
+  var url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
+  window.open(url, '_blank');
+}
+
+function shareLine() {
+  var level = null;
+  for (var i = 0; i < levelMap.length; i++) {
+    if (score >= levelMap[i].min && score <= levelMap[i].max) {
+      level = levelMap[i];
+      break;
+    }
+  }
+  var text = 'スマホ撮影スキル診断で「' + level.level + '」でした！スコア：' + score + '/20';
+  var url = 'https://social-plugins.line.me/lineit/share?url=https://quiz.fds.co.jp/photo-skill/&text=' + encodeURIComponent(text);
+  window.open(url, '_blank');
+}
+
+function copyResult() {
+  var level = null;
+  for (var i = 0; i < levelMap.length; i++) {
+    if (score >= levelMap[i].min && score <= levelMap[i].max) {
+      level = levelMap[i];
+      break;
+    }
+  }
+  var text = 'スマホ撮影スキル診断\n【' + level.level + '】\nスコア：' + score + '/20\n' + level.desc + '\nhttps://quiz.fds.co.jp/photo-skill/';
+  var el = document.createElement('textarea');
+  el.value = text;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+  alert('結果をコピーしました！');
+}
+
+/* iOS Safari touch event delegation */
+(function() {
+  var optsCont = document.getElementById('optionsContainer');
+  var touchMoved = false;
+  optsCont.addEventListener('touchstart', function() { touchMoved = false; }, false);
+  optsCont.addEventListener('touchmove', function() { touchMoved = true; }, false);
+  optsCont.addEventListener('touchend', function(e) {
+    if (touchMoved) return;
+    var t = e.target;
+    while (t && t !== optsCont) {
+      if (t.className && t.className.indexOf('option') !== -1 && t.getAttribute('data-index') !== null) {
+        e.preventDefault();
+        selectOption(t);
+        return;
+      }
+      t = t.parentNode;
+    }
+  }, false);
+  optsCont.addEventListener('click', function(e) {
+    var t = e.target;
+    while (t && t !== optsCont) {
+      if (t.className && t.className.indexOf('option') !== -1 && t.getAttribute('data-index') !== null) {
+        selectOption(t);
+        return;
+      }
+      t = t.parentNode;
+    }
+  }, false);
+})();
+
+document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+document.getElementById('nextBtn').addEventListener('click', function() { if (answered) { nextQuestion(); } else { submitAnswer(); } });
+document.getElementById('restartBtn').addEventListener('click', restart);
+document.getElementById('shareTwitter').addEventListener('click', shareTwitter);
+document.getElementById('shareLine').addEventListener('click', shareLine);
+document.getElementById('copyResult').addEventListener('click', copyResult);
+
+initTheme();
+renderQuestion();
+</script>
+
+</body>
+</html>
