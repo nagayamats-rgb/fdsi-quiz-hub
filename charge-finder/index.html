@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>USB-C・PD最適ケーブル診断｜あなたに合う充電ケーブルの選び方（8問・無料） | World Select</title>
+<meta name="description" content="用途を選ぶだけで、あなたに最適なUSB-C/PD充電ケーブル・充電器をご提案。急速充電・ノートPC対応・L字・MagSafe…8問の無料診断で失敗しない選び方がわかります。">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"USB-C・PD最適ケーブル診断","description":"8問の用途診断であなたに最適な充電ケーブル・充電器をご提案。","url":"https://quiz.fds.co.jp/charge-finder/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FDSi","item":"https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder"},{"@type":"ListItem","position":2,"name":"Quiz Hub","item":"https://quiz.fds.co.jp/"},{"@type":"ListItem","position":3,"name":"USB-C・PD最適ケーブル診断","item":"https://quiz.fds.co.jp/charge-finder/"}]}
+</script>
+<style>
+:root{
+  --c-bg:#ffffff;
+  --c-surface:#f5f5f7;
+  --c-surface2:#e8e8ed;
+  --c-border:#d2d2d7;
+  --c-border-h:#86868b;
+  --c-text:#1d1d1f;
+  --c-text2:#6e6e73;
+  --c-text3:#86868b;
+  --c-primary:#0071e3;
+  --c-primary-h:#0077ED;
+  --c-primary-t:rgba(0,113,227,.08);
+  --c-primary-g:rgba(0,113,227,.18);
+  --c-ok:#34c759;
+  --c-ok-bg:rgba(52,199,89,.10);
+  --c-err:#ff3b30;
+  --c-err-bg:rgba(255,59,48,.08);
+  --c-shadow1:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);
+  --c-shadow2:0 4px 12px rgba(0,0,0,.08);
+  --radius:16px;
+  --radius-s:10px;
+  --radius-xs:6px;
+  --radius-full:9999px;
+  --nav-h:52px;
+}
+[data-theme="dark"]{
+  --c-bg:#000000;
+  --c-surface:#1c1c1e;
+  --c-surface2:#2c2c2e;
+  --c-border:#38383a;
+  --c-border-h:#545456;
+  --c-text:#f5f5f7;
+  --c-text2:#a1a1a6;
+  --c-text3:#6e6e73;
+  --c-primary:#2997ff;
+  --c-primary-h:#40a9ff;
+  --c-primary-t:rgba(41,151,255,.12);
+  --c-primary-g:rgba(41,151,255,.22);
+  --c-ok:#30d158;
+  --c-ok-bg:rgba(48,209,88,.12);
+  --c-err:#ff453a;
+  --c-err-bg:rgba(255,69,58,.12);
+  --c-shadow1:0 1px 3px rgba(0,0,0,.3);
+  --c-shadow2:0 4px 12px rgba(0,0,0,.35);
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --c-bg:#000000;--c-surface:#1c1c1e;--c-surface2:#2c2c2e;
+    --c-border:#38383a;--c-border-h:#545456;
+    --c-text:#f5f5f7;--c-text2:#a1a1a6;--c-text3:#6e6e73;
+    --c-primary:#2997ff;--c-primary-h:#40a9ff;
+    --c-primary-t:rgba(41,151,255,.12);--c-primary-g:rgba(41,151,255,.22);
+    --c-ok:#30d158;--c-ok-bg:rgba(48,209,88,.12);
+    --c-err:#ff453a;--c-err-bg:rgba(255,69,58,.12);
+    --c-shadow1:0 1px 3px rgba(0,0,0,.3);--c-shadow2:0 4px 12px rgba(0,0,0,.35);
+  }
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--c-bg);color:var(--c-text);font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;transition:background-color .3s,color .3s}
+.container{max-width:640px;margin:0 auto;padding:20px}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid var(--c-border)}
+.logo{font-size:18px;font-weight:700;color:var(--c-primary)}
+.theme-toggle{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-full);padding:6px 10px;cursor:pointer;font-size:14px;transition:background .2s}
+.theme-toggle:hover{background:var(--c-surface2)}
+.quiz-container{display:none}
+.quiz-container.active{display:block}
+.progress-bar{width:100%;height:6px;background:var(--c-surface2);border-radius:3px;margin-bottom:30px;overflow:hidden}
+.progress-fill{height:100%;background:var(--c-primary);transition:width .3s ease}
+.question-number{font-size:14px;color:var(--c-text3);margin-bottom:10px;font-weight:600}
+.question-text{font-size:20px;font-weight:700;color:var(--c-text);margin-bottom:25px;line-height:1.4}
+.options{display:flex;flex-direction:column;gap:12px;margin-bottom:25px}
+.option{padding:16px;background:var(--c-surface);border:2px solid var(--c-border);border-radius:var(--radius);cursor:pointer;width:100%;-webkit-appearance:none;appearance:none;touch-action:manipulation;transition:border-color 0.2s, background-color 0.2s, color 0.2s, font-weight 0.2s;position:relative;display:flex;align-items:center;gap:12px}
+.option:hover{background:var(--c-surface2);border-color:var(--c-border-h)}
+.option.selected:not(.answered){background:var(--c-primary);color:#ffffff;border-color:var(--c-primary)}
+.option.answered{cursor:not-allowed}
+.option.correct{background:var(--c-ok-bg);border-color:var(--c-ok);color:var(--c-ok)}
+.option.wrong{background:var(--c-err-bg);border-color:var(--c-err);color:var(--c-err)}
+.option-icon{font-size:20px;flex-shrink:0;width:24px;text-align:center}
+.option-text{flex:1;font-size:16px;font-weight:500}
+.explanation{display:none;padding:16px;background:var(--c-primary-t);border-left:4px solid var(--c-primary);border-radius:var(--radius-s);margin-bottom:20px;font-size:14px;color:var(--c-text2);line-height:1.5}
+.explanation.show{display:block}
+.next-btn{width:100%;padding:14px;background:var(--c-primary);color:#ffffff;border:none;border-radius:var(--radius);font-size:16px;font-weight:600;cursor:pointer;transition:background .2s}
+.next-btn:hover{background:var(--c-primary-h)}
+.next-btn:disabled{opacity:.5;cursor:not-allowed}
+.result-container{display:none;text-align:center;padding:30px 0}
+.result-container.active{display:block}
+.result-score{font-size:48px;font-weight:700;color:var(--c-primary);margin-bottom:10px}
+.result-level{font-size:28px;font-weight:700;margin-bottom:10px;padding:20px;border-radius:var(--radius);display:inline-block;color:#ffffff;margin-left:0;margin-right:0}
+.result-description{font-size:16px;color:var(--c-text2);margin:20px 0 30px 0;line-height:1.6}
+.level-badge{display:inline-block;padding:10px 20px;border-radius:var(--radius-full);background:var(--c-primary-g);color:var(--c-primary);font-size:14px;font-weight:600;margin-bottom:20px}
+.share-buttons{display:flex;gap:10px;justify-content:center;margin:30px 0}
+.share-btn{padding:10px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);cursor:pointer;font-size:14px;font-weight:600;color:var(--c-text);transition:all .2s}
+.share-btn:hover{background:var(--c-surface2);border-color:var(--c-border-h)}
+.restart-btn{padding:14px 30px;background:var(--c-primary);color:#ffffff;border:none;border-radius:var(--radius);font-size:16px;font-weight:600;cursor:pointer;transition:background .2s;margin:20px auto;display:block}
+.restart-btn:hover{background:var(--c-primary-h)}
+.crosslinks{margin-top:40px;padding-top:30px;border-top:1px solid var(--c-border)}
+.crosslinks-title{font-size:14px;font-weight:600;color:var(--c-text3);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+.crosslinks-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.crosslink{padding:12px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);text-decoration:none;color:var(--c-primary);font-size:13px;font-weight:600;text-align:center;transition:all .2s}
+.crosslink:hover{background:var(--c-primary-t);border-color:var(--c-primary)}
+footer{text-align:center;margin-top:40px;padding:20px;color:var(--c-text3);font-size:12px;border-top:1px solid var(--c-border)}
+.store-links{margin-top:15px;display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
+.store-link{color:var(--c-primary);text-decoration:none;font-size:12px;font-weight:600}
+.store-link:hover{text-decoration:underline}
+.exp-link{margin:12px 0 4px;padding:12px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);display:flex;align-items:center;gap:10px;transition:border-color .2s,box-shadow .2s}
+.exp-link:hover{border-color:var(--c-primary);box-shadow:var(--c-shadow1)}
+.exp-link::before{content:"";display:block;width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--c-primary-t),var(--c-primary-g));flex-shrink:0}
+.exp-link a{color:var(--c-primary);text-decoration:none;font-weight:600;font-size:13px;line-height:1.4}
+.exp-link a:hover{text-decoration:underline}
+.prods{margin:24px 0}
+.prods-h{font-size:15px;font-weight:700;color:var(--c-text);margin-bottom:14px;text-align:center}
+.prod{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);margin-bottom:10px;transition:border-color .15s}
+.prod:hover{border-color:var(--c-border-h)}
+.prod-info{flex:1;min-width:0}
+.prod-name{font-size:13px;font-weight:700;color:var(--c-text);margin-bottom:4px}
+.prod-desc{font-size:11px;color:var(--c-text2);margin-bottom:8px}
+.prod-links{display:flex;gap:6px;flex-wrap:wrap}
+.prod-a{font-size:10px;font-weight:700;padding:3px 10px;border-radius:var(--radius-full);text-decoration:none;color:#fff;transition:opacity .2s}
+.prod-a:hover{opacity:.85}
+.prod-r{background:#ff3b30}.prod-y{background:#ea580c}.prod-s{background:var(--c-primary)}
+
+/* ── Sticky Nav (Apple-style) ── */
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--c-border);height:var(--nav-h);transition:background .3s}
+[data-theme="dark"] .site-nav{background:rgba(0,0,0,.72)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .site-nav{background:rgba(0,0,0,.72)}}
+.nav-inner{max-width:980px;margin:0 auto;padding:0 20px;display:flex;align-items:center;height:100%;gap:8px}
+.nav-brand{font-weight:700;font-size:15px;color:var(--c-text);text-decoration:none;margin-right:auto;white-space:nowrap;letter-spacing:-.02em}
+.nav-links{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-link{font-size:12px;color:var(--c-text2);text-decoration:none;padding:6px 10px;border-radius:var(--radius-full);white-space:nowrap;transition:color .2s,background .2s}
+.nav-link:hover{color:var(--c-text);background:var(--c-primary-t)}
+.nav-link.active{color:var(--c-primary);font-weight:600}
+.nav-acts{display:flex;align-items:center;gap:8px;margin-left:auto}
+.nav-theme{background:none;border:none;cursor:pointer;font-size:16px;padding:4px 8px;border-radius:var(--radius-full);transition:background .2s}
+.nav-theme:hover{background:var(--c-primary-t)}
+.nav-shop{font-size:12px;font-weight:600;color:var(--c-primary);text-decoration:none;padding:5px 12px;border:1.5px solid var(--c-primary);border-radius:var(--radius-full);transition:all .2s;white-space:nowrap}
+.nav-shop:hover{background:var(--c-primary);color:#fff}
+
+/* ── Enhanced Footer ── */
+.site-footer{border-top:1px solid var(--c-border);margin-top:60px;padding:40px 0 24px;background:var(--c-surface)}
+.footer-inner{max-width:980px;margin:0 auto;padding:0 20px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr 1fr;gap:20px}}
+.footer-brand{font-size:15px;font-weight:700;color:var(--c-text);margin-bottom:8px}
+.footer-brand-sub{font-size:12px;color:var(--c-text3);line-height:1.5}
+.footer-col-title{font-size:12px;font-weight:700;color:var(--c-text);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em}
+.footer-col a{display:block;font-size:12px;color:var(--c-text2);text-decoration:none;padding:3px 0;transition:color .2s}
+.footer-col a:hover{color:var(--c-primary)}
+.footer-bottom{border-top:1px solid var(--c-border);padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-copy{font-size:11px;color:var(--c-text3)}
+.footer-legal{display:flex;gap:16px}
+.footer-legal a{font-size:11px;color:var(--c-text3);text-decoration:none}
+.footer-legal a:hover{color:var(--c-primary)}
+
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+<div class="nav-inner">
+  <a class="nav-brand" href="/">WS Quiz Hub</a>
+  <div class="nav-links"><a class="nav-link" href="/marathon/">知識</a><a class="nav-link" href="/travel/">診断</a><a class="nav-link" href="/digital/">偏差値</a><a class="nav-link" href="/survival/">シナリオ</a><a class="nav-link" href="/gadget/">検定</a><a class="nav-link" href="/charging-master/">充電</a></div>
+  <div class="nav-acts">
+    <button class="nav-theme" id="themeToggle" aria-label="テーマ切替">&#x2600;&#xFE0F;</button>
+    <a class="nav-shop" href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder">Shop</a>
+  </div>
+</div>
+</nav>
+
+<div class="container" style="padding-top:20px">
+
+  <div class="quiz-container active" id="quizContainer">
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="question-number" id="questionNumber"></div>
+    <div class="question-text" id="questionText"></div>
+    <div class="options" id="optionsContainer"></div>
+    <div class="explanation" id="explanation"></div>
+    <button class="next-btn" id="nextBtn" disabled="disabled">次へ</button>
+  </div>
+
+  <div class="result-container" id="resultContainer">
+    <div style="margin-bottom:30px">
+      <div class="result-score" id="resultScore"></div>
+      <div class="level-badge" id="levelBadge"></div>
+      <div class="result-level" id="resultLevel"></div>
+    </div>
+    <div class="result-description" id="resultDescription"></div>
+    <div id="recoProd"></div>
+    <div class="prods">
+      <div class="prods-h">その他の人気ケーブル・充電器</div>
+      <div class="prod">
+        <div class="prod-info">
+          <div class="prod-name">3in1 マルチ充電ケーブル 40W</div>
+          <div class="prod-desc">USB-C / Lightning / micro USB 対応。1本で複数端末を急速充電</div>
+          <div class="prod-links">
+            <a href="https://worldselect.net/products/worldselect-0005?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>
+            <a href="https://item.rakuten.co.jp/world11select/worldselect-0005/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>
+            <a href="https://store.shopping.yahoo.co.jp/world1select/worldselect-0005.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>
+          </div>
+        </div>
+      </div>
+      <div class="prod">
+        <div class="prod-info">
+          <div class="prod-name">240W対応 USB-Cケーブル（6in1スタンド）</div>
+          <div class="prod-desc">PD 240W対応。ノートPCもゲーム機もこれ1本で高速充電</div>
+          <div class="prod-links">
+            <a href="https://worldselect.net/products/60w-6in1cable?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>
+            <a href="https://item.rakuten.co.jp/world11select/60w-6in1cable/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>
+            <a href="https://store.shopping.yahoo.co.jp/world1select/60w-6in1cable.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="share-buttons">
+      <button class="share-btn" id="shareTwitter">X で共有</button>
+      <button class="share-btn" id="shareLine">LINE で共有</button>
+      <button class="share-btn" id="copyResult">結果をコピー</button>
+    </div>
+    <button class="restart-btn" id="restartBtn">もう一度チャレンジ</button>
+
+    <div class="crosslinks">
+      <div class="crosslinks-title">他のクイズも試してみよう</div>
+      <div class="crosslinks-grid">
+        <a href="/travel/" class="crosslink">旅行クイズ</a>
+        <a href="/marathon/" class="crosslink">マラソンクイズ</a>
+        <a href="/digital/" class="crosslink">デジタルクイズ</a>
+        <a href="/survival/" class="crosslink">サバイバルクイズ</a>
+        <a href="/academy/" class="crosslink">教育クイズ</a>
+        <a href="/gadget/" class="crosslink">ガジェットクイズ</a>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+        <div class="prods">
+          <div class="prods-h">充電ケーブル・充電器 人気アイテム</div>
+          <div class="prod">
+            <div class="prod-info">
+              <div class="prod-name">L字 USB-C 急速充電ケーブル 2m（PD対応）</div>
+              <div class="prod-desc">横向き接続でゲーム・車載に最適。180度回転L字コネクタ</div>
+              <div class="prod-links">
+                <a href="https://worldselect.net/products/ws78?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>
+                <a href="https://item.rakuten.co.jp/world11select/ws78/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>
+                <a href="https://store.shopping.yahoo.co.jp/world1select/search.html?p=L%E5%AD%97%20USB-C%20%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>
+              </div>
+            </div>
+          </div>
+          <div class="prod">
+            <div class="prod-info">
+              <div class="prod-name">MagSafe対応 ワイヤレス充電器 15W</div>
+              <div class="prod-desc">ケーブル不要、置くだけ急速充電。iPhone 12以降対応</div>
+              <div class="prod-links">
+                <a href="https://worldselect.net/products/magsafe-charger-2?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>
+                <a href="https://item.rakuten.co.jp/world11select/magsafe-charger-2/" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>
+                <a href="https://store.shopping.yahoo.co.jp/world1select/ws-magsafe-charger-15w-2.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WS_QUIZ_STORE_SEARCH -->
+    <div style="margin:24px 0;padding:20px;background:var(--c-surface,#f5f5f7);border-radius:12px;text-align:center;">
+      <div style="font-size:15px;font-weight:700;color:var(--c-text,#1d1d1f);margin-bottom:12px;">&#128267; World Select &#12391;&#25506;&#12377;</div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;">
+      <a href="https://search.rakuten.co.jp/search/mall/MagSafe%E5%85%85%E9%9B%BB%E5%99%A8/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; MagSafe&#20805;&#30005;&#22120;</a>
+      <a href="https://search.rakuten.co.jp/search/mall/USB-C%E5%85%AB%E5%85%A5/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; USB-C&#20605;&#30005;</a>
+      <a href="https://search.rakuten.co.jp/search/mall/PD%E5%85%AB%E5%85%A5/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; PD&#20805;&#30005;&#22120;</a>
+      <a href="https://search.rakuten.co.jp/search/mall/%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%AC%E3%82%B9%E5%85%85%E9%9B%BB%E5%99%A8/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; ワイヤレス充電器</a>
+      <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener" style="display:inline-block;background:#ff0033;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">Yahoo! &#12473;&#12488;&#12450;</a>
+      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder" target="_blank" rel="noopener" style="display:inline-block;background:#0071e3;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
+      </div>
+      <div style="font-size:11px;color:var(--c-text3,#86868b);margin-top:8px;">&#27005;&#22825;&#24066;&#22580;&#12398;World Select&#24215;&#33303;&#20869;&#12391;&#26908;&#32034;&#12375;&#12414;&#12377;</div>
+    </div>
+<!-- /WS_QUIZ_STORE_SEARCH -->
+<footer class="site-footer">
+<div class="footer-inner">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">World Select</div>
+      <div class="footer-brand-sub">Quiz Hub</div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#127918; &#12463;&#12452;&#12474;</div>
+    <a href="/marathon/">&#127939; テク雑学マラソン (100問)</a>
+    <a href="/academy/">&#127891; ガジェット検定 (60問)</a>
+    <a href="/digital/">&#128200; デジタル偏差値 (15問)</a>
+    <a href="/travel/">&#9992; 旅行スタイル診断 (10問)</a>
+    <a href="/survival/">&#128680; 旅先サバイバル (3分岐)</a>
+    <a href="/charging/">&#128267; 充電スタイル診断 (7問)</a>
+    <a href="/charging-master/">&#129352; 充電マスター検定 (25問)</a>
+    <a href="/film/">&#128241; フィルム選び方クイズ (10問)</a>
+    <a href="/charge-finder/">&#128279; 最適ケーブル診断 (8問)</a>
+    <a href="/">&#127968; &#20840;&#12463;&#12452;&#12474;&#19968;&#35239;</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#128722; &#12471;&#12519;&#12483;&#12530;</div>
+      <a href="https://www.rakuten.co.jp/world11select/" target="_blank" rel="noopener">&#27005;&#22825;&#24066;&#22580;</a>
+      <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener">Yahoo!</a>
+      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder" target="_blank" rel="noopener">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#8505;&#65039; &#12452;&#12531;&#12501;&#12457;</div>
+      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder">FDSi</a>
+      <a href="https://worldselect.net/policies/privacy-policy" target="_blank" rel="noopener">&#12503;&#12521;&#12452;&#12496;&#12471;&#12540;</a>
+      <a href="https://worldselect.net/policies/terms-of-service" target="_blank" rel="noopener">&#21033;&#29992;&#35215;&#32004;</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2024-2026 World Select / FDSi Inc.</span>
+    <div class="footer-legal">
+      <a href="https://worldselect.net/policies/legal-notice" target="_blank" rel="noopener">&#29305;&#21830;&#27861;&#34920;&#35352;</a>
+    </div>
+  </div>
+</div>
+</footer>
+
+<script>
+var quizData = [
+  {t: "主に充電したい端末は？", o: [{x: "iPhone", tag: "iphone"}, {x: "Android / Pixel", tag: "multi"}, {x: "iPad・タブレット", tag: "pc"}, {x: "ノートPCも充電したい", tag: "pc"}]},
+  {t: "同時に充電する端末の数は？", o: [{x: "1台だけ", tag: "iphone"}, {x: "2台", tag: "multi"}, {x: "3台以上", tag: "multi"}, {x: "日によってバラバラ", tag: "power"}]},
+  {t: "充電で一番重視することは？", o: [{x: "とにかく充電速度", tag: "pc"}, {x: "1本で何でも充電", tag: "power"}, {x: "ケーブルの取り回し", tag: "lshape"}, {x: "置くだけの手軽さ", tag: "wireless"}]},
+  {t: "主に使う場所は？", o: [{x: "デスク・自宅作業", tag: "pc"}, {x: "ゲーム中・車の中", tag: "lshape"}, {x: "ベッドサイド", tag: "wireless"}, {x: "外出先に持ち歩く", tag: "multi"}]},
+  {t: "希望するケーブルの長さは？", o: [{x: "短め（0.5〜1m）", tag: "iphone"}, {x: "標準（1〜1.5m）", tag: "multi"}, {x: "長め（2m）", tag: "lshape"}, {x: "こだわらない", tag: "power"}]},
+  {t: "充電中にスマホを操作する？", o: [{x: "よくする・横向きで使う", tag: "lshape"}, {x: "たまに触る", tag: "iphone"}, {x: "操作しない・置くだけが理想", tag: "wireless"}, {x: "PC作業をしている", tag: "pc"}]},
+  {t: "希望する充電の出力（W）は？", o: [{x: "標準でOK（20〜40W）", tag: "iphone"}, {x: "速いと嬉しい（60W）", tag: "multi"}, {x: "ノートPC対応（100W）", tag: "pc"}, {x: "最大級（240W）", tag: "power"}]},
+  {t: "ワイヤレス充電への興味は？", o: [{x: "あり・ケーブルなしが理想", tag: "wireless"}, {x: "ケーブルで十分", tag: "multi"}, {x: "速さ優先で有線がいい", tag: "pc"}, {x: "全部入りが理想", tag: "power"}]}
+];
+
+var products = {
+  iphone:  {type: "シンプル iPhone派", emoji: "&#128241;", name: "iPhone 急速充電ケーブル", desc: "しなやかで絡まない、毎日サッと使える定番ケーブル。iPhoneの急速充電に最適です。", s: "https://worldselect.net/products/ws107?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder", r: "https://item.rakuten.co.jp/world11select/ws107/", y: "https://store.shopping.yahoo.co.jp/world1select/search.html?p=iPhone%E5%85%85%E9%9B%BB%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB"},
+  multi:   {type: "マルチ充電派", emoji: "&#128279;", name: "3in1 マルチ充電ケーブル 40W", desc: "USB-C / Lightning / micro USB対応。複数端末を1本でまとめて急速充電できます。", s: "https://worldselect.net/products/worldselect-0005?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder", r: "https://item.rakuten.co.jp/world11select/worldselect-0005/", y: "https://store.shopping.yahoo.co.jp/world1select/worldselect-0005.html"},
+  pc:      {type: "ハイパワー派（PCも充電）", emoji: "&#128187;", name: "100W対応 USB-Cケーブル", desc: "PD 100W対応でMacBook等のノートPCも急速充電。スマホ・タブレットもこれ1本。", s: "https://worldselect.net/products/ws49?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder", r: "https://item.rakuten.co.jp/world11select/ws49/", y: "https://store.shopping.yahoo.co.jp/world1select/search.html?p=USB-C%20100W%20%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB"},
+  lshape:  {type: "取り回し重視派", emoji: "&#127918;", name: "L字 USB-C 急速充電ケーブル 2m", desc: "180度回転L字コネクタで横向き接続が快適。ゲーム・車載・デスクに最適です。", s: "https://worldselect.net/products/ws78?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder", r: "https://item.rakuten.co.jp/world11select/ws78/", y: "https://store.shopping.yahoo.co.jp/world1select/search.html?p=L%E5%AD%97%20USB-C%20%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB"},
+  power:   {type: "全部入りパワー派", emoji: "&#9889;", name: "240W対応 USB-Cケーブル（6in1スタンド）", desc: "PD 240W対応。スマホもノートPCもゲーム機も、最大級の出力でこれ1本に集約。", s: "https://worldselect.net/products/60w-6in1cable?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder", r: "https://item.rakuten.co.jp/world11select/60w-6in1cable/", y: "https://store.shopping.yahoo.co.jp/world1select/60w-6in1cable.html"},
+  wireless:{type: "置くだけワイヤレス派", emoji: "&#128268;", name: "MagSafe対応 ワイヤレス充電器 15W", desc: "ケーブル不要、置くだけで最大15Wの急速ワイヤレス充電。iPhone 12以降に対応。", s: "https://worldselect.net/products/magsafe-charger-2?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder", r: "https://item.rakuten.co.jp/world11select/magsafe-charger-2/", y: "https://store.shopping.yahoo.co.jp/world1select/ws-magsafe-charger-15w-2.html"}
+};
+
+var currentQuestion = 0;
+var selectedIndex = -1;
+var tally = {iphone:0, multi:0, pc:0, lshape:0, power:0, wireless:0};
+var answers = [];
+
+function initTheme() {
+  var saved = localStorage.getItem('ws-theme');
+  if (saved) { document.documentElement.setAttribute('data-theme', saved); }
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches) { document.documentElement.setAttribute('data-theme', 'dark'); }
+  updateThemeButton();
+}
+function updateThemeButton() {
+  var theme = document.documentElement.getAttribute('data-theme');
+  document.getElementById('themeToggle').textContent = theme === 'dark' ? '☀' : '☾';
+}
+function toggleTheme() {
+  var current = document.documentElement.getAttribute('data-theme');
+  var next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('ws-theme', next);
+  updateThemeButton();
+}
+
+function renderQuestion() {
+  var q = quizData[currentQuestion];
+  document.getElementById('questionNumber').textContent = '質問 ' + (currentQuestion + 1) + ' / ' + quizData.length;
+  document.getElementById('questionText').textContent = q.t;
+  document.getElementById('explanation').classList.remove('show');
+  var optHtml = '';
+  for (var i = 0; i < q.o.length; i++) {
+    optHtml += '<div class="option" data-index="' + i + '"><span class="option-icon"></span><span class="option-text">' + q.o[i].x + '</span></div>';
+  }
+  document.getElementById('optionsContainer').innerHTML = optHtml;
+  var pct = ((currentQuestion + 1) / quizData.length) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  selectedIndex = (answers[currentQuestion] !== undefined) ? answers[currentQuestion] : -1;
+  if (selectedIndex !== -1) {
+    var opts = document.querySelectorAll('.option');
+    if (opts[selectedIndex]) { opts[selectedIndex].classList.add('selected'); }
+  }
+  document.getElementById('nextBtn').textContent = (currentQuestion < quizData.length - 1) ? '次へ' : '結果を見る';
+  document.getElementById('nextBtn').disabled = (selectedIndex === -1);
+}
+
+function selectOption(element) {
+  var all = document.querySelectorAll('.option');
+  for (var i = 0; i < all.length; i++) { all[i].classList.remove('selected'); }
+  element.classList.add('selected');
+  selectedIndex = parseInt(element.getAttribute('data-index'));
+  document.getElementById('nextBtn').disabled = false;
+}
+
+function nextQuestion() {
+  if (selectedIndex === -1) return;
+  answers[currentQuestion] = selectedIndex;
+  if (currentQuestion < quizData.length - 1) {
+    currentQuestion++;
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function computeWinner() {
+  var t = {iphone:0, multi:0, pc:0, lshape:0, power:0, wireless:0};
+  for (var i = 0; i < quizData.length; i++) {
+    if (answers[i] !== undefined) {
+      var tag = quizData[i].o[answers[i]].tag;
+      t[tag] = (t[tag] || 0) + 1;
+    }
+  }
+  var best = 'multi', bestN = -1;
+  var order = ['power','pc','multi','lshape','wireless','iphone'];
+  for (var k = 0; k < order.length; k++) {
+    if (t[order[k]] > bestN) { bestN = t[order[k]]; best = order[k]; }
+  }
+  return best;
+}
+
+function showResult() {
+  document.getElementById('quizContainer').classList.remove('active');
+  document.getElementById('resultContainer').classList.add('active');
+  var key = computeWinner();
+  var p = products[key];
+  document.getElementById('resultScore').innerHTML = p.emoji;
+  document.getElementById('levelBadge').textContent = 'あなたへのおすすめ';
+  document.getElementById('resultLevel').textContent = p.type;
+  document.getElementById('resultLevel').style.backgroundColor = '#0071e3';
+  document.getElementById('resultDescription').textContent = p.desc;
+  var html = '<div class="prods"><div class="prods-h">&#127919; あなたにぴったりの1本</div>' +
+    '<div class="prod"><div class="prod-info">' +
+    '<div class="prod-name">' + p.name + '</div>' +
+    '<div class="prod-desc">' + p.desc + '</div>' +
+    '<div class="prod-links">' +
+    '<a href="' + p.s + '" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>' +
+    '<a href="' + p.r + '" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>' +
+    '<a href="' + p.y + '" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>' +
+    '</div></div></div></div>';
+  document.getElementById('recoProd').innerHTML = html;
+  window.__resultType = p.type;
+}
+
+function restart() {
+  currentQuestion = 0;
+  selectedIndex = -1;
+  answers = [];
+  document.getElementById('quizContainer').classList.add('active');
+  document.getElementById('resultContainer').classList.remove('active');
+  renderQuestion();
+}
+
+function shareTwitter() {
+  var text = 'USB-C・PD最適ケーブル診断の結果は「' + (window.__resultType || '') + '」でした！ https://quiz.fds.co.jp/charge-finder/';
+  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
+}
+function shareLine() {
+  var text = 'USB-C・PD最適ケーブル診断の結果は「' + (window.__resultType || '') + '」でした！';
+  window.open('https://social-plugins.line.me/lineit/share?url=https://quiz.fds.co.jp/charge-finder/&text=' + encodeURIComponent(text), '_blank');
+}
+function copyResult() {
+  var text = 'USB-C・PD最適ケーブル診断\n【' + (window.__resultType || '') + '】\nhttps://quiz.fds.co.jp/charge-finder/';
+  var el = document.createElement('textarea');
+  el.value = text; document.body.appendChild(el); el.select();
+  document.execCommand('copy'); document.body.removeChild(el);
+  alert('結果をコピーしました！');
+}
+
+(function() {
+  var optsCont = document.getElementById('optionsContainer');
+  var touchMoved = false;
+  optsCont.addEventListener('touchstart', function() { touchMoved = false; }, false);
+  optsCont.addEventListener('touchmove', function() { touchMoved = true; }, false);
+  optsCont.addEventListener('touchend', function(e) {
+    if (touchMoved) return;
+    var t = e.target;
+    while (t && t !== optsCont) {
+      if (t.className && t.className.indexOf('option') !== -1 && t.getAttribute('data-index') !== null) {
+        e.preventDefault(); selectOption(t); return;
+      }
+      t = t.parentNode;
+    }
+  }, false);
+  optsCont.addEventListener('click', function(e) {
+    var t = e.target;
+    while (t && t !== optsCont) {
+      if (t.className && t.className.indexOf('option') !== -1 && t.getAttribute('data-index') !== null) {
+        selectOption(t); return;
+      }
+      t = t.parentNode;
+    }
+  }, false);
+})();
+
+document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+document.getElementById('nextBtn').addEventListener('click', nextQuestion);
+document.getElementById('restartBtn').addEventListener('click', restart);
+document.getElementById('shareTwitter').addEventListener('click', shareTwitter);
+document.getElementById('shareLine').addEventListener('click', shareLine);
+document.getElementById('copyResult').addEventListener('click', copyResult);
+
+initTheme();
+renderQuestion();
+</script>
+
+</body>
+</html>
