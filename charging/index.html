@@ -412,6 +412,23 @@
 .footer-legal a:hover{color:var(--c-primary)}
 
 </style>
+<!-- WS_GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag("js",new Date());
+gtag("config","G-XXXXXXXXXX");
+document.addEventListener("click",function(e){
+  var a=(e.target&&e.target.closest)?e.target.closest("a"):null;
+  if(!a||!a.href)return;
+  var h=a.href;
+  if(/worldselect\.net|rakuten\.co\.jp|shopping\.yahoo\.co\.jp/.test(h)){
+    var dest=(h.indexOf("rakuten")>-1)?"rakuten":((h.indexOf("yahoo")>-1)?"yahoo":"shopify");
+    try{gtag("event","ec_click",{ec_dest:dest,link_url:h,quiz_path:location.pathname});}catch(_){}
+  }
+},true);
+</script>
+<!-- /WS_GA4 -->
 </head>
 <body>
   <nav class="site-nav">
