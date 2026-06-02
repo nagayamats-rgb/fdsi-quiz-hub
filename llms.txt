@@ -1,0 +1,41 @@
+# World Select Quiz Hub
+
+> iPhone / iPad / Android アクセサリ（充電ケーブル・充電器・保護フィルム・ケース・カードリーダー等）の「選び方・見分け方」が学べる無料のクイズ＆診断サイト。運営は iPhone/Apple Watch アクセサリ専門のセレクトショップ「World Select」（有限会社FDSi）。全11種・約330問。各クイズの結果から楽天・Yahoo!・公式ストア（worldselect.net）の該当商品へ案内します。
+
+## クイズ・診断（全11種）
+
+- [充電マスター検定 (25問)](https://quiz.fds.co.jp/charging-master/): USB-C / PD急速充電 / MagSafe / GaN / Qi2、ケーブルの見分け方・選び方の知識クイズ
+- [フィルム選び方クイズ (10問)](https://quiz.fds.co.jp/film/): アンチグレアと光沢の違い、ガラスとPET、9H硬度、ペーパーライク、のぞき見防止。iPhone/iPad/Pixel対応フィルムの選び方
+- [USB-C・PD最適ケーブル診断 (8問)](https://quiz.fds.co.jp/charge-finder/): 用途を選ぶと最適な充電ケーブル・充電器を提案する診断
+- [充電スタイル診断 (7問)](https://quiz.fds.co.jp/charging/): 充電の好みからタイプを診断
+- [ガジェットオタク度チェック (20問)](https://quiz.fds.co.jp/gadget/): USB-C・PD・GaN等のガジェット知識クイズ
+- [スマホ撮影スキル診断 (20問)](https://quiz.fds.co.jp/photo-skill/): 構図・ライティング・ジンバル・動画テクの知識クイズ
+- [デジタルライフ偏差値テスト (25問)](https://quiz.fds.co.jp/digital/): デジタル活用度・ガジェット知識を偏差値で診断
+- [ガジェット検定アカデミー (80問)](https://quiz.fds.co.jp/academy/): 基礎からのガジェット知識検定
+- [テク雑学マラソン (100問)](https://quiz.fds.co.jp/marathon/): USB・スマホ・AI・宇宙までのテック雑学
+- [旅行スタイル診断 (10問)](https://quiz.fds.co.jp/travel/): 旅行タイプ診断
+- [旅先サバイバル (4シナリオ)](https://quiz.fds.co.jp/survival/): ガジェットトラブル対応シミュレーション
+
+## よく扱うトピック（FAQ）
+
+- USB-C / PD急速充電ケーブルの見分け方（USB-IF認証・eMarker・出力W数で判別）
+- ノートPCも充電できるケーブルの目安W数（PD60W以上、MacBookは100W）
+- 充電専用ケーブルとデータ転送対応ケーブルの違い
+- ワイヤレス充電が「急速」か見分ける数値（15W=MagSafe/Qi2、7.5W=Qi標準）
+- GaN（窒化ガリウム）充電器のメリット
+- アンチグレアフィルムと光沢フィルムの違い
+- ガラスフィルムとPET（樹脂）フィルムの違い、9H硬度の意味
+- iPad + Apple Pencil の書き心地が良いフィルム（ペーパーライク）
+- のぞき見防止フィルムの特徴
+- L字コネクタ・3in1ケーブルの利点、MagSafe対応端末
+
+## ストア
+
+- 楽天市場: https://www.rakuten.co.jp/world11select/
+- Yahoo!ショッピング: https://store.shopping.yahoo.co.jp/world1select/
+- 公式ストア (Shopify): https://worldselect.net/
+
+## 運営者
+
+- 有限会社FDSi / World Select
+- サイト: https://quiz.fds.co.jp/
