@@ -100,7 +100,8 @@ body{font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Kaku 
 .nav-shop:hover{background:var(--c-primary);color:#fff}
 
 /* ── Hero (Apple-style large typography) ── */
-.hero{text-align:center;padding:72px 20px 56px;max-width:680px;margin:0 auto}
+.hero{text-align:center;padding:72px 20px 56px;max-width:680px;margin:0 auto;position:relative}
+.hero::before{content:"";position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:min(780px,118vw);height:400px;background:radial-gradient(58% 58% at 50% 28%,rgba(0,113,227,.10),transparent 70%);z-index:-1;pointer-events:none}
 .hero-kicker{font-size:13px;font-weight:600;color:var(--c-primary);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
 .hero h1{font-size:clamp(32px,6vw,56px);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,var(--c-text) 0%,var(--c-text2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-sub{font-size:clamp(16px,2.5vw,19px);color:var(--c-text2);line-height:1.6;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto}
@@ -122,10 +123,11 @@ body{font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Kaku 
 
 /* ── Quiz Cards (Anker + Apple hybrid) ── */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.card{background:var(--c-surface);border:1px solid transparent;border-radius:var(--radius);padding:0;text-decoration:none;color:var(--c-text);box-shadow:var(--c-shadow1);transition:all .25s;display:flex;flex-direction:column;overflow:hidden}
+.card{background:var(--c-bg);border:1px solid var(--c-border);border-radius:var(--radius);padding:0;text-decoration:none;color:var(--c-text);box-shadow:var(--c-shadow1);transition:all .25s;display:flex;flex-direction:column;overflow:hidden}
 .card:hover{box-shadow:var(--c-shadow3);transform:translateY(-3px);border-color:var(--c-border-h)}
-.card-visual{height:80px;display:flex;align-items:center;justify-content:center;font-size:36px;position:relative;overflow:hidden}
-.card-visual-bg{position:absolute;inset:0;opacity:.15}
+.card-visual{height:112px;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;overflow:hidden;text-shadow:0 6px 14px rgba(0,0,0,.16)}
+.card-visual-bg{position:absolute;inset:0;opacity:.26}
+.card-visual-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 70% at 50% 12%,rgba(255,255,255,.45),transparent 62%)}
 .card-badge{position:absolute;top:10px;right:10px;font-size:10px;font-weight:700;padding:3px 10px;border-radius:var(--radius-full);color:#fff;line-height:1.4}
 .badge-hot{background:linear-gradient(135deg,#ff6b35,#f7418f)}
 .badge-new{background:linear-gradient(135deg,#00b4d8,#7209b7)}
