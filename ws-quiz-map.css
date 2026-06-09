@@ -275,3 +275,16 @@ body>header{ position:sticky!important; top:0!important; z-index:30!important; b
 .quiz-container{ align-items:stretch!important; display:block!important; }
 #quizContent{ width:100%!important; }
 #quizContent .quiz__grid{ width:100%!important; }
+
+/* a11y contrast (light mode: 紫リンク+意味色テキストをAA化 / ダークは鮮やか維持) */
+.crosslink,.level-badge{ color:#5f4485!important; }
+.option.correct{ color:#147a38!important; }
+.option.wrong,.option.incorrect{ color:#b3261e!important; }
+[data-theme="dark"] .crosslink,[data-theme="dark"] .level-badge{ color:#b79bcb!important; }
+[data-theme="dark"] .option.correct{ color:#5ce07e!important; }
+[data-theme="dark"] .option.wrong,[data-theme="dark"] .option.incorrect{ color:#ff7a72!important; }
+@media(prefers-color-scheme:dark){
+ :root:not([data-theme="light"]) .crosslink,:root:not([data-theme="light"]) .level-badge{ color:#b79bcb!important; }
+ :root:not([data-theme="light"]) .option.correct{ color:#5ce07e!important; }
+ :root:not([data-theme="light"]) .option.wrong,:root:not([data-theme="light"]) .option.incorrect{ color:#ff7a72!important; }
+}
