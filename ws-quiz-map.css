@@ -1,0 +1,277 @@
+/* ============================================================
+   ws-quiz-map.css — プロト(16P/Finch violet)デザインを
+   既存クイズ(.option ファミリー)の構造へマッピング。
+   ws-redesign.css(:root トークン)を先に読み込む前提。
+   JS/問題データ/EC導線は不変、見た目のみプロト準拠に。
+   ============================================================ */
+
+/* ---- ページ地・タイポ ---- */
+/* プロトはライト基調(lavender)固定。既存ダークテーマは無効化して一貫性を担保 */
+body,[data-theme="dark"] body{ background:var(--bg)!important; color:var(--ink)!important;
+  font-family:var(--font-body)!important; }
+
+/* ---- Top bar (既存 .site-nav / .nav-*) ---- */
+.site-nav,.nav{ background:color-mix(in oklab,var(--surface) 88%,transparent)!important;
+  backdrop-filter:saturate(1.3) blur(12px); border-bottom:1px solid var(--line)!important; }
+.nav-inner{ max-width:var(--maxw); }
+.nav-brand{ font-family:var(--font-head)!important; font-weight:770!important;
+  letter-spacing:-.2px!important; color:var(--head)!important; font-size:18px!important; }
+.nav-link{ color:var(--ink-2)!important; font-family:var(--font-body)!important;
+  font-weight:550!important; border-radius:var(--r-md)!important; }
+.nav-link:hover{ background:var(--primary-050)!important; color:var(--primary-700)!important; }
+.nav-link.active{ color:var(--primary-700)!important; background:var(--primary-050)!important; }
+.nav-theme{ min-width:48px!important; min-height:48px!important; border-radius:var(--r-md)!important;
+  border:1.5px solid var(--line-2)!important; background:var(--surface)!important; color:var(--ink-2)!important; }
+.nav-shop{ background:var(--primary-050)!important; color:var(--primary-700)!important;
+  border:0!important; border-radius:var(--r-md)!important; font-family:var(--font-body)!important;
+  font-weight:600!important; min-height:44px; display:inline-flex; align-items:center; }
+.nav-shop:hover{ background:var(--primary-100)!important; color:var(--primary-700)!important; }
+
+/* ---- Progress ---- */
+.progress-bar,.progress{ height:6px!important; background:var(--bg-2)!important;
+  border-radius:var(--r-pill)!important; overflow:hidden; }
+.progress-fill{ background:linear-gradient(90deg,var(--primary),var(--primary-700))!important; }
+
+/* ---- Question ---- */
+.question-number{ font-family:var(--font-head)!important; font-weight:700!important;
+  color:var(--primary-700)!important; letter-spacing:0!important; font-size:13px!important; }
+.question-text,.q-text{ font-family:var(--font-head)!important; font-weight:800!important;
+  font-size:clamp(24px,4.6vw,34px)!important; line-height:1.34!important;
+  letter-spacing:var(--head-ls)!important; color:var(--head)!important; }
+
+/* ---- 回答 pill (Finch型): 既存 .option を .opt 風に。ラベル左＋右チェック1個 ---- */
+.options{ display:flex!important; flex-direction:column!important; gap:11px!important; }
+.option{
+  display:flex!important; align-items:center!important; gap:15px!important;
+  width:100%; text-align:left!important; min-height:60px!important;
+  padding:10px 18px!important; border-radius:var(--r-opt)!important;
+  background:var(--surface)!important; border:1.5px solid var(--line)!important;
+  color:var(--ink)!important; font-size:16px!important; font-weight:600!important;
+  font-family:var(--font-body)!important; box-shadow:none!important; position:relative;
+  transition:border-color .15s,background .15s,box-shadow .15s;
+}
+.option:hover{ border-color:var(--line-2)!important; box-shadow:var(--sh-1)!important; }
+.option-text{ order:1!important; flex:1!important; line-height:1.4!important; font-size:16px!important; }
+/* option-icon = 右側のチェック○（空→選択時violet→正解✓緑/誤答✗赤、JSが文字を入れる） */
+.option-icon{ order:2!important; flex:none!important; width:26px!important; height:26px!important;
+  border-radius:var(--r-pill)!important; border:2px solid var(--line-2)!important;
+  display:grid!important; place-items:center!important; background:transparent!important;
+  color:#fff!important; font-size:14px!important; font-weight:800!important; line-height:1!important; }
+.option.selected{ border-color:var(--primary)!important; background:var(--primary-050)!important;
+  box-shadow:0 0 0 1px var(--primary) inset!important; color:var(--primary-700)!important; }
+.option.selected .option-icon{ background:var(--primary)!important; border-color:var(--primary)!important; }
+/* 採点後 正誤(意味色) */
+.option.correct{ border-color:var(--success)!important; background:var(--success-050)!important;
+  box-shadow:0 0 0 1px var(--success) inset!important; color:#1f7a55!important; }
+.option.correct .option-icon{ background:var(--success)!important; border-color:var(--success)!important; }
+.option.wrong{ border-color:var(--danger)!important; background:#FBECEA!important; color:#a3372d!important; }
+.option.wrong .option-icon{ background:var(--danger)!important; border-color:var(--danger)!important; }
+.option.answered{ cursor:default; }
+
+/* ---- 主CTA (.next-btn) = プロト .btn--primary フルワイド ---- */
+.next-btn{ display:inline-flex!important; align-items:center; justify-content:center;
+  width:100%!important; min-height:56px!important; border:0!important; border-radius:var(--r-md)!important;
+  background:var(--primary)!important; color:#fff!important; font-family:var(--font-body)!important;
+  font-weight:600!important; font-size:17px!important; box-shadow:var(--sh-primary)!important;
+  letter-spacing:0!important; }
+.next-btn:hover:not(:disabled){ background:var(--primary-700)!important; }
+.next-btn:disabled{ background:var(--line-2)!important; color:#fff!important; box-shadow:none!important; opacity:.85; }
+
+/* ---- Explanation ---- */
+.explanation{ background:var(--tint-1)!important; border:1px solid var(--line)!important;
+  border-radius:var(--r-md)!important; color:var(--ink)!important; }
+
+/* ============================================================
+   RESULT — プロトの score / type / products へ
+   ============================================================ */
+.result-container .result-score,.result-score{ font-family:var(--font-head)!important;
+  font-weight:800!important; font-size:clamp(64px,15vw,120px)!important; line-height:.9!important;
+  color:var(--primary)!important; letter-spacing:-.03em!important; }
+.level-badge{ display:inline-flex!important; align-items:center; gap:8px;
+  padding:8px 20px!important; border-radius:var(--r-pill)!important;
+  background:var(--primary-700)!important; color:#fff!important; font-family:var(--font-head)!important;
+  font-weight:800!important; font-size:15px!important; box-shadow:var(--sh-accent)!important; }
+.result-level{ font-family:var(--font-head)!important; font-weight:800!important;
+  color:var(--head)!important; letter-spacing:var(--head-ls)!important; }
+.result-description{ color:var(--ink-2)!important; font-size:16px!important; }
+.result-score-wrap,.result-header,.result-top{ background:var(--surface)!important;
+  border-radius:var(--r-lg)!important; box-shadow:var(--sh-2)!important; }
+
+/* おすすめ商品 → プロト .pcard */
+.prods-h,.prods-title{ font-family:var(--font-head)!important; font-weight:800!important;
+  color:var(--head)!important; letter-spacing:var(--head-ls)!important; font-size:19px!important; }
+.prods{ display:grid!important; grid-template-columns:1fr!important; gap:18px!important; }
+@media(min-width:620px){ .prods{ grid-template-columns:1fr 1fr!important; } }
+@media(min-width:1000px){ .prods{ grid-template-columns:repeat(3,1fr)!important; } }
+.prod{ display:flex!important; flex-direction:column!important; background:var(--surface)!important;
+  border:1px solid var(--line)!important; border-radius:var(--r-lg)!important; overflow:hidden;
+  box-shadow:var(--sh-1)!important; padding:17px!important; transition:transform .18s,box-shadow .18s; }
+.prod:hover{ transform:translateY(-3px); box-shadow:var(--sh-3)!important; }
+.prod-name{ font-family:var(--font-head)!important; font-weight:700!important; font-size:16px!important;
+  color:var(--head)!important; letter-spacing:var(--head-ls)!important; line-height:1.42!important; }
+.prod-desc{ color:var(--ink-2)!important; font-size:14px!important; }
+.prod-links{ display:flex; gap:8px; flex-wrap:wrap; margin-top:4px; }
+.prod-a{ min-height:44px!important; display:inline-flex!important; align-items:center; justify-content:center;
+  padding:0 16px!important; border-radius:var(--r-md)!important; font-family:var(--font-body)!important;
+  font-weight:600!important; font-size:13px!important; text-decoration:none; }
+.prod-a.prod-s,.prod-s{ background:var(--primary)!important; color:#fff!important; }
+.prod-a.prod-r,.prod-r{ background:#bf0000!important; color:#fff!important; }
+.prod-a.prod-y,.prod-y{ background:#ff0033!important; color:#fff!important; }
+
+/* ---- Share ---- */
+.share-buttons{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+.share-btn{ min-height:48px!important; padding:0 20px!important; border-radius:var(--r-pill)!important;
+  border:0!important; color:#fff!important; font-weight:700!important; font-family:var(--font-body)!important;
+  display:inline-flex; align-items:center; gap:8px; }
+
+/* ---- Crosslinks ---- */
+.crosslinks{ background:var(--tint-1)!important; border-radius:var(--r-xl)!important; border:0!important; }
+.crosslinks-title{ font-family:var(--font-head)!important; font-weight:800!important; color:var(--head)!important; }
+.crosslink{ background:var(--surface)!important; border:1px solid var(--line)!important;
+  border-radius:var(--r-md)!important; color:var(--ink)!important; min-height:44px; }
+.crosslink:hover{ border-color:var(--primary)!important; }
+
+/* ---- Footer ---- */
+.footer,.site-footer{ background:var(--tint-1)!important; border-top:1px solid var(--line)!important;
+  color:var(--ink-3)!important; }
+.footer a{ color:var(--ink-2)!important; }
+.footer-col-title,.footer-brand{ font-family:var(--font-head)!important; color:var(--head)!important; }
+
+/* ---- 画面切替 (JS が .active をトグル) + ページ幅 ---- */
+.ws-quizpage{ width:100%; }
+.quiz,.result{ display:none; }
+.quiz.active,.result.active{ display:block; }
+.result.active{ max-width:1100px; margin:0 auto; }
+/* 結果 hero/score は ws-redesign.css の .result__hero/.score を使用 */
+.result .prods{ margin-top:42px; }
+.result .prods-h{ margin-bottom:14px; }
+
+/* ============================================================
+   汎用カバレッジ — 残り6クイズ(別ジェネレータ)のクラス変種を
+   プロトのコンポーネント見た目へマッピング。
+   ============================================================ */
+/* 回答コンテナ */
+.options-list,.opts,.options-grid{ display:flex!important; flex-direction:column!important; gap:11px!important; }
+/* 回答アイテム(各ジェネレータ): marathon=.option-button / digital=.op / charging sys2=.opt */
+.option-button,.op,.opt{
+  display:flex!important; align-items:center!important; gap:14px!important; width:100%; text-align:left!important;
+  min-height:60px!important; padding:12px 18px!important; border-radius:var(--r-opt)!important;
+  background:var(--surface)!important; border:1.5px solid var(--line)!important; color:var(--ink)!important;
+  font-size:16px!important; font-weight:600!important; font-family:var(--font-body)!important; box-shadow:none!important; }
+.option-button:hover:not(:disabled),.op:hover,.opt:hover{ border-color:var(--line-2)!important; box-shadow:var(--sh-1)!important; }
+.op-t,.opt-label{ flex:1!important; font-size:16px!important; color:var(--ink)!important; }
+.op-c{ flex:none!important; width:26px!important; height:26px!important; border-radius:var(--r-pill)!important;
+  border:2px solid var(--line-2)!important; background:transparent!important; }
+.option-radio,.opt-radio{ width:22px!important; height:22px!important; border:2px solid var(--line-2)!important;
+  border-radius:var(--r-pill)!important; }
+/* 選択/正誤(意味色) — 各ジェネレータの状態クラス */
+.option-button.correct,.op.correct,.opt.correct,.option.correct{ border-color:var(--success)!important; background:var(--success-050)!important; color:#1f7a55!important; }
+.option-button.wrong,.option-button.incorrect,.op.wrong,.opt.wrong,.option.incorrect{ border-color:var(--danger)!important; background:#FBECEA!important; color:#a3372d!important; }
+.op.sel,.opt.selected,.option-button.selected{ border-color:var(--primary)!important; background:var(--primary-050)!important; color:var(--primary-700)!important; box-shadow:0 0 0 1px var(--primary) inset!important; }
+.op.sel .op-t{ color:var(--primary-700)!important; }
+.op.sel .op-c{ background:var(--primary)!important; border-color:var(--primary)!important; }
+
+/* ボタン: academy=.button / digital=.ab,.btn-p (常時表示) */
+.button,.ab,.btn-p{ display:inline-flex!important; align-items:center; justify-content:center;
+  min-height:52px!important; padding:0 24px!important; border:0!important; border-radius:var(--r-md)!important;
+  background:var(--primary)!important; color:#fff!important; font-family:var(--font-body)!important;
+  font-weight:600!important; font-size:16px!important; box-shadow:var(--sh-primary)!important; }
+/* marathon=.next-button は .show で表示制御するため display を上書きしない(見た目のみ) */
+.next-button{ align-items:center; justify-content:center; min-height:52px!important; padding:0 24px!important;
+  border:0!important; border-radius:var(--r-md)!important; background:var(--primary)!important; color:#fff!important;
+  font-family:var(--font-body)!important; font-weight:600!important; font-size:16px!important; box-shadow:var(--sh-primary)!important; }
+.next-button.show{ display:inline-flex!important; }
+.next-button:hover,.button:hover,.ab:hover,.btn-p:hover{ background:var(--primary-700)!important; }
+.button.secondary,.btn-g,.ab-h{ background:var(--surface)!important; color:var(--primary-700)!important; border:1.5px solid var(--line-2)!important; box-shadow:none!important; }
+
+/* 見出し/問題テキスト変種 */
+.q-text,#qText,.question-text,.quiz-level-name{ font-family:var(--font-head)!important; }
+.qText,#qText{ font-family:var(--font-head)!important; font-weight:800!important;
+  font-size:clamp(22px,4.4vw,32px)!important; color:var(--head)!important; letter-spacing:var(--head-ls)!important; }
+
+/* 結果変種: marathon=.result-badge/.result-message / academy=.result-grade/.final-score/.result-title / travel=.result-type */
+.result-badge,.result-grade,.final-grade{ display:inline-flex!important; align-items:center; gap:8px;
+  padding:8px 20px!important; border-radius:var(--r-pill)!important; background:var(--primary-700)!important;
+  color:#fff!important; font-family:var(--font-head)!important; font-weight:800!important; font-size:15px!important; }
+.final-score,.result-title,.result-type{ font-family:var(--font-head)!important; font-weight:800!important;
+  color:var(--head)!important; letter-spacing:var(--head-ls)!important; }
+.final-score{ font-size:clamp(56px,12vw,96px)!important; color:var(--primary)!important; line-height:.9; }
+.result-message,.result-details,.summary{ color:var(--ink-2)!important; }
+.result-type{ font-size:clamp(26px,5vw,40px)!important; }
+
+/* academy header → topbar風 / .logo → brand */
+.logo{ font-family:var(--font-head)!important; font-weight:770!important; color:var(--head)!important; letter-spacing:var(--head-ls)!important; }
+.level-card{ background:var(--surface)!important; border:1px solid var(--line)!important; border-radius:var(--r-lg)!important; box-shadow:var(--sh-1)!important; }
+.level-card:hover:not(.locked){ box-shadow:var(--sh-3)!important; border-color:color-mix(in oklab,var(--primary) 40%,var(--line))!important; }
+.level-card-title{ font-family:var(--font-head)!important; color:var(--head)!important; }
+.theme-toggle{ border-radius:var(--r-md)!important; border:1.5px solid var(--line-2)!important; color:var(--ink-2)!important; }
+
+/* ---- JS描画クイズ(survival/travel/digital等)向け追加カバレッジ ---- */
+.btn{ display:inline-flex!important; align-items:center; justify-content:center; min-height:52px!important;
+  padding:0 24px!important; border:0!important; border-radius:var(--r-md)!important; background:var(--primary)!important;
+  color:#fff!important; font-family:var(--font-body)!important; font-weight:600!important; font-size:16px!important;
+  box-shadow:var(--sh-primary)!important; }
+.btn:hover:not(:disabled){ background:var(--primary-700)!important; }
+.btn:disabled{ background:var(--line-2)!important; color:#fff!important; box-shadow:none!important; opacity:.85; }
+.btn.secondary{ background:var(--surface)!important; color:var(--primary-700)!important; border:1.5px solid var(--line-2)!important; box-shadow:none!important; }
+.btn-group,.btn-row,.buttons{ display:flex!important; gap:12px!important; margin-top:24px!important; }
+.question-card,.scenario-intro,.scenario-card{ background:var(--surface)!important; border:1px solid var(--line)!important;
+  border-radius:var(--r-lg)!important; box-shadow:var(--sh-1)!important; padding:24px!important; }
+/* JS描画コンテナは2カラムgrid内包のため幅解放 */
+#quizContent{ max-width:1100px!important; width:100%!important; margin:0 auto!important; }
+.result-grade,.result-badge{ margin:14px 0!important; }
+
+/* ---- カテゴリアクセントに追従させるバナー/ヒーロー系(ハードコード色を上書き) ---- */
+.scenario-header,.scenario-transition,.result-rating,.result-hero{ background:var(--primary)!important; color:#fff!important;
+  border-radius:var(--r-lg)!important; }
+.scenario-header,.scenario-transition{ padding:20px 24px!important; }
+.scenario-header h2,.scenario-transition h2,.scenario-header p,.scenario-transition p,.result-rating{ color:#fff!important; }
+.scenario-label{ color:rgba(255,255,255,.85)!important; font-family:var(--font-head)!important; font-weight:700!important; }
+/* result__hero(プロト) は --primary 追従済。score__num/score__rank は --accent 追従 */
+.score__num{ color:var(--accent)!important; }
+.score__rank{ background:var(--accent-700)!important; }
+.badge{ background:var(--accent-050)!important; color:var(--accent-700)!important; }
+
+/* travel等: container wrapperなしで中央寄せ */
+.quiz .question-section,.quiz .result-screen{ max-width:1100px!important; margin:0 auto!important; padding:24px 20px 60px!important; }
+
+/* digital result */
+.q-txt{ font-family:var(--font-head)!important; font-weight:800!important; font-size:clamp(22px,4.4vw,32px)!important; color:var(--head)!important; letter-spacing:var(--head-ls)!important; }
+.ring-n,.big{ font-family:var(--font-head)!important; font-weight:800!important; color:var(--accent)!important; letter-spacing:-.02em!important; }
+.ring .rf{ stroke:var(--accent)!important; }
+.rnk{ display:inline-flex!important; align-items:center; padding:8px 20px!important; border-radius:var(--r-pill)!important; background:var(--accent-700)!important; color:#fff!important; font-family:var(--font-head)!important; font-weight:800!important; }
+.ring-l{ color:var(--ink-2)!important; font-family:var(--font-head)!important; font-weight:700!important; }
+.sbox{ background:var(--surface)!important; border:1px solid var(--line)!important; border-radius:var(--r-lg)!important; }
+.res>h2{ font-family:var(--font-head)!important; color:var(--head)!important; }
+.btn-p.btn--block{ width:100%!important; }
+
+/* charging extra */
+.result-title{ font-family:var(--font-head)!important; font-weight:800!important; color:var(--head)!important; letter-spacing:var(--head-ls)!important; font-size:clamp(24px,5vw,38px)!important; }
+.result-recommendation{ background:var(--tint-1)!important; border-radius:var(--r-lg)!important; padding:18px 20px!important; }
+.result-recommendation-label{ color:var(--accent-700)!important; font-family:var(--font-head)!important; font-weight:700!important; }
+.btn-secondary{ background:var(--surface)!important; color:var(--primary-700)!important; border:1.5px solid var(--line-2)!important; box-shadow:none!important; }
+.options-grid{ display:flex!important; flex-direction:column!important; gap:11px!important; }
+#introScreen .btn-primary{ width:auto!important; padding:0 32px!important; }
+
+/* グリッド幅の安定化(container制約が効かないクイズ対策) */
+.quiz__grid{ max-width:1100px!important; margin-left:auto!important; margin-right:auto!important; }
+.quiz__bar .container,.quiz__cta .container{ max-width:1100px!important; }
+
+/* grid blowout 対策(横スクロール防止): 1fr→minmax(0,1fr) + 子のmin-width:0 */
+@media(min-width:940px){ .quiz__grid{ grid-template-columns:360px minmax(0,1fr)!important; } }
+.quiz__grid>*,.question,.quiz__aside{ min-width:0!important; }
+.quiz__grid .options,.quiz__grid .options-grid,.quiz__grid .opts{ min-width:0!important; }
+html,body{ overflow-x:hidden!important; max-width:100%!important; }
+
+/* academy extra */
+body>header{ position:sticky!important; top:0!important; z-index:30!important; background:color-mix(in oklab,var(--surface) 90%,transparent)!important; backdrop-filter:saturate(1.3) blur(12px)!important; border-bottom:1px solid var(--line)!important; }
+.quiz-container{ max-width:1100px!important; background:transparent!important; padding:0!important; }
+.level-grid{ max-width:1100px!important; margin:0 auto!important; }
+.result-screen,.final-result{ max-width:760px!important; margin:24px auto!important; }
+.level-card-title{ font-family:var(--font-head)!important; }
+.explanation-title{ color:var(--accent-700)!important; font-family:var(--font-head)!important; font-weight:700!important; }
+
+/* academy width fix (quiz-container flex centering shrinks grid) */
+.quiz-container{ align-items:stretch!important; display:block!important; }
+#quizContent{ width:100%!important; }
+#quizContent .quiz__grid{ width:100%!important; }

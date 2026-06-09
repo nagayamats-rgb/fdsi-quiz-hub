@@ -14,17 +14,17 @@
 <style>
 :root{
   --c-bg:#ffffff;
-  --c-surface:#f5f5f7;
-  --c-surface2:#e8e8ed;
+  --c-surface:#F3EFF5;
+  --c-surface2:#E7DFEA;
   --c-border:#d2d2d7;
   --c-border-h:#86868b;
-  --c-text:#1d1d1f;
+  --c-text:#343C4B;
   --c-text2:#6e6e73;
   --c-text3:#86868b;
-  --c-primary:#0071e3;
-  --c-primary-h:#0077ED;
-  --c-primary-t:rgba(0,113,227,.08);
-  --c-primary-g:rgba(0,113,227,.18);
+  --c-primary:#88619A;
+  --c-primary-h:#654873;
+  --c-primary-t:rgba(136,97,154,.08);
+  --c-primary-g:rgba(136,97,154,.18);
   --c-ok:#34c759;
   --c-ok-bg:rgba(52,199,89,.10);
   --c-err:#ff3b30;
@@ -43,13 +43,13 @@
   --c-surface2:#2c2c2e;
   --c-border:#38383a;
   --c-border-h:#545456;
-  --c-text:#f5f5f7;
+  --c-text:#F3EFF5;
   --c-text2:#a1a1a6;
   --c-text3:#6e6e73;
-  --c-primary:#2997ff;
-  --c-primary-h:#40a9ff;
-  --c-primary-t:rgba(41,151,255,.12);
-  --c-primary-g:rgba(41,151,255,.22);
+  --c-primary:#B79BCB;
+  --c-primary-h:#C9B2DC;
+  --c-primary-t:rgba(183,155,203,.12);
+  --c-primary-g:rgba(183,155,203,.22);
   --c-ok:#30d158;
   --c-ok-bg:rgba(48,209,88,.12);
   --c-err:#ff453a;
@@ -61,9 +61,9 @@
   :root:not([data-theme="light"]){
     --c-bg:#000000;--c-surface:#1c1c1e;--c-surface2:#2c2c2e;
     --c-border:#38383a;--c-border-h:#545456;
-    --c-text:#f5f5f7;--c-text2:#a1a1a6;--c-text3:#6e6e73;
-    --c-primary:#2997ff;--c-primary-h:#40a9ff;
-    --c-primary-t:rgba(41,151,255,.12);--c-primary-g:rgba(41,151,255,.22);
+    --c-text:#F3EFF5;--c-text2:#a1a1a6;--c-text3:#6e6e73;
+    --c-primary:#B79BCB;--c-primary-h:#C9B2DC;
+    --c-primary-t:rgba(183,155,203,.12);--c-primary-g:rgba(183,155,203,.22);
     --c-ok:#30d158;--c-ok-bg:rgba(48,209,88,.12);
     --c-err:#ff453a;--c-err-bg:rgba(255,69,58,.12);
     --c-shadow1:0 1px 3px rgba(0,0,0,.3);--c-shadow2:0 4px 12px rgba(0,0,0,.35);
@@ -189,40 +189,65 @@ document.addEventListener("click",function(e){
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "アンチグレアと光沢（クリア）フィルムの違いは？", "acceptedAnswer": {"@type": "Answer", "text": "アンチグレアは反射と指紋を抑える非光沢タイプで、屋外やゲームで見やすいのが特徴です。光沢は透明度が高く、写真や動画の色を鮮やかに見せます。"}}, {"@type": "Question", "name": "ガラスフィルムとPET（樹脂）フィルムの違いは？", "acceptedAnswer": {"@type": "Answer", "text": "ガラスは硬度が高く割れにくく貼りやすいのが利点。PETは薄く曲面に追従しやすいです。平面の保護重視ならガラスが定番です。"}}, {"@type": "Question", "name": "フィルムの「9H」とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "表面硬度の指標で、傷のつきにくさを表します。鍵やコインとの擦れに強くなります。"}}, {"@type": "Question", "name": "iPadでApple Pencilの書き心地が良くなるフィルムは？", "acceptedAnswer": {"@type": "Answer", "text": "アンチグレア（ペーパーライク寄り）が適度な摩擦でペン先が滑りすぎず、紙に近い書き心地になります。"}}, {"@type": "Question", "name": "のぞき見防止フィルムの特徴は？", "acceptedAnswer": {"@type": "Answer", "text": "正面以外の角度から画面が見えにくくなります。代わりに正面以外はやや暗く見えるため、用途で選び分けます。"}}]}
 </script>
 <!-- /WS_FAQ -->
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../ws-redesign.css">
+<link rel="stylesheet" href="../ws-quiz-map.css">
+<style id="ws-cat-accent">/*WS_CAT_ACCENT mauve*/:root{--primary:#8C6E9A;--primary-700:#5E4870;--primary-050:#F1EDF4;--accent:#8C6E9A;--accent-700:#5E4870;--accent-050:#F1EDF4;}</style>
 </head>
 <body>
 
-<nav class="site-nav">
-<div class="nav-inner">
-  <a class="nav-brand" href="/">WS Quiz Hub</a>
-  <div class="nav-links"><a class="nav-link" href="/marathon/">知識</a><a class="nav-link" href="/travel/">診断</a><a class="nav-link" href="/digital/">偏差値</a><a class="nav-link" href="/survival/">シナリオ</a><a class="nav-link" href="/gadget/">検定</a><a class="nav-link" href="/charging-master/">充電</a></div>
-  <div class="nav-acts">
-    <button class="nav-theme" id="themeToggle" aria-label="テーマ切替">&#x2600;&#xFE0F;</button>
-    <a class="nav-shop" href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=film">Shop</a>
-  </div>
+<header class="topbar">
+<div class="container topbar__row">
+  <a class="brand" href="/"><span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.6 6.3L21 9l-4.8 4.3L17.6 20 12 16.6 6.4 20l1.4-6.7L3 9l6.4-.7z" fill="currentColor"/></svg></span>World Select <small>フィルム選び方クイズ</small></a>
+  <nav class="topbar__nav">
+    <a class="navlink navlink--hideable" href="/marathon/">知識</a>
+    <a class="navlink navlink--hideable" href="/travel/">診断</a>
+    <a class="navlink navlink--hideable" href="/digital/">偏差値</a>
+    <button class="navlink" id="themeToggle" aria-label="テーマ切替">&#x2600;&#xFE0F;</button>
+    <a class="navlink" href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=film">Shop</a>
+  </nav>
 </div>
-</nav>
+</header>
 
-<div class="container" style="padding-top:20px">
+<div class="ws-quizpage">
 
-  <div class="quiz-container active" id="quizContainer">
-    <div class="progress-bar">
-      <div class="progress-fill" id="progressFill"></div>
-    </div>
-    <div class="question-number" id="questionNumber"></div>
-    <div class="question-text" id="questionText"></div>
-    <div class="options" id="optionsContainer"></div>
-    <div class="explanation" id="explanation"></div>
-    <button class="next-btn" id="nextBtn" disabled="disabled">次へ</button>
-  </div>
+  <main class="quiz active" id="quizContainer">
+    <div class="quiz__bar"><div class="container">
+      <div class="quiz__barrow"><span class="qcount" id="qcountWrap"><b>Q1</b></span><span class="quiz__title-mini">フィルム選び方クイズ</span></div>
+      <div class="progress"><div class="progress__fill" id="progressFill"></div></div>
+    </div></div>
+    <div class="container"><div class="quiz__grid">
+      <aside class="quiz__aside">
+        <div class="quiz__bignum">QUESTION<b id="qbignum">01</b></div>
+        <div class="quiz__asidecard"><span class="badge">フィルム選び方クイズ</span><p>設問に答えて、あなたにぴったりの結果を見つけましょう。</p><div class="quiz__visual" aria-hidden="true"></div></div>
+      </aside>
+      <section class="question">
+        <div class="question__head">
+          <span class="eyebrow" id="questionNumber"></span>
+          <h2 class="question__h" id="questionText"></h2>
+        </div>
+        <div class="options" id="optionsContainer"></div>
+        <div class="explanation" id="explanation"></div>
+      </section>
+    </div></div>
+    <div class="quiz__cta"><div class="container">
+      <button class="btn btn--primary btn--block btn--lg" id="nextBtn" disabled="disabled">次へ</button>
+    </div></div>
+  </main>
 
-  <div class="result-container" id="resultContainer">
-    <div style="margin-bottom:30px">
-      <div class="result-score" id="resultScore"></div>
-      <div class="level-badge" id="levelBadge"></div>
-      <div class="result-level" id="resultLevel"></div>
-    </div>
-    <div class="result-description" id="resultDescription"></div>
+  <div class="result" id="resultContainer">
+    <section class="result__hero">
+      <div class="result__type">
+        <span class="badge">診断結果</span>
+        <h1 class="result__typename" id="resultLevel"></h1>
+        <p class="result__desc" id="resultDescription"></p>
+      </div>
+      <div class="score">
+        <div class="score__label">あなたのスコア</div>
+        <div class="score__num" id="resultScore"></div>
+        <div style="margin-top:14px"><span class="score__rank" id="levelBadge"></span></div>
+      </div>
+    </section>
     <div class="prods">
       <div class="prods-h">機種別おすすめフィルム</div>
       <div class="prod">
@@ -309,15 +334,15 @@ document.addEventListener("click",function(e){
         </div>
 
         <!-- WS_QUIZ_STORE_SEARCH -->
-    <div style="margin:24px 0;padding:20px;background:var(--c-surface,#f5f5f7);border-radius:12px;text-align:center;">
-      <div style="font-size:15px;font-weight:700;color:var(--c-text,#1d1d1f);margin-bottom:12px;">&#128267; World Select &#12391;&#25506;&#12377;</div>
+    <div style="margin:24px 0;padding:20px;background:var(--c-surface,#F3EFF5);border-radius:12px;text-align:center;">
+      <div style="font-size:15px;font-weight:700;color:var(--c-text,#343C4B);margin-bottom:12px;">&#128267; World Select &#12391;&#25506;&#12377;</div>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;">
       <a href="https://search.rakuten.co.jp/search/mall/%E3%82%A2%E3%83%B3%E3%83%81%E3%82%B0%E3%83%AC%E3%82%A2%E3%83%95%E3%82%A3%E3%83%AB%E3%83%A0/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; アンチグレアフィルム</a>
       <a href="https://search.rakuten.co.jp/search/mall/iPhone%E3%82%AC%E3%83%A9%E3%82%B9%E3%83%95%E3%82%A3%E3%83%AB%E3%83%A0/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; iPhoneガラスフィルム</a>
       <a href="https://search.rakuten.co.jp/search/mall/iPad%E3%83%95%E3%82%A3%E3%83%AB%E3%83%A0/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; iPadフィルム</a>
       <a href="https://search.rakuten.co.jp/search/mall/%E3%81%AE%E3%81%9E%E3%81%8D%E8%A6%8B%E9%98%B2%E6%AD%A2%E3%83%95%E3%82%A3%E3%83%AB%E3%83%A0/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; のぞき見防止フィルム</a>
       <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener" style="display:inline-block;background:#ff0033;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">Yahoo! &#12473;&#12488;&#12450;</a>
-      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=film" target="_blank" rel="noopener" style="display:inline-block;background:#0071e3;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
+      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=film" target="_blank" rel="noopener" style="display:inline-block;background:#88619A;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
       </div>
       <div style="font-size:11px;color:var(--c-text3,#86868b);margin-top:8px;">&#27005;&#22825;&#24066;&#22580;&#12398;World Select&#24215;&#33303;&#20869;&#12391;&#26908;&#32034;&#12375;&#12414;&#12377;</div>
     </div>
@@ -380,7 +405,7 @@ var quizData = [
 
 var levelMap = [
   {min: 9, max: 10, level: "フィルム選びの達人", color: "#7c3aed", desc: "アンチグレアも光沢も完璧に使い分け。最適な1枚を即決できます。"},
-  {min: 7, max: 8, level: "フィルム上級者", color: "#0071e3", desc: "違いをしっかり理解。失敗しないフィルム選びができます。"},
+  {min: 7, max: 8, level: "フィルム上級者", color: "#88619A", desc: "違いをしっかり理解。失敗しないフィルム選びができます。"},
   {min: 5, max: 6, level: "フィルム中級者", color: "#34c759", desc: "基本はOK。素材や用途の違いを押さえるともっと快適に。"},
   {min: 3, max: 4, level: "フィルム入門者", color: "#d97706", desc: "ここから一歩。アンチグレアと光沢の違いを知ると選び方が変わります。"},
   {min: 0, max: 2, level: "フィルムビギナー", color: "#64748b", desc: "まずは基本から。専用設計フィルムを選べば失敗しません。"}
@@ -434,8 +459,12 @@ function toggleTheme() {
 function renderQuestion() {
   var q = quizData[currentQuestion];
   var shuffled = shuffleOptions(q.o);
+  window.wsShuffled = shuffled;
 
-  document.getElementById('questionNumber').textContent = '問 ' + (currentQuestion + 1) + ' / ' + quizData.length;
+  document.getElementById('questionNumber').textContent = 'Question ' + (currentQuestion + 1);
+  var _T=(typeof quizData!=='undefined'&&quizData.length)?quizData.length:'';
+  var _qb=document.getElementById('qbignum'); if(_qb){_qb.innerHTML=('0'+(currentQuestion+1)).slice(-2)+'<span>/'+_T+'</span>';}
+  var _qw=document.getElementById('qcountWrap'); if(_qw){_qw.innerHTML='<b>Q'+(currentQuestion+1)+'</b> / '+_T;}
   document.getElementById('questionText').textContent = q.t;
   document.getElementById('explanation').classList.remove('show');
   document.getElementById('explanation').textContent = '';
@@ -474,7 +503,7 @@ function submitAnswer() {
 
   var q = quizData[currentQuestion];
   var opts = document.querySelectorAll('.option');
-  var shuffled = shuffleOptions(q.o);
+  var shuffled = window.wsShuffled || shuffleOptions(q.o);
 
   var selected = opts[selectedIndex];
   var isCorrect = shuffled[selectedIndex].ok;

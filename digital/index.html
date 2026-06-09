@@ -28,17 +28,17 @@
    ═══════════════════════════════════════ */
 :root{
   --c-bg:#ffffff;
-  --c-surface:#f5f5f7;
-  --c-surface2:#e8e8ed;
+  --c-surface:#F3EFF5;
+  --c-surface2:#E7DFEA;
   --c-border:#d2d2d7;
   --c-border-h:#86868b;
-  --c-text:#1d1d1f;
+  --c-text:#343C4B;
   --c-text2:#6e6e73;
   --c-text3:#86868b;
-  --c-primary:#0071e3;
-  --c-primary-h:#0077ED;
-  --c-primary-t:rgba(0,113,227,.08);
-  --c-primary-g:rgba(0,113,227,.18);
+  --c-primary:#88619A;
+  --c-primary-h:#654873;
+  --c-primary-t:rgba(136,97,154,.08);
+  --c-primary-g:rgba(136,97,154,.18);
   --c-ok:#34c759;
   --c-ok-bg:rgba(52,199,89,.10);
   --c-err:#ff3b30;
@@ -57,13 +57,13 @@
   --c-surface2:#2c2c2e;
   --c-border:#38383a;
   --c-border-h:#545456;
-  --c-text:#f5f5f7;
+  --c-text:#F3EFF5;
   --c-text2:#a1a1a6;
   --c-text3:#6e6e73;
-  --c-primary:#2997ff;
-  --c-primary-h:#40a9ff;
-  --c-primary-t:rgba(41,151,255,.12);
-  --c-primary-g:rgba(41,151,255,.22);
+  --c-primary:#B79BCB;
+  --c-primary-h:#C9B2DC;
+  --c-primary-t:rgba(183,155,203,.12);
+  --c-primary-g:rgba(183,155,203,.22);
   --c-ok:#30d158;
   --c-ok-bg:rgba(48,209,88,.12);
   --c-err:#ff453a;
@@ -75,9 +75,9 @@
   :root:not([data-theme="light"]){
     --c-bg:#000000;--c-surface:#1c1c1e;--c-surface2:#2c2c2e;
     --c-border:#38383a;--c-border-h:#545456;
-    --c-text:#f5f5f7;--c-text2:#a1a1a6;--c-text3:#6e6e73;
-    --c-primary:#2997ff;--c-primary-h:#40a9ff;
-    --c-primary-t:rgba(41,151,255,.12);--c-primary-g:rgba(41,151,255,.22);
+    --c-text:#F3EFF5;--c-text2:#a1a1a6;--c-text3:#6e6e73;
+    --c-primary:#B79BCB;--c-primary-h:#C9B2DC;
+    --c-primary-t:rgba(183,155,203,.12);--c-primary-g:rgba(183,155,203,.22);
     --c-ok:#30d158;--c-ok-bg:rgba(48,209,88,.12);
     --c-err:#ff453a;--c-err-bg:rgba(255,69,58,.12);
     --c-shadow1:0 1px 3px rgba(0,0,0,.3);--c-shadow2:0 4px 12px rgba(0,0,0,.35);
@@ -312,6 +312,10 @@ document.addEventListener("click",function(e){
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "充電ケーブルの選び方の基本は？", "acceptedAnswer": {"@type": "Answer", "text": "用途に応じたW数（スマホ20〜40W / ノートPC 60〜100W）、PD対応の有無、長さ、コネクタ形状（ストレート/L字）で選びます。"}}, {"@type": "Question", "name": "アンチグレアフィルムとは？", "acceptedAnswer": {"@type": "Answer", "text": "反射と指紋を抑える非光沢の保護フィルムです。屋外やゲームで画面が見やすく、目が疲れにくいのが特徴です。"}}, {"@type": "Question", "name": "スマホ周辺機器でまず揃えるべきものは？", "acceptedAnswer": {"@type": "Answer", "text": "急速充電対応のケーブルと充電器、画面を守る保護フィルム、本体を守るケースが基本です。用途に合わせて選びます。"}}]}
 </script>
 <!-- /WS_FAQ -->
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../ws-redesign.css">
+<link rel="stylesheet" href="../ws-quiz-map.css">
+<style id="ws-cat-accent">/*WS_CAT_ACCENT orchid*/:root{--primary:#A865A6;--primary-700:#774577;--primary-050:#F6ECF5;--accent:#A865A6;--accent-700:#774577;--accent-050:#F6ECF5;}</style>
 </head>
 <body>
 <button class="thm" id="thm" aria-label="テーマ切替">
@@ -319,27 +323,28 @@ document.addEventListener("click",function(e){
   <span class="ic-m">&#9790;</span>
 </button>
 
-<div class="wrap">
-  <div class="card">
+<header class="topbar"><div class="container topbar__row">
+  <a class="brand" href="/"><span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.6 6.3L21 9l-4.8 4.3L17.6 20 12 16.6 6.4 20l1.4-6.7L3 9l6.4-.7z" fill="currentColor"/></svg></span>World Select <small>デジタルライフ偏差値</small></a>
+</div></header>
+<div class="ws-quizpage">
+  <div class="quiz active">
     <div id="qz">
-      <h1 class="ttl">デジタルライフ偏差値</h1>
-      <p class="sub">25問であなたのデジタル活用度を診断</p>
-      <div class="prog">
-        <div class="prog-h">
-          <span class="prog-n" id="pN">1 / 25</span>
-          <span class="prog-p" id="pP">4%</span>
-        </div>
-        <div class="prog-t"><div class="prog-f" id="pB" style="width:4%"></div></div>
-      </div>
-      <div class="qs" id="qs">
-        <div class="q-num" id="qN">Q1</div>
-        <div class="q-txt" id="qT"></div>
-        <div class="opts" id="opts"></div>
-      </div>
-      <div class="brow">
+      <div class="quiz__bar"><div class="container">
+        <div class="quiz__barrow"><span class="qcount"><b id="pN">1 / 25</b> <span id="pP" style="color:var(--ink-3);font-weight:600">4%</span></span><span class="quiz__title-mini">デジタルライフ偏差値</span></div>
+        <div class="progress"><div class="progress__fill" id="pB" style="width:4%"></div></div>
+      </div></div>
+      <div class="container"><div class="quiz__grid">
+        <aside class="quiz__aside"><div class="quiz__bignum">SCORE<b>偏差値</b></div><div class="quiz__asidecard"><span class="badge">デジタルライフ偏差値</span><p>25問であなたのデジタル活用度を偏差値で診断します。</p><div class="quiz__visual" aria-hidden="true"></div></div></aside>
+        <section class="question">
+          <span class="eyebrow" id="qN">Q1</span>
+          <h2 class="question__h" id="qT"></h2>
+          <div class="opts" id="opts"></div>
+        </section>
+      </div></div>
+      <div class="quiz__cta"><div class="container">
         <button class="btn btn-g hid" id="bP">&#8592; 戻る</button>
-        <button class="btn btn-p" id="bN" disabled>次へ &#8594;</button>
-      </div>
+        <button class="btn btn-p btn--block" id="bN" disabled>次へ &#8594;</button>
+      </div></div>
     </div>
 
     <div id="res" class="res hid">
@@ -462,28 +467,28 @@ document.addEventListener("click",function(e){
         </div>
 
         <!-- WS_RELATED_QUIZ -->
-    <div style="margin:24px 0;padding:20px;background:var(--c-surface,#f5f5f7);border-radius:12px;">
-      <div style="font-size:15px;font-weight:700;color:var(--c-text,#1d1d1f);margin-bottom:12px;text-align:center;">&#127919; もっと診断する</div>
+    <div style="margin:24px 0;padding:20px;background:var(--c-surface,#F3EFF5);border-radius:12px;">
+      <div style="font-size:15px;font-weight:700;color:var(--c-text,#343C4B);margin-bottom:12px;text-align:center;">&#127919; もっと診断する</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-        <a href="/charging-master/" style="display:block;padding:12px;background:var(--c-bg,#fff);border:1px solid var(--c-border,#d2d2d7);border-radius:8px;text-decoration:none;color:var(--c-text,#1d1d1f);font-size:13px;font-weight:600;">&#128267; USB-C・PD急速充電ケーブルの見分け方｜充電マスター検定（25問）</a>
-        <a href="/charging/" style="display:block;padding:12px;background:var(--c-bg,#fff);border:1px solid var(--c-border,#d2d2d7);border-radius:8px;text-decoration:none;color:var(--c-text,#1d1d1f);font-size:13px;font-weight:600;">&#128267; あなたに合う充電スタイル診断（7問）</a>
-        <a href="/gadget/" style="display:block;padding:12px;background:var(--c-bg,#fff);border:1px solid var(--c-border,#d2d2d7);border-radius:8px;text-decoration:none;color:var(--c-text,#1d1d1f);font-size:13px;font-weight:600;">&#129504; ガジェットオタク度チェック（20問）</a>
-        <a href="/photo-skill/" style="display:block;padding:12px;background:var(--c-bg,#fff);border:1px solid var(--c-border,#d2d2d7);border-radius:8px;text-decoration:none;color:var(--c-text,#1d1d1f);font-size:13px;font-weight:600;">&#128247; スマホ撮影スキル診断（20問）</a>
-        <a href="/academy/" style="display:block;padding:12px;background:var(--c-bg,#fff);border:1px solid var(--c-border,#d2d2d7);border-radius:8px;text-decoration:none;color:var(--c-text,#1d1d1f);font-size:13px;font-weight:600;">&#127891; ガジェット検定アカデミー（80問）</a>
-        <a href="/marathon/" style="display:block;padding:12px;background:var(--c-bg,#fff);border:1px solid var(--c-border,#d2d2d7);border-radius:8px;text-decoration:none;color:var(--c-text,#1d1d1f);font-size:13px;font-weight:600;">&#127939; テク雑学マラソン（100問）</a>
+        <a href="/charging-master/" style="display:block;padding:12px;background:var(--c-bg,#fff);border:1px solid var(--c-border,#d2d2d7);border-radius:8px;text-decoration:none;color:var(--c-text,#343C4B);font-size:13px;font-weight:600;">&#128267; USB-C・PD急速充電ケーブルの見分け方｜充電マスター検定（25問）</a>
+        <a href="/charging/" style="display:block;padding:12px;background:var(--c-bg,#fff);border:1px solid var(--c-border,#d2d2d7);border-radius:8px;text-decoration:none;color:var(--c-text,#343C4B);font-size:13px;font-weight:600;">&#128267; あなたに合う充電スタイル診断（7問）</a>
+        <a href="/gadget/" style="display:block;padding:12px;background:var(--c-bg,#fff);border:1px solid var(--c-border,#d2d2d7);border-radius:8px;text-decoration:none;color:var(--c-text,#343C4B);font-size:13px;font-weight:600;">&#129504; ガジェットオタク度チェック（20問）</a>
+        <a href="/photo-skill/" style="display:block;padding:12px;background:var(--c-bg,#fff);border:1px solid var(--c-border,#d2d2d7);border-radius:8px;text-decoration:none;color:var(--c-text,#343C4B);font-size:13px;font-weight:600;">&#128247; スマホ撮影スキル診断（20問）</a>
+        <a href="/academy/" style="display:block;padding:12px;background:var(--c-bg,#fff);border:1px solid var(--c-border,#d2d2d7);border-radius:8px;text-decoration:none;color:var(--c-text,#343C4B);font-size:13px;font-weight:600;">&#127891; ガジェット検定アカデミー（80問）</a>
+        <a href="/marathon/" style="display:block;padding:12px;background:var(--c-bg,#fff);border:1px solid var(--c-border,#d2d2d7);border-radius:8px;text-decoration:none;color:var(--c-text,#343C4B);font-size:13px;font-weight:600;">&#127939; テク雑学マラソン（100問）</a>
       </div>
     </div>
     <!-- /WS_RELATED_QUIZ -->
 
         <!-- WS_QUIZ_STORE_SEARCH -->
-    <div style="margin:24px 0;padding:20px;background:var(--c-surface,#f5f5f7);border-radius:12px;text-align:center;">
-      <div style="font-size:15px;font-weight:700;color:var(--c-text,#1d1d1f);margin-bottom:12px;">&#128722; World Select &#12391;&#25506;&#12377;</div>
+    <div style="margin:24px 0;padding:20px;background:var(--c-surface,#F3EFF5);border-radius:12px;text-align:center;">
+      <div style="font-size:15px;font-weight:700;color:var(--c-text,#343C4B);margin-bottom:12px;">&#128722; World Select &#12391;&#25506;&#12377;</div>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;">
       <a href="https://search.rakuten.co.jp/search/mall/USB-C+ケーブル/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; USB-Cケーブル</a>
       <a href="https://search.rakuten.co.jp/search/mall/MacBook+ケース/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; MacBookケース</a>
       <a href="https://search.rakuten.co.jp/search/mall/ガジェット+ポーチ/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; ガジェットポーチ</a>
       <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener" style="display:inline-block;background:#ff0033;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">Yahoo! &#12473;&#12488;&#12450;</a>
-      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=digital" target="_blank" rel="noopener" style="display:inline-block;background:#0071e3;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
+      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=digital" target="_blank" rel="noopener" style="display:inline-block;background:#88619A;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
       </div>
       <div style="font-size:11px;color:var(--c-text3,#86868b);margin-top:8px;">&#27005;&#22825;&#24066;&#22580;&#12398;World Select&#24215;&#33303;&#20869;&#12391;&#26908;&#32034;&#12375;&#12414;&#12377;</div>
     </div>
@@ -719,7 +724,7 @@ var Q=[
 
 var RANKS=[
   {min:65,n:'デジタルマスター',c:'#7c3aed'},
-  {min:55,n:'デジタルネイティブ',c:'#0071e3'},
+  {min:55,n:'デジタルネイティブ',c:'#88619A'},
   {min:45,n:'デジタル市民',c:'#34c759'},
   {min:30,n:'デジタル一般人',c:'#d97706'},
   {min:0, n:'デジタルビギナー',c:'#64748b'}

@@ -19,17 +19,17 @@
 <style>
 :root{
   --c-bg:#ffffff;
-  --c-surface:#f5f5f7;
-  --c-surface2:#e8e8ed;
+  --c-surface:#F3EFF5;
+  --c-surface2:#E7DFEA;
   --c-border:#d2d2d7;
   --c-border-h:#86868b;
-  --c-text:#1d1d1f;
+  --c-text:#343C4B;
   --c-text2:#6e6e73;
   --c-text3:#86868b;
-  --c-primary:#0071e3;
-  --c-primary-h:#0077ED;
-  --c-primary-t:rgba(0,113,227,.08);
-  --c-primary-g:rgba(0,113,227,.18);
+  --c-primary:#88619A;
+  --c-primary-h:#654873;
+  --c-primary-t:rgba(136,97,154,.08);
+  --c-primary-g:rgba(136,97,154,.18);
   --c-ok:#34c759;
   --c-ok-bg:rgba(52,199,89,.10);
   --c-err:#ff3b30;
@@ -48,13 +48,13 @@
   --c-surface2:#2c2c2e;
   --c-border:#38383a;
   --c-border-h:#545456;
-  --c-text:#f5f5f7;
+  --c-text:#F3EFF5;
   --c-text2:#a1a1a6;
   --c-text3:#6e6e73;
-  --c-primary:#2997ff;
-  --c-primary-h:#40a9ff;
-  --c-primary-t:rgba(41,151,255,.12);
-  --c-primary-g:rgba(41,151,255,.22);
+  --c-primary:#B79BCB;
+  --c-primary-h:#C9B2DC;
+  --c-primary-t:rgba(183,155,203,.12);
+  --c-primary-g:rgba(183,155,203,.22);
   --c-ok:#30d158;
   --c-ok-bg:rgba(48,209,88,.12);
   --c-err:#ff453a;
@@ -66,9 +66,9 @@
   :root:not([data-theme="light"]){
     --c-bg:#000000;--c-surface:#1c1c1e;--c-surface2:#2c2c2e;
     --c-border:#38383a;--c-border-h:#545456;
-    --c-text:#f5f5f7;--c-text2:#a1a1a6;--c-text3:#6e6e73;
-    --c-primary:#2997ff;--c-primary-h:#40a9ff;
-    --c-primary-t:rgba(41,151,255,.12);--c-primary-g:rgba(41,151,255,.22);
+    --c-text:#F3EFF5;--c-text2:#a1a1a6;--c-text3:#6e6e73;
+    --c-primary:#B79BCB;--c-primary-h:#C9B2DC;
+    --c-primary-t:rgba(183,155,203,.12);--c-primary-g:rgba(183,155,203,.22);
     --c-ok:#30d158;--c-ok-bg:rgba(48,209,88,.12);
     --c-err:#ff453a;--c-err-bg:rgba(255,69,58,.12);
     --c-shadow1:0 1px 3px rgba(0,0,0,.3);--c-shadow2:0 4px 12px rgba(0,0,0,.35);
@@ -194,40 +194,65 @@ document.addEventListener("click",function(e){
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "スマホ写真の基本構図は？", "acceptedAnswer": {"@type": "Answer", "text": "三分割法が基本です。画面を縦横3分割した線の交点に被写体を置くとバランスよく見えます。"}}, {"@type": "Question", "name": "逆光でもきれいに撮るコツは？", "acceptedAnswer": {"@type": "Answer", "text": "HDRをオンにし、露出を手動で少し上げます。被写体に光を回すレフ板代わりの白い物も有効です。"}}, {"@type": "Question", "name": "ジンバルを使うメリットは？", "acceptedAnswer": {"@type": "Answer", "text": "手ブレを抑え、滑らかな動画や歩き撮りが可能になります。"}}, {"@type": "Question", "name": "ナイトモードで撮るコツは？", "acceptedAnswer": {"@type": "Answer", "text": "端末を固定して数秒静止します。三脚やスタンドを使うとブレずにきれいに撮れます。"}}]}
 </script>
 <!-- /WS_FAQ -->
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../ws-redesign.css">
+<link rel="stylesheet" href="../ws-quiz-map.css">
+<style id="ws-cat-accent">/*WS_CAT_ACCENT plum*/:root{--primary:#9C5C82;--primary-700:#6E3C58;--primary-050:#F5ECF0;--accent:#9C5C82;--accent-700:#6E3C58;--accent-050:#F5ECF0;}</style>
 </head>
 <body>
 
-<nav class="site-nav">
-<div class="nav-inner">
-  <a class="nav-brand" href="/">WS Quiz Hub</a>
-  <div class="nav-links"><a class="nav-link" href="/marathon/">知識</a><a class="nav-link" href="/travel/">診断</a><a class="nav-link" href="/digital/">偏差値</a><a class="nav-link" href="/survival/">シナリオ</a><a class="nav-link" href="/gadget/">検定</a><a class="nav-link active" href="/photo-skill/">撮影</a></div>
-  <div class="nav-acts">
-    <button class="nav-theme" id="themeToggle" aria-label="テーマ切替">&#x2600;&#xFE0F;</button>
-    <a class="nav-shop" href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill">Shop</a>
-  </div>
+<header class="topbar">
+<div class="container topbar__row">
+  <a class="brand" href="/"><span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.6 6.3L21 9l-4.8 4.3L17.6 20 12 16.6 6.4 20l1.4-6.7L3 9l6.4-.7z" fill="currentColor"/></svg></span>World Select <small>スマホ撮影スキル診断</small></a>
+  <nav class="topbar__nav">
+    <a class="navlink navlink--hideable" href="/marathon/">知識</a>
+    <a class="navlink navlink--hideable" href="/travel/">診断</a>
+    <a class="navlink navlink--hideable" href="/digital/">偏差値</a>
+    <button class="navlink" id="themeToggle" aria-label="テーマ切替">&#x2600;&#xFE0F;</button>
+    <a class="navlink" href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill">Shop</a>
+  </nav>
 </div>
-</nav>
+</header>
 
-<div class="container" style="padding-top:20px">
+<div class="ws-quizpage">
 
-  <div class="quiz-container active" id="quizContainer">
-    <div class="progress-bar">
-      <div class="progress-fill" id="progressFill"></div>
-    </div>
-    <div class="question-number" id="questionNumber"></div>
-    <div class="question-text" id="questionText"></div>
-    <div class="options" id="optionsContainer"></div>
-    <div class="explanation" id="explanation"></div>
-    <button class="next-btn" id="nextBtn" disabled="disabled">次へ</button>
-  </div>
+  <main class="quiz active" id="quizContainer">
+    <div class="quiz__bar"><div class="container">
+      <div class="quiz__barrow"><span class="qcount" id="qcountWrap"><b>Q1</b></span><span class="quiz__title-mini">スマホ撮影スキル診断</span></div>
+      <div class="progress"><div class="progress__fill" id="progressFill"></div></div>
+    </div></div>
+    <div class="container"><div class="quiz__grid">
+      <aside class="quiz__aside">
+        <div class="quiz__bignum">QUESTION<b id="qbignum">01</b></div>
+        <div class="quiz__asidecard"><span class="badge">スマホ撮影スキル診断</span><p>設問に答えて、あなたにぴったりの結果を見つけましょう。</p><div class="quiz__visual" aria-hidden="true"></div></div>
+      </aside>
+      <section class="question">
+        <div class="question__head">
+          <span class="eyebrow" id="questionNumber"></span>
+          <h2 class="question__h" id="questionText"></h2>
+        </div>
+        <div class="options" id="optionsContainer"></div>
+        <div class="explanation" id="explanation"></div>
+      </section>
+    </div></div>
+    <div class="quiz__cta"><div class="container">
+      <button class="btn btn--primary btn--block btn--lg" id="nextBtn" disabled="disabled">次へ</button>
+    </div></div>
+  </main>
 
-  <div class="result-container" id="resultContainer">
-    <div style="margin-bottom:30px">
-      <div class="result-score" id="resultScore"></div>
-      <div class="level-badge" id="levelBadge"></div>
-      <div class="result-level" id="resultLevel"></div>
-    </div>
-    <div class="result-description" id="resultDescription"></div>
+  <div class="result" id="resultContainer">
+    <section class="result__hero">
+      <div class="result__type">
+        <span class="badge">診断結果</span>
+        <h1 class="result__typename" id="resultLevel"></h1>
+        <p class="result__desc" id="resultDescription"></p>
+      </div>
+      <div class="score">
+        <div class="score__label">あなたのスコア</div>
+        <div class="score__num" id="resultScore"></div>
+        <div style="margin-top:14px"><span class="score__rank" id="levelBadge"></span></div>
+      </div>
+    </section>
     <div class="prods">
       <div class="prods-h">スマホ撮影好きにおすすめ</div>
       <div class="prod">
@@ -315,15 +340,15 @@ document.addEventListener("click",function(e){
         </div>
 
         <!-- WS_QUIZ_STORE_SEARCH -->
-    <div style="margin:24px 0;padding:20px;background:var(--c-surface,#f5f5f7);border-radius:12px;text-align:center;">
-      <div style="font-size:15px;font-weight:700;color:var(--c-text,#1d1d1f);margin-bottom:12px;">&#128722; World Select &#12391;&#25506;&#12377;</div>
+    <div style="margin:24px 0;padding:20px;background:var(--c-surface,#F3EFF5);border-radius:12px;text-align:center;">
+      <div style="font-size:15px;font-weight:700;color:var(--c-text,#343C4B);margin-bottom:12px;">&#128722; World Select &#12391;&#25506;&#12377;</div>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;">
       <a href="https://search.rakuten.co.jp/search/mall/ジンバル/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; ジンバル</a>
       <a href="https://search.rakuten.co.jp/search/mall/カメラレンズ保護/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; レンズ保護</a>
       <a href="https://search.rakuten.co.jp/search/mall/iPhone保護フィルム/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; iPhone保護</a>
       <a href="https://search.rakuten.co.jp/search/mall/スマホアクセサリー/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; スマホアクセサリー</a>
       <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener" style="display:inline-block;background:#ff0033;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">Yahoo! &#12473;&#12488;&#12450;</a>
-      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill" target="_blank" rel="noopener" style="display:inline-block;background:#0071e3;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
+      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=photo-skill" target="_blank" rel="noopener" style="display:inline-block;background:#88619A;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
       </div>
       <div style="font-size:11px;color:var(--c-text3,#86868b);margin-top:8px;">&#27005;&#22825;&#24066;&#22580;&#12398;World Select&#24215;&#33303;&#20869;&#12391;&#26908;&#32034;&#12375;&#12414;&#12377;</div>
     </div>
@@ -395,7 +420,7 @@ var quizData = [
 
 var levelMap = [
   {min: 18, max: 20, level: "撮影マスター", color: "#7c3aed", desc: "プロ級の撮影知識。作品をSNSに投稿したら即バズるレベル。"},
-  {min: 15, max: 17, level: "フォトグラファー", color: "#0071e3", desc: "本格的な撮影スキル。友人の撮影を任されるレベル。"},
+  {min: 15, max: 17, level: "フォトグラファー", color: "#88619A", desc: "本格的な撮影スキル。友人の撮影を任されるレベル。"},
   {min: 11, max: 14, level: "撮影中級者", color: "#34c759", desc: "基本を押さえています。テクニックを磨けばさらにレベルアップ。"},
   {min: 7, max: 10, level: "撮影入門者", color: "#d97706", desc: "まだまだ伸びしろあり。構図と光を意識するだけで激変します。"},
   {min: 0, max: 6, level: "撮影ビギナー", color: "#64748b", desc: "ここからスタート！スマホでも十分プロ級の写真が撮れます。"}
@@ -449,8 +474,12 @@ function toggleTheme() {
 function renderQuestion() {
   var q = quizData[currentQuestion];
   var shuffled = shuffleOptions(q.o);
+  window.wsShuffled = shuffled;
 
-  document.getElementById('questionNumber').textContent = '問 ' + (currentQuestion + 1) + ' / 20';
+  document.getElementById('questionNumber').textContent = 'Question ' + (currentQuestion + 1);
+  var _T=(typeof quizData!=='undefined'&&quizData.length)?quizData.length:'';
+  var _qb=document.getElementById('qbignum'); if(_qb){_qb.innerHTML=('0'+(currentQuestion+1)).slice(-2)+'<span>/'+_T+'</span>';}
+  var _qw=document.getElementById('qcountWrap'); if(_qw){_qw.innerHTML='<b>Q'+(currentQuestion+1)+'</b> / '+_T;}
   document.getElementById('questionText').textContent = q.t;
   document.getElementById('explanation').classList.remove('show');
   document.getElementById('explanation').textContent = '';
@@ -489,7 +518,7 @@ function submitAnswer() {
 
   var q = quizData[currentQuestion];
   var opts = document.querySelectorAll('.option');
-  var shuffled = shuffleOptions(q.o);
+  var shuffled = window.wsShuffled || shuffleOptions(q.o);
 
   var selected = opts[selectedIndex];
   var isCorrect = shuffled[selectedIndex].ok;

@@ -14,17 +14,17 @@
 <style>
 :root{
   --c-bg:#ffffff;
-  --c-surface:#f5f5f7;
-  --c-surface2:#e8e8ed;
+  --c-surface:#F3EFF5;
+  --c-surface2:#E7DFEA;
   --c-border:#d2d2d7;
   --c-border-h:#86868b;
-  --c-text:#1d1d1f;
+  --c-text:#343C4B;
   --c-text2:#6e6e73;
   --c-text3:#86868b;
-  --c-primary:#0071e3;
-  --c-primary-h:#0077ED;
-  --c-primary-t:rgba(0,113,227,.08);
-  --c-primary-g:rgba(0,113,227,.18);
+  --c-primary:#88619A;
+  --c-primary-h:#654873;
+  --c-primary-t:rgba(136,97,154,.08);
+  --c-primary-g:rgba(136,97,154,.18);
   --c-ok:#34c759;
   --c-ok-bg:rgba(52,199,89,.10);
   --c-err:#ff3b30;
@@ -43,13 +43,13 @@
   --c-surface2:#2c2c2e;
   --c-border:#38383a;
   --c-border-h:#545456;
-  --c-text:#f5f5f7;
+  --c-text:#F3EFF5;
   --c-text2:#a1a1a6;
   --c-text3:#6e6e73;
-  --c-primary:#2997ff;
-  --c-primary-h:#40a9ff;
-  --c-primary-t:rgba(41,151,255,.12);
-  --c-primary-g:rgba(41,151,255,.22);
+  --c-primary:#B79BCB;
+  --c-primary-h:#C9B2DC;
+  --c-primary-t:rgba(183,155,203,.12);
+  --c-primary-g:rgba(183,155,203,.22);
   --c-ok:#30d158;
   --c-ok-bg:rgba(48,209,88,.12);
   --c-err:#ff453a;
@@ -61,9 +61,9 @@
   :root:not([data-theme="light"]){
     --c-bg:#000000;--c-surface:#1c1c1e;--c-surface2:#2c2c2e;
     --c-border:#38383a;--c-border-h:#545456;
-    --c-text:#f5f5f7;--c-text2:#a1a1a6;--c-text3:#6e6e73;
-    --c-primary:#2997ff;--c-primary-h:#40a9ff;
-    --c-primary-t:rgba(41,151,255,.12);--c-primary-g:rgba(41,151,255,.22);
+    --c-text:#F3EFF5;--c-text2:#a1a1a6;--c-text3:#6e6e73;
+    --c-primary:#B79BCB;--c-primary-h:#C9B2DC;
+    --c-primary-t:rgba(183,155,203,.12);--c-primary-g:rgba(183,155,203,.22);
     --c-ok:#30d158;--c-ok-bg:rgba(48,209,88,.12);
     --c-err:#ff453a;--c-err-bg:rgba(255,69,58,.12);
     --c-shadow1:0 1px 3px rgba(0,0,0,.3);--c-shadow2:0 4px 12px rgba(0,0,0,.35);
@@ -189,40 +189,65 @@ document.addEventListener("click",function(e){
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "USB-C / PD充電ケーブルは用途でどう選ぶ？", "acceptedAnswer": {"@type": "Answer", "text": "スマホのみなら20〜40W、ノートPC兼用ならPD60〜100W、複数端末やゲーム機も使うなら240W対応や多機能ケーブルを選びます。"}}, {"@type": "Question", "name": "L字コネクタのケーブルの利点は？", "acceptedAnswer": {"@type": "Answer", "text": "横向き接続で端子への負担が少なく、ゲーム・車載・デスクでの取り回しが快適です。"}}, {"@type": "Question", "name": "3in1ケーブルとは？", "acceptedAnswer": {"@type": "Answer", "text": "USB-C / Lightning / micro USB などに対応し、1本で複数の端末を充電できるケーブルです。"}}, {"@type": "Question", "name": "MagSafe充電器はどの端末で使える？", "acceptedAnswer": {"@type": "Answer", "text": "iPhone 12以降に対応し、最大15Wの急速ワイヤレス充電が可能です。Qi対応端末でも5Wで充電できます。"}}]}
 </script>
 <!-- /WS_FAQ -->
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../ws-redesign.css">
+<link rel="stylesheet" href="../ws-quiz-map.css">
+<style id="ws-cat-accent">/*WS_CAT_ACCENT iris*/:root{--primary:#6461AE;--primary-700:#434083;--primary-050:#ECECF7;--accent:#6461AE;--accent-700:#434083;--accent-050:#ECECF7;}</style>
 </head>
 <body>
 
-<nav class="site-nav">
-<div class="nav-inner">
-  <a class="nav-brand" href="/">WS Quiz Hub</a>
-  <div class="nav-links"><a class="nav-link" href="/marathon/">知識</a><a class="nav-link" href="/travel/">診断</a><a class="nav-link" href="/digital/">偏差値</a><a class="nav-link" href="/survival/">シナリオ</a><a class="nav-link" href="/gadget/">検定</a><a class="nav-link" href="/charging-master/">充電</a></div>
-  <div class="nav-acts">
-    <button class="nav-theme" id="themeToggle" aria-label="テーマ切替">&#x2600;&#xFE0F;</button>
-    <a class="nav-shop" href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder">Shop</a>
-  </div>
+<header class="topbar">
+<div class="container topbar__row">
+  <a class="brand" href="/"><span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.6 6.3L21 9l-4.8 4.3L17.6 20 12 16.6 6.4 20l1.4-6.7L3 9l6.4-.7z" fill="currentColor"/></svg></span>World Select <small>USB-C・PD最適ケーブル診断</small></a>
+  <nav class="topbar__nav">
+    <a class="navlink navlink--hideable" href="/marathon/">知識</a>
+    <a class="navlink navlink--hideable" href="/travel/">診断</a>
+    <a class="navlink navlink--hideable" href="/digital/">偏差値</a>
+    <button class="navlink" id="themeToggle" aria-label="テーマ切替">&#x2600;&#xFE0F;</button>
+    <a class="navlink" href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder">Shop</a>
+  </nav>
 </div>
-</nav>
+</header>
 
-<div class="container" style="padding-top:20px">
+<div class="ws-quizpage">
 
-  <div class="quiz-container active" id="quizContainer">
-    <div class="progress-bar">
-      <div class="progress-fill" id="progressFill"></div>
-    </div>
-    <div class="question-number" id="questionNumber"></div>
-    <div class="question-text" id="questionText"></div>
-    <div class="options" id="optionsContainer"></div>
-    <div class="explanation" id="explanation"></div>
-    <button class="next-btn" id="nextBtn" disabled="disabled">次へ</button>
-  </div>
+  <main class="quiz active" id="quizContainer">
+    <div class="quiz__bar"><div class="container">
+      <div class="quiz__barrow"><span class="qcount" id="qcountWrap"><b>Q1</b></span><span class="quiz__title-mini">USB-C・PD最適ケーブル診断</span></div>
+      <div class="progress"><div class="progress__fill" id="progressFill"></div></div>
+    </div></div>
+    <div class="container"><div class="quiz__grid">
+      <aside class="quiz__aside">
+        <div class="quiz__bignum">QUESTION<b id="qbignum">01</b></div>
+        <div class="quiz__asidecard"><span class="badge">USB-C・PD最適ケーブル診断</span><p>設問に答えて、あなたにぴったりの結果を見つけましょう。</p><div class="quiz__visual" aria-hidden="true"></div></div>
+      </aside>
+      <section class="question">
+        <div class="question__head">
+          <span class="eyebrow" id="questionNumber"></span>
+          <h2 class="question__h" id="questionText"></h2>
+        </div>
+        <div class="options" id="optionsContainer"></div>
+        <div class="explanation" id="explanation"></div>
+      </section>
+    </div></div>
+    <div class="quiz__cta"><div class="container">
+      <button class="btn btn--primary btn--block btn--lg" id="nextBtn" disabled="disabled">次へ</button>
+    </div></div>
+  </main>
 
-  <div class="result-container" id="resultContainer">
-    <div style="margin-bottom:30px">
-      <div class="result-score" id="resultScore"></div>
-      <div class="level-badge" id="levelBadge"></div>
-      <div class="result-level" id="resultLevel"></div>
-    </div>
-    <div class="result-description" id="resultDescription"></div>
+  <div class="result" id="resultContainer">
+    <section class="result__hero">
+      <div class="result__type">
+        <span class="badge">診断結果</span>
+        <h1 class="result__typename" id="resultLevel"></h1>
+        <p class="result__desc" id="resultDescription"></p>
+      </div>
+      <div class="score">
+        <div class="score__label">あなたのスコア</div>
+        <div class="score__num" id="resultScore"></div>
+        <div style="margin-top:14px"><span class="score__rank" id="levelBadge"></span></div>
+      </div>
+    </section>
     <div id="recoProd"></div>
     <div class="prods">
       <div class="prods-h">その他の人気ケーブル・充電器</div>
@@ -299,15 +324,15 @@ document.addEventListener("click",function(e){
         </div>
 
         <!-- WS_QUIZ_STORE_SEARCH -->
-    <div style="margin:24px 0;padding:20px;background:var(--c-surface,#f5f5f7);border-radius:12px;text-align:center;">
-      <div style="font-size:15px;font-weight:700;color:var(--c-text,#1d1d1f);margin-bottom:12px;">&#128267; World Select &#12391;&#25506;&#12377;</div>
+    <div style="margin:24px 0;padding:20px;background:var(--c-surface,#F3EFF5);border-radius:12px;text-align:center;">
+      <div style="font-size:15px;font-weight:700;color:var(--c-text,#343C4B);margin-bottom:12px;">&#128267; World Select &#12391;&#25506;&#12377;</div>
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;">
       <a href="https://search.rakuten.co.jp/search/mall/MagSafe%E5%85%85%E9%9B%BB%E5%99%A8/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; MagSafe&#20805;&#30005;&#22120;</a>
       <a href="https://search.rakuten.co.jp/search/mall/USB-C%E5%85%AB%E5%85%A5/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; USB-C&#20805;&#30005;</a>
       <a href="https://search.rakuten.co.jp/search/mall/PD%E5%85%AB%E5%85%A5/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; PD&#20805;&#30005;&#22120;</a>
       <a href="https://search.rakuten.co.jp/search/mall/%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%AC%E3%82%B9%E5%85%85%E9%9B%BB%E5%99%A8/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#127312; ワイヤレス充電器</a>
       <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener" style="display:inline-block;background:#ff0033;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">Yahoo! &#12473;&#12488;&#12450;</a>
-      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder" target="_blank" rel="noopener" style="display:inline-block;background:#0071e3;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
+      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charge-finder" target="_blank" rel="noopener" style="display:inline-block;background:#88619A;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
       </div>
       <div style="font-size:11px;color:var(--c-text3,#86868b);margin-top:8px;">&#27005;&#22825;&#24066;&#22580;&#12398;World Select&#24215;&#33303;&#20869;&#12391;&#26908;&#32034;&#12375;&#12414;&#12377;</div>
     </div>
@@ -462,7 +487,7 @@ function showResult() {
   document.getElementById('resultScore').innerHTML = p.emoji;
   document.getElementById('levelBadge').textContent = 'あなたへのおすすめ';
   document.getElementById('resultLevel').textContent = p.type;
-  document.getElementById('resultLevel').style.backgroundColor = '#0071e3';
+  document.getElementById('resultLevel').style.backgroundColor = '#88619A';
   document.getElementById('resultDescription').textContent = p.desc;
   var html = '<div class="prods"><div class="prods-h">&#127919; あなたにぴったりの1本</div>' +
     '<div class="prod"><div class="prod-info">' +

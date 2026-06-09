@@ -1,1 +1,5 @@
 .claude/worktrees/
+*.bak_*
+*.bak
+.fuse_hidden*
+index_redesign.html
