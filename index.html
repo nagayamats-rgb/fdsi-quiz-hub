@@ -22,16 +22,16 @@
 /* ── Apple-inspired Color System ── */
 :root{
   --c-bg:#ffffff;
-  --c-surface:#F3EFF5;
-  --c-surface2:#E7DFEA;
+  --c-surface:#f5f5f7;
+  --c-surface2:#e8e8ed;
   --c-border:#d2d2d7;
   --c-border-h:#86868b;
-  --c-text:#343C4B;
+  --c-text:#1d1d1f;
   --c-text2:#6e6e73;
   --c-text3:#86868b;
-  --c-primary:#88619A;
-  --c-primary-h:#654873;
-  --c-primary-t:rgba(136,97,154,.08);
+  --c-primary:#0071e3;
+  --c-primary-h:#0077ED;
+  --c-primary-t:rgba(0,113,227,.08);
   --c-accent:#34c759;
   --c-accent-t:rgba(52,199,89,.10);
   --c-shadow1:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);
@@ -49,12 +49,12 @@
   --c-surface2:#2c2c2e;
   --c-border:#38383a;
   --c-border-h:#545456;
-  --c-text:#F3EFF5;
+  --c-text:#f5f5f7;
   --c-text2:#a1a1a6;
   --c-text3:#6e6e73;
-  --c-primary:#B79BCB;
-  --c-primary-h:#C9B2DC;
-  --c-primary-t:rgba(183,155,203,.12);
+  --c-primary:#2997ff;
+  --c-primary-h:#40a9ff;
+  --c-primary-t:rgba(41,151,255,.12);
   --c-accent:#30d158;
   --c-accent-t:rgba(48,209,88,.12);
   --c-shadow1:0 1px 3px rgba(0,0,0,.3);
@@ -65,9 +65,9 @@
   :root:not([data-theme="light"]){
     --c-bg:#000000;--c-surface:#1c1c1e;--c-surface2:#2c2c2e;
     --c-border:#38383a;--c-border-h:#545456;
-    --c-text:#F3EFF5;--c-text2:#a1a1a6;--c-text3:#6e6e73;
-    --c-primary:#B79BCB;--c-primary-h:#C9B2DC;
-    --c-primary-t:rgba(183,155,203,.12);
+    --c-text:#f5f5f7;--c-text2:#a1a1a6;--c-text3:#6e6e73;
+    --c-primary:#2997ff;--c-primary-h:#40a9ff;
+    --c-primary-t:rgba(41,151,255,.12);
     --c-accent:#30d158;--c-accent-t:rgba(48,209,88,.12);
     --c-shadow1:0 1px 3px rgba(0,0,0,.3);--c-shadow2:0 4px 12px rgba(0,0,0,.35);
     --c-shadow3:0 12px 40px rgba(0,0,0,.5);
@@ -85,34 +85,34 @@ body{font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Kaku 
 .nav-logo{font-weight:900;font-size:15px;letter-spacing:-.02em;color:var(--c-text);text-decoration:none;white-space:nowrap}
 .nav-logo span{color:var(--c-primary)}
 .nav-spacer{flex:1}
-.nav-links{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav-links{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .nav-links::-webkit-scrollbar{display:none}
-.nav-link{min-height:44px;box-sizing:border-box;font-size:12px;font-weight:500;color:var(--c-text2);text-decoration:none;padding:6px 12px;border-radius:var(--radius-full);white-space:nowrap;transition:all .2s}
+.nav-link{font-size:12px;font-weight:500;color:var(--c-text2);text-decoration:none;padding:6px 12px;border-radius:var(--radius-full);white-space:nowrap;transition:all .2s}
 .nav-link:hover{color:var(--c-text);background:var(--c-primary-t)}
-.nav-acts{display:flex;align-items:center;gap:8px}
-.nav-btn{min-height:44px;box-sizing:border-box;width:34px;height:34px;border-radius:50%;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--c-text2);font-size:15px;transition:all .2s}
+.nav-acts{display:flex;align-items:center;gap:6px}
+.nav-btn{width:34px;height:34px;border-radius:50%;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--c-text2);font-size:15px;transition:all .2s}
 .nav-btn:hover{background:var(--c-surface);color:var(--c-text)}
 [data-theme="dark"] .nav-btn-sun{display:none}
 :root:not([data-theme="dark"]) .nav-btn-moon{display:none}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .nav-btn-sun{display:none}:root:not([data-theme="light"]) .nav-btn-moon{display:flex}}
 @media(prefers-color-scheme:light){:root:not([data-theme="dark"]) .nav-btn-moon{display:none}:root:not([data-theme="dark"]) .nav-btn-sun{display:flex}}
-.nav-shop{min-height:44px;box-sizing:border-box;font-size:12px;font-weight:600;color:var(--c-primary);text-decoration:none;padding:6px 14px;border:1.5px solid var(--c-primary);border-radius:var(--radius-full);white-space:nowrap;transition:all .2s}
+.nav-shop{font-size:12px;font-weight:600;color:var(--c-primary);text-decoration:none;padding:6px 14px;border:1.5px solid var(--c-primary);border-radius:var(--radius-full);white-space:nowrap;transition:all .2s}
 .nav-shop:hover{background:var(--c-primary);color:#fff}
 
 /* ── Hero (Apple-style large typography) ── */
 .hero{text-align:center;padding:72px 20px 56px;max-width:680px;margin:0 auto;position:relative}
-.hero::before{content:"";position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:min(780px,118vw);height:400px;background:radial-gradient(58% 58% at 50% 28%,rgba(136,97,154,.10),transparent 70%);z-index:-1;pointer-events:none}
+.hero::before{content:"";position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:min(780px,118vw);height:400px;background:radial-gradient(58% 58% at 50% 28%,rgba(0,113,227,.10),transparent 70%);z-index:-1;pointer-events:none}
 .hero-kicker{font-size:13px;font-weight:600;color:var(--c-primary);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
 .hero h1{font-size:clamp(32px,6vw,56px);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,var(--c-text) 0%,var(--c-text2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-sub{font-size:clamp(16px,2.5vw,19px);color:var(--c-text2);line-height:1.6;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto}
 .hero-stats{display:flex;justify-content:center;gap:32px;margin-bottom:36px;flex-wrap:wrap}
 .hero-stat{text-align:center}
 .hero-stat-num{font-size:28px;font-weight:900;color:var(--c-primary);line-height:1.2}
-.hero-stat-label{font-size:12px;color:var(--c-text3);font-weight:500}
+.hero-stat-label{font-size:11px;color:var(--c-text3);font-weight:500}
 .hero-ctas{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.btn-primary{min-height:44px;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:var(--c-primary);color:#fff;border:none;border-radius:var(--radius-full);font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .2s}
+.btn-primary{display:inline-flex;align-items:center;gap:6px;padding:12px 28px;background:var(--c-primary);color:#fff;border:none;border-radius:var(--radius-full);font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .2s}
 .btn-primary:hover{background:var(--c-primary-h);transform:translateY(-1px);box-shadow:var(--c-shadow2)}
-.btn-secondary{min-height:44px;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:transparent;color:var(--c-primary);border:1.5px solid var(--c-primary);border-radius:var(--radius-full);font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .2s}
+.btn-secondary{display:inline-flex;align-items:center;gap:6px;padding:12px 28px;background:transparent;color:var(--c-primary);border:1.5px solid var(--c-primary);border-radius:var(--radius-full);font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;transition:all .2s}
 .btn-secondary:hover{background:var(--c-primary-t)}
 
 /* ── Section Headers ── */
@@ -128,7 +128,7 @@ body{font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Kaku 
 .card-visual{height:112px;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;overflow:hidden;text-shadow:0 6px 14px rgba(0,0,0,.16)}
 .card-visual-bg{position:absolute;inset:0;opacity:.26}
 .card-visual-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 70% at 50% 12%,rgba(255,255,255,.45),transparent 62%)}
-.card-badge{position:absolute;top:10px;right:10px;font-size:12px;font-weight:700;padding:3px 10px;border-radius:var(--radius-full);color:#fff;line-height:1.4}
+.card-badge{position:absolute;top:10px;right:10px;font-size:10px;font-weight:700;padding:3px 10px;border-radius:var(--radius-full);color:#fff;line-height:1.4}
 .badge-hot{background:linear-gradient(135deg,#ff6b35,#f7418f)}
 .badge-new{background:linear-gradient(135deg,#00b4d8,#7209b7)}
 .badge-long{background:linear-gradient(135deg,#06d6a0,#118ab2)}
@@ -136,10 +136,10 @@ body{font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Kaku 
 .card-title{font-size:17px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
 .card-desc{font-size:13px;color:var(--c-text2);line-height:1.6;flex:1;margin-bottom:14px}
 .card-footer{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.card-meta-left{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.card-tag{font-size:12px;font-weight:600;color:var(--c-primary);background:var(--c-primary-t);padding:3px 10px;border-radius:var(--radius-full)}
-.card-tag-time{font-size:12px;font-weight:500;color:var(--c-text3);background:var(--c-surface2);padding:3px 10px;border-radius:var(--radius-full)}
-.card-cta{font-size:12px;font-weight:600;color:var(--c-primary);display:flex;align-items:center;gap:8px;white-space:nowrap;transition:gap .2s}
+.card-meta-left{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.card-tag{font-size:10.5px;font-weight:600;color:var(--c-primary);background:var(--c-primary-t);padding:3px 10px;border-radius:var(--radius-full)}
+.card-tag-time{font-size:10.5px;font-weight:500;color:var(--c-text3);background:var(--c-surface2);padding:3px 10px;border-radius:var(--radius-full)}
+.card-cta{font-size:12px;font-weight:600;color:var(--c-primary);display:flex;align-items:center;gap:4px;white-space:nowrap;transition:gap .2s}
 .card:hover .card-cta{gap:8px}
 
 /* ── Gradient backgrounds for card visuals ── */
@@ -161,7 +161,7 @@ body{font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Kaku 
 .store-inner h2{font-size:20px;font-weight:800;margin-bottom:6px}
 .store-inner p{font-size:13px;color:var(--c-text2);margin-bottom:20px}
 .store-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-.store-btn{min-height:44px;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;padding:10px 24px;border-radius:var(--radius-full);font-size:13px;font-weight:700;text-decoration:none;color:#fff;transition:all .2s}
+.store-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 24px;border-radius:var(--radius-full);font-size:13px;font-weight:700;text-decoration:none;color:#fff;transition:all .2s}
 .store-btn:hover{opacity:.88;transform:translateY(-1px)}
 .store-btn.r{background:#bf0000}
 .store-btn.y{background:#ff5200}
@@ -176,7 +176,7 @@ body{font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Kaku 
 .footer-col a{display:block;font-size:13px;color:var(--c-text2);text-decoration:none;padding:3px 0;transition:color .2s}
 .footer-col a:hover{color:var(--c-primary)}
 .footer-bottom{border-top:1px solid var(--c-border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.footer-copy{font-size:12px;color:var(--c-text3)}
+.footer-copy{font-size:11px;color:var(--c-text3)}
 .footer-copy a{color:var(--c-text3);text-decoration:none}
 .footer-copy a:hover{color:var(--c-primary)}
 @media(max-width:640px){
@@ -540,28 +540,5 @@ document.addEventListener("click",function(e){
   if(moonBtn)moonBtn.onclick=toggle;
 })();
 </script>
-
-<style id="ws-violet-redesign">/*WS_VIOLET_REDESIGN*/
-/* ── 回答 pill: 選択中=淡塗り+色枠+右チェック ── */
-.option,.option-btn,.opt,.op{min-height:60px;box-sizing:border-box;border-radius:14px}
-.option-btn,.opt{position:relative;min-height:60px;box-sizing:border-box}
-.option.selected:not(.answered),.option-btn.selected,.opt.selected:not(.answered){
-  background:var(--c-primary-t,rgba(136,97,154,.10))!important;
-  border-color:var(--c-primary,#88619A)!important;
-  color:var(--c-primary,#88619A)!important;
-  box-shadow:0 0 0 3px var(--c-primary-g,rgba(136,97,154,.22))!important;
-}
-.option.selected:not(.answered)::after,
-.option-btn.selected::after,
-.opt.selected:not(.answered)::after{
-  content:"\2713";position:absolute;right:16px;top:50%;transform:translateY(-50%);
-  font-weight:800;font-size:18px;color:var(--c-primary,#88619A);line-height:1;
-}
-/* ── PCレイアウト: ヒーロー/カードグリッド 横並び (>=940px) ── */
-@media(min-width:940px){
-  .grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
-  .options-grid,.options,.opts{max-width:760px;margin-left:auto;margin-right:auto}
-}
-</style>
 </body>
 </html>
