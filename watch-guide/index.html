@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apple Watch使いこなし検定 | World Select</title>
+  <meta name="description" content="Series 9/Ultra/SE…あなたはどこまで知っている？Apple Watchの機能・仕様・使い方10問">
+  <link rel="canonical" href="https://quiz.fds.co.jp/watch-guide/">
+  <meta property="og:title" content="Apple Watch使いこなし検定">
+  <meta property="og:description" content="Series 9/Ultra/SE…あなたはどこまで知っている？Apple Watchの機能・仕様・使い方10問">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://quiz.fds.co.jp/watch-guide/">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"Apple Watch使いこなし検定","description":"Series 9/Ultra/SE…あなたはどこまで知っている？Apple Watchの機能・仕様・使い方10問","url":"https://quiz.fds.co.jp/watch-guide/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=watch-guide"}}
+</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../ws-redesign.css">
+  <style>
+    body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--c-bg);color:var(--c-text);max-width:680px;margin:0 auto;padding:20px}
+    .progress-bar{width:100%;height:6px;background:var(--c-surface2);border-radius:3px;margin-bottom:30px;overflow:hidden}
+    .progress-fill{height:100%;background:var(--c-violet);transition:width .3s ease}
+    .question-number{font-size:14px;color:var(--c-text3);margin-bottom:10px;font-weight:600}
+    .question-text{font-size:20px;font-weight:700;color:var(--c-text);margin-bottom:25px;line-height:1.4}
+    .option{padding:16px;background:var(--c-surface);border:2px solid var(--c-border);border-radius:16px;cursor:pointer;width:100%;appearance:none;transition:border-color .2s,background .2s,color .2s;display:flex;align-items:center;gap:12px;margin-bottom:12px;font-size:16px;font-weight:500;text-align:left}
+    .option:hover:not(.answered){background:var(--c-surface2);border-color:var(--c-border-h)}
+    .option.selected:not(.answered){background:var(--c-violet);color:#fff;border-color:var(--c-violet)}
+    .option.answered{cursor:not-allowed}
+    .option.correct{background:var(--c-ok-bg);border-color:var(--c-ok);color:var(--c-ok)}
+    .option.wrong{background:var(--c-err-bg);border-color:var(--c-err);color:var(--c-err)}
+    .explanation{display:none;padding:16px;background:rgba(136,97,154,.08);border-left:4px solid var(--c-violet);border-radius:10px;margin-bottom:20px;font-size:14px;color:var(--c-text2);line-height:1.6}
+    .explanation.show{display:block}
+    .next-btn{width:100%;padding:14px;background:var(--c-violet);color:#fff;border:none;border-radius:16px;font-size:16px;font-weight:600;cursor:pointer;transition:opacity .2s}
+    .next-btn:hover{opacity:.85}
+    .result-score{font-size:48px;font-weight:700;color:var(--c-violet);margin-bottom:10px}
+    .result-level{font-size:24px;font-weight:700;margin-bottom:10px;padding:16px 24px;border-radius:16px;display:inline-block;color:#fff}
+    .result-desc{font-size:16px;color:var(--c-text2);margin:20px 0 30px;line-height:1.6}
+    .restart-btn{padding:14px 30px;background:var(--c-violet);color:#fff;border:none;border-radius:16px;font-size:16px;font-weight:600;cursor:pointer;margin:20px auto;display:block}
+    .back-link{text-align:center;margin-top:20px}.back-link a{color:var(--c-violet);font-weight:600;text-decoration:none}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid var(--c-border)}
+    .logo{font-size:18px;font-weight:700;color:var(--c-violet)}
+    footer{text-align:center;margin-top:40px;padding:20px;color:var(--c-text3);font-size:12px;border-top:1px solid var(--c-border)}
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">🧩 Quiz Hub</div>
+  <a href="/" style="color:var(--c-text3);font-size:13px;text-decoration:none">← 一覧に戻る</a>
+</header>
+
+<div id="quizScreen">
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <div class="question-number" id="questionNumber"></div>
+  <h2 class="question-text" id="questionText"></h2>
+  <div id="optionsContainer"></div>
+  <div class="explanation" id="explanation"></div>
+  <button class="next-btn" id="nextBtn">答えを見る</button>
+</div>
+
+<div id="resultScreen" style="display:none;text-align:center">
+  <h2 style="font-size:24px;font-weight:700;margin-bottom:20px">結果発表</h2>
+  <div class="result-score" id="resultScore"></div>
+  <div id="resultLevel" class="result-level"></div>
+  <div class="result-desc" id="resultDesc"></div>
+  <button class="restart-btn" onclick="restart()">もう一度挑戦</button>
+  <div class="back-link"><a href="/">他のクイズを見る</a></div>
+  <div style="margin-top:30px">
+    <p style="font-size:14px;color:var(--c-text3);margin-bottom:16px">関連商品</p>
+    <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=watch-guide" target="_blank"
+       style="display:inline-block;padding:12px 24px;background:var(--c-violet);color:#fff;border-radius:99px;font-weight:700;text-decoration:none;font-size:14px">
+      World Select ストアを見る
+    </a>
+  </div>
+</div>
+
+<footer>
+  <span>© FDSi / <a href="https://worldselect.net/" style="color:var(--c-text3)">worldselect.net</a></span>
+  <span style="margin-left:16px"><a href="/" style="color:var(--c-text3)">Quiz Hub</a></span>
+</footer>
+
+<script>
+var quizData = [
+  {t: "Apple Watchの「GPSモデル」と「セルラーモデル」の主な違いは何ですか？", o: [{x: "セルラーモデルはiPhoneがなくても単独で通信・通話ができる", ok: true}, {x: "GPSモデルは緊急通報機能が使えない", ok: false}, {x: "セルラーモデルはGPS機能が搭載されていない", ok: false}, {x: "GPSモデルの方がバッテリー持ちが良い", ok: false}], e: "セルラーモデルはiPhoneなしで電話やメッセージ、音楽ストリーミングが可能です。ランニングなどでiPhoneを持ち歩きたくない方に特におすすめです。"},
+  {t: "Apple Watchのケース素材で、最も軽量で手頃な価格帯のモデルに採用されているのはどれですか？", o: [{x: "アルミニウム", ok: true}, {x: "ステンレススチール", ok: false}, {x: "チタニウム", ok: false}, {x: "セラミック", ok: false}], e: "アルミニウムモデルは軽量で普段使いに最適です。より頑丈な素材を求めるなら、ステンレススチールやチタニウム製モデルを検討しましょう。"},
+  {t: "Apple Watchのバンドは、異なる世代のモデル間でも互換性がありますか？", o: [{x: "ケースサイズが同じであれば、多くのバンドに互換性がある", ok: true}, {x: "世代が異なると一切互換性がない", ok: false}, {x: "新しいモデルのバンドは古いモデルには使えない", ok: false}, {x: "素材が同じバンドのみ互換性がある", ok: false}], e: "例えば41mmのバンドは40mmや38mmのケースにも、45mmのバンドは44mmや42mmのケースにも対応します。購入前にサイズを確認しましょう。"},
+  {t: "Apple Watch SeriesとApple Watch SEの主な違いは何ですか？", o: [{x: "Seriesは常時表示ディスプレイや心電図機能に対応している", ok: true}, {x: "SEは防水性能がない", ok: false}, {x: "SEはGPS機能が搭載されていない", ok: false}, {x: "SeriesはiPhoneとの連携が不要", ok: false}], e: "Seriesは最新の健康センサーや常時表示ディスプレイなど、より高度な機能が充実。SEは基本的な機能を備え、コストパフォーマンスに優れます。"},
+  {t: "Apple Watchのバッテリー寿命を長く保つための効果的な方法はどれですか？", o: [{x: "常時表示ディスプレイをオフにする", ok: true}, {x: "充電中に使用する", ok: false}, {x: "毎日完全に放電させてから充電する", ok: false}, {x: "画面の明るさを最大にする", ok: false}], e: "常時表示オフや通知の制限、バックグラウンド更新を減らすことでバッテリー消費を抑えられます。設定を見直して快適に使いましょう。"},
+  {t: "Apple WatchでSuicaやApple Payを利用する際、事前に必要な設定はどこで行いますか？", o: [{x: "ペアリングしているiPhoneのWalletアプリ", ok: true}, {x: "Apple Watch本体の設定アプリ", ok: false}, {x: "App Storeから専用アプリをダウンロード", ok: false}, {x: "Apple Watchの電源を一度切って再起動する", ok: false}], e: "iPhoneのWalletアプリでカードを追加・設定すれば、Apple Watchでスムーズに決済できます。外出時の荷物を減らせて便利です。"},
+  {t: "Apple Watchの防水性能で、できることは次のうちどれですか？", o: [{x: "プールや海での水泳、シャワーでの使用", ok: true}, {x: "スキューバダイビングやウォータースキー", ok: false}, {x: "高圧洗浄機での清掃", ok: false}, {x: "サウナやスチームルームでの使用", ok: false}], e: "多くのApple Watchは50メートルの耐水性能を持ち、水泳トラッキングも可能です。ただし、水深の深い場所や高速な水流は避けてください。"},
+  {t: "Apple Watch Ultraの特徴として、他のモデルと大きく異なる点は何ですか？", o: [{x: "高耐久性、大画面、アクションボタン、長時間バッテリー", ok: true}, {x: "セルラー通信機能が搭載されていない", ok: false}, {x: "心電図機能が使えない", ok: false}, {x: "iPhoneがなくても単独でアプリをダウンロードできる", ok: false}], e: "Ultraはアウトドアやエクストリームスポーツ向けに設計され、頑丈なチタニウムケースと専用機能が魅力。本格的な活動に最適です。"},
+  {t: "Apple Watchで心電図（ECG）機能を利用できるモデルはどれですか？", o: [{x: "Apple Watch Series 4以降（SEを除く）", ok: true}, {x: "すべてのApple Watchモデル", ok: false}, {x: "Apple Watch SEのみ", ok: false}, {x: "Apple Watch Ultraのみ", ok: false}], e: "心電図機能は心臓の電気的活動を記録し、心房細動の兆候を検知するのに役立ちます。健康管理に役立つ重要な機能です。"},
+  {t: "Apple Watchを快適に使うために、ペアリングするiPhoneのOSバージョンで推奨されるのはどれですか？", o: [{x: "最新のiOSバージョン", ok: true}, {x: "iOS 12以降であればどのバージョンでも良い", ok: false}, {x: "iOS 10以前の古いバージョン", ok: false}, {x: "Android OSでもペアリング可能", ok: false}], e: "Apple Watchは最新のwatchOSにアップデートされるため、常に最新のiOSを搭載したiPhoneとのペアリングが推奨されます。"},
+  {t: "Apple Watchのディスプレイで、最も傷に強く耐久性に優れる素材はどれですか？", o: [{x: "サファイアクリスタル", ok: true}, {x: "Ion-Xガラス", ok: false}, {x: "ゴリラガラス", ok: false}, {x: "強化プラスチック", ok: false}], e: "サファイアクリスタルはステンレススチールモデルやApple Watch Ultraに採用され、日常使いでの傷に強いのが特徴です。耐久性重視の方におすすめ。"},
+  {t: "Apple Watchを充電する際、iPhone用のUSB-C電源アダプタは利用できますか？", o: [{x: "USB-Cポートがあれば利用できる", ok: true}, {x: "Apple Watch専用の充電器しか使えない", ok: false}, {x: "Lightningケーブルであれば利用できる", ok: false}, {x: "ワイヤレス充電器のみ利用できる", ok: false}], e: "Apple Watchの充電ケーブルはUSB-Cに対応しているため、iPhoneやiPad用のUSB-C電源アダプタを流用できます。荷物を減らせて便利です。"},
+  {t: "Apple Watchの文字盤をカスタマイズする主なメリットは何ですか？", o: [{x: "必要な情報を一目で確認でき、パーソナルな表現も可能", ok: true}, {x: "バッテリー寿命が大幅に延びる", ok: false}, {x: "iPhoneがなくてもアプリをダウンロードできる", ok: false}, {x: "通信速度が向上する", ok: false}], e: "コンプリケーション（文字盤上の小さな情報表示）を活用すれば、天気やアクティビティ、よく使うアプリなどを素早く確認できます。"},
+  {t: "iPhoneを持っていない家族のためにApple Watchを設定し、利用させる機能は何ですか？", o: [{x: "ファミリー共有設定", ok: true}, {x: "ゲストモード", ok: false}, {x: "ペアレンタルコントロール", ok: false}, {x: "オフラインモード", ok: false}], e: "ファミリー共有設定を使えば、お子様や高齢の家族のためにApple Watchを設定し、居場所の確認や緊急連絡などに活用できます。"},
+  {t: "Apple Watchで睡眠トラッキング機能を利用する際、最も効果的な使い方はどれですか？", o: [{x: "寝る前に充電を済ませて、就寝中も装着する", ok: true}, {x: "日中にこまめに充電する", ok: false}, {x: "就寝前に電源を切る", ok: false}, {x: "週に一度だけ装着してデータを取る", ok: false}], e: "一晩中装着することで、睡眠ステージや心拍数、呼吸数などの詳細なデータを記録できます。バッテリー残量に注意し、事前に充電しましょう。 <a href="https://worldselect.net/products/worldselect-0014?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=watch-guide" target="_blank" rel="noopener" style="color:#88619A;font-weight:600;">▶ Apple Watchバンドを見る</a> <a href="https://item.rakuten.co.jp/world11select/worldselect-0014/" target="_blank" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a> <a href="https://store.shopping.yahoo.co.jp/world1select/worldselect-0014.html" target="_blank" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo</a>"}
+];
+var LEVELS = [
+  {min: Math.ceil(15*0.9), level: "エキスパート", color: "#7c3aed", desc: "完璧な知識！周りへのアドバイス役にぴったり。"},
+  {min: Math.ceil(15*0.7), level: "上級者", color: "#88619a", desc: "しっかりした知識をお持ちです。"},
+  {min: Math.ceil(15*0.5), level: "中級者", color: "#34c759", desc: "基本はOK。もう少し深掘りするとさらに安心。"},
+  {min: 0, level: "初級者", color: "#d97706", desc: "ここから学ぶと選び方が変わります！"}
+];
+var cur = 0, score = 0, answered = false;
+function render() {
+  var q = quizData[cur];
+  document.getElementById('progressFill').style.width = ((cur / quizData.length) * 100) + '%';
+  document.getElementById('questionNumber').textContent = 'Q' + (cur + 1) + ' / ' + quizData.length;
+  document.getElementById('questionText').textContent = q.t;
+  document.getElementById('explanation').classList.remove('show');
+  document.getElementById('explanation').innerHTML = '';
+  document.getElementById('nextBtn').textContent = '答えを見る';
+  answered = false;
+  var opts = shuffle(q.o.slice());
+  var c = document.getElementById('optionsContainer');
+  c.innerHTML = '';
+  opts.forEach(function(o) {
+    var btn = document.createElement('button');
+    btn.className = 'option';
+    btn.textContent = o.x;
+    btn.dataset.ok = o.ok;
+    btn.onclick = function() { choose(btn, opts); };
+    c.appendChild(btn);
+  });
+}
+function choose(btn, opts) {
+  if (answered) return;
+  answered = true;
+  if (btn.dataset.ok === 'true') { score++; btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+  document.querySelectorAll('.option').forEach(function(b) {
+    b.classList.add('answered');
+    if (b.dataset.ok === 'true') b.classList.add('correct');
+  });
+  var exp = document.getElementById('explanation');
+  exp.innerHTML = quizData[cur].e;
+  exp.classList.add('show');
+  document.getElementById('nextBtn').textContent = cur < quizData.length - 1 ? '次の問題 →' : '結果を見る';
+}
+document.getElementById('nextBtn').addEventListener('click', function() {
+  if (!answered) return;
+  cur++;
+  if (cur < quizData.length) render();
+  else showResult();
+});
+function showResult() {
+  document.getElementById('quizScreen').style.display = 'none';
+  document.getElementById('resultScreen').style.display = 'block';
+  document.getElementById('resultScore').textContent = score + ' / ' + quizData.length;
+  var lv = LEVELS[LEVELS.length - 1];
+  for (var i = 0; i < LEVELS.length; i++) {
+    if (score >= LEVELS[i].min) { lv = LEVELS[i]; break; }
+  }
+  var el = document.getElementById('resultLevel');
+  el.textContent = lv.level;
+  el.style.background = lv.color;
+  document.getElementById('resultDesc').textContent = lv.desc;
+}
+function restart() {
+  cur = 0; score = 0; answered = false;
+  document.getElementById('quizScreen').style.display = 'block';
+  document.getElementById('resultScreen').style.display = 'none';
+  render();
+}
+function shuffle(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+  return arr;
+}
+render();
+</script>
+</body>
+</html>
