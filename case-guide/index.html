@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPhoneケース選び方検定 | World Select</title>
+  <meta name="description" content="MagSafe対応？耐衝撃？素材の違いは？iPhoneケースの選び方10問">
+  <meta name="canonical" content="https://quiz.fds.co.jp/case-guide/">
+  <meta property="og:title" content="iPhoneケース選び方検定">
+  <meta property="og:description" content="MagSafe対応？耐衝撃？素材の違いは？iPhoneケースの選び方10問">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://quiz.fds.co.jp/case-guide/">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"iPhoneケース選び方検定","description":"MagSafe対応？耐衝撃？素材の違いは？iPhoneケースの選び方10問","url":"https://quiz.fds.co.jp/case-guide/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=case-guide"}}
+</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../ws-redesign.css">
+  <style>
+    body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--c-bg);color:var(--c-text);max-width:680px;margin:0 auto;padding:20px}
+    .progress-bar{width:100%;height:6px;background:var(--c-surface2);border-radius:3px;margin-bottom:30px;overflow:hidden}
+    .progress-fill{height:100%;background:var(--c-grape);transition:width .3s ease}
+    .question-number{font-size:14px;color:var(--c-text3);margin-bottom:10px;font-weight:600}
+    .question-text{font-size:20px;font-weight:700;color:var(--c-text);margin-bottom:25px;line-height:1.4}
+    .option{padding:16px;background:var(--c-surface);border:2px solid var(--c-border);border-radius:16px;cursor:pointer;width:100%;appearance:none;transition:border-color .2s,background .2s,color .2s;display:flex;align-items:center;gap:12px;margin-bottom:12px;font-size:16px;font-weight:500;text-align:left}
+    .option:hover:not(.answered){background:var(--c-surface2);border-color:var(--c-border-h)}
+    .option.selected:not(.answered){background:var(--c-grape);color:#fff;border-color:var(--c-grape)}
+    .option.answered{cursor:not-allowed}
+    .option.correct{background:var(--c-ok-bg);border-color:var(--c-ok);color:var(--c-ok)}
+    .option.wrong{background:var(--c-err-bg);border-color:var(--c-err);color:var(--c-err)}
+    .explanation{display:none;padding:16px;background:rgba(136,97,154,.08);border-left:4px solid var(--c-grape);border-radius:10px;margin-bottom:20px;font-size:14px;color:var(--c-text2);line-height:1.6}
+    .explanation.show{display:block}
+    .next-btn{width:100%;padding:14px;background:var(--c-grape);color:#fff;border:none;border-radius:16px;font-size:16px;font-weight:600;cursor:pointer;transition:opacity .2s}
+    .next-btn:hover{opacity:.85}
+    .result-score{font-size:48px;font-weight:700;color:var(--c-grape);margin-bottom:10px}
+    .result-level{font-size:24px;font-weight:700;margin-bottom:10px;padding:16px 24px;border-radius:16px;display:inline-block;color:#fff}
+    .result-desc{font-size:16px;color:var(--c-text2);margin:20px 0 30px;line-height:1.6}
+    .restart-btn{padding:14px 30px;background:var(--c-grape);color:#fff;border:none;border-radius:16px;font-size:16px;font-weight:600;cursor:pointer;margin:20px auto;display:block}
+    .back-link{text-align:center;margin-top:20px}.back-link a{color:var(--c-grape);font-weight:600;text-decoration:none}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid var(--c-border)}
+    .logo{font-size:18px;font-weight:700;color:var(--c-grape)}
+    footer{text-align:center;margin-top:40px;padding:20px;color:var(--c-text3);font-size:12px;border-top:1px solid var(--c-border)}
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">🧩 Quiz Hub</div>
+  <a href="/" style="color:var(--c-text3);font-size:13px;text-decoration:none">← 一覧に戻る</a>
+</header>
+
+<div id="quizScreen">
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <div class="question-number" id="questionNumber"></div>
+  <h2 class="question-text" id="questionText"></h2>
+  <div id="optionsContainer"></div>
+  <div class="explanation" id="explanation"></div>
+  <button class="next-btn" id="nextBtn">答えを見る</button>
+</div>
+
+<div id="resultScreen" style="display:none;text-align:center">
+  <h2 style="font-size:24px;font-weight:700;margin-bottom:20px">結果発表</h2>
+  <div class="result-score" id="resultScore"></div>
+  <div id="resultLevel" class="result-level"></div>
+  <div class="result-desc" id="resultDesc"></div>
+  <button class="restart-btn" onclick="restart()">もう一度挑戦</button>
+  <div class="back-link"><a href="/">他のクイズを見る</a></div>
+  <div style="margin-top:30px">
+    <p style="font-size:14px;color:var(--c-text3);margin-bottom:16px">関連商品</p>
+    <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=case-guide" target="_blank"
+       style="display:inline-block;padding:12px 24px;background:var(--c-grape);color:#fff;border-radius:99px;font-weight:700;text-decoration:none;font-size:14px">
+      World Select ストアを見る
+    </a>
+  </div>
+</div>
+
+<footer>
+  <span>© FDSi / <a href="https://worldselect.net/" style="color:var(--c-text3)">worldselect.net</a></span>
+  <span style="margin-left:16px"><a href="/" style="color:var(--c-text3)">Quiz Hub</a></span>
+</footer>
+
+<script>
+var quizData = [
+  {t: "MagSafe対応iPhoneケースを選ぶ最大のメリットは何ですか？", o: [{x: "MagSafe対応充電器やアクセサリーが磁力でしっかり固定され、最適な充電効率や使い勝手が得られること", ok: true}, {x: "ケースを装着したままiPhoneを水没させても故障しないこと", ok: false}, {x: "ケースの素材が自動的に自己修復する機能があること", ok: false}, {x: "iPhoneのストレージ容量が2倍になること", ok: false}], e: "MagSafe対応ケースは、ワイヤレス充電器やカードウォレットなどが正確に位置合わせされ、安定して使えます。"},
+  {t: "iPhoneケースの「耐衝撃性」を示すことが多い国際規格は何ですか？", o: [{x: "MIL-STD-810G（またはMILスペック）という米軍の物資調達規格", ok: true}, {x: "ISO 9001（品質マネジメントシステムに関する規格）", ok: false}, {x: "JIS Z 8101（用語に関する規格）", ok: false}, {x: "CEマーキング（EU域内で販売される製品の安全基準）", ok: false}], e: "MILスペックは、落下や振動、温度変化など厳しい環境下での耐久性を評価する規格です。安心の目安に。"},
+  {t: "クリアタイプのiPhoneケースが時間と共に黄ばんでしまう主な原因は何ですか？", o: [{x: "紫外線や手の油分、熱などによるTPU素材の酸化・劣化", ok: true}, {x: "iPhone本体の発熱によるケースの溶解", ok: false}, {x: "ケースの内部にカビが発生しているため", ok: false}, {x: "iPhoneの画面から出るブルーライトの影響", ok: false}], e: "黄ばみにくい特殊加工や、ガラス・ポリカーボネート製のクリアケースを選ぶと長持ちします。"},
+  {t: "iPhoneの画面保護を重視するケース選びで最も重要なポイントは何ですか？", o: [{x: "ディスプレイ面よりもケースのフチが高く設計されていること", ok: true}, {x: "ケースが非常に薄く、軽いこと", ok: false}, {x: "ケースの素材が金属製であること", ok: false}, {x: "ケースにカード収納機能があること", ok: false}], e: "フチが高いことで、平らな場所に伏せて置いた際に画面が直接触れるのを防ぎ、衝撃を吸収します。"},
+  {t: "iPhoneのカメラレンズを傷から守るために、ケース選びで確認すべき点は何ですか？", o: [{x: "カメラ部分の開口部がレンズよりも高くなっているか、またはレンズを覆うカバーがあるか", ok: true}, {x: "ケースの背面が完全に透明であること", ok: false}, {x: "ケースの側面が柔らかい素材でできていること", ok: false}, {x: "ケースの重さが非常に軽いこと", ok: false}], e: "レンズ周りの高さやカバーは、落下時や平置き時の傷つきを防ぎ、カメラ機能を長く保ちます。"},
+  {t: "ワイヤレス充電（Qi充電）対応のiPhoneケースを選ぶ際の注意点は何ですか？", o: [{x: "ケースの厚みがワイヤレス充電器の対応範囲内であること（一般的に3mm以内推奨）", ok: true}, {x: "ケースが防水機能を持っていること", ok: false}, {x: "ケースにカードホルダーが付いていないこと", ok: false}, {x: "ケースが特定のブランド品であること", ok: false}], e: "厚すぎるケースや金属製のケース、カード収納部に磁気カードを入れると充電できない場合があります。"},
+  {t: "シリコン製iPhoneケースの主なデメリットとして一般的なものは何ですか？", o: [{x: "ホコリやゴミが付着しやすく、ポケットからの出し入れがしにくい場合があること", ok: true}, {x: "優れた耐衝撃性がないこと", ok: false}, {x: "非常に軽量で薄型であること", ok: false}, {x: "カラーバリエーションが少ないこと", ok: false}], e: "シリコンはグリップ感が良い反面、摩擦が大きく、ホコリを吸着しやすい性質があります。"},
+  {t: "手帳型iPhoneケースを選ぶ主なメリットは何ですか？", o: [{x: "画面全体を覆うことで、傷や衝撃からiPhoneを保護できること", ok: true}, {x: "ワイヤレス充電速度が大幅に向上すること", ok: false}, {x: "iPhoneのバッテリー寿命が延びること", ok: false}, {x: "ケースを装着するだけで防水機能が付与されること", ok: false}], e: "手帳型は画面保護に加え、カード収納やスタンド機能を持つものが多く、利便性が高いです。"},
+  {t: "ポリカーボネート（PC）素材のiPhoneケースとTPU素材のケースの一般的な違いで正しいものは何ですか？", o: [{x: "PCは硬く透明度が高いが衝撃吸収性は低い、TPUは柔らかく衝撃吸収性に優れる", ok: true}, {x: "PCは熱に弱く変形しやすいが、TPUは熱に非常に強い", ok: false}, {x: "PCは黄ばみやすいが、TPUは黄ばみにくい", ok: false}, {x: "PCは常にマットな質感だが、TPUは常に光沢がある", ok: false}], e: "PCはハードケース、TPUはソフトケースに多く使われ、両者を組み合わせたハイブリッド型も人気です。"},
+  {t: "iPhoneケースの「グリップ感」を重視して選ぶ際に、どのような素材や加工が良いとされますか？", o: [{x: "シリコン、TPU、または表面にテクスチャ加工が施された素材", ok: true}, {x: "表面が非常に滑らかなガラス製や金属製", ok: false}, {x: "極端に薄く、表面がツルツルしたハードプラスチック製", ok: false}, {x: "ケースの厚みが均一で、角ばったデザインのもの", ok: false}], e: "滑りにくい素材や指紋がつきにくい加工は、iPhoneの落下リスクを減らし、安心して使えます。"},
+  {t: "近年注目されている「環境配慮型」のiPhoneケースによく使われる素材は何ですか？", o: [{x: "生分解性プラスチックやリサイクル素材、植物由来の素材など", ok: true}, {x: "純粋なチタンやカーボンファイバー", ok: false}, {x: "高度な化学処理を施したフッ素樹脂", ok: false}, {x: "希少な天然鉱物", ok: false}], e: "地球環境に配慮した素材選びは、サステナブルな消費行動として重要視されています。"},
+  {t: "「ハイブリッド型」のiPhoneケースが持つ一般的な特徴は何ですか？", o: [{x: "複数の異なる素材（例: 硬質な背面と柔らかい側面）を組み合わせて作られていること", ok: true}, {x: "ケース全体が水に浮くように設計されていること", ok: false}, {x: "iPhoneのバッテリーを内蔵していること", ok: false}, {x: "ケースの色が周囲の環境に合わせて自動的に変化すること", ok: false}], e: "落下時の衝撃吸収と背面保護を両立させることができ、デザインの幅も広がります。"},
+  {t: "iPhoneケースと画面保護フィルムを併用する際に、特に注意すべき点は何ですか？", o: [{x: "ケースとフィルムが干渉せず、浮きや剥がれが生じないかを確認すること", ok: true}, {x: "フィルムが厚いほどケースは薄い方が良いこと", ok: false}, {x: "フィルムの色とケースの色を合わせること", ok: false}, {x: "ワイヤレス充電時にフィルムを外す必要があること", ok: false}], e: "ケースとフィルムの相性は重要です。特にフチ高ケースと全面保護フィルムは干渉しやすいので注意。"},
+  {t: "一般的にiPhoneケースを交換する時期の目安として適切なものは何ですか？", o: [{x: "ケースの劣化（変色、ひび割れ、変形）が見られるか、保護機能が低下したと感じた時", ok: true}, {x: "iPhone本体のバッテリーが消耗してきた時", ok: false}, {x: "新しいiPhoneモデルが発表された時", ok: false}, {x: "1年に1回、季節の変わり目ごと", ok: false}], e: "劣化したケースは保護能力が落ち、iPhoneの破損リスクを高めます。定期的な確認が大切です。"},
+  {t: "Apple純正iPhoneケースを選ぶ主なメリットは何ですか？", o: [{x: "iPhone本体とのフィット感が非常に高く、デザインや機能性が最適化されていること", ok: true}, {x: "どんな素材の純正ケースも完全に防水であること", ok: false}, {x: "純正ケースを装着するとiPhoneの通信速度が向上すること", ok: false}, {x: "他社のケースよりも大幅に安価であること", ok: false}], e: "純正品は品質と互換性が保証されており、特にMagSafe対応製品はAppleエコシステムとの連携がスムーズです。 <a href="https://worldselect.net/products/worldselect-0018?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=case-guide" target="_blank" rel="noopener" style="color:#88619A;font-weight:600;">▶ iPhone MagSafeケースを見る</a> <a href="https://item.rakuten.co.jp/world11select/worldselect-0018/" target="_blank" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a> <a href="https://store.shopping.yahoo.co.jp/world1select/worldselect-0018.html" target="_blank" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo</a>"}
+];
+
+var LEVELS = [
+  {min: Math.ceil(15*0.9), level: "エキスパート", color: "#7c3aed", desc: "完璧な知識！周りへのアドバイス役にぴったり。"},
+  {min: Math.ceil(15*0.7), level: "上級者", color: "--c-grape", desc: "しっかりした知識をお持ちです。"},
+  {min: Math.ceil(15*0.5), level: "中級者", color: "#34c759", desc: "基本はOK。もう少し深掘りするとさらに安心。"},
+  {min: 0, level: "初級者", color: "#d97706", desc: "ここから学ぶと選び方が変わります！"}
+];
+
+var cur = 0, score = 0, answered = false;
+
+function render() {
+  var q = quizData[cur];
+  document.getElementById('progressFill').style.width = ((cur / quizData.length) * 100) + '%';
+  document.getElementById('questionNumber').textContent = 'Q' + (cur + 1) + ' / ' + quizData.length;
+  document.getElementById('questionText').textContent = q.t;
+  document.getElementById('explanation').classList.remove('show');
+  document.getElementById('explanation').innerHTML = '';
+  document.getElementById('nextBtn').textContent = '答えを見る';
+  answered = false;
+  var opts = shuffle(q.o.slice());
+  var c = document.getElementById('optionsContainer');
+  c.innerHTML = '';
+  opts.forEach(function(o, i) {
+    var btn = document.createElement('button');
+    btn.className = 'option';
+    btn.textContent = o.x;
+    btn.dataset.ok = o.ok;
+    btn.onclick = function() { choose(btn, opts); };
+    c.appendChild(btn);
+  });
+}
+
+function choose(btn, opts) {
+  if (answered) return;
+  answered = true;
+  var correct = btn.dataset.ok === 'true';
+  if (correct) { score++; btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+  document.querySelectorAll('.option').forEach(function(b) {
+    b.classList.add('answered');
+    if (b.dataset.ok === 'true') b.classList.add('correct');
+  });
+  var exp = document.getElementById('explanation');
+  exp.innerHTML = quizData[cur].e;
+  exp.classList.add('show');
+  document.getElementById('nextBtn').textContent = cur < quizData.length - 1 ? '次の問題 →' : '結果を見る';
+}
+
+document.getElementById('nextBtn').addEventListener('click', function() {
+  if (!answered) return;
+  cur++;
+  if (cur < quizData.length) { render(); }
+  else { showResult(); }
+});
+
+function showResult() {
+  document.getElementById('quizScreen').style.display = 'none';
+  document.getElementById('resultScreen').style.display = 'block';
+  document.getElementById('resultScore').textContent = score + ' / ' + quizData.length;
+  var lv = LEVELS[LEVELS.length - 1];
+  for (var i = 0; i < LEVELS.length; i++) {
+    if (score >= LEVELS[i].min) { lv = LEVELS[i]; break; }
+  }
+  var el = document.getElementById('resultLevel');
+  el.textContent = lv.level;
+  el.style.background = lv.color;
+  document.getElementById('resultDesc').textContent = lv.desc;
+}
+
+function restart() {
+  cur = 0; score = 0; answered = false;
+  document.getElementById('quizScreen').style.display = 'block';
+  document.getElementById('resultScreen').style.display = 'none';
+  render();
+}
+
+function shuffle(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+  return arr;
+}
+
+render();
+</script>
+</body>
+</html>
