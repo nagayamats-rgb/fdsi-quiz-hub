@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カードリーダー選び方検定 | World Select</title>
+  <meta name="description" content="CFexpress？SD？UHS-II？転送速度の違いを理解する10問">
+  <meta name="canonical" content="https://quiz.fds.co.jp/cardreader-guide/">
+  <meta property="og:title" content="カードリーダー選び方検定">
+  <meta property="og:description" content="CFexpress？SD？UHS-II？転送速度の違いを理解する10問">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://quiz.fds.co.jp/cardreader-guide/">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"カードリーダー選び方検定","description":"CFexpress？SD？UHS-II？転送速度の違いを理解する10問","url":"https://quiz.fds.co.jp/cardreader-guide/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cardreader-guide"}}
+</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../ws-redesign.css">
+  <style>
+    body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--c-bg);color:var(--c-text);max-width:680px;margin:0 auto;padding:20px}
+    .progress-bar{width:100%;height:6px;background:var(--c-surface2);border-radius:3px;margin-bottom:30px;overflow:hidden}
+    .progress-fill{height:100%;background:var(--c-iris);transition:width .3s ease}
+    .question-number{font-size:14px;color:var(--c-text3);margin-bottom:10px;font-weight:600}
+    .question-text{font-size:20px;font-weight:700;color:var(--c-text);margin-bottom:25px;line-height:1.4}
+    .option{padding:16px;background:var(--c-surface);border:2px solid var(--c-border);border-radius:16px;cursor:pointer;width:100%;appearance:none;transition:border-color .2s,background .2s,color .2s;display:flex;align-items:center;gap:12px;margin-bottom:12px;font-size:16px;font-weight:500;text-align:left}
+    .option:hover:not(.answered){background:var(--c-surface2);border-color:var(--c-border-h)}
+    .option.selected:not(.answered){background:var(--c-iris);color:#fff;border-color:var(--c-iris)}
+    .option.answered{cursor:not-allowed}
+    .option.correct{background:var(--c-ok-bg);border-color:var(--c-ok);color:var(--c-ok)}
+    .option.wrong{background:var(--c-err-bg);border-color:var(--c-err);color:var(--c-err)}
+    .explanation{display:none;padding:16px;background:rgba(136,97,154,.08);border-left:4px solid var(--c-iris);border-radius:10px;margin-bottom:20px;font-size:14px;color:var(--c-text2);line-height:1.6}
+    .explanation.show{display:block}
+    .next-btn{width:100%;padding:14px;background:var(--c-iris);color:#fff;border:none;border-radius:16px;font-size:16px;font-weight:600;cursor:pointer;transition:opacity .2s}
+    .next-btn:hover{opacity:.85}
+    .result-score{font-size:48px;font-weight:700;color:var(--c-iris);margin-bottom:10px}
+    .result-level{font-size:24px;font-weight:700;margin-bottom:10px;padding:16px 24px;border-radius:16px;display:inline-block;color:#fff}
+    .result-desc{font-size:16px;color:var(--c-text2);margin:20px 0 30px;line-height:1.6}
+    .restart-btn{padding:14px 30px;background:var(--c-iris);color:#fff;border:none;border-radius:16px;font-size:16px;font-weight:600;cursor:pointer;margin:20px auto;display:block}
+    .back-link{text-align:center;margin-top:20px}.back-link a{color:var(--c-iris);font-weight:600;text-decoration:none}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid var(--c-border)}
+    .logo{font-size:18px;font-weight:700;color:var(--c-iris)}
+    footer{text-align:center;margin-top:40px;padding:20px;color:var(--c-text3);font-size:12px;border-top:1px solid var(--c-border)}
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">🧩 Quiz Hub</div>
+  <a href="/" style="color:var(--c-text3);font-size:13px;text-decoration:none">← 一覧に戻る</a>
+</header>
+
+<div id="quizScreen">
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <div class="question-number" id="questionNumber"></div>
+  <h2 class="question-text" id="questionText"></h2>
+  <div id="optionsContainer"></div>
+  <div class="explanation" id="explanation"></div>
+  <button class="next-btn" id="nextBtn">答えを見る</button>
+</div>
+
+<div id="resultScreen" style="display:none;text-align:center">
+  <h2 style="font-size:24px;font-weight:700;margin-bottom:20px">結果発表</h2>
+  <div class="result-score" id="resultScore"></div>
+  <div id="resultLevel" class="result-level"></div>
+  <div class="result-desc" id="resultDesc"></div>
+  <button class="restart-btn" onclick="restart()">もう一度挑戦</button>
+  <div class="back-link"><a href="/">他のクイズを見る</a></div>
+  <div style="margin-top:30px">
+    <p style="font-size:14px;color:var(--c-text3);margin-bottom:16px">関連商品</p>
+    <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cardreader-guide" target="_blank"
+       style="display:inline-block;padding:12px 24px;background:var(--c-iris);color:#fff;border-radius:99px;font-weight:700;text-decoration:none;font-size:14px">
+      World Select ストアを見る
+    </a>
+  </div>
+</div>
+
+<footer>
+  <span>© FDSi / <a href="https://worldselect.net/" style="color:var(--c-text3)">worldselect.net</a></span>
+  <span style="margin-left:16px"><a href="/" style="color:var(--c-text3)">Quiz Hub</a></span>
+</footer>
+
+<script>
+var quizData = [
+  {t: "最新のiPhoneで写真や動画を高速転送する際、最も適したカードリーダーの接続方式は何でしょう？", o: [{x: "USB-C接続", ok: true}, {x: "Lightning接続", ok: false}, {x: "USB-A接続", ok: false}, {x: "Bluetooth接続", ok: false}], e: "iPhone 15以降はUSB-Cポートを搭載。高速転送にはUSB-C接続のカードリーダーを選びましょう。"},
+  {t: "4K動画撮影に最適なSDカードの速度規格はどれでしょう？", o: [{x: "UHSスピードクラス3 (U3) またはビデオスピードクラスV30以上", ok: true}, {x: "SDスピードクラス10", ok: false}, {x: "UHSスピードクラス1 (U1)", ok: false}, {x: "ビデオスピードクラスV6", ok: false}], e: "4K動画は大量のデータを連続して書き込むため、U3やV30以上の高速なSDカードが必須です。"},
+  {t: "CFexpressカードの「Type A」と「Type B」の主な違いは何でしょう？", o: [{x: "カードの物理サイズと最大転送速度", ok: true}, {x: "互換性のあるカメラメーカーの種類", ok: false}, {x: "耐久性のレベル", ok: false}, {x: "防水性能の有無", ok: false}], e: "Type Bは大きく高速で、プロ機材で主流。Type Aは小型で速度は劣りますが、一部のミラーレスで採用。"},
+  {t: "メモリカードのデータ転送速度を示す主な単位は何でしょう？", o: [{x: "MB/s (メガバイト/秒)", ok: true}, {x: "Mbps (メガビット/秒)", ok: false}, {x: "GHz (ギガヘルツ)", ok: false}, {x: "RPM (回転数/分)", ok: false}], e: "MB/sは1秒間に転送できるデータ量を示し、カードの性能比較に最も使われる単位です。"},
+  {t: "iPhoneやiPadで外部カードリーダーを使う際、特別なドライバーのインストールは必要ですか？", o: [{x: "ほとんどのカードリーダーはプラグ&プレイで利用可能", ok: true}, {x: "専用のアプリを必ずインストールする必要がある", ok: false}, {x: "iTunes経由での同期が必須", ok: false}, {x: "iPhoneのJailbreak（脱獄）が必要", ok: false}], e: "最新のiOS/iPadOSは多くの外部ストレージに対応。接続するだけで「ファイル」アプリからアクセスできます。"},
+  {t: "SDカードに記載されている「UHS」マークは何を示しているでしょう？", o: [{x: "高速データ転送規格", ok: true}, {x: "耐衝撃性能の高さ", ok: false}, {x: "防水性能の有無", ok: false}, {x: "カードの総容量", ok: false}], e: "UHS（Ultra High Speed）は、SDカードの高速化規格。UHS-I、UHS-IIなどの種類があります。"},
+  {t: "カメラとiPhoneを直接接続する代わりに、外部カードリーダーを使う主なメリットは何でしょう？", o: [{x: "転送速度が速く、安定している場合が多い", ok: true}, {x: "カメラのバッテリー消費を抑えられる", ok: false}, {x: "カメラの故障リスクを減らせる", ok: false}, {x: "読み込みエラーが全く発生しない", ok: false}], e: "特に大容量のファイル転送では、専用カードリーダーの方が効率的でストレスが少ないです。"},
+  {t: "将来性を見据えてカードリーダーを選ぶ際、特に注目すべきポイントは何でしょう？", o: [{x: "高速なUSB規格（例: USB 3.2 Gen 2やThunderbolt）への対応", ok: true}, {x: "複数のSDカードスロットがあること", ok: false}, {x: "コンパクトなデザインであること", ok: false}, {x: "LEDインジケーターが付いていること", ok: false}], e: "より高速なUSB規格に対応していれば、将来的に高解像度データが増えても対応できます。"},
+  {t: "連続的な高解像度動画撮影において、メモリカードのどの性能が最も重要でしょう？", o: [{x: "安定した書き込み速度", ok: true}, {x: "カードの総容量", ok: false}, {x: "耐水・耐衝撃性", ok: false}, {x: "ブランド名", ok: false}], e: "動画撮影では、途切れない記録のために安定した書き込み速度（最低保証速度）が最も重要です。"},
+  {t: "非常に安価なノーブランドのカードリーダーを使用する際の一般的なリスクは何でしょう？", o: [{x: "データ転送の不安定さや破損のリスク", ok: true}, {x: "iPhoneの充電速度が遅くなる", ok: false}, {x: "カードリーダー自体が発火する", ok: false}, {x: "iPhoneの保証が無効になる", ok: false}], e: "品質の悪い製品はデータが正しく転送されず、大切な写真や動画を失う可能性もあります。"},
+  {t: "SDカード側面にある小さな「Lock」スイッチの主な機能は何でしょう？", o: [{x: "誤消去防止の書き込み保護", ok: true}, {x: "データ転送速度の切り替え", ok: false}, {x: "カードの認識/非認識の切り替え", ok: false}, {x: "バッテリーセービングモード", ok: false}], e: "「Lock」にするとカードへの書き込みや消去ができなくなり、データの誤操作を防げます。"},
+  {t: "CFexpress Type BカードリーダーがUSB-C接続を重視する主な理由は何でしょう？", o: [{x: "CFexpress Type Bの高速性能を最大限に引き出すため", ok: true}, {x: "iPhoneの充電を兼ねるため", ok: false}, {x: "小型化に貢献するため", ok: false}, {x: "汎用性が高いから", ok: false}], e: "CFexpress Type Bは非常に高速なため、USB-C (特にUSB 3.2 Gen 2以上) でその性能を発揮します。"},
+  {t: "写真や動画を撮影するためのメモリカード選びで、特に重視すべき速度は何でしょう？", o: [{x: "書き込み速度 (Write Speed)", ok: true}, {x: "読み込み速度 (Read Speed)", ok: false}, {x: "ランダムアクセス速度", ok: false}, {x: "シーケンシャルアクセス速度", ok: false}], e: "撮影時はデータをカードに「書き込む」ため、書き込み速度が遅いと撮影が中断されることもあります。"},
+  {t: "新しいメモリカードや、別の機器で使っていたカードを再利用する際のベストなフォーマット方法は？", o: [{x: "使用する機器（例: カメラやiPhone経由）でフォーマットする", ok: true}, {x: "パソコンで一度フォーマットする", ok: false}, {x: "フォーマットせずにそのまま使う", ok: false}, {x: "専用アプリで低レベルフォーマットする", ok: false}], e: "使用する機器でフォーマットすることで、その機器に最適なファイルシステムが構築されます。"},
+  {t: "プロフェッショナルな映像制作において、CFexpressカードがSDカードよりも優れている主な点は何でしょう？", o: [{x: "圧倒的な転送速度と耐久性", ok: true}, {x: "互換性の高さ", ok: false}, {x: "価格の安さ", ok: false}, {x: "消費電力の低さ", ok: false}], e: "高ビットレートのRAW動画撮影など、膨大なデータを扱うプロ用途ではCFexpressの速度が不可欠です。 <a href="https://worldselect.net/products/ws-ic-cardreader?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cardreader-guide" target="_blank" rel="noopener" style="color:#88619A;font-weight:600;">▶ CFexpress Type-B カードリーダーを見る</a> <a href="https://item.rakuten.co.jp/world11select/ws-ic-cardreader/" target="_blank" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a> <a href="https://store.shopping.yahoo.co.jp/world1select/ws-ic-cardreader.html" target="_blank" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo</a>"}
+];
+
+var LEVELS = [
+  {min: Math.ceil(15*0.9), level: "エキスパート", color: "#7c3aed", desc: "完璧な知識！周りへのアドバイス役にぴったり。"},
+  {min: Math.ceil(15*0.7), level: "上級者", color: "--c-iris", desc: "しっかりした知識をお持ちです。"},
+  {min: Math.ceil(15*0.5), level: "中級者", color: "#34c759", desc: "基本はOK。もう少し深掘りするとさらに安心。"},
+  {min: 0, level: "初級者", color: "#d97706", desc: "ここから学ぶと選び方が変わります！"}
+];
+
+var cur = 0, score = 0, answered = false;
+
+function render() {
+  var q = quizData[cur];
+  document.getElementById('progressFill').style.width = ((cur / quizData.length) * 100) + '%';
+  document.getElementById('questionNumber').textContent = 'Q' + (cur + 1) + ' / ' + quizData.length;
+  document.getElementById('questionText').textContent = q.t;
+  document.getElementById('explanation').classList.remove('show');
+  document.getElementById('explanation').innerHTML = '';
+  document.getElementById('nextBtn').textContent = '答えを見る';
+  answered = false;
+  var opts = shuffle(q.o.slice());
+  var c = document.getElementById('optionsContainer');
+  c.innerHTML = '';
+  opts.forEach(function(o, i) {
+    var btn = document.createElement('button');
+    btn.className = 'option';
+    btn.textContent = o.x;
+    btn.dataset.ok = o.ok;
+    btn.onclick = function() { choose(btn, opts); };
+    c.appendChild(btn);
+  });
+}
+
+function choose(btn, opts) {
+  if (answered) return;
+  answered = true;
+  var correct = btn.dataset.ok === 'true';
+  if (correct) { score++; btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+  document.querySelectorAll('.option').forEach(function(b) {
+    b.classList.add('answered');
+    if (b.dataset.ok === 'true') b.classList.add('correct');
+  });
+  var exp = document.getElementById('explanation');
+  exp.innerHTML = quizData[cur].e;
+  exp.classList.add('show');
+  document.getElementById('nextBtn').textContent = cur < quizData.length - 1 ? '次の問題 →' : '結果を見る';
+}
+
+document.getElementById('nextBtn').addEventListener('click', function() {
+  if (!answered) return;
+  cur++;
+  if (cur < quizData.length) { render(); }
+  else { showResult(); }
+});
+
+function showResult() {
+  document.getElementById('quizScreen').style.display = 'none';
+  document.getElementById('resultScreen').style.display = 'block';
+  document.getElementById('resultScore').textContent = score + ' / ' + quizData.length;
+  var lv = LEVELS[LEVELS.length - 1];
+  for (var i = 0; i < LEVELS.length; i++) {
+    if (score >= LEVELS[i].min) { lv = LEVELS[i]; break; }
+  }
+  var el = document.getElementById('resultLevel');
+  el.textContent = lv.level;
+  el.style.background = lv.color;
+  document.getElementById('resultDesc').textContent = lv.desc;
+}
+
+function restart() {
+  cur = 0; score = 0; answered = false;
+  document.getElementById('quizScreen').style.display = 'block';
+  document.getElementById('resultScreen').style.display = 'none';
+  render();
+}
+
+function shuffle(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+  return arr;
+}
+
+render();
+</script>
+</body>
+</html>
