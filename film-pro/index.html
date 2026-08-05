@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>保護フィルム選び方上級検定 | World Select</title>
+  <meta name="description" content="ガラス？TPU？アンチグレア？硬度9H？フィルム選びで失敗しないための10問">
+  <meta name="canonical" content="https://quiz.fds.co.jp/film-pro/">
+  <meta property="og:title" content="保護フィルム選び方上級検定">
+  <meta property="og:description" content="ガラス？TPU？アンチグレア？硬度9H？フィルム選びで失敗しないための10問">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://quiz.fds.co.jp/film-pro/">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"保護フィルム選び方上級検定","description":"ガラス？TPU？アンチグレア？硬度9H？フィルム選びで失敗しないための10問","url":"https://quiz.fds.co.jp/film-pro/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=film-pro"}}
+</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../ws-redesign.css">
+  <style>
+    body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--c-bg);color:var(--c-text);max-width:680px;margin:0 auto;padding:20px}
+    .progress-bar{width:100%;height:6px;background:var(--c-surface2);border-radius:3px;margin-bottom:30px;overflow:hidden}
+    .progress-fill{height:100%;background:var(--c-mauve);transition:width .3s ease}
+    .question-number{font-size:14px;color:var(--c-text3);margin-bottom:10px;font-weight:600}
+    .question-text{font-size:20px;font-weight:700;color:var(--c-text);margin-bottom:25px;line-height:1.4}
+    .option{padding:16px;background:var(--c-surface);border:2px solid var(--c-border);border-radius:16px;cursor:pointer;width:100%;appearance:none;transition:border-color .2s,background .2s,color .2s;display:flex;align-items:center;gap:12px;margin-bottom:12px;font-size:16px;font-weight:500;text-align:left}
+    .option:hover:not(.answered){background:var(--c-surface2);border-color:var(--c-border-h)}
+    .option.selected:not(.answered){background:var(--c-mauve);color:#fff;border-color:var(--c-mauve)}
+    .option.answered{cursor:not-allowed}
+    .option.correct{background:var(--c-ok-bg);border-color:var(--c-ok);color:var(--c-ok)}
+    .option.wrong{background:var(--c-err-bg);border-color:var(--c-err);color:var(--c-err)}
+    .explanation{display:none;padding:16px;background:rgba(136,97,154,.08);border-left:4px solid var(--c-mauve);border-radius:10px;margin-bottom:20px;font-size:14px;color:var(--c-text2);line-height:1.6}
+    .explanation.show{display:block}
+    .next-btn{width:100%;padding:14px;background:var(--c-mauve);color:#fff;border:none;border-radius:16px;font-size:16px;font-weight:600;cursor:pointer;transition:opacity .2s}
+    .next-btn:hover{opacity:.85}
+    .result-score{font-size:48px;font-weight:700;color:var(--c-mauve);margin-bottom:10px}
+    .result-level{font-size:24px;font-weight:700;margin-bottom:10px;padding:16px 24px;border-radius:16px;display:inline-block;color:#fff}
+    .result-desc{font-size:16px;color:var(--c-text2);margin:20px 0 30px;line-height:1.6}
+    .restart-btn{padding:14px 30px;background:var(--c-mauve);color:#fff;border:none;border-radius:16px;font-size:16px;font-weight:600;cursor:pointer;margin:20px auto;display:block}
+    .back-link{text-align:center;margin-top:20px}.back-link a{color:var(--c-mauve);font-weight:600;text-decoration:none}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid var(--c-border)}
+    .logo{font-size:18px;font-weight:700;color:var(--c-mauve)}
+    footer{text-align:center;margin-top:40px;padding:20px;color:var(--c-text3);font-size:12px;border-top:1px solid var(--c-border)}
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">🧩 Quiz Hub</div>
+  <a href="/" style="color:var(--c-text3);font-size:13px;text-decoration:none">← 一覧に戻る</a>
+</header>
+
+<div id="quizScreen">
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <div class="question-number" id="questionNumber"></div>
+  <h2 class="question-text" id="questionText"></h2>
+  <div id="optionsContainer"></div>
+  <div class="explanation" id="explanation"></div>
+  <button class="next-btn" id="nextBtn">答えを見る</button>
+</div>
+
+<div id="resultScreen" style="display:none;text-align:center">
+  <h2 style="font-size:24px;font-weight:700;margin-bottom:20px">結果発表</h2>
+  <div class="result-score" id="resultScore"></div>
+  <div id="resultLevel" class="result-level"></div>
+  <div class="result-desc" id="resultDesc"></div>
+  <button class="restart-btn" onclick="restart()">もう一度挑戦</button>
+  <div class="back-link"><a href="/">他のクイズを見る</a></div>
+  <div style="margin-top:30px">
+    <p style="font-size:14px;color:var(--c-text3);margin-bottom:16px">関連商品</p>
+    <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=film-pro" target="_blank"
+       style="display:inline-block;padding:12px 24px;background:var(--c-mauve);color:#fff;border-radius:99px;font-weight:700;text-decoration:none;font-size:14px">
+      World Select ストアを見る
+    </a>
+  </div>
+</div>
+
+<footer>
+  <span>© FDSi / <a href="https://worldselect.net/" style="color:var(--c-text3)">worldselect.net</a></span>
+  <span style="margin-left:16px"><a href="/" style="color:var(--c-text3)">Quiz Hub</a></span>
+</footer>
+
+<script>
+var quizData = [
+  {t: "一般的なガラスフィルムとPETフィルム、衝撃吸収性に優れるのはどちらでしょう？", o: [{x: "ガラスフィルム", ok: true}, {x: "PETフィルム", ok: false}, {x: "TPUフィルム", ok: false}, {x: "素材による違いはない", ok: false}], e: "ガラスフィルムは硬度が高く、表面の傷だけでなく、落下時の衝撃から液晶画面本体を守る役割も大きいです。"},
+  {t: "スマホ保護フィルムの「硬度9H」とは、何の硬度を表しているでしょう？", o: [{x: "鉛筆の芯の硬度", ok: true}, {x: "モース硬度", ok: false}, {x: "ロックウェル硬度", ok: false}, {x: "ビッカース硬度", ok: false}], e: "9Hは鉛筆硬度で、傷つきにくさの指標です。数字が大きいほど硬く、鍵などの硬いものでも傷がつきにくいことを示します。"},
+  {t: "太陽光や照明の映り込みを抑え、指紋が目立ちにくい保護フィルムのタイプは何でしょう？", o: [{x: "アンチグレア（マット）フィルム", ok: true}, {x: "光沢（クリア）フィルム", ok: false}, {x: "ブルーライトカットフィルム", ok: false}, {x: "プライバシー保護フィルム", ok: false}], e: "アンチグレアは表面がマット加工されており、光の反射を抑え、指紋も目立ちにくいのが特徴です。"},
+  {t: "指紋や皮脂汚れが付きにくく、拭き取りやすい加工を保護フィルムでは何と呼ぶでしょう？", o: [{x: "撥油（はつゆ）コーティング", ok: true}, {x: "反射防止コーティング", ok: false}, {x: "耐水コーティング", ok: false}, {x: "抗菌コーティング", ok: false}], e: "撥油コーティングは指紋や皮脂汚れが付きにくく、付着してもサッと拭き取れるため、清潔な画面を保てます。"},
+  {t: "保護フィルムを貼る際に、ホコリの混入を最も防ぎやすい環境はどこでしょう？", o: [{x: "お風呂の湯気が充満した浴室", ok: true}, {x: "エアコンをつけたリビング", ok: false}, {x: "窓を開けた風通しの良い部屋", ok: false}, {x: "カーペット敷きの寝室", ok: false}], e: "浴室は湯気でホコリが床に落ちやすいため、フィルム貼りに最適な環境です。貼る前に画面をしっかり拭きましょう。"},
+  {t: "スマホケースとの干渉を避け、ケースを装着してもフィルムが浮きにくいタイプは何でしょう？", o: [{x: "ケースフレンドリー設計", ok: true}, {x: "全面保護（フルカバー）設計", ok: false}, {x: "3D曲面対応設計", ok: false}, {x: "フチなし設計", ok: false}], e: "ケースフレンドリーはフィルムのフチが小さめに設計されており、多くのケースと併用しやすいのが利点です。"},
+  {t: "目に有害とされるブルーライトを軽減する保護フィルムの主な特徴は何でしょう？", o: [{x: "画面がやや黄色みがかる", ok: true}, {x: "画面がやや青みがかる", ok: false}, {x: "画面の明るさが大幅にアップする", ok: false}, {x: "画面のタッチ感度が向上する", ok: false}], e: "ブルーライトカットフィルムは、青色光をカットするため、画面がやや黄色みがかって見えます。目の疲れ軽減に役立ちます。"},
+  {t: "電車内などで隣の人からの画面の覗き見を防ぐ効果があるのは、どのタイプのフィルムでしょう？", o: [{x: "覗き見防止フィルム", ok: true}, {x: "高透過率クリアフィルム", ok: false}, {x: "衝撃吸収フィルム", ok: false}, {x: "アンチグレアフィルム", ok: false}], e: "覗き見防止フィルムは、特定の角度からのみ画面が見えるように設計されており、プライバシー保護に最適です。"},
+  {t: "ガラスフィルムの厚みが薄いほど、一般的にどのようなメリットがあるでしょう？", o: [{x: "タッチ感度が向上し、操作性が良い", ok: true}, {x: "衝撃吸収性が格段に高まる", ok: false}, {x: "耐久性が大幅に向上する", ok: false}, {x: "貼り付けが非常に簡単になる", ok: false}], e: "薄いフィルムはスマホ本体との一体感が高まり、タッチ感度も損なわれにくく、スムーズな操作が可能です。"},
+  {t: "保護フィルムを交換するべきタイミングとして、最も適切なのはどれでしょう？", o: [{x: "フィルムに深い傷やヒビが入ったとき", ok: true}, {x: "スマホ本体を買い替えたとき", ok: false}, {x: "気分転換に色を変えたいとき", ok: false}, {x: "特に問題がなくても半年ごとに", ok: false}], e: "傷やヒビは保護性能が低下している証拠です。画面本体へのダメージを防ぐためにも早めに交換しましょう。"},
+  {t: "保護フィルムの画面をきれいに保つための、最も推奨される清掃方法はどれでしょう？", o: [{x: "メガネ拭きやマイクロファイバークロスで優しく拭く", ok: true}, {x: "アルコール除菌シートでゴシゴシ拭く", ok: false}, {x: "ティッシュペーパーで強く擦る", ok: false}, {x: "水で洗い流してから自然乾燥させる", ok: false}], e: "柔らかい布で優しく拭くことで、傷をつけずに指紋や汚れを取り除けます。アルコールはコーティングを傷める可能性があります。"},
+  {t: "iPhoneのディスプレイがわずかに湾曲している部分まで保護できるフィルムのタイプは何でしょう？", o: [{x: "3D曲面対応フィルム", ok: true}, {x: "平面保護フィルム", ok: false}, {x: "フチなしフィルム", ok: false}, {x: "衝撃吸収フィルム", ok: false}], e: "3D曲面対応フィルムは、ディスプレイの端までカバーし、一体感のある保護を実現します。"},
+  {t: "硬度9Hのガラスフィルムが主に防ぐのは、次のうちどれでしょう？", o: [{x: "表面の引っかき傷", ok: true}, {x: "高所からの落下による画面割れ", ok: false}, {x: "水没による内部損傷", ok: false}, {x: "強い衝撃によるディスプレイの欠け", ok: false}], e: "硬度9Hは傷への強さを示し、鍵やコインによる引っかき傷から画面を守ります。落下時の衝撃吸収とは別物です。"},
+  {t: "保護フィルムを選ぶ際、安価な製品と高価な製品で最も差が出やすいのはどの点でしょう？", o: [{x: "耐久性や加工品質（撥油性、気泡の入りにくさなど）", ok: true}, {x: "貼り付けの難易度", ok: false}, {x: "画面の明るさ", ok: false}, {x: "スマホ本体の充電速度", ok: false}], e: "高価なフィルムは高品質な素材や精密な加工により、耐久性、指滑り、気泡の入りにくさで優れる傾向があります。"},
+  {t: "保護フィルムを貼った際に小さな気泡が入ってしまった場合、時間が経つと自然に消える可能性があるのはどのタイプのフィルムでしょう？", o: [{x: "TPUなどの自己吸着性のある柔らかいフィルム", ok: true}, {x: "一般的な硬質ガラスフィルム", ok: false}, {x: "光沢タイプのPETフィルム", ok: false}, {x: "ブルーライトカット機能付きのガラスフィルム", ok: false}], e: "TPU素材などの自己吸着性フィルムは、小さな気泡であれば数日中に自然に消えることがあります。ガラスは難しいです。 <a href="https://worldselect.net/products/iphone12-antiglare?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=film-pro" target="_blank" rel="noopener" style="color:#88619A;font-weight:600;">▶ iPhone アンチグレアフィルムを見る</a> <a href="https://item.rakuten.co.jp/world11select/iphone12-antiglare/" target="_blank" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a> <a href="https://store.shopping.yahoo.co.jp/world1select/ws-iphone12glassfilm-antiglare-1.html" target="_blank" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo</a>"}
+];
+
+var LEVELS = [
+  {min: Math.ceil(15*0.9), level: "エキスパート", color: "#7c3aed", desc: "完璧な知識！周りへのアドバイス役にぴったり。"},
+  {min: Math.ceil(15*0.7), level: "上級者", color: "--c-mauve", desc: "しっかりした知識をお持ちです。"},
+  {min: Math.ceil(15*0.5), level: "中級者", color: "#34c759", desc: "基本はOK。もう少し深掘りするとさらに安心。"},
+  {min: 0, level: "初級者", color: "#d97706", desc: "ここから学ぶと選び方が変わります！"}
+];
+
+var cur = 0, score = 0, answered = false;
+
+function render() {
+  var q = quizData[cur];
+  document.getElementById('progressFill').style.width = ((cur / quizData.length) * 100) + '%';
+  document.getElementById('questionNumber').textContent = 'Q' + (cur + 1) + ' / ' + quizData.length;
+  document.getElementById('questionText').textContent = q.t;
+  document.getElementById('explanation').classList.remove('show');
+  document.getElementById('explanation').innerHTML = '';
+  document.getElementById('nextBtn').textContent = '答えを見る';
+  answered = false;
+  var opts = shuffle(q.o.slice());
+  var c = document.getElementById('optionsContainer');
+  c.innerHTML = '';
+  opts.forEach(function(o, i) {
+    var btn = document.createElement('button');
+    btn.className = 'option';
+    btn.textContent = o.x;
+    btn.dataset.ok = o.ok;
+    btn.onclick = function() { choose(btn, opts); };
+    c.appendChild(btn);
+  });
+}
+
+function choose(btn, opts) {
+  if (answered) return;
+  answered = true;
+  var correct = btn.dataset.ok === 'true';
+  if (correct) { score++; btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+  document.querySelectorAll('.option').forEach(function(b) {
+    b.classList.add('answered');
+    if (b.dataset.ok === 'true') b.classList.add('correct');
+  });
+  var exp = document.getElementById('explanation');
+  exp.innerHTML = quizData[cur].e;
+  exp.classList.add('show');
+  document.getElementById('nextBtn').textContent = cur < quizData.length - 1 ? '次の問題 →' : '結果を見る';
+}
+
+document.getElementById('nextBtn').addEventListener('click', function() {
+  if (!answered) return;
+  cur++;
+  if (cur < quizData.length) { render(); }
+  else { showResult(); }
+});
+
+function showResult() {
+  document.getElementById('quizScreen').style.display = 'none';
+  document.getElementById('resultScreen').style.display = 'block';
+  document.getElementById('resultScore').textContent = score + ' / ' + quizData.length;
+  var lv = LEVELS[LEVELS.length - 1];
+  for (var i = 0; i < LEVELS.length; i++) {
+    if (score >= LEVELS[i].min) { lv = LEVELS[i]; break; }
+  }
+  var el = document.getElementById('resultLevel');
+  el.textContent = lv.level;
+  el.style.background = lv.color;
+  document.getElementById('resultDesc').textContent = lv.desc;
+}
+
+function restart() {
+  cur = 0; score = 0; answered = false;
+  document.getElementById('quizScreen').style.display = 'block';
+  document.getElementById('resultScreen').style.display = 'none';
+  render();
+}
+
+function shuffle(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+  return arr;
+}
+
+render();
+</script>
+</body>
+</html>
