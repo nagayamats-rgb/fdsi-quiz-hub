@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>USB-Cハブ・ドック選び方検定 | World Select</title>
+  <meta name="description" content="HDMI出力？LAN？電力供給？ハブとドックの違いから選び方まで10問">
+  <meta name="canonical" content="https://quiz.fds.co.jp/hub-guide/">
+  <meta property="og:title" content="USB-Cハブ・ドック選び方検定">
+  <meta property="og:description" content="HDMI出力？LAN？電力供給？ハブとドックの違いから選び方まで10問">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://quiz.fds.co.jp/hub-guide/">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"USB-Cハブ・ドック選び方検定","description":"HDMI出力？LAN？電力供給？ハブとドックの違いから選び方まで10問","url":"https://quiz.fds.co.jp/hub-guide/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=hub-guide"}}
+</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../ws-redesign.css">
+  <style>
+    body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--c-bg);color:var(--c-text);max-width:680px;margin:0 auto;padding:20px}
+    .progress-bar{width:100%;height:6px;background:var(--c-surface2);border-radius:3px;margin-bottom:30px;overflow:hidden}
+    .progress-fill{height:100%;background:var(--c-orchid);transition:width .3s ease}
+    .question-number{font-size:14px;color:var(--c-text3);margin-bottom:10px;font-weight:600}
+    .question-text{font-size:20px;font-weight:700;color:var(--c-text);margin-bottom:25px;line-height:1.4}
+    .option{padding:16px;background:var(--c-surface);border:2px solid var(--c-border);border-radius:16px;cursor:pointer;width:100%;appearance:none;transition:border-color .2s,background .2s,color .2s;display:flex;align-items:center;gap:12px;margin-bottom:12px;font-size:16px;font-weight:500;text-align:left}
+    .option:hover:not(.answered){background:var(--c-surface2);border-color:var(--c-border-h)}
+    .option.selected:not(.answered){background:var(--c-orchid);color:#fff;border-color:var(--c-orchid)}
+    .option.answered{cursor:not-allowed}
+    .option.correct{background:var(--c-ok-bg);border-color:var(--c-ok);color:var(--c-ok)}
+    .option.wrong{background:var(--c-err-bg);border-color:var(--c-err);color:var(--c-err)}
+    .explanation{display:none;padding:16px;background:rgba(136,97,154,.08);border-left:4px solid var(--c-orchid);border-radius:10px;margin-bottom:20px;font-size:14px;color:var(--c-text2);line-height:1.6}
+    .explanation.show{display:block}
+    .next-btn{width:100%;padding:14px;background:var(--c-orchid);color:#fff;border:none;border-radius:16px;font-size:16px;font-weight:600;cursor:pointer;transition:opacity .2s}
+    .next-btn:hover{opacity:.85}
+    .result-score{font-size:48px;font-weight:700;color:var(--c-orchid);margin-bottom:10px}
+    .result-level{font-size:24px;font-weight:700;margin-bottom:10px;padding:16px 24px;border-radius:16px;display:inline-block;color:#fff}
+    .result-desc{font-size:16px;color:var(--c-text2);margin:20px 0 30px;line-height:1.6}
+    .restart-btn{padding:14px 30px;background:var(--c-orchid);color:#fff;border:none;border-radius:16px;font-size:16px;font-weight:600;cursor:pointer;margin:20px auto;display:block}
+    .back-link{text-align:center;margin-top:20px}.back-link a{color:var(--c-orchid);font-weight:600;text-decoration:none}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid var(--c-border)}
+    .logo{font-size:18px;font-weight:700;color:var(--c-orchid)}
+    footer{text-align:center;margin-top:40px;padding:20px;color:var(--c-text3);font-size:12px;border-top:1px solid var(--c-border)}
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">🧩 Quiz Hub</div>
+  <a href="/" style="color:var(--c-text3);font-size:13px;text-decoration:none">← 一覧に戻る</a>
+</header>
+
+<div id="quizScreen">
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <div class="question-number" id="questionNumber"></div>
+  <h2 class="question-text" id="questionText"></h2>
+  <div id="optionsContainer"></div>
+  <div class="explanation" id="explanation"></div>
+  <button class="next-btn" id="nextBtn">答えを見る</button>
+</div>
+
+<div id="resultScreen" style="display:none;text-align:center">
+  <h2 style="font-size:24px;font-weight:700;margin-bottom:20px">結果発表</h2>
+  <div class="result-score" id="resultScore"></div>
+  <div id="resultLevel" class="result-level"></div>
+  <div class="result-desc" id="resultDesc"></div>
+  <button class="restart-btn" onclick="restart()">もう一度挑戦</button>
+  <div class="back-link"><a href="/">他のクイズを見る</a></div>
+  <div style="margin-top:30px">
+    <p style="font-size:14px;color:var(--c-text3);margin-bottom:16px">関連商品</p>
+    <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=hub-guide" target="_blank"
+       style="display:inline-block;padding:12px 24px;background:var(--c-orchid);color:#fff;border-radius:99px;font-weight:700;text-decoration:none;font-size:14px">
+      World Select ストアを見る
+    </a>
+  </div>
+</div>
+
+<footer>
+  <span>© FDSi / <a href="https://worldselect.net/" style="color:var(--c-text3)">worldselect.net</a></span>
+  <span style="margin-left:16px"><a href="/" style="color:var(--c-text3)">Quiz Hub</a></span>
+</footer>
+
+<script>
+var quizData = [
+  {t: "USB-Cハブとドッキングステーションの主な違いは何ですか？", o: [{x: "ドッキングステーションはより多くのポートと安定した電源供給が特徴です。", ok: true}, {x: "USB-Cハブはドッキングステーションより高機能です。", ok: false}, {x: "ドッキングステーションはUSB-Cポートがありません。", ok: false}, {x: "どちらも機能に違いはなく、呼び方が違うだけです。", ok: false}], e: "ドッキングステーションは据え置き型で豊富な接続端子や充電機能を備え、ハブは携帯性に優れます。"},
+  {t: "USB-Cポートを持つiPhoneやiPad Proで、USB-Cハブを使うと何ができますか？", o: [{x: "外部ディスプレイ出力、USBメモリ接続、有線LAN接続などが可能です。", ok: true}, {x: "iPhoneの充電速度が大幅に向上します。", ok: false}, {x: "アプリの動作速度が速くなります。", ok: false}, {x: "Wi-Fi接続が不要になります。", ok: false}], e: "USB-CハブはiPadやiPhoneの機能を拡張し、データのやり取りや外部機器との接続を容易にします。"},
+  {t: "USB-Cハブを選ぶ際、「Power Delivery（PD）対応」が重要なのはなぜですか？", o: [{x: "ハブを経由して接続機器（PCやタブレット）を充電できるからです。", ok: true}, {x: "データ転送速度が向上するからです。", ok: false}, {x: "外部ディスプレイの画質が良くなるからです。", ok: false}, {x: "ハブ自体が充電不要になるからです。", ok: false}], e: "PD対応ハブなら、充電しながら他の周辺機器も同時に使えるため、ポート不足を解消し便利です。"},
+  {t: "USB-Cハブに搭載されているHDMIポートの主な用途は何ですか？", o: [{x: "iPhoneやiPadの画面をテレビやモニターに出力するためです。", ok: true}, {x: "高速なデータ転送を行うためです。", ok: false}, {x: "複数のUSBデバイスを接続するためです。", ok: false}, {x: "ハブに電源を供給するためです。", ok: false}], e: "HDMIポートがあれば、プレゼンや動画視聴時に大画面でコンテンツを楽しめます。解像度も確認しましょう。"},
+  {t: "USB-CハブにあるLANポート（Ethernet）は、どのような時に役立ちますか？", o: [{x: "Wi-Fiが不安定な場所で、安定した高速インターネット接続が必要な時です。", ok: true}, {x: "USBデバイスの接続数を増やす時です。", ok: false}, {x: "外部ストレージのデータ転送速度を上げる時です。", ok: false}, {x: "スマートフォンを充電する時です。", ok: false}], e: "有線LANは無線に比べ通信が安定しており、大容量データのダウンロードやオンライン会議に適しています。"},
+  {t: "USB-CハブにSDカードスロットがある場合、どのような用途で便利ですか？", o: [{x: "デジタルカメラで撮影した写真や動画をiPhoneやPCに直接取り込む時です。", ok: true}, {x: "iPhoneの内部ストレージ容量を増やす時です。", ok: false}, {x: "ハブの電源としてSDカードを使う時です。", ok: false}, {x: "USBメモリの代替として使う時です。", ok: false}], e: "カメラで撮影したデータを手軽に転送でき、編集作業の効率が上がります。microSD対応かも確認しましょう。"},
+  {t: "USB-Cハブに搭載されている「USB-Aポート」と「USB-Cポート」の主な違いは何ですか？", o: [{x: "USB-Cは裏表なく挿せて、USB-Aより高速なデータ転送や電力供給が可能です。", ok: true}, {x: "USB-AはUSB-Cより新しい規格で、より多くのデバイスに対応します。", ok: false}, {x: "USB-Cは充電専用で、USB-Aはデータ転送専用です。", ok: false}, {x: "どちらも機能は同じで、形状だけが違います。", ok: false}], e: "USB-Cは次世代の統一規格で、多機能性が魅力です。USB-Aは従来の周辺機器を接続する際に役立ちます。"},
+  {t: "USB-Cハブで4K対応の外部ディスプレイを使う場合、注意すべき点は何ですか？", o: [{x: "ハブのHDMIポートが4K@60Hzに対応しているか確認することです。", ok: true}, {x: "ハブのUSB-Aポートの数を増やすことです。", ok: false}, {x: "ハブにLANポートが搭載されていることです。", ok: false}, {x: "ハブのPD充電ワット数を最小限にすることです。", ok: false}], e: "4K@30Hzだと動きがカクつく場合があるため、滑らかな表示には4K@60Hz対応が推奨されます。"},
+  {t: "USB-Cハブで外付けSSDなどの高速ストレージを使う際、最もデータ転送速度が速いUSB規格は何ですか？", o: [{x: "USB 3.2 Gen 2（またはUSB 3.1 Gen 2）です。", ok: true}, {x: "USB 2.0です。", ok: false}, {x: "USB 3.0 Gen 1（またはUSB 3.1 Gen 1）です。", ok: false}, {x: "USB Type-Aです。", ok: false}], e: "USB 3.2 Gen 2は最大10Gbpsの速度を誇り、大容量ファイルの転送時間を大幅に短縮できます。"},
+  {t: "持ち運びを重視するなら、USB-Cハブのどのような点に注目すべきですか？", o: [{x: "コンパクトなサイズと軽量性、ケーブル一体型であることです。", ok: true}, {x: "豊富なポート数と高い給電能力です。", ok: false}, {x: "複数の4Kディスプレイ出力に対応していることです。", ok: false}, {x: "有線LANポートが2つ以上あることです。", ok: false}], e: "携帯性の高いハブは外出先での使用に便利です。必要なポートが厳選されているかを確認しましょう。"},
+  {t: "USB-Cハブの「パススルー充電」とはどのような機能ですか？", o: [{x: "ハブに接続した充電器から、ハブを経由してPCやタブレットを充電できる機能です。", ok: true}, {x: "ハブ自体がバッテリーを内蔵しており、PCを充電できる機能です。", ok: false}, {x: "ハブに接続したデバイス同士で電力を分け合う機能です。", ok: false}, {x: "ハブを使わずに直接PCを充電する機能です。", ok: false}], e: "パススルー充電対応なら、ハブで拡張しながらもデバイスのバッテリー切れを心配せずに作業できます。"},
+  {t: "USB-Cハブが熱くなるのを防ぐために、どのような点に注意すると良いですか？", o: [{x: "不要なポートの抜き差しを避け、放熱性の良い場所に置くことです。", ok: true}, {x: "接続するデバイスの数を最大まで増やすことです。", ok: false}, {x: "ハブの電源を常にオンにすることです。", ok: false}, {x: "接続ケーブルを長くすることです。", ok: false}], e: "多くの機能を同時に使うと発熱しやすいため、使用しないポートは抜くなどして負荷を減らしましょう。"},
+  {t: "MacBookやiPad ProでUSB-Cハブを選ぶ際、特に確認すべきポイントは何ですか？", o: [{x: "必要とするポートの種類と数、そしてPD充電対応ワット数です。", ok: true}, {x: "ハブの重さが1kg以上あることです。", ok: false}, {x: "ハブのボディカラーがMacBookと同じであることです。", ok: false}, {x: "USB-Aポートが一つもないことです。", ok: false}], e: "MacBookやiPadはUSB-Cポートが少ないため、必要な周辺機器を接続できるか、充電しながら使えるか重要です。"},
+  {t: "USB-Cハブに3.5mmオーディオジャックが搭載されていると、どのようなメリットがありますか？", o: [{x: "有線イヤホンやヘッドホン、スピーカーを接続して音声を出力できます。", ok: true}, {x: "ハブの電源供給能力が向上します。", ok: false}, {x: "データ転送速度が向上します。", ok: false}, {x: "ハブ自体がワイヤレスオーディオに対応します。", ok: false}], e: "最近のスマホやPCはイヤホンジャックがないモデルも多いため、有線オーディオ機器を使いたい場合に便利です。"},
+  {t: "USB-Cハブの品質や信頼性を見分けるためのヒントは何ですか？", o: [{x: "有名ブランドや信頼できるメーカーの製品を選び、レビューを確認することです。", ok: true}, {x: "価格が非常に安い製品を優先的に選ぶことです。", ok: false}, {x: "ポート数が最も多い製品を選ぶことです。", ok: false}, {x: "無名のブランドの製品を積極的に試すことです。", ok: false}], e: "安価な製品はトラブルの原因になることも。信頼性の高い製品を選ぶことで、安心して長く使用できます。 <a href="https://worldselect.net/products/60w-6in1cable?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=hub-guide" target="_blank" rel="noopener" style="color:#88619A;font-weight:600;">▶ 6in1 USB-C ハブを見る</a> <a href="https://item.rakuten.co.jp/world11select/60w-6in1cable/" target="_blank" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a> <a href="https://store.shopping.yahoo.co.jp/world1select/60w-6in1cable.html" target="_blank" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo</a>"}
+];
+
+var LEVELS = [
+  {min: Math.ceil(15*0.9), level: "エキスパート", color: "#7c3aed", desc: "完璧な知識！周りへのアドバイス役にぴったり。"},
+  {min: Math.ceil(15*0.7), level: "上級者", color: "--c-orchid", desc: "しっかりした知識をお持ちです。"},
+  {min: Math.ceil(15*0.5), level: "中級者", color: "#34c759", desc: "基本はOK。もう少し深掘りするとさらに安心。"},
+  {min: 0, level: "初級者", color: "#d97706", desc: "ここから学ぶと選び方が変わります！"}
+];
+
+var cur = 0, score = 0, answered = false;
+
+function render() {
+  var q = quizData[cur];
+  document.getElementById('progressFill').style.width = ((cur / quizData.length) * 100) + '%';
+  document.getElementById('questionNumber').textContent = 'Q' + (cur + 1) + ' / ' + quizData.length;
+  document.getElementById('questionText').textContent = q.t;
+  document.getElementById('explanation').classList.remove('show');
+  document.getElementById('explanation').innerHTML = '';
+  document.getElementById('nextBtn').textContent = '答えを見る';
+  answered = false;
+  var opts = shuffle(q.o.slice());
+  var c = document.getElementById('optionsContainer');
+  c.innerHTML = '';
+  opts.forEach(function(o, i) {
+    var btn = document.createElement('button');
+    btn.className = 'option';
+    btn.textContent = o.x;
+    btn.dataset.ok = o.ok;
+    btn.onclick = function() { choose(btn, opts); };
+    c.appendChild(btn);
+  });
+}
+
+function choose(btn, opts) {
+  if (answered) return;
+  answered = true;
+  var correct = btn.dataset.ok === 'true';
+  if (correct) { score++; btn.classList.add('correct'); }
+  else { btn.classList.add('wrong'); }
+  document.querySelectorAll('.option').forEach(function(b) {
+    b.classList.add('answered');
+    if (b.dataset.ok === 'true') b.classList.add('correct');
+  });
+  var exp = document.getElementById('explanation');
+  exp.innerHTML = quizData[cur].e;
+  exp.classList.add('show');
+  document.getElementById('nextBtn').textContent = cur < quizData.length - 1 ? '次の問題 →' : '結果を見る';
+}
+
+document.getElementById('nextBtn').addEventListener('click', function() {
+  if (!answered) return;
+  cur++;
+  if (cur < quizData.length) { render(); }
+  else { showResult(); }
+});
+
+function showResult() {
+  document.getElementById('quizScreen').style.display = 'none';
+  document.getElementById('resultScreen').style.display = 'block';
+  document.getElementById('resultScore').textContent = score + ' / ' + quizData.length;
+  var lv = LEVELS[LEVELS.length - 1];
+  for (var i = 0; i < LEVELS.length; i++) {
+    if (score >= LEVELS[i].min) { lv = LEVELS[i]; break; }
+  }
+  var el = document.getElementById('resultLevel');
+  el.textContent = lv.level;
+  el.style.background = lv.color;
+  document.getElementById('resultDesc').textContent = lv.desc;
+}
+
+function restart() {
+  cur = 0; score = 0; answered = false;
+  document.getElementById('quizScreen').style.display = 'block';
+  document.getElementById('resultScreen').style.display = 'none';
+  render();
+}
+
+function shuffle(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+  return arr;
+}
+
+render();
+</script>
+</body>
+</html>
