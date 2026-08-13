@@ -1,9 +1,10 @@
 # World Select Quiz Hub
 
-> iPhone / iPad / Android アクセサリ（充電ケーブル・充電器・保護フィルム・ケース・カードリーダー等）の「選び方・見分け方」が学べる無料のクイズ＆診断サイト。運営は iPhone/Apple Watch アクセサリ専門のセレクトショップ「World Select」（有限会社FDSi）。全11種・約330問。各クイズの結果から楽天・Yahoo!・公式ストア（worldselect.net）の該当商品へ案内します。
+> iPhone / iPad / Android アクセサリ（充電ケーブル・充電器・保護フィルム・ケース・カードリーダー等）の「選び方・見分け方」が学べる無料のクイズ＆診断サイト。運営は iPhone/Apple Watch アクセサリ専門のセレクトショップ「World Select」（有限会社FDSi）。全12種・約315問。各クイズの結果から楽天・Yahoo!・公式ストア（worldselect.net）の該当商品へ案内します。
 
-## クイズ・診断（全11種）
+## クイズ・診断（全12種）
 
+- [充電ケーブル検定 (10問)](https://quiz.fds.co.jp/cable-master/): 3in1・L字・eMarker・PD240W…10問で充電ケーブルの規格知識をチェック。
 - [充電マスター検定 (25問)](https://quiz.fds.co.jp/charging-master/): USB-C / PD急速充電 / MagSafe / GaN / Qi2、ケーブルの見分け方・選び方の知識クイズ
 - [フィルム選び方クイズ (10問)](https://quiz.fds.co.jp/film/): アンチグレアと光沢の違い、ガラスとPET、9H硬度、ペーパーライク、のぞき見防止。iPhone/iPad/Pixel対応フィルムの選び方
 - [USB-C・PD最適ケーブル診断 (8問)](https://quiz.fds.co.jp/charge-finder/): 用途を選ぶと最適な充電ケーブル・充電器を提案する診断

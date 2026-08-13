@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>充電ケーブル検定｜規格と選び方を10問でチェック【無料】 | World Select</title>
+<meta name="description" content="3in1・L字コネクタ・eMarker・USB PD3.1・USB4/Thunderboltまで、充電ケーブル選びの基礎知識を10問で診断。買い物前に知っておきたい規格の違いがわかります。">
+<link rel="canonical" href="https://quiz.fds.co.jp/cable-master/">
+<meta name="robots" content="index, follow">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Quiz","name":"充電ケーブル検定","description":"10問の充電ケーブル検定。3in1ケーブルの利点からUSB PD3.1の240W、USB4/Thunderboltの転送速度まで、ケーブル選びに役立つ規格知識を正誤形式でチェックできます。","url":"https://quiz.fds.co.jp/cable-master/","inLanguage":"ja","creator":{"@type":"Organization","name":"FDSi","url":"https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cable-master"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FDSi","item":"https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cable-master"},{"@type":"ListItem","position":2,"name":"Quiz Hub","item":"https://quiz.fds.co.jp/"},{"@type":"ListItem","position":3,"name":"充電ケーブル検定","item":"https://quiz.fds.co.jp/cable-master/"}]}
+</script>
+<style>
+:root{
+  --c-bg:#ffffff;
+  --c-surface:#F3EFF5;
+  --c-surface2:#E7DFEA;
+  --c-border:#d2d2d7;
+  --c-border-h:#86868b;
+  --c-text:#343C4B;
+  --c-text2:#6e6e73;
+  --c-text3:#86868b;
+  --c-primary:#88619A;
+  --c-primary-h:#654873;
+  --c-primary-t:rgba(136,97,154,.08);
+  --c-primary-g:rgba(136,97,154,.18);
+  --c-ok:#34c759;
+  --c-ok-bg:rgba(52,199,89,.10);
+  --c-err:#ff3b30;
+  --c-err-bg:rgba(255,59,48,.08);
+  --c-shadow1:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.06);
+  --c-shadow2:0 4px 12px rgba(0,0,0,.08);
+  --radius:16px;
+  --radius-s:10px;
+  --radius-xs:6px;
+  --radius-full:9999px;
+  --nav-h:52px;
+}
+[data-theme="dark"]{
+  --c-bg:#000000;
+  --c-surface:#1c1c1e;
+  --c-surface2:#2c2c2e;
+  --c-border:#38383a;
+  --c-border-h:#545456;
+  --c-text:#F3EFF5;
+  --c-text2:#a1a1a6;
+  --c-text3:#6e6e73;
+  --c-primary:#B79BCB;
+  --c-primary-h:#C9B2DC;
+  --c-primary-t:rgba(183,155,203,.12);
+  --c-primary-g:rgba(183,155,203,.22);
+  --c-ok:#30d158;
+  --c-ok-bg:rgba(48,209,88,.12);
+  --c-err:#ff453a;
+  --c-err-bg:rgba(255,69,58,.12);
+  --c-shadow1:0 1px 3px rgba(0,0,0,.3);
+  --c-shadow2:0 4px 12px rgba(0,0,0,.35);
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --c-bg:#000000;--c-surface:#1c1c1e;--c-surface2:#2c2c2e;
+    --c-border:#38383a;--c-border-h:#545456;
+    --c-text:#F3EFF5;--c-text2:#a1a1a6;--c-text3:#6e6e73;
+    --c-primary:#B79BCB;--c-primary-h:#C9B2DC;
+    --c-primary-t:rgba(183,155,203,.12);--c-primary-g:rgba(183,155,203,.22);
+    --c-ok:#30d158;--c-ok-bg:rgba(48,209,88,.12);
+    --c-err:#ff453a;--c-err-bg:rgba(255,69,58,.12);
+    --c-shadow1:0 1px 3px rgba(0,0,0,.3);--c-shadow2:0 4px 12px rgba(0,0,0,.35);
+  }
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--c-bg);color:var(--c-text);font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;transition:background-color .3s,color .3s}
+.container{max-width:640px;margin:0 auto;padding:20px}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid var(--c-border)}
+.logo{font-size:18px;font-weight:700;color:var(--c-primary)}
+.theme-toggle{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-full);padding:6px 10px;cursor:pointer;font-size:14px;transition:background .2s}
+.theme-toggle:hover{background:var(--c-surface2)}
+.quiz-container{display:none}
+.quiz-container.active{display:block}
+.progress-bar{width:100%;height:6px;background:var(--c-surface2);border-radius:3px;margin-bottom:30px;overflow:hidden}
+.progress-fill{height:100%;background:var(--c-primary);transition:width .3s ease}
+.question-number{font-size:14px;color:var(--c-text3);margin-bottom:10px;font-weight:600}
+.question-text{font-size:20px;font-weight:700;color:var(--c-text);margin-bottom:25px;line-height:1.4}
+.options{display:flex;flex-direction:column;gap:12px;margin-bottom:25px}
+.option{padding:16px;background:var(--c-surface);border:2px solid var(--c-border);border-radius:var(--radius);cursor:pointer;width:100%;-webkit-appearance:none;appearance:none;touch-action:manipulation;transition:border-color 0.2s, background-color 0.2s, color 0.2s, font-weight 0.2s;position:relative;display:flex;align-items:center;gap:12px}
+.option:hover{background:var(--c-surface2);border-color:var(--c-border-h)}
+.option.selected:not(.answered){background:var(--c-primary);color:#ffffff;border-color:var(--c-primary)}
+.option.answered{cursor:not-allowed}
+.option.correct{background:var(--c-ok-bg);border-color:var(--c-ok);color:var(--c-ok)}
+.option.wrong{background:var(--c-err-bg);border-color:var(--c-err);color:var(--c-err)}
+.option-icon{font-size:20px;flex-shrink:0;width:24px;text-align:center}
+.option-text{flex:1;font-size:16px;font-weight:500}
+.explanation{display:none;padding:16px;background:var(--c-primary-t);border-left:4px solid var(--c-primary);border-radius:var(--radius-s);margin-bottom:20px;font-size:14px;color:var(--c-text2);line-height:1.5}
+.explanation.show{display:block}
+.next-btn{width:100%;padding:14px;background:var(--c-primary);color:#ffffff;border:none;border-radius:var(--radius);font-size:16px;font-weight:600;cursor:pointer;transition:background .2s}
+.next-btn:hover{background:var(--c-primary-h)}
+.next-btn:disabled{opacity:.5;cursor:not-allowed}
+.result-container{display:none;text-align:center;padding:30px 0}
+.result-container.active{display:block}
+.result-score{font-size:48px;font-weight:700;color:var(--c-primary);margin-bottom:10px}
+.result-level{font-size:28px;font-weight:700;margin-bottom:10px;padding:20px;border-radius:var(--radius);display:inline-block;color:#ffffff;margin-left:0;margin-right:0}
+.result-description{font-size:16px;color:var(--c-text2);margin:20px 0 30px 0;line-height:1.6}
+.level-badge{display:inline-block;padding:10px 20px;border-radius:var(--radius-full);background:var(--c-primary-g);color:var(--c-primary);font-size:14px;font-weight:600;margin-bottom:20px}
+.share-buttons{display:flex;gap:10px;justify-content:center;margin:30px 0}
+.share-btn{padding:10px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);cursor:pointer;font-size:14px;font-weight:600;color:var(--c-text);transition:all .2s}
+.share-btn:hover{background:var(--c-surface2);border-color:var(--c-border-h)}
+.restart-btn{padding:14px 30px;background:var(--c-primary);color:#ffffff;border:none;border-radius:var(--radius);font-size:16px;font-weight:600;cursor:pointer;transition:background .2s;margin:20px auto;display:block}
+.restart-btn:hover{background:var(--c-primary-h)}
+.crosslinks{margin-top:40px;padding-top:30px;border-top:1px solid var(--c-border)}
+.crosslinks-title{font-size:14px;font-weight:600;color:var(--c-text3);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+.crosslinks-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.crosslink{padding:12px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);text-decoration:none;color:var(--c-primary);font-size:13px;font-weight:600;text-align:center;transition:all .2s}
+.crosslink:hover{background:var(--c-primary-t);border-color:var(--c-primary)}
+footer{text-align:center;margin-top:40px;padding:20px;color:var(--c-text3);font-size:12px;border-top:1px solid var(--c-border)}
+.store-links{margin-top:15px;display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
+.store-link{color:var(--c-primary);text-decoration:none;font-size:12px;font-weight:600}
+.store-link:hover{text-decoration:underline}
+.exp-link{margin:12px 0 4px;padding:12px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);display:flex;align-items:center;gap:10px;transition:border-color .2s,box-shadow .2s}
+.exp-link:hover{border-color:var(--c-primary);box-shadow:var(--c-shadow1)}
+.exp-link::before{content:"";display:block;width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--c-primary-t),var(--c-primary-g));flex-shrink:0}
+.exp-link a{color:var(--c-primary);text-decoration:none;font-weight:600;font-size:13px;line-height:1.4}
+.exp-link a:hover{text-decoration:underline}
+.prods{margin:24px 0}
+.prods-h{font-size:15px;font-weight:700;color:var(--c-text);margin-bottom:14px;text-align:center}
+.prod{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-s);margin-bottom:10px;transition:border-color .15s}
+.prod:hover{border-color:var(--c-border-h)}
+.prod-info{flex:1;min-width:0}
+.prod-name{font-size:13px;font-weight:700;color:var(--c-text);margin-bottom:4px}
+.prod-desc{font-size:12px;color:var(--c-text2);margin-bottom:8px}
+.prod-links{display:flex;gap:6px;flex-wrap:wrap}
+.prod-a{font-size:12px;font-weight:700;padding:3px 10px;border-radius:var(--radius-full);text-decoration:none;color:#fff;transition:opacity .2s}
+.prod-a:hover{opacity:.85}
+.prod-r{background:#ff3b30}.prod-y{background:#ea580c}.prod-s{background:var(--c-primary)}
+
+/* ── Sticky Nav (Apple-style) ── */
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--c-border);height:var(--nav-h);transition:background .3s}
+[data-theme="dark"] .site-nav{background:rgba(0,0,0,.72)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .site-nav{background:rgba(0,0,0,.72)}}
+.nav-inner{max-width:980px;margin:0 auto;padding:0 20px;display:flex;align-items:center;height:100%;gap:8px}
+.nav-brand{font-weight:700;font-size:15px;color:var(--c-text);text-decoration:none;margin-right:auto;white-space:nowrap;letter-spacing:-.02em}
+.nav-links{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-link{font-size:12px;color:var(--c-text2);text-decoration:none;padding:6px 10px;border-radius:var(--radius-full);white-space:nowrap;transition:color .2s,background .2s}
+.nav-link:hover{color:var(--c-text);background:var(--c-primary-t)}
+.nav-link.active{color:var(--c-primary);font-weight:600}
+.nav-acts{display:flex;align-items:center;gap:8px;margin-left:auto}
+.nav-theme{background:none;border:none;cursor:pointer;font-size:16px;padding:4px 8px;border-radius:var(--radius-full);transition:background .2s}
+.nav-theme:hover{background:var(--c-primary-t)}
+.nav-shop{font-size:12px;font-weight:600;color:var(--c-primary);text-decoration:none;padding:5px 12px;border:1.5px solid var(--c-primary);border-radius:var(--radius-full);transition:all .2s;white-space:nowrap}
+.nav-shop:hover{background:var(--c-primary);color:#fff}
+
+/* ── Enhanced Footer ── */
+.site-footer{border-top:1px solid var(--c-border);margin-top:60px;padding:40px 0 24px;background:var(--c-surface)}
+.footer-inner{max-width:980px;margin:0 auto;padding:0 20px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr 1fr;gap:20px}}
+.footer-brand{font-size:15px;font-weight:700;color:var(--c-text);margin-bottom:8px}
+.footer-brand-sub{font-size:12px;color:var(--c-text3);line-height:1.5}
+.footer-col-title{font-size:12px;font-weight:700;color:var(--c-text);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em}
+.footer-col a{display:block;font-size:12px;color:var(--c-text2);text-decoration:none;padding:3px 0;transition:color .2s}
+.footer-col a:hover{color:var(--c-primary)}
+.footer-bottom{border-top:1px solid var(--c-border);padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-copy{font-size:12px;color:var(--c-text3)}
+.footer-legal{display:flex;gap:16px}
+.footer-legal a{font-size:12px;color:var(--c-text3);text-decoration:none}
+.footer-legal a:hover{color:var(--c-primary)}
+
+</style>
+<!-- WS_GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3PPX7WGGK9"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag("js",new Date());
+gtag("config","G-3PPX7WGGK9");
+document.addEventListener("click",function(e){
+  var a=(e.target&&e.target.closest)?e.target.closest("a"):null;
+  if(!a||!a.href)return;
+  var h=a.href;
+  if(/worldselect\.net|rakuten\.co\.jp|shopping\.yahoo\.co\.jp/.test(h)){
+    var dest=(h.indexOf("rakuten")>-1)?"rakuten":((h.indexOf("yahoo")>-1)?"yahoo":"shopify");
+    try{gtag("event","ec_click",{ec_dest:dest,link_url:h,quiz_path:location.pathname});}catch(_){}
+  }
+},true);
+</script>
+<!-- /WS_GA4 -->
+<!-- WS_FAQ -->
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "eMarkerチップ搭載ケーブルと非搭載ケーブルは何が違いますか？", "acceptedAnswer": {"@type": "Answer", "text": "eMarkerチップを内蔵したケーブルは最大5A対応で高出力充電が可能です。非搭載の標準ケーブルは最大3Aまでとなります。240W級の急速充電にはeMarker搭載ケーブルが必須です。"}}, {"@type": "Question", "name": "USB4とThunderboltは同じものですか？", "acceptedAnswer": {"@type": "Answer", "text": "規格としては別物ですが、USB4はThunderbolt 3をベースに策定されており、Thunderbolt 3・4と同じ最大40Gbpsのデータ転送に対応するケーブルが広く流通しています。"}}]}
+</script>
+<!-- /WS_FAQ -->
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../ws-redesign.css">
+<link rel="stylesheet" href="../ws-quiz-map.css">
+<style id="ws-cat-accent">/*WS_CAT_ACCENT grape*/:root{--primary:#7A4FA0;--primary-700:#553574;--primary-050:#EFE9F6;--accent:#7A4FA0;--accent-700:#553574;--accent-050:#EFE9F6;}</style>
+</head>
+<body>
+
+<header class="topbar">
+<div class="container topbar__row">
+  <a class="brand" href="/"><span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.6 6.3L21 9l-4.8 4.3L17.6 20 12 16.6 6.4 20l1.4-6.7L3 9l6.4-.7z" fill="currentColor"/></svg></span>World Select <small>充電ケーブル検定</small></a>
+  <nav class="topbar__nav">
+    <a class="navlink navlink--hideable" href="/marathon/">知識</a>
+    <a class="navlink navlink--hideable" href="/travel/">診断</a>
+    <a class="navlink navlink--hideable" href="/digital/">偏差値</a>
+    <button class="navlink" id="themeToggle" aria-label="テーマ切替">&#x2600;&#xFE0F;</button>
+    <a class="navlink" href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cable-master">Shop</a>
+  </nav>
+</div>
+</header>
+
+<div class="ws-quizpage">
+
+  <main class="quiz active" id="quizContainer">
+    <div class="quiz__bar"><div class="container">
+      <div class="quiz__barrow"><span class="qcount" id="qcountWrap"><b>Q1</b></span><span class="quiz__title-mini">充電ケーブル検定</span></div>
+      <div class="progress"><div class="progress__fill" id="progressFill"></div></div>
+    </div></div>
+    <div class="container"><div class="quiz__grid">
+      <aside class="quiz__aside">
+        <div class="quiz__bignum">QUESTION<b id="qbignum">01</b></div>
+        <div class="quiz__asidecard"><span class="badge">充電ケーブル検定</span><p>設問に答えて、充電ケーブルの規格・選び方の理解度をチェックしましょう。</p><div class="quiz__visual" aria-hidden="true"></div></div>
+      </aside>
+      <section class="question">
+        <div class="question__head">
+          <span class="eyebrow" id="questionNumber"></span>
+          <h2 class="question__h" id="questionText"></h2>
+        </div>
+        <div class="options" id="optionsContainer"></div>
+        <div class="explanation" id="explanation"></div>
+      </section>
+    </div></div>
+    <div class="quiz__cta"><div class="container">
+      <button class="btn btn--primary btn--block btn--lg" id="nextBtn" disabled="disabled">次へ</button>
+    </div></div>
+  </main>
+
+  <div class="result" id="resultContainer">
+    <section class="result__hero">
+      <div class="result__type">
+        <span class="badge">診断結果</span>
+        <h1 class="result__typename" id="resultLevel"></h1>
+        <p class="result__desc" id="resultDescription"></p>
+      </div>
+      <div class="score">
+        <div class="score__label">あなたのスコア</div>
+        <div class="score__num" id="resultScore"></div>
+        <div style="margin-top:14px"><span class="score__rank" id="levelBadge"></span></div>
+      </div>
+    </section>
+    <div class="prods">
+      <div class="prods-h">充電ケーブル検定でおすすめの商品</div>
+      <div class="prod"><div class="prod-info"><div class="prod-name">3in1 充電コード 40W 3台同時充電</div><div class="prod-desc">Type-C×2・Lightning×1。1本で複数デバイスを同時に急速充電</div><div class="prod-links"><a href="https://worldselect.net/products/worldselect-0005?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cable-master" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a><a href="https://search.rakuten.co.jp/search/mall/worldselect-0005/?sid=400067" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/worldselect-0005.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a></div></div></div>
+      <div class="prod"><div class="prod-info"><div class="prod-name">タイプCケーブル L字 PD240W急速充電</div><div class="prod-desc">L字コネクタでストレス軽減。USB PD3.1 EPR 240W対応の高出力ケーブル</div><div class="prod-links"><a href="https://worldselect.net/products/60w-6in1cable?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cable-master" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a><a href="https://search.rakuten.co.jp/search/mall/60w-6in1cable/?sid=400067" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/60w-6in1cable.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a></div></div></div>
+      <div class="prod"><div class="prod-info"><div class="prod-name">マグネット式 Type-C PD急速充電ケーブル 60W</div><div class="prod-desc">着脱ラクなマグネット式。車載やデスクでの抜き差しもスムーズ</div><div class="prod-links"><a href="https://worldselect.net/products/ws107?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cable-master" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a><a href="https://search.rakuten.co.jp/search/mall/ws107/?sid=400067" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/ws107.html" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a></div></div></div>
+    </div>
+    <div class="share-buttons">
+      <button class="share-btn" id="shareTwitter">X で共有</button>
+      <button class="share-btn" id="shareLine">LINE で共有</button>
+      <button class="share-btn" id="copyResult">結果をコピー</button>
+    </div>
+    <button class="restart-btn" id="restartBtn">もう一度チャレンジ</button>
+
+    <div class="crosslinks">
+      <div class="crosslinks-title">他のクイズも試してみよう</div>
+      <div class="crosslinks-grid">
+        <a href="/travel/" class="crosslink">旅行クイズ</a>
+        <a href="/marathon/" class="crosslink">マラソンクイズ</a>
+        <a href="/digital/" class="crosslink">デジタルクイズ</a>
+        <a href="/survival/" class="crosslink">サバイバルクイズ</a>
+        <a href="/academy/" class="crosslink">教育クイズ</a>
+        <a href="/gadget/" class="crosslink">ガジェットクイズ</a>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+        
+<!-- WS_QUIZ_STORE_SEARCH -->
+    <div style="margin:24px 0;padding:20px;background:var(--c-surface,#F3EFF5);border-radius:12px;text-align:center;">
+      <div style="font-size:15px;font-weight:700;color:var(--c-text,#343C4B);margin-bottom:12px;">🔌 World Select で探す</div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;">
+      <a href="https://search.rakuten.co.jp/search/mall/%E5%85%85%E9%9B%BB%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%203in1/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">🛒 充電ケーブル 3in1</a>
+      <a href="https://search.rakuten.co.jp/search/mall/%E5%85%85%E9%9B%BB%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB%20%E3%82%BF%E3%82%A4%E3%83%97C%20L%E5%AD%97/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">🛒 充電ケーブル タイプC L字</a>
+      <a href="https://search.rakuten.co.jp/search/mall/%E3%83%A9%E3%82%A4%E3%83%88%E3%83%8B%E3%83%B3%E3%82%B0%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">🛒 ライトニングケーブル</a>
+      <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener" style="display:inline-block;background:#ff0033;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">Yahoo! ストア</a>
+      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cable-master" target="_blank" rel="noopener" style="display:inline-block;background:#7A4FA0;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">公式ストア</a>
+      </div>
+      <div style="font-size:11px;color:var(--c-text3,#86868b);margin-top:8px;">楽天市場のWorld Select店舗内で検索します</div>
+    </div>
+<!-- /WS_QUIZ_STORE_SEARCH -->
+<footer class="site-footer">
+<div class="footer-inner">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">World Select</div>
+      <div class="footer-brand-sub">Quiz Hub</div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#127918; &#12463;&#12452;&#12474;</div>
+    <a href="/marathon/">&#127939; テク雑学マラソン (100問)</a>
+    <a href="/academy/">&#127891; ガジェット検定 (60問)</a>
+    <a href="/digital/">&#128200; デジタル偏差値 (15問)</a>
+    <a href="/travel/">&#9992; 旅行スタイル診断 (10問)</a>
+    <a href="/survival/">&#128680; 旅先サバイバル (3分岐)</a>
+    <a href="/charging/">&#128267; 充電スタイル診断 (7問)</a>
+    <a href="/cable-master/">&#129352; 充電ケーブル検定 (10問)</a>
+    <a href="/film/">&#128241; フィルム選び方クイズ (10問)</a>
+    <a href="/charge-finder/">&#128279; 最適ケーブル診断 (8問)</a>
+    <a href="/">&#127968; &#20840;&#12463;&#12452;&#12474;&#19968;&#35239;</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#128722; &#12471;&#12519;&#12483;&#12530;</div>
+      <a href="https://www.rakuten.co.jp/world11select/" target="_blank" rel="noopener">&#27005;&#22825;&#24066;&#22580;</a>
+      <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener">Yahoo!</a>
+      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cable-master" target="_blank" rel="noopener">&#20844;&#24335;&#12473;&#12488;&#12450;</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">&#8505;&#65039; &#12452;&#12531;&#12501;&#12457;</div>
+      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cable-master">FDSi</a>
+      <a href="https://worldselect.net/policies/privacy-policy" target="_blank" rel="noopener">&#12503;&#12521;&#12452;&#12496;&#12471;&#12540;</a>
+      <a href="https://worldselect.net/policies/terms-of-service" target="_blank" rel="noopener">&#21033;&#29992;&#35215;&#32004;</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2024-2026 World Select / FDSi Inc.</span>
+    <div class="footer-legal">
+      <a href="https://worldselect.net/policies/legal-notice" target="_blank" rel="noopener">&#29305;&#21830;&#27861;&#34920;&#35352;</a>
+    </div>
+  </div>
+</div>
+</footer>
+
+<script>
+var quizData = [
+  {t: '3in1ケーブルの主な利点は何ですか？', o: [{x: '複数のデバイスに対応', ok: true}, {x: '充電速度が速い', ok: false}, {x: '転送速度が高速', ok: false}, {x: '耐久性が高い', ok: false}], e: '3in1ケーブルは、Lightning、USB-C、Micro-USBなどの異なるタイプのコネクタを一つにまとめているため、さまざまなデバイスに対応できることが主な利点です。<span class="exp-link"><a href="https://worldselect.net/products/worldselect-0005?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cable-master" target="_blank" rel="noopener">▶ 3in1充電コード 40W</a></span> <a href="https://search.rakuten.co.jp/search/mall/worldselect-0005/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/worldselect-0005.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo</a>'},
+  {t: 'L字型コネクタの充電ケーブルはどのようなシチュエーションで便利ですか？', o: [{x: 'テーブル上で安定して置ける', ok: false}, {x: '長距離のデータ転送に適している', ok: false}, {x: 'より速い充電速度を提供する', ok: false}, {x: '狭い場所での使用に適している', ok: true}], e: 'L字型コネクタは、ケーブルが直角で設計されているため、ベッドサイドやデスクの隅など、スペースが限られている場所での使用に特に便利です。<span class="exp-link"><a href="https://worldselect.net/products/60w-6in1cable?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cable-master" target="_blank" rel="noopener">▶ L字コネクタ PD240W対応ケーブル</a></span> <a href="https://search.rakuten.co.jp/search/mall/60w-6in1cable/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/60w-6in1cable.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo</a>'},
+  {t: 'eMarkerチップを内蔵したUSB-Cケーブルは何Aまでの充電に対応していますか？', o: [{x: '2A', ok: false}, {x: '3A', ok: false}, {x: '5A', ok: true}, {x: '10A', ok: false}], e: 'eMarkerチップを内蔵したUSB-Cケーブルは、最大5Aの電流を安全に伝送できるようになっています。これは急速充電など、高電力が必要なシチュエーションに適しています。'},
+  {t: 'USB PD3.1 (EPR) の最大出力は何Wですか？', o: [{x: '60W', ok: false}, {x: '100W', ok: false}, {x: '240W', ok: true}, {x: '300W', ok: false}], e: 'USB PD3.1のExtended Power Range (EPR) 機能により、最大出力が240W（48V×5A）まで拡張されています。これは高電力デバイスの急速充電に適しています。<span class="exp-link"><a href="https://worldselect.net/products/60w-6in1cable?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cable-master" target="_blank" rel="noopener">▶ USB PD3.1 EPR 240W対応ケーブル</a></span> <a href="https://search.rakuten.co.jp/search/mall/60w-6in1cable/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a><a href="https://store.shopping.yahoo.co.jp/world1select/60w-6in1cable.html" target="_blank" rel="noopener" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo</a>'},
+  {t: 'USB4またはThunderbolt 3/4のデータ転送速度は何Gbpsですか？', o: [{x: '10Gbps', ok: false}, {x: '20Gbps', ok: false}, {x: '40Gbps', ok: true}, {x: '80Gbps', ok: false}], e: 'USB4やThunderbolt 3/4は、最大40Gbpsのデータ転送速度を実現しています。これは高速なデータ伝送が必要な用途に最適です。'},
+  {t: 'ケーブルの長さが充電速度にどのような影響を与えますか？', o: [{x: '長ければ長いほど充電速度が速くなる', ok: false}, {x: '短ければ短いほど充電速度が速くなる', ok: false}, {x: 'ケーブルの長さは充電速度に影響しない', ok: false}, {x: '一定以上の長さでは充電速度が低下する', ok: true}], e: '一般的に、一定以上の長さになると抵抗が増加し、充電効率が低下することがあります。しかし、適切な規格や品質のケーブルであれば、それほど影響を受けないこともあります。'},
+  {t: 'LightningとUSB-Cの主な違いは何ですか？', o: [{x: '転送速度', ok: false}, {x: '外形形状', ok: true}, {x: '最大出力', ok: false}, {x: '対応デバイス', ok: false}], e: 'LightningはApple製品専用のコネクタで、USB-Cは規格が公開されており多くのメーカーで使用されています。外形形状と互換性が主な違いです。'},
+  {t: 'eMarkerチップを持たない標準的なUSB-Cケーブルは何Aまでの充電に対応していますか？', o: [{x: '1.5A', ok: false}, {x: '2A', ok: false}, {x: '3A', ok: true}, {x: '5A', ok: false}], e: 'eMarkerチップを持たない標準的なUSB-Cケーブルは、最大3Aの充電に対応しています。これは一般的な充電ニーズを満たすことができます。'},
+  {t: '急速充電を実現するためには、以下のどの要素がすべて必要ですか？', o: [{x: '充電器とケーブルのみ', ok: false}, {x: '端末とケーブルのみ', ok: false}, {x: '充電器と端末のみ', ok: false}, {x: '充電器・ケーブル・端末の3者', ok: true}], e: '急速充電を実現するためには、充電器、ケーブル、端末のすべてが対応している必要があります。それぞれが互いに通信し、最適な充電パラメータを設定します。'},
+  {t: '充電ケーブルの被覆素材や耐久性はどのような点で重要ですか？', o: [{x: '転送速度の向上', ok: false}, {x: 'より高い出力対応', ok: false}, {x: '物理的な強度と長寿命化', ok: true}, {x: 'ワイヤレス充電の補助', ok: false}], e: '被覆素材や耐久性は、ケーブルの物理的強度を高め、断線などの故障を防ぐことで長寿命化に寄与します。これは使い心地と安全性にも影響を与えます。'}
+];
+
+var levelMap = [
+  {min: 9, max: 10, level: 'ケーブル博士', color: '#7c3aed', desc: 'ケーブルの知識を極めた域。誰もが頼る存在です。'},
+  {min: 8, max: 8, level: 'ケーブルマニア', color: '#88619A', desc: 'かなりの実力者。周りからよく相談されるはず。'},
+  {min: 6, max: 7, level: 'ケーブル中級者', color: '#34c759', desc: '基本はバッチリ。もう少し深掘りすると世界が広がります。'},
+  {min: 4, max: 5, level: 'ケーブル入門者', color: '#d97706', desc: '日常づかいはOK。仕組みを知ると選び方が変わります。'},
+  {min: 0, max: 3, level: 'ケーブルビギナー', color: '#64748b', desc: 'ここからスタート！知ると毎日がもっと快適に。'}
+];
+
+var currentQuestion = 0;
+var score = 0;
+var answered = false;
+var selectedIndex = -1;
+
+function shuffleOptions(options) {
+  var arr = options.slice();
+  var len = arr.length;
+  for (var i = len - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
+  }
+  return arr;
+}
+
+function initTheme() {
+  var saved = localStorage.getItem('ws-theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    updateThemeButton();
+  } else {
+    var isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (isDark) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    updateThemeButton();
+  }
+}
+
+function updateThemeButton() {
+  var theme = document.documentElement.getAttribute('data-theme');
+  var btn = document.getElementById('themeToggle');
+  btn.textContent = theme === 'dark' ? '☀' : '☾';
+}
+
+function toggleTheme() {
+  var current = document.documentElement.getAttribute('data-theme');
+  var next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('ws-theme', next);
+  updateThemeButton();
+}
+
+function renderQuestion() {
+  var q = quizData[currentQuestion];
+  var shuffled = shuffleOptions(q.o);
+  window.wsShuffled = shuffled;
+
+  document.getElementById('questionNumber').textContent = 'Question ' + (currentQuestion + 1);
+  var _T=(typeof quizData!=='undefined'&&quizData.length)?quizData.length:'';
+  var _qb=document.getElementById('qbignum'); if(_qb){_qb.innerHTML=('0'+(currentQuestion+1)).slice(-2)+'<span>/'+_T+'</span>';}
+  var _qw=document.getElementById('qcountWrap'); if(_qw){_qw.innerHTML='<b>Q'+(currentQuestion+1)+'</b> / '+_T;}
+  document.getElementById('questionText').textContent = q.t;
+  document.getElementById('explanation').classList.remove('show');
+  document.getElementById('explanation').textContent = '';
+
+  var optHtml = '';
+  for (var i = 0; i < shuffled.length; i++) {
+    var opt = shuffled[i];
+    optHtml += '<div class="option" data-index="' + i + '"><span class="option-icon"></span><span class="option-text">' + opt.x + '</span></div>';
+  }
+  document.getElementById('optionsContainer').innerHTML = optHtml;
+
+  var pct = ((currentQuestion + 1) / quizData.length) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+
+  answered = false;
+  selectedIndex = -1;
+  document.getElementById('nextBtn').disabled = true;
+}
+
+function selectOption(element) {
+  if (answered) return;
+
+  var all = document.querySelectorAll('.option');
+  for (var i = 0; i < all.length; i++) {
+    all[i].classList.remove('selected');
+  }
+
+  element.classList.add('selected');
+  selectedIndex = parseInt(element.getAttribute('data-index'));
+  document.getElementById('nextBtn').disabled = false;
+}
+
+function submitAnswer() {
+  if (answered || selectedIndex === -1) return;
+  answered = true;
+
+  var q = quizData[currentQuestion];
+  var opts = document.querySelectorAll('.option');
+  var shuffled = window.wsShuffled || shuffleOptions(q.o);
+
+  var selected = opts[selectedIndex];
+  var isCorrect = shuffled[selectedIndex].ok;
+
+  if (isCorrect) {
+    selected.classList.remove('selected');
+    selected.classList.add('correct');
+    selected.querySelector('.option-icon').textContent = '✓';
+    score++;
+  } else {
+    selected.classList.remove('selected');
+    selected.classList.add('wrong');
+    selected.querySelector('.option-icon').textContent = '✗';
+
+    for (var i = 0; i < shuffled.length; i++) {
+      if (shuffled[i].ok) {
+        opts[i].classList.add('correct');
+        opts[i].querySelector('.option-icon').textContent = '✓';
+        break;
+      }
+    }
+  }
+
+  for (var i = 0; i < opts.length; i++) {
+    opts[i].classList.add('answered');
+  }
+
+  document.getElementById('explanation').innerHTML = q.e;
+  document.getElementById('explanation').classList.add('show');
+
+  if (currentQuestion < quizData.length - 1) {
+    document.getElementById('nextBtn').textContent = '次へ';
+  } else {
+    document.getElementById('nextBtn').textContent = '結果を見る';
+  }
+  document.getElementById('nextBtn').disabled = false;
+}
+
+function nextQuestion() {
+  if (currentQuestion < quizData.length - 1) {
+    currentQuestion++;
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  document.getElementById('quizContainer').classList.remove('active');
+  document.getElementById('resultContainer').classList.add('active');
+
+  var level = null;
+  for (var i = 0; i < levelMap.length; i++) {
+    if (score >= levelMap[i].min && score <= levelMap[i].max) {
+      level = levelMap[i];
+      break;
+    }
+  }
+
+  document.getElementById('resultScore').textContent = score + ' / ' + quizData.length;
+  document.getElementById('levelBadge').textContent = 'スコア ' + score;
+  document.getElementById('resultLevel').textContent = level.level;
+  document.getElementById('resultLevel').style.backgroundColor = level.color;
+  document.getElementById('resultDescription').textContent = level.desc;
+}
+
+function restart() {
+  currentQuestion = 0;
+  score = 0;
+  answered = false;
+  selectedIndex = -1;
+  document.getElementById('quizContainer').classList.add('active');
+  document.getElementById('resultContainer').classList.remove('active');
+  document.getElementById('nextBtn').textContent = '次へ';
+  renderQuestion();
+}
+
+function shareTwitter() {
+  var level = null;
+  for (var i = 0; i < levelMap.length; i++) {
+    if (score >= levelMap[i].min && score <= levelMap[i].max) {
+      level = levelMap[i];
+      break;
+    }
+  }
+  var text = '充電ケーブル検定で「' + level.level + '」でした！スコア：' + score + '/' + quizData.length + ' https://quiz.fds.co.jp/cable-master/';
+  var url = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text);
+  window.open(url, '_blank');
+}
+
+function shareLine() {
+  var level = null;
+  for (var i = 0; i < levelMap.length; i++) {
+    if (score >= levelMap[i].min && score <= levelMap[i].max) {
+      level = levelMap[i];
+      break;
+    }
+  }
+  var text = '充電ケーブル検定で「' + level.level + '」でした！スコア：' + score + '/' + quizData.length;
+  var url = 'https://social-plugins.line.me/lineit/share?url=https://quiz.fds.co.jp/cable-master/&text=' + encodeURIComponent(text);
+  window.open(url, '_blank');
+}
+
+function copyResult() {
+  var level = null;
+  for (var i = 0; i < levelMap.length; i++) {
+    if (score >= levelMap[i].min && score <= levelMap[i].max) {
+      level = levelMap[i];
+      break;
+    }
+  }
+  var text = '充電ケーブル検定\n【' + level.level + '】\nスコア：' + score + '/' + quizData.length + '\n' + level.desc + '\nhttps://quiz.fds.co.jp/cable-master/';
+  var el = document.createElement('textarea');
+  el.value = text;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+  alert('結果をコピーしました！');
+}
+
+/* iOS Safari touch event delegation */
+(function() {
+  var optsCont = document.getElementById('optionsContainer');
+  var touchMoved = false;
+  optsCont.addEventListener('touchstart', function() { touchMoved = false; }, false);
+  optsCont.addEventListener('touchmove', function() { touchMoved = true; }, false);
+  optsCont.addEventListener('touchend', function(e) {
+    if (touchMoved) return;
+    var t = e.target;
+    while (t && t !== optsCont) {
+      if (t.className && t.className.indexOf('option') !== -1 && t.getAttribute('data-index') !== null) {
+        e.preventDefault();
+        selectOption(t);
+        return;
+      }
+      t = t.parentNode;
+    }
+  }, false);
+  optsCont.addEventListener('click', function(e) {
+    var t = e.target;
+    while (t && t !== optsCont) {
+      if (t.className && t.className.indexOf('option') !== -1 && t.getAttribute('data-index') !== null) {
+        selectOption(t);
+        return;
+      }
+      t = t.parentNode;
+    }
+  }, false);
+})();
+
+document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+document.getElementById('nextBtn').addEventListener('click', function() { if (answered) { nextQuestion(); } else { submitAnswer(); } });
+document.getElementById('restartBtn').addEventListener('click', restart);
+document.getElementById('shareTwitter').addEventListener('click', shareTwitter);
+document.getElementById('shareLine').addEventListener('click', shareLine);
+document.getElementById('copyResult').addEventListener('click', copyResult);
+
+initTheme();
+renderQuestion();
+</script>
+
+</body>
+</html>
