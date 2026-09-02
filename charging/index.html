@@ -1003,6 +1003,10 @@ document.addEventListener("click",function(e){
 
     initTheme();
   </script>
+<!-- 2026-09-01 修正: 直下のJSON-LDは開始タグが欠落しており、BreadcrumbList が本文中に
+     生テキストとして表示され（本番で実測）、構造化データとしても認識されていなかった。
+     開始タグを補って是正。 -->
+<script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"FDSi","item":"https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charging"},{"@type":"ListItem","position":2,"name":"Quiz Hub","item":"https://quiz.fds.co.jp/"},{"@type":"ListItem","position":3,"name":"充電スタイル診断","item":"https://quiz.fds.co.jp/charging/"}]}
 </script>
 
@@ -1458,7 +1462,7 @@ var TYPES = {
     products:["3in1 充電スタンド（iPhone + Watch + AirPods）","Lightning to USB-C ケーブル","USB-C ハブ（複数ポート対応）"]},
   b:{title:"外出モバイル充電派",sub:"Always Ready. いつでもフル充電。",icon:"&#127758;",
     desc:"移動が多いあなたにとってバッテリー切れは死活問題。モバイルバッテリーはお守りのような存在。",
-    advice:"軽量かつ大容量のモバイルバッテリーと短めケーブルの組み合わせが最強。<div class=\"exp-link\"><a href=\"https://worldselect.net/\/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charging" target=\"_blank\" rel=\"noopener\">▶ モバイルバッテリーをチェック</a></div>",
+    advice:"軽量かつ大容量のモバイルバッテリーと短めケーブルの組み合わせが最強。<div class=\"exp-link\"><a href=\"https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charging\" target=\"_blank\" rel=\"noopener\">▶ モバイルバッテリーをチェック</a></div>",
     products:["モバイルバッテリー 20000mAh（軽量コンパクト）","USB-C ケーブル 1m（ポーチ用）","カラビナ付きケーブル巻き取り機"]}
 };
 

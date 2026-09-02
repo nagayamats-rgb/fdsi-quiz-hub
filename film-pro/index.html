@@ -17,6 +17,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../ws-redesign.css">
   <style>
+  /* WS_QUIZ_CSS_TOKENS — 2026-09-01 追加
+     本ページのインラインstyleが参照する --c-* は ws-redesign.css / ws-quiz-map.css の
+     どちらにも定義されておらず、選択肢の背景・枠線・正誤色が無効化されていた。
+     既存デザイントークンへマッピングして是正する（他ページには影響しない）。 */
+  :root {
+    --c-bg:        var(--bg, #F3EFF5);              /* 既存トークン --bg */
+    --c-text:      var(--ink, #343C4B);             /* 既存トークン --ink / bg比 9.76:1 */
+    --c-text2:     var(--ink-2, #6B7280);           /* 既存トークン --ink-2 / white比 4.83:1 */
+    --c-text3:     var(--ink-2, #6B7280);           /* --ink-3(#9AA0AC)はwhite比2.63:1でAA未達のため --ink-2 を流用 */
+    --c-surface:   var(--surface, #FFFFFF);         /* 既存トークン --surface */
+    --c-surface2:  var(--tint-2, #E7DFEA);          /* 既存トークン --tint-2 / ink比 8.52:1 */
+    --c-border:    var(--line, #E4DEE9);            /* 既存トークン --line */
+    --c-border-h:  var(--line-2, #D3CADB);          /* 既存トークン --line-2 */
+    --c-ok:        #147a38;                         /* AA是正値。--success(#33A474)は ok-bg 上で2.77:1のため不採用 / 是正後 4.79:1 */
+    --c-ok-bg:     var(--success-050, #E6F4EE);     /* 既存トークン --success-050 */
+    --c-err:       #b3261e;                         /* AA是正値。--danger(#C8453B)は err-bg 上で4.18:1のため不採用 / 是正後 5.69:1 */
+    --c-err-bg:    #FBECEA;                         /* ws-redesign.css に danger-050 相当が無く、正本(ws-quiz-map.css)の実値を採用 */
+  }
+  /* /WS_QUIZ_CSS_TOKENS */
     body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--c-bg);color:var(--c-text);max-width:680px;margin:0 auto;padding:20px}
     .progress-bar{width:100%;height:6px;background:var(--c-surface2);border-radius:3px;margin-bottom:30px;overflow:hidden}
     .progress-fill{height:100%;background:var(--c-mauve);transition:width .3s ease}
@@ -73,28 +92,40 @@
   </div>
 </div>
 
+<!-- WS_QUIZ_STORE_SEARCH -->
+  <div style="margin:24px 0;padding:20px;background:var(--c-surface,#F3EFF5);border-radius:12px;text-align:center;">
+    <div style="font-size:15px;font-weight:700;color:var(--c-text,#343C4B);margin-bottom:12px;">🛍 World Select で探す</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;">
+      <a href="https://search.rakuten.co.jp/search/mall/%E3%82%AC%E3%83%A9%E3%82%B9%E3%83%95%E3%82%A3%E3%83%AB%E3%83%A0/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">🛒 ガラスフィルム</a>
+      <a href="https://search.rakuten.co.jp/search/mall/iPad%20%E3%83%95%E3%82%A3%E3%83%AB%E3%83%A0/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">🛒 iPad フィルム</a>
+      <a href="https://search.rakuten.co.jp/search/mall/MacBook%20%E3%83%95%E3%82%A3%E3%83%AB%E3%83%A0/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">🛒 MacBook フィルム</a>
+      <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener" style="display:inline-block;background:#ff0033;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">Yahoo! ストア</a>
+      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=film-pro" target="_blank" rel="noopener" style="display:inline-block;background:#7A4FA0;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">公式ストア</a>
+    </div>
+    <div style="font-size:11px;color:var(--c-text3,#86868b);margin-top:8px;">楽天市場のWorld Select店舗内で検索します</div>
+  </div><!-- /WS_QUIZ_STORE_SEARCH -->
+
 <footer>
   <span>© FDSi / <a href="https://worldselect.net/" style="color:var(--c-text3)">worldselect.net</a></span>
   <span style="margin-left:16px"><a href="/" style="color:var(--c-text3)">Quiz Hub</a></span>
 </footer>
 
 <script>
-var quizData = [
-  {t: "一般的なガラスフィルムとPETフィルム、衝撃吸収性に優れるのはどちらでしょう？", o: [{x: "ガラスフィルム", ok: true}, {x: "PETフィルム", ok: false}, {x: "TPUフィルム", ok: false}, {x: "素材による違いはない", ok: false}], e: "ガラスフィルムは硬度が高く、表面の傷だけでなく、落下時の衝撃から液晶画面本体を守る役割も大きいです。"},
+var quizData = [{t: "一般的なガラスフィルムとPETフィルム、衝撃吸収性に優れるのはどちらでしょう？", o: [{x: "ガラスフィルム", ok: true}, {x: "PETフィルム", ok: false}, {x: "TPUフィルム", ok: false}, {x: "素材による違いはない", ok: false}], e: "ガラスフィルムは硬度が高く、表面の傷だけでなく、落下時の衝撃から液晶画面本体を守る役割も大きいです。"},
   {t: "スマホ保護フィルムの「硬度9H」とは、何の硬度を表しているでしょう？", o: [{x: "鉛筆の芯の硬度", ok: true}, {x: "モース硬度", ok: false}, {x: "ロックウェル硬度", ok: false}, {x: "ビッカース硬度", ok: false}], e: "9Hは鉛筆硬度で、傷つきにくさの指標です。数字が大きいほど硬く、鍵などの硬いものでも傷がつきにくいことを示します。"},
-  {t: "太陽光や照明の映り込みを抑え、指紋が目立ちにくい保護フィルムのタイプは何でしょう？", o: [{x: "アンチグレア（マット）フィルム", ok: true}, {x: "光沢（クリア）フィルム", ok: false}, {x: "ブルーライトカットフィルム", ok: false}, {x: "プライバシー保護フィルム", ok: false}], e: "アンチグレアは表面がマット加工されており、光の反射を抑え、指紋も目立ちにくいのが特徴です。"},
+  {t: "太陽光や照明の映り込みを抑え、指紋が目立ちにくい保護フィルムのタイプは何でしょう？", o: [{x: "アンチグレア（マット）フィルム", ok: true}, {x: "光沢（クリア）フィルム", ok: false}, {x: "ブルーライトカットフィルム", ok: false}, {x: "プライバシー保護フィルム", ok: false}], e: "アンチグレアは表面がマット加工されており、光の反射を抑え、指紋も目立ちにくいのが特徴です。 <a href='https://worldselect.net/products/iphone12-antiglare?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=film-pro' target='_blank' rel='noopener' style='color:#88619A;font-weight:600;'>▶ アンチグレアフィルムを見る</a> <a href='https://item.rakuten.co.jp/world11select/iphone12-antiglare/' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:4px'>楽天</a> <a href='https://store.shopping.yahoo.co.jp/world1select/ws-iphone12glassfilm-antiglare-1.html' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:2px'>Yahoo</a>"},
   {t: "指紋や皮脂汚れが付きにくく、拭き取りやすい加工を保護フィルムでは何と呼ぶでしょう？", o: [{x: "撥油（はつゆ）コーティング", ok: true}, {x: "反射防止コーティング", ok: false}, {x: "耐水コーティング", ok: false}, {x: "抗菌コーティング", ok: false}], e: "撥油コーティングは指紋や皮脂汚れが付きにくく、付着してもサッと拭き取れるため、清潔な画面を保てます。"},
   {t: "保護フィルムを貼る際に、ホコリの混入を最も防ぎやすい環境はどこでしょう？", o: [{x: "お風呂の湯気が充満した浴室", ok: true}, {x: "エアコンをつけたリビング", ok: false}, {x: "窓を開けた風通しの良い部屋", ok: false}, {x: "カーペット敷きの寝室", ok: false}], e: "浴室は湯気でホコリが床に落ちやすいため、フィルム貼りに最適な環境です。貼る前に画面をしっかり拭きましょう。"},
   {t: "スマホケースとの干渉を避け、ケースを装着してもフィルムが浮きにくいタイプは何でしょう？", o: [{x: "ケースフレンドリー設計", ok: true}, {x: "全面保護（フルカバー）設計", ok: false}, {x: "3D曲面対応設計", ok: false}, {x: "フチなし設計", ok: false}], e: "ケースフレンドリーはフィルムのフチが小さめに設計されており、多くのケースと併用しやすいのが利点です。"},
   {t: "目に有害とされるブルーライトを軽減する保護フィルムの主な特徴は何でしょう？", o: [{x: "画面がやや黄色みがかる", ok: true}, {x: "画面がやや青みがかる", ok: false}, {x: "画面の明るさが大幅にアップする", ok: false}, {x: "画面のタッチ感度が向上する", ok: false}], e: "ブルーライトカットフィルムは、青色光をカットするため、画面がやや黄色みがかって見えます。目の疲れ軽減に役立ちます。"},
   {t: "電車内などで隣の人からの画面の覗き見を防ぐ効果があるのは、どのタイプのフィルムでしょう？", o: [{x: "覗き見防止フィルム", ok: true}, {x: "高透過率クリアフィルム", ok: false}, {x: "衝撃吸収フィルム", ok: false}, {x: "アンチグレアフィルム", ok: false}], e: "覗き見防止フィルムは、特定の角度からのみ画面が見えるように設計されており、プライバシー保護に最適です。"},
-  {t: "ガラスフィルムの厚みが薄いほど、一般的にどのようなメリットがあるでしょう？", o: [{x: "タッチ感度が向上し、操作性が良い", ok: true}, {x: "衝撃吸収性が格段に高まる", ok: false}, {x: "耐久性が大幅に向上する", ok: false}, {x: "貼り付けが非常に簡単になる", ok: false}], e: "薄いフィルムはスマホ本体との一体感が高まり、タッチ感度も損なわれにくく、スムーズな操作が可能です。"},
+  {t: "ガラスフィルムの厚みが薄いほど、一般的にどのようなメリットがあるでしょう？", o: [{x: "タッチ感度が向上し、操作性が良い", ok: true}, {x: "衝撃吸収性が格段に高まる", ok: false}, {x: "耐久性が大幅に向上する", ok: false}, {x: "貼り付けが非常に簡単になる", ok: false}], e: "薄いフィルムはスマホ本体との一体感が高まり、タッチ感度も損なわれにくく、スムーズな操作が可能です。 <a href='https://worldselect.net/products/ipad-antiglare?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=film-pro' target='_blank' rel='noopener' style='color:#88619A;font-weight:600;'>▶ iPad用フィルムを見る</a> <a href='https://item.rakuten.co.jp/world11select/ipad-antiglare/' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:4px'>楽天</a> <a href='https://store.shopping.yahoo.co.jp/world1select/ipad-antiglare.html' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:2px'>Yahoo</a>"},
   {t: "保護フィルムを交換するべきタイミングとして、最も適切なのはどれでしょう？", o: [{x: "フィルムに深い傷やヒビが入ったとき", ok: true}, {x: "スマホ本体を買い替えたとき", ok: false}, {x: "気分転換に色を変えたいとき", ok: false}, {x: "特に問題がなくても半年ごとに", ok: false}], e: "傷やヒビは保護性能が低下している証拠です。画面本体へのダメージを防ぐためにも早めに交換しましょう。"},
-  {t: "保護フィルムの画面をきれいに保つための、最も推奨される清掃方法はどれでしょう？", o: [{x: "メガネ拭きやマイクロファイバークロスで優しく拭く", ok: true}, {x: "アルコール除菌シートでゴシゴシ拭く", ok: false}, {x: "ティッシュペーパーで強く擦る", ok: false}, {x: "水で洗い流してから自然乾燥させる", ok: false}], e: "柔らかい布で優しく拭くことで、傷をつけずに指紋や汚れを取り除けます。アルコールはコーティングを傷める可能性があります。"},
+  {t: "保護フィルムの画面をきれいに保つための、最も推奨される清掃方法はどれでしょう？", o: [{x: "メガネ拭きやマイクロファイバークロスで優しく拭く", ok: true}, {x: "アルコール除菌シートでゴシゴシ拭く", ok: false}, {x: "ティッシュペーパーで強く擦る", ok: false}, {x: "水で洗い流してから自然乾燥させる", ok: false}], e: "柔らかい布で優しく拭くことで、傷をつけずに指紋や汚れを取り除けます。アルコールはコーティングを傷める可能性があります。 <a href='https://worldselect.net/products/macbook-film?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=film-pro' target='_blank' rel='noopener' style='color:#88619A;font-weight:600;'>▶ MacBook用フィルムを見る</a> <a href='https://item.rakuten.co.jp/world11select/macbook-film/' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:4px'>楽天</a> <a href='https://store.shopping.yahoo.co.jp/world1select/macbook-film.html' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:2px'>Yahoo</a>"},
   {t: "iPhoneのディスプレイがわずかに湾曲している部分まで保護できるフィルムのタイプは何でしょう？", o: [{x: "3D曲面対応フィルム", ok: true}, {x: "平面保護フィルム", ok: false}, {x: "フチなしフィルム", ok: false}, {x: "衝撃吸収フィルム", ok: false}], e: "3D曲面対応フィルムは、ディスプレイの端までカバーし、一体感のある保護を実現します。"},
-  {t: "硬度9Hのガラスフィルムが主に防ぐのは、次のうちどれでしょう？", o: [{x: "表面の引っかき傷", ok: true}, {x: "高所からの落下による画面割れ", ok: false}, {x: "水没による内部損傷", ok: false}, {x: "強い衝撃によるディスプレイの欠け", ok: false}], e: "硬度9Hは傷への強さを示し、鍵やコインによる引っかき傷から画面を守ります。落下時の衝撃吸収とは別物です。"},
+  {t: "硬度9Hのガラスフィルムが主に防ぐのは、次のうちどれでしょう？", o: [{x: "表面の引っかき傷", ok: true}, {x: "高所からの落下による画面割れ", ok: false}, {x: "水没による内部損傷", ok: false}, {x: "強い衝撃によるディスプレイの欠け", ok: false}], e: "硬度9Hは傷への強さを示し、鍵やコインによる引っかき傷から画面を守ります。落下時の衝撃吸収とは別物です。 <a href='https://worldselect.net/products/worldselect-0015?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=film-pro' target='_blank' rel='noopener' style='color:#88619A;font-weight:600;'>▶ ガラスフィルムを見る</a> <a href='https://item.rakuten.co.jp/world11select/worldselect-0015/' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:4px'>楽天</a> <a href='https://store.shopping.yahoo.co.jp/world1select/worldselect-0015.html' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:2px'>Yahoo</a>"},
   {t: "保護フィルムを選ぶ際、安価な製品と高価な製品で最も差が出やすいのはどの点でしょう？", o: [{x: "耐久性や加工品質（撥油性、気泡の入りにくさなど）", ok: true}, {x: "貼り付けの難易度", ok: false}, {x: "画面の明るさ", ok: false}, {x: "スマホ本体の充電速度", ok: false}], e: "高価なフィルムは高品質な素材や精密な加工により、耐久性、指滑り、気泡の入りにくさで優れる傾向があります。"},
-  {t: "保護フィルムを貼った際に小さな気泡が入ってしまった場合、時間が経つと自然に消える可能性があるのはどのタイプのフィルムでしょう？", o: [{x: "TPUなどの自己吸着性のある柔らかいフィルム", ok: true}, {x: "一般的な硬質ガラスフィルム", ok: false}, {x: "光沢タイプのPETフィルム", ok: false}, {x: "ブルーライトカット機能付きのガラスフィルム", ok: false}], e: "TPU素材などの自己吸着性フィルムは、小さな気泡であれば数日中に自然に消えることがあります。ガラスは難しいです。 <a href="https://worldselect.net/products/iphone12-antiglare?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=film-pro" target="_blank" rel="noopener" style="color:#88619A;font-weight:600;">▶ iPhone アンチグレアフィルムを見る</a> <a href="https://item.rakuten.co.jp/world11select/iphone12-antiglare/" target="_blank" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a> <a href="https://store.shopping.yahoo.co.jp/world1select/ws-iphone12glassfilm-antiglare-1.html" target="_blank" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo</a>"}
+  {t: "保護フィルムを貼った際に小さな気泡が入ってしまった場合、時間が経つと自然に消える可能性があるのはどのタイプのフィルムでしょう？", o: [{x: "TPUなどの自己吸着性のある柔らかいフィルム", ok: true}, {x: "一般的な硬質ガラスフィルム", ok: false}, {x: "光沢タイプのPETフィルム", ok: false}, {x: "ブルーライトカット機能付きのガラスフィルム", ok: false}], e: "TPU素材などの自己吸着性フィルムは、小さな気泡であれば数日中に自然に消えることがあります。ガラスは難しいです。 <a href='https://worldselect.net/products/iphone12-antiglare?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=film-pro' target='_blank' rel='noopener' style='color:#88619A;font-weight:600;'>▶ iPhone アンチグレアフィルムを見る</a> <a href='https://item.rakuten.co.jp/world11select/iphone12-antiglare/' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:4px'>楽天</a> <a href='https://store.shopping.yahoo.co.jp/world1select/ws-iphone12glassfilm-antiglare-1.html' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:2px'>Yahoo</a>"}
 ];
 
 var LEVELS = [

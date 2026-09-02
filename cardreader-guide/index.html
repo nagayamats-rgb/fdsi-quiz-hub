@@ -17,6 +17,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../ws-redesign.css">
   <style>
+  /* WS_QUIZ_CSS_TOKENS — 2026-09-01 追加
+     本ページのインラインstyleが参照する --c-* は ws-redesign.css / ws-quiz-map.css の
+     どちらにも定義されておらず、選択肢の背景・枠線・正誤色が無効化されていた。
+     既存デザイントークンへマッピングして是正する（他ページには影響しない）。 */
+  :root {
+    --c-bg:        var(--bg, #F3EFF5);              /* 既存トークン --bg */
+    --c-text:      var(--ink, #343C4B);             /* 既存トークン --ink / bg比 9.76:1 */
+    --c-text2:     var(--ink-2, #6B7280);           /* 既存トークン --ink-2 / white比 4.83:1 */
+    --c-text3:     var(--ink-2, #6B7280);           /* --ink-3(#9AA0AC)はwhite比2.63:1でAA未達のため --ink-2 を流用 */
+    --c-surface:   var(--surface, #FFFFFF);         /* 既存トークン --surface */
+    --c-surface2:  var(--tint-2, #E7DFEA);          /* 既存トークン --tint-2 / ink比 8.52:1 */
+    --c-border:    var(--line, #E4DEE9);            /* 既存トークン --line */
+    --c-border-h:  var(--line-2, #D3CADB);          /* 既存トークン --line-2 */
+    --c-ok:        #147a38;                         /* AA是正値。--success(#33A474)は ok-bg 上で2.77:1のため不採用 / 是正後 4.79:1 */
+    --c-ok-bg:     var(--success-050, #E6F4EE);     /* 既存トークン --success-050 */
+    --c-err:       #b3261e;                         /* AA是正値。--danger(#C8453B)は err-bg 上で4.18:1のため不採用 / 是正後 5.69:1 */
+    --c-err-bg:    #FBECEA;                         /* ws-redesign.css に danger-050 相当が無く、正本(ws-quiz-map.css)の実値を採用 */
+  }
+  /* /WS_QUIZ_CSS_TOKENS */
     body{font-family:'Noto Sans JP',-apple-system,sans-serif;background:var(--c-bg);color:var(--c-text);max-width:680px;margin:0 auto;padding:20px}
     .progress-bar{width:100%;height:6px;background:var(--c-surface2);border-radius:3px;margin-bottom:30px;overflow:hidden}
     .progress-fill{height:100%;background:var(--c-iris);transition:width .3s ease}
@@ -73,28 +92,40 @@
   </div>
 </div>
 
+<!-- WS_QUIZ_STORE_SEARCH -->
+  <div style="margin:24px 0;padding:20px;background:var(--c-surface,#F3EFF5);border-radius:12px;text-align:center;">
+    <div style="font-size:15px;font-weight:700;color:var(--c-text,#343C4B);margin-bottom:12px;">🛍 World Select で探す</div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px;">
+      <a href="https://search.rakuten.co.jp/search/mall/%E3%82%AB%E3%83%BC%E3%83%89%E3%83%AA%E3%83%BC%E3%83%80%E3%83%BC/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">🛒 カードリーダー</a>
+      <a href="https://search.rakuten.co.jp/search/mall/SD%E3%82%AB%E3%83%BC%E3%83%89%E3%83%AA%E3%83%BC%E3%83%80%E3%83%BC%20Type-C/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">🛒 SDカードリーダー Type-C</a>
+      <a href="https://search.rakuten.co.jp/search/mall/USB4%20%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB/?sid=400067" target="_blank" rel="noopener" style="display:inline-block;background:#bf0000;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">🛒 USB4 ケーブル</a>
+      <a href="https://store.shopping.yahoo.co.jp/world1select/" target="_blank" rel="noopener" style="display:inline-block;background:#ff0033;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">Yahoo! ストア</a>
+      <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cardreader-guide" target="_blank" rel="noopener" style="display:inline-block;background:#7A4FA0;color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600;margin:4px;">公式ストア</a>
+    </div>
+    <div style="font-size:11px;color:var(--c-text3,#86868b);margin-top:8px;">楽天市場のWorld Select店舗内で検索します</div>
+  </div><!-- /WS_QUIZ_STORE_SEARCH -->
+
 <footer>
   <span>© FDSi / <a href="https://worldselect.net/" style="color:var(--c-text3)">worldselect.net</a></span>
   <span style="margin-left:16px"><a href="/" style="color:var(--c-text3)">Quiz Hub</a></span>
 </footer>
 
 <script>
-var quizData = [
-  {t: "最新のiPhoneで写真や動画を高速転送する際、最も適したカードリーダーの接続方式は何でしょう？", o: [{x: "USB-C接続", ok: true}, {x: "Lightning接続", ok: false}, {x: "USB-A接続", ok: false}, {x: "Bluetooth接続", ok: false}], e: "iPhone 15以降はUSB-Cポートを搭載。高速転送にはUSB-C接続のカードリーダーを選びましょう。"},
+var quizData = [{t: "最新のiPhoneで写真や動画を高速転送する際、最も適したカードリーダーの接続方式は何でしょう？", o: [{x: "USB-C接続", ok: true}, {x: "Lightning接続", ok: false}, {x: "USB-A接続", ok: false}, {x: "Bluetooth接続", ok: false}], e: "iPhone 15以降はUSB-Cポートを搭載。高速転送にはUSB-C接続のカードリーダーを選びましょう。 <a href='https://worldselect.net/products/ws-ic-cardreader?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cardreader-guide' target='_blank' rel='noopener' style='color:#88619A;font-weight:600;'>▶ Type-C カードリーダーを見る</a> <a href='https://item.rakuten.co.jp/world11select/ws-ic-cardreader/' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:4px'>楽天</a> <a href='https://store.shopping.yahoo.co.jp/world1select/ws-ic-cardreader.html' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:2px'>Yahoo</a>"},
   {t: "4K動画撮影に最適なSDカードの速度規格はどれでしょう？", o: [{x: "UHSスピードクラス3 (U3) またはビデオスピードクラスV30以上", ok: true}, {x: "SDスピードクラス10", ok: false}, {x: "UHSスピードクラス1 (U1)", ok: false}, {x: "ビデオスピードクラスV6", ok: false}], e: "4K動画は大量のデータを連続して書き込むため、U3やV30以上の高速なSDカードが必須です。"},
   {t: "CFexpressカードの「Type A」と「Type B」の主な違いは何でしょう？", o: [{x: "カードの物理サイズと最大転送速度", ok: true}, {x: "互換性のあるカメラメーカーの種類", ok: false}, {x: "耐久性のレベル", ok: false}, {x: "防水性能の有無", ok: false}], e: "Type Bは大きく高速で、プロ機材で主流。Type Aは小型で速度は劣りますが、一部のミラーレスで採用。"},
   {t: "メモリカードのデータ転送速度を示す主な単位は何でしょう？", o: [{x: "MB/s (メガバイト/秒)", ok: true}, {x: "Mbps (メガビット/秒)", ok: false}, {x: "GHz (ギガヘルツ)", ok: false}, {x: "RPM (回転数/分)", ok: false}], e: "MB/sは1秒間に転送できるデータ量を示し、カードの性能比較に最も使われる単位です。"},
-  {t: "iPhoneやiPadで外部カードリーダーを使う際、特別なドライバーのインストールは必要ですか？", o: [{x: "ほとんどのカードリーダーはプラグ&プレイで利用可能", ok: true}, {x: "専用のアプリを必ずインストールする必要がある", ok: false}, {x: "iTunes経由での同期が必須", ok: false}, {x: "iPhoneのJailbreak（脱獄）が必要", ok: false}], e: "最新のiOS/iPadOSは多くの外部ストレージに対応。接続するだけで「ファイル」アプリからアクセスできます。"},
+  {t: "iPhoneやiPadで外部カードリーダーを使う際、特別なドライバーのインストールは必要ですか？", o: [{x: "ほとんどのカードリーダーはプラグ&プレイで利用可能", ok: true}, {x: "専用のアプリを必ずインストールする必要がある", ok: false}, {x: "iTunes経由での同期が必須", ok: false}, {x: "iPhoneのJailbreak（脱獄）が必要", ok: false}], e: "最新のiOS/iPadOSは多くの外部ストレージに対応。接続するだけで「ファイル」アプリからアクセスできます。 <a href='https://worldselect.net/products/ws-ic-cardreader?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cardreader-guide' target='_blank' rel='noopener' style='color:#88619A;font-weight:600;'>▶ iPad/iPhone対応カードリーダーを見る</a> <a href='https://item.rakuten.co.jp/world11select/ws-ic-cardreader/' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:4px'>楽天</a> <a href='https://store.shopping.yahoo.co.jp/world1select/ws-ic-cardreader.html' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:2px'>Yahoo</a>"},
   {t: "SDカードに記載されている「UHS」マークは何を示しているでしょう？", o: [{x: "高速データ転送規格", ok: true}, {x: "耐衝撃性能の高さ", ok: false}, {x: "防水性能の有無", ok: false}, {x: "カードの総容量", ok: false}], e: "UHS（Ultra High Speed）は、SDカードの高速化規格。UHS-I、UHS-IIなどの種類があります。"},
   {t: "カメラとiPhoneを直接接続する代わりに、外部カードリーダーを使う主なメリットは何でしょう？", o: [{x: "転送速度が速く、安定している場合が多い", ok: true}, {x: "カメラのバッテリー消費を抑えられる", ok: false}, {x: "カメラの故障リスクを減らせる", ok: false}, {x: "読み込みエラーが全く発生しない", ok: false}], e: "特に大容量のファイル転送では、専用カードリーダーの方が効率的でストレスが少ないです。"},
-  {t: "将来性を見据えてカードリーダーを選ぶ際、特に注目すべきポイントは何でしょう？", o: [{x: "高速なUSB規格（例: USB 3.2 Gen 2やThunderbolt）への対応", ok: true}, {x: "複数のSDカードスロットがあること", ok: false}, {x: "コンパクトなデザインであること", ok: false}, {x: "LEDインジケーターが付いていること", ok: false}], e: "より高速なUSB規格に対応していれば、将来的に高解像度データが増えても対応できます。"},
+  {t: "将来性を見据えてカードリーダーを選ぶ際、特に注目すべきポイントは何でしょう？", o: [{x: "高速なUSB規格（例: USB 3.2 Gen 2やThunderbolt）への対応", ok: true}, {x: "複数のSDカードスロットがあること", ok: false}, {x: "コンパクトなデザインであること", ok: false}, {x: "LEDインジケーターが付いていること", ok: false}], e: "より高速なUSB規格に対応していれば、将来的に高解像度データが増えても対応できます。 <a href='https://worldselect.net/products/ws49?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cardreader-guide' target='_blank' rel='noopener' style='color:#88619A;font-weight:600;'>▶ USB4 ケーブルを見る</a> <a href='https://item.rakuten.co.jp/world11select/ws49/' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:4px'>楽天</a> <a href='https://store.shopping.yahoo.co.jp/world1select/search.html?p=USB4%20%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:2px'>Yahoo</a>"},
   {t: "連続的な高解像度動画撮影において、メモリカードのどの性能が最も重要でしょう？", o: [{x: "安定した書き込み速度", ok: true}, {x: "カードの総容量", ok: false}, {x: "耐水・耐衝撃性", ok: false}, {x: "ブランド名", ok: false}], e: "動画撮影では、途切れない記録のために安定した書き込み速度（最低保証速度）が最も重要です。"},
   {t: "非常に安価なノーブランドのカードリーダーを使用する際の一般的なリスクは何でしょう？", o: [{x: "データ転送の不安定さや破損のリスク", ok: true}, {x: "iPhoneの充電速度が遅くなる", ok: false}, {x: "カードリーダー自体が発火する", ok: false}, {x: "iPhoneの保証が無効になる", ok: false}], e: "品質の悪い製品はデータが正しく転送されず、大切な写真や動画を失う可能性もあります。"},
   {t: "SDカード側面にある小さな「Lock」スイッチの主な機能は何でしょう？", o: [{x: "誤消去防止の書き込み保護", ok: true}, {x: "データ転送速度の切り替え", ok: false}, {x: "カードの認識/非認識の切り替え", ok: false}, {x: "バッテリーセービングモード", ok: false}], e: "「Lock」にするとカードへの書き込みや消去ができなくなり、データの誤操作を防げます。"},
-  {t: "CFexpress Type BカードリーダーがUSB-C接続を重視する主な理由は何でしょう？", o: [{x: "CFexpress Type Bの高速性能を最大限に引き出すため", ok: true}, {x: "iPhoneの充電を兼ねるため", ok: false}, {x: "小型化に貢献するため", ok: false}, {x: "汎用性が高いから", ok: false}], e: "CFexpress Type Bは非常に高速なため、USB-C (特にUSB 3.2 Gen 2以上) でその性能を発揮します。"},
+  {t: "CFexpress Type BカードリーダーがUSB-C接続を重視する主な理由は何でしょう？", o: [{x: "CFexpress Type Bの高速性能を最大限に引き出すため", ok: true}, {x: "iPhoneの充電を兼ねるため", ok: false}, {x: "小型化に貢献するため", ok: false}, {x: "汎用性が高いから", ok: false}], e: "CFexpress Type Bは非常に高速なため、USB-C (特にUSB 3.2 Gen 2以上) でその性能を発揮します。 <a href='https://worldselect.net/products/ws49?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cardreader-guide' target='_blank' rel='noopener' style='color:#88619A;font-weight:600;'>▶ USB-C to USB-C ケーブルを見る</a> <a href='https://item.rakuten.co.jp/world11select/ws49/' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:4px'>楽天</a> <a href='https://store.shopping.yahoo.co.jp/world1select/search.html?p=USB4%20%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:2px'>Yahoo</a>"},
   {t: "写真や動画を撮影するためのメモリカード選びで、特に重視すべき速度は何でしょう？", o: [{x: "書き込み速度 (Write Speed)", ok: true}, {x: "読み込み速度 (Read Speed)", ok: false}, {x: "ランダムアクセス速度", ok: false}, {x: "シーケンシャルアクセス速度", ok: false}], e: "撮影時はデータをカードに「書き込む」ため、書き込み速度が遅いと撮影が中断されることもあります。"},
   {t: "新しいメモリカードや、別の機器で使っていたカードを再利用する際のベストなフォーマット方法は？", o: [{x: "使用する機器（例: カメラやiPhone経由）でフォーマットする", ok: true}, {x: "パソコンで一度フォーマットする", ok: false}, {x: "フォーマットせずにそのまま使う", ok: false}, {x: "専用アプリで低レベルフォーマットする", ok: false}], e: "使用する機器でフォーマットすることで、その機器に最適なファイルシステムが構築されます。"},
-  {t: "プロフェッショナルな映像制作において、CFexpressカードがSDカードよりも優れている主な点は何でしょう？", o: [{x: "圧倒的な転送速度と耐久性", ok: true}, {x: "互換性の高さ", ok: false}, {x: "価格の安さ", ok: false}, {x: "消費電力の低さ", ok: false}], e: "高ビットレートのRAW動画撮影など、膨大なデータを扱うプロ用途ではCFexpressの速度が不可欠です。 <a href="https://worldselect.net/products/ws-ic-cardreader?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cardreader-guide" target="_blank" rel="noopener" style="color:#88619A;font-weight:600;">▶ CFexpress Type-B カードリーダーを見る</a> <a href="https://item.rakuten.co.jp/world11select/ws-ic-cardreader/" target="_blank" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle">楽天</a> <a href="https://store.shopping.yahoo.co.jp/world1select/ws-ic-cardreader.html" target="_blank" style="display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle">Yahoo</a>"}
+  {t: "プロフェッショナルな映像制作において、CFexpressカードがSDカードよりも優れている主な点は何でしょう？", o: [{x: "圧倒的な転送速度と耐久性", ok: true}, {x: "互換性の高さ", ok: false}, {x: "価格の安さ", ok: false}, {x: "消費電力の低さ", ok: false}], e: "高ビットレートのRAW動画撮影など、膨大なデータを扱うプロ用途ではCFexpressの速度が不可欠です。 <a href='https://worldselect.net/products/ws-ic-cardreader?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=cardreader-guide' target='_blank' rel='noopener' style='color:#88619A;font-weight:600;'>▶ カードリーダーを見る</a> <a href='https://item.rakuten.co.jp/world11select/ws-ic-cardreader/' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:4px'>楽天</a> <a href='https://store.shopping.yahoo.co.jp/world1select/ws-ic-cardreader.html' target='_blank' rel='noopener' style='display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:middle;margin-left:2px'>Yahoo</a>"}
 ];
 
 var LEVELS = [
