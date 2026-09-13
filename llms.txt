@@ -1,21 +1,31 @@
 # World Select Quiz Hub
 
-> iPhone / iPad / Android アクセサリ（充電ケーブル・充電器・保護フィルム・ケース・カードリーダー等）の「選び方・見分け方」が学べる無料のクイズ＆診断サイト。運営は iPhone/Apple Watch アクセサリ専門のセレクトショップ「World Select」（有限会社FDSi）。全12種・約315問。各クイズの結果から楽天・Yahoo!・公式ストア（worldselect.net）の該当商品へ案内します。
+> iPhone / iPad / Android アクセサリ（充電ケーブル・充電器・保護フィルム・ケース・カードリーダー等）の「選び方・見分け方」が学べる無料のクイズ＆診断サイト。運営は iPhone/Apple Watch アクセサリ専門のセレクトショップ「World Select」（有限会社FDSi）。全18種・426問。各クイズの結果から楽天・Yahoo!・公式ストア（worldselect.net）の該当商品へ案内します。
 
-## クイズ・診断（全12種）
+## クイズ・診断（全18種）
 
-- [充電ケーブル検定 (10問)](https://quiz.fds.co.jp/cable-master/): 3in1・L字・eMarker・PD240W…10問で充電ケーブルの規格知識をチェック。
-- [充電マスター検定 (25問)](https://quiz.fds.co.jp/charging-master/): USB-C / PD急速充電 / MagSafe / GaN / Qi2、ケーブルの見分け方・選び方の知識クイズ
-- [フィルム選び方クイズ (10問)](https://quiz.fds.co.jp/film/): アンチグレアと光沢の違い、ガラスとPET、9H硬度、ペーパーライク、のぞき見防止。iPhone/iPad/Pixel対応フィルムの選び方
-- [USB-C・PD最適ケーブル診断 (8問)](https://quiz.fds.co.jp/charge-finder/): 用途を選ぶと最適な充電ケーブル・充電器を提案する診断
-- [充電スタイル診断 (7問)](https://quiz.fds.co.jp/charging/): 充電の好みからタイプを診断
-- [ガジェットオタク度チェック (20問)](https://quiz.fds.co.jp/gadget/): USB-C・PD・GaN等のガジェット知識クイズ
-- [スマホ撮影スキル診断 (20問)](https://quiz.fds.co.jp/photo-skill/): 構図・ライティング・ジンバル・動画テクの知識クイズ
-- [デジタルライフ偏差値テスト (25問)](https://quiz.fds.co.jp/digital/): デジタル活用度・ガジェット知識を偏差値で診断
-- [ガジェット検定アカデミー (80問)](https://quiz.fds.co.jp/academy/): 基礎からのガジェット知識検定
-- [テク雑学マラソン (100問)](https://quiz.fds.co.jp/marathon/): USB・スマホ・AI・宇宙までのテック雑学
-- [旅行スタイル診断 (10問)](https://quiz.fds.co.jp/travel/): 旅行タイプ診断
-- [旅先サバイバル (4シナリオ)](https://quiz.fds.co.jp/survival/): ガジェットトラブル対応シミュレーション
+- [テク雑学マラソン (100問)](https://quiz.fds.co.jp/marathon/): USB、スマートフォン、AI、宇宙技術など幅広いテーマから出題。あなたのテック知識を試しましょう
+- [ガジェット検定アカデミー (77問)](https://quiz.fds.co.jp/academy/): USB-C規格、ワイヤレス充電の仕組み、カメラ保護の知識まで。あなたはマスターになれる？
+- [デジタルライフ偏差値 (24問)](https://quiz.fds.co.jp/digital/): 充電ケーブルやスマホ周辺機器の選び方もわかる、ランク判定＆改善ヒント付き
+- [旅行スタイル診断 (15問)](https://quiz.fds.co.jp/travel/): あなたの旅行スタイルは？5つの旅人タイプから自分のスタイルが分かります
+- [旅先サバイバル (20問)](https://quiz.fds.co.jp/survival/): 海外旅行で起きるデジタルトラブル。あなたは切り抜けられる？旅のサバイバル力を診断するシナリオベースのクイズです
+- [充電スタイル診断 (7問)](https://quiz.fds.co.jp/charging/): あなたの充電スタイルは？ミニマリスト派？パワフル派？マルチデバイス派？モバイル派？7つの質問で診断します
+- [ガジェットオタク度チェック (20問)](https://quiz.fds.co.jp/gadget/): USB-C、ワイヤレス充電、ジンバル、カードリーダー…初心者からマニアまで楽しめるクイズです
+- [充電マスター検定 (25問)](https://quiz.fds.co.jp/charging-master/): USB-C、PD急速充電、MagSafe、GaN充電器、ケーブルの見分け方・選び方…初心者からマニアまで楽しめる検定クイズです
+- [スマホ撮影スキル診断 (20問)](https://quiz.fds.co.jp/photo-skill/): 構図、ライティング、ジンバル撮影、動画テクニック…初心者からクリエイターまで楽しめます
+- [フィルム選び方クイズ (10問)](https://quiz.fds.co.jp/film/): アンチグレアと光沢の違い、ガラスとPETの違い、9H硬度、ペーパーライクの選び方…iPhone・iPad・Pixel対応のおすすめフィルムも紹介
+- [USB-C・PD最適ケーブル診断 (8問)](https://quiz.fds.co.jp/charge-finder/): 用途を選ぶだけで、あなたに最適なUSB-C/PD充電ケーブル・充電器をご提案。急速充電・ノートPC対応・L字・MagSafe…
+- [Apple Watch使いこなし検定 (15問)](https://quiz.fds.co.jp/watch-guide/): Series 9/Ultra/SE…あなたはどこまで知っている？
+- [iPhoneケース選び方検定 (15問)](https://quiz.fds.co.jp/case-guide/): MagSafe対応？耐衝撃？素材の違いは？
+- [カードリーダー選び方検定 (15問)](https://quiz.fds.co.jp/cardreader-guide/): CFexpress？SD？UHS-II？
+- [MagSafe完全理解検定 (15問)](https://quiz.fds.co.jp/magsafe-guide/): MagSafeの規格・互換性・使い方を徹底確認
+- [保護フィルム選び方上級検定 (15問)](https://quiz.fds.co.jp/film-pro/): ガラス？TPU？アンチグレア？硬度9H？
+- [USB-Cハブ・ドック選び方検定 (15問)](https://quiz.fds.co.jp/hub-guide/): HDMI出力？LAN？電力供給？
+- [充電ケーブル検定 (10問)](https://quiz.fds.co.jp/cable-master/): 3in1・L字コネクタ・eMarker・USB PD3.1・USB4/Thunderboltまで、買い物前に知っておきたい規格の違いがわかります
+
+## リンク集
+
+- [World Select 公式リンク集](https://quiz.fds.co.jp/links/): 楽天・Yahoo!・公式ストア・SNSの入口
 
 ## よく扱うトピック（FAQ）
 
