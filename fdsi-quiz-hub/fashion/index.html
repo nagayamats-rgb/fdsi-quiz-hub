@@ -2,11 +2,96 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=https://quiz.fds.co.jp/fashion/">
-<link rel="canonical" href="https://quiz.fds.co.jp/fashion/">
+<meta http-equiv="refresh" content="0; url=https://quiz.fds.co.jp/">
+<link rel="canonical" href="https://quiz.fds.co.jp/">
 <title>リダイレクト中...</title>
+<!-- WS_GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3PPX7WGGK9"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag("js",new Date());
+gtag("config","G-3PPX7WGGK9");
+document.addEventListener("click",function(e){
+  var a=(e.target&&e.target.closest)?e.target.closest("a"):null;
+  if(!a||!a.href)return;
+  var h=a.href;
+  if(/worldselect\.net|rakuten\.co\.jp|shopping\.yahoo\.co\.jp/.test(h)){
+    var dest=(h.indexOf("rakuten")>-1)?"rakuten":((h.indexOf("yahoo")>-1)?"yahoo":"shopify");
+    try{gtag("event","ec_click",{ec_dest:dest,link_url:h,quiz_path:location.pathname});}catch(_){}
+  }
+},true);
+</script>
+<script>
+/* WS quiz funnel: quiz_start / quiz_complete / quiz_share.
+   Wraps the page's own global quiz functions when (and only when) they exist.
+   Every hook is try/catch guarded and always returns the original return value,
+   so a measurement failure can never break the quiz itself. */
+(function(){
+  var fired={};
+  function path(){try{return location.pathname;}catch(_){return "";}}
+  function send(name,params){
+    try{if(typeof gtag==="function"){gtag("event",name,params||{});}}catch(_){}
+  }
+  function sendOnce(name,params){
+    if(fired[name])return;
+    fired[name]=1;
+    send(name,params);
+  }
+  function wrap(name,hook){
+    try{
+      var orig=window[name];
+      if(typeof orig!=="function")return false;
+      if(orig.__wsGa4Wrapped)return true;
+      var wrapped=function(){
+        try{hook();}catch(_){}
+        return orig.apply(this,arguments);
+      };
+      try{wrapped.__wsGa4Wrapped=true;}catch(_){}
+      window[name]=wrapped;
+      return window[name]!==orig;
+    }catch(_){return false;}
+  }
+  /* Candidate names, most specific first. Only the FIRST one that exists on the
+     page is wrapped, so a page owning several of them can never double-fire.
+     NOTE: academy's showLevelResult is deliberately NOT a completion candidate:
+     it fires on every intermediate level result and would corrupt quiz_complete. */
+  var START_FNS=["submitAnswer","selectOption","choose","selectAnswer","answerQuestion"];
+  var COMPLETE_FNS=["showResult","renderResult","showFinalResult"];
+  function wrapFirst(names,hook){
+    for(var i=0;i<names.length;i++){
+      try{
+        if(typeof window[names[i]]==="function"){
+          wrap(names[i],hook);
+          return names[i];
+        }
+      }catch(_){}
+    }
+    return null;
+  }
+  function setup(){
+    try{
+      wrapFirst(START_FNS,function(){sendOnce("quiz_start",{quiz_path:path()});});
+      wrapFirst(COMPLETE_FNS,function(){sendOnce("quiz_complete",{quiz_path:path()});});
+      var shares=["shareLine","shareTwitter","copyResult"];
+      for(var i=0;i<shares.length;i++){
+        (function(n){
+          wrap(n,function(){send("quiz_share",{quiz_path:path(),method:n});});
+        })(shares[i]);
+      }
+    }catch(_){}
+  }
+  try{
+    if(document.readyState==="loading"){
+      document.addEventListener("DOMContentLoaded",setup);
+    }else{
+      setup();
+    }
+  }catch(_){try{setup();}catch(__){}}
+})();
+</script>
+<!-- /WS_GA4 -->
 </head>
 <body>
-<p><a href="https://quiz.fds.co.jp/fashion/">こちらに移動しました</a></p>
+<p><a href="https://quiz.fds.co.jp/">こちらに移動しました</a></p>
 </body>
 </html>
