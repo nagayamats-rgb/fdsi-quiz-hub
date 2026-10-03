@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ガジェット占い｜あの人にぴったりの贈り物がわかる5問</title>
+<meta name="description" content="贈る相手のクセを5つ選ぶだけ。7つのタイプから、その人にぴったりのガジェットと、明日だれかに言いたくなる豆知識がわかります。クリスマス・誕生日・ちょっとしたお礼に。">
+<meta property="og:title" content="ガジェット占い｜あの人にぴったりの贈り物がわかる5問">
+<meta property="og:description" content="贈る相手のクセを5つ選ぶだけ。ぴったりのガジェットと豆知識がわかります。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://quiz.fds.co.jp/gift-uranai/">
+<meta property="og:image" content="https://quiz.fds.co.jp/img/serecchi_06.webp">
+<link rel="canonical" href="https://quiz.fds.co.jp/gift-uranai/">
+<link rel="stylesheet" href="../ws-redesign.css">
+<link rel="stylesheet" href="../ws-quiz-motion.css">
+<script>document.documentElement.classList.add('wsm')</script>
+<!-- WS_GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M781H9VG68"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag("js",new Date());
+gtag("config","G-M781H9VG68");
+document.addEventListener("click",function(e){
+  var a=(e.target&&e.target.closest)?e.target.closest("a"):null;
+  if(!a||!a.href)return;
+  var h=a.href;
+  if(/worldselect\.net|rakuten\.co\.jp|shopping\.yahoo\.co\.jp/.test(h)){
+    var dest=(h.indexOf("rakuten")>-1)?"rakuten":((h.indexOf("yahoo")>-1)?"yahoo":"shopify");
+    try{gtag("event","ec_click",{ec_dest:dest,link_url:h,quiz_path:location.pathname});}catch(_){}
+  }
+},true);
+</script>
+<script>
+/* WS quiz funnel: quiz_start / quiz_complete / quiz_share.
+   Wraps the page's own global quiz functions when (and only when) they exist.
+   Every hook is try/catch guarded and always returns the original return value,
+   so a measurement failure can never break the quiz itself. */
+(function(){
+  var fired={};
+  function path(){try{return location.pathname;}catch(_){return "";}}
+  function send(name,params){
+    try{if(typeof gtag==="function"){gtag("event",name,params||{});}}catch(_){}
+  }
+  function sendOnce(name,params){
+    if(fired[name])return;
+    fired[name]=1;
+    send(name,params);
+  }
+  function wrap(name,hook){
+    try{
+      var orig=window[name];
+      if(typeof orig!=="function")return false;
+      if(orig.__wsGa4Wrapped)return true;
+      var wrapped=function(){
+        try{hook();}catch(_){}
+        return orig.apply(this,arguments);
+      };
+      try{wrapped.__wsGa4Wrapped=true;}catch(_){}
+      window[name]=wrapped;
+      return window[name]!==orig;
+    }catch(_){return false;}
+  }
+  /* Candidate names, most specific first. Only the FIRST one that exists on the
+     page is wrapped, so a page owning several of them can never double-fire.
+     NOTE: academy's showLevelResult is deliberately NOT a completion candidate:
+     it fires on every intermediate level result and would corrupt quiz_complete. */
+  var START_FNS=["submitAnswer","selectOption","choose","selectAnswer","answerQuestion"];
+  var COMPLETE_FNS=["showResult","renderResult","showFinalResult"];
+  function wrapFirst(names,hook){
+    for(var i=0;i<names.length;i++){
+      try{
+        if(typeof window[names[i]]==="function"){
+          wrap(names[i],hook);
+          return names[i];
+        }
+      }catch(_){}
+    }
+    return null;
+  }
+  function setup(){
+    try{
+      wrapFirst(START_FNS,function(){sendOnce("quiz_start",{quiz_path:path()});});
+      wrapFirst(COMPLETE_FNS,function(){sendOnce("quiz_complete",{quiz_path:path()});});
+      var shares=["shareLine","shareTwitter","copyResult"];
+      for(var i=0;i<shares.length;i++){
+        (function(n){
+          wrap(n,function(){send("quiz_share",{quiz_path:path(),method:n});});
+        })(shares[i]);
+      }
+    }catch(_){}
+  }
+  try{
+    if(document.readyState==="loading"){
+      document.addEventListener("DOMContentLoaded",setup);
+    }else{
+      setup();
+    }
+  }catch(_){try{setup();}catch(__){}}
+})();
+</script>
+<!-- /WS_GA4 -->
+<style>
+  :root{
+    --g-bg:#F3EFF5; --g-ink:#343C4B; --g-ink2:#5F6673; --g-card:#fff; --g-line:#E4DEE9;
+    --g-main:#88619A; --g-main-700:#654873; --g-tint:#F1EDF4;
+    --g-ease:cubic-bezier(.19,1,.22,1);
+    --g-rak:#BF0000; --g-yah:#E60033;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif;background:var(--g-bg);color:var(--g-ink);line-height:1.7}
+  .wrap{max-width:560px;margin:0 auto;padding:16px 16px 40px}
+  .crumb{font-size:13px;color:var(--g-ink2)}.crumb a{color:var(--g-main);text-decoration:none}
+  .top{display:flex;justify-content:space-between;align-items:center;margin:6px 0 18px;padding-bottom:14px;border-bottom:1px solid var(--g-line)}
+  .logo{font-weight:700;color:var(--g-main);font-size:17px}.top a{font-size:13px;color:var(--g-ink2);text-decoration:none}
+
+  .screen{display:none}.screen.on{display:block}
+  .g-hero{text-align:center}
+  .g-hero img{width:168px;height:168px;object-fit:contain;display:block;margin:0 auto 4px;mix-blend-mode:multiply}
+  .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--g-main);border-bottom:2px solid var(--g-main);padding-bottom:2px;margin-bottom:10px}
+  h1{font-size:23px;line-height:1.45;margin:0 0 10px}
+  .lead{font-size:15px;color:var(--g-ink2);margin:0 0 22px}
+  .label{font-size:14px;font-weight:700;margin:0 0 10px;text-align:left}
+  .occ{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .occ button{appearance:none;border:2px solid var(--g-line);background:var(--g-card);border-radius:16px;padding:14px 6px;font:inherit;font-size:14px;font-weight:700;color:var(--g-ink);cursor:pointer;transition:border-color .2s,transform .2s var(--g-ease)}
+  .occ button span{display:block;font-size:26px;line-height:1.2;margin-bottom:4px}
+  .occ button:hover{border-color:var(--g-main);transform:translateY(-2px)}
+
+  .dots{display:flex;gap:6px;justify-content:center;margin:4px 0 18px}
+  .dots i{width:28px;height:4px;border-radius:2px;background:#DCD3E2;transition:background .4s var(--g-ease)}
+  .dots i.done{background:var(--g-main)}
+  .qno{font-size:13px;font-weight:700;color:var(--g-main);letter-spacing:.08em}
+  .qtext{font-size:20px;line-height:1.5;margin:4px 0 18px}
+  .opts button{appearance:none;display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:2px solid var(--g-line);background:var(--g-card);border-radius:16px;padding:14px 16px;margin:0 0 10px;font:inherit;font-size:16px;color:var(--g-ink);cursor:pointer;transition:border-color .2s,background .2s}
+  .opts button .em{font-size:22px;width:28px;text-align:center;flex:none}
+  .opts button:hover{border-color:var(--g-main);background:var(--g-tint)}
+  .opts button.picked{border-color:var(--g-main);background:var(--g-main);color:#fff}
+  .back{appearance:none;background:none;border:0;color:var(--g-ink2);font:inherit;font-size:13px;cursor:pointer;padding:6px 0}
+
+  .res-head{text-align:center;margin-bottom:16px}
+  .res-occ{font-size:13px;color:var(--g-ink2)}
+  .res-type{font-size:15px;color:var(--g-ink2);margin:6px 0 0}
+  .res-name{font-size:25px;font-weight:800;line-height:1.35;margin:2px 0 6px}.res-name small{display:block;font-size:15px;font-weight:700;color:var(--g-ink2)}
+  .res-name .em{display:block;font-size:46px;line-height:1.1;margin-bottom:4px}
+  .res-trait{font-size:15px;color:var(--g-ink2);margin:0}
+  .card{background:var(--g-card);border-radius:20px;padding:18px;margin:14px 0}
+  .ser{display:flex;gap:12px;align-items:flex-end}
+  .ser img{width:96px;height:96px;object-fit:contain;flex:none}
+  .bubble{position:relative;background:var(--g-tint);border-radius:16px;padding:12px 14px;font-size:14px}
+  .bubble::before{content:"";position:absolute;left:-7px;bottom:18px;border:7px solid transparent;border-right-color:var(--g-tint);border-left:0}
+  .ser-name{font-size:11px;font-weight:700;color:var(--g-main);display:block;margin-bottom:2px}
+  .mame h2,.gift h2{font-size:13px;letter-spacing:.1em;color:var(--g-main);margin:0 0 6px;font-weight:700}
+  .mame p{margin:0;font-size:15px}
+  .mame strong{background:linear-gradient(transparent 62%,#EADFF0 62%)}
+  .gift .pname{font-size:17px;font-weight:700;margin:0 0 4px;line-height:1.5}
+  .gift .price{font-size:13px;color:var(--g-ink2);margin:0 0 10px}
+  .gift .why{font-size:15px;margin:0 0 8px}
+  .gift .honest{font-size:13px;color:var(--g-ink2);background:#FAF8FB;border-left:3px solid #CBBBD5;padding:8px 10px;border-radius:0 8px 8px 0;margin:0 0 14px}
+  .gift .honest b{color:var(--g-ink)}
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  .btns a{flex:1 1 140px;display:block;text-align:center;text-decoration:none;color:#fff;font-weight:700;font-size:15px;padding:13px 10px;border-radius:12px}
+  .btns .rak{background:var(--g-rak)}.btns .yah{background:var(--g-yah)}.btns .ws{background:var(--g-main)}
+  .note{font-size:11px;color:var(--g-ink2);margin:8px 0 0}
+  .after{text-align:center;margin-top:18px}
+  .again{appearance:none;border:2px solid var(--g-main);background:#fff;color:var(--g-main);font:inherit;font-weight:700;border-radius:999px;padding:11px 26px;cursor:pointer}
+  .share{display:flex;gap:10px;justify-content:center;margin-top:14px}
+  .share a{font-size:13px;font-weight:700;text-decoration:none;color:var(--g-ink);border:1px solid var(--g-line);background:#fff;border-radius:999px;padding:8px 14px}
+  .others{margin-top:6px;font-size:14px}
+  .types{font-size:13px;color:var(--g-ink2);text-align:center;margin-top:22px}
+  footer{text-align:center;margin-top:30px;padding-top:16px;border-top:1px solid var(--g-line);font-size:12px;color:var(--g-ink2)}
+  footer a{color:var(--g-ink2)}
+  @media (prefers-reduced-motion: reduce){.occ button,.dots i{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumb" aria-label="パンくずリスト"><a href="/">Quiz Hub</a> › ガジェット占い</nav>
+  <div class="top"><div class="logo">🧩 Quiz Hub</div><a href="/">← 一覧に戻る</a></div>
+
+  <!-- はじめ -->
+  <section class="screen on" id="intro">
+    <div class="g-hero">
+      <img src="../img/serecchi_06.webp" alt="サンタ帽をかぶったセレっち" width="168" height="168" class="wsm-rise" style="--i:0">
+      <span class="eyebrow wsm-rise" style="--i:1">5問でわかる</span>
+      <h1 class="wsm-rise" style="--i:2">ガジェット占い<br>あの人にぴったりの贈り物は？</h1>
+      <p class="lead wsm-rise" style="--i:3">贈りたい相手のクセを選ぶだけ。7つのタイプから、その人が「これ欲しかった！」となるガジェットと、渡すときに話せる豆知識がわかります。</p>
+    </div>
+    <p class="label">どんな贈り物？</p>
+    <div class="occ">
+      <button type="button" onclick="startQuiz('xmas')"><span>🎄</span>クリスマス</button>
+      <button type="button" onclick="startQuiz('bday')"><span>🎂</span>誕生日</button>
+      <button type="button" onclick="startQuiz('thanks')"><span>💐</span>ちょっとしたお礼</button>
+    </div>
+    <p class="types">タイプ：ペンギン／チーター／フクロウ／ネコ／インコ／リス／ウサギ</p>
+  </section>
+
+  <!-- 質問 -->
+  <section class="screen" id="quiz">
+    <div class="dots" id="dots"></div>
+    <div class="qno" id="qno"></div>
+    <h2 class="qtext wsm-mask" id="qtext"></h2>
+    <div class="opts" id="opts"></div>
+    <button type="button" class="back" id="backBtn" onclick="goBack()">← ひとつ前にもどる</button>
+  </section>
+
+  <!-- 結果 -->
+  <section class="screen" id="result" aria-live="polite">
+    <div class="res-head">
+      <div class="res-occ" id="rOcc"></div>
+      <p class="res-type">あの人は…</p>
+      <div class="res-name" id="rName"></div>
+      <p class="res-trait" id="rTrait"></p>
+    </div>
+    <div class="card ser">
+      <img id="rSerImg" src="" alt="" width="96" height="96">
+      <div class="bubble"><span class="ser-name">セレっち</span><span id="rSer"></span></div>
+    </div>
+    <div class="card mame">
+      <h2>明日だれかに言いたい豆知識</h2>
+      <p id="rMame"></p>
+    </div>
+    <div class="card gift">
+      <h2>ぴったりの贈り物</h2>
+      <p class="pname" id="rPname"></p>
+      <p class="price" id="rPrice"></p>
+      <p class="why" id="rWhy"></p>
+      <p class="honest" id="rHonest"></p>
+      <div class="btns" id="rBtns"></div>
+      <p class="note" id="rNote"></p>
+      <div class="others" id="rOthers"></div>
+    </div>
+    <div class="after">
+      <button type="button" class="again" onclick="restart()">ほかの人も占う</button>
+      <div class="share" id="share"></div>
+    </div>
+  </section>
+
+  <footer>© FDSi / <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_ec_link&utm_campaign=gift-uranai">worldselect.net</a>　<a href="/">Quiz Hub</a></footer>
+</div>
+
+<script>
+var OCC = {
+  xmas:   {label:'🎄 クリスマスに贈るなら', ser:'06'},
+  bday:   {label:'🎂 誕生日に贈るなら',     ser:'04'},
+  thanks: {label:'💐 ちょっとしたお礼なら',  ser:'11'}
+};
+
+/* 質問: 選んだ答えに「タイプの点」がつく。p=ペンギン c=チーター o=フクロウ n=ネコ i=インコ r=リス u=ウサギ */
+var Q = [
+  {t:'その人のスマホの電池、だいたい何%？', o:[
+    {e:'🪫', x:'いつも20%以下。「充電させて」が口ぐせ', s:{p:3,c:1}},
+    {e:'🔌', x:'モバイルバッテリーを持ち歩いている', s:{p:2,i:1}},
+    {e:'🙂', x:'わりといつも満タンにしている', s:{o:2,n:1}},
+    {e:'🤔', x:'気にしたことがない', s:{r:1,u:1}}
+  ]},
+  {t:'休みの日のその人は、何をしていそう？', o:[
+    {e:'☕', x:'カフェや街にお出かけ', s:{i:3,u:1}},
+    {e:'🖥️', x:'家で机まわりを整えたり、作業したり', s:{o:3}},
+    {e:'📷', x:'写真や動画をたくさん撮っている', s:{r:3,i:1}},
+    {e:'💄', x:'メイクやおしゃれを楽しんでいる', s:{u:3}},
+    {e:'🏃', x:'運動やジムで体を動かしている', s:{n:3,c:1}}
+  ]},
+  {t:'その人の手首に、Apple Watch はついている？', o:[
+    {e:'⌚', x:'ついている', s:{n:4}},
+    {e:'✋', x:'ついていない', s:{}},
+    {e:'❓', x:'わからない', s:{}}
+  ]},
+  {t:'その人の口ぐせに近いのは？', o:[
+    {e:'⏰', x:'「時間ない！急いで！」', s:{c:3}},
+    {e:'🌀', x:'「ケーブルからまった〜」', s:{o:2,p:1}},
+    {e:'☀️', x:'「まぶしくて画面が見えない」', s:{i:3}},
+    {e:'🗂️', x:'「あのデータどこだっけ？」', s:{r:3}},
+    {e:'✨', x:'「これ、かわいい〜！」', s:{u:3}}
+  ]},
+  {t:'スマホでいちばんよく使っていそうなのは？', o:[
+    {e:'💬', x:'仕事の連絡やメール', s:{c:2,o:1}},
+    {e:'🗺️', x:'地図や乗りかえ案内', s:{i:2,c:1}},
+    {e:'🎮', x:'動画やゲーム', s:{p:2,i:1}},
+    {e:'🤳', x:'SNSや写真', s:{u:2,r:1}}
+  ]}
+];
+
+var U = 'utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=gift-uranai&utm_content=';
+/* タイプと贈り物（URLは 2026-09-28 の実在確認済みの台帳から。推測で作らない） */
+var T = {
+  p:{em:'🐧', name:'充電ギリギリ ペンギン', trait:'いつも電池とたたかう、がんばり屋さん。', ser:'07',
+     say:'ぼくもよく電池が切れて、ぺたんってなっちゃう…。何台もまとめて充電できたら助かるのになあ。',
+     mame:'スマホの電池は、0%まで使い切るより<strong>20〜80%のあいだで使うほうが長持ちしやすい</strong>と言われています。「使い切ってから充電」は、昔の電池の話なんです。',
+     pname:'3in2 マルチ充電ケーブル（全端子 Type-C）', price:'目安 1,000円台',
+     why:'1本でスマホ・イヤホン・タブレットなど最大3台に同時に充電できます。家でも職場でも「充電させて」が減ります。',
+     honest:'<b>正直ポイント：</b>差し込み口はすべて Type-C です。Lightning の古い iPhone（14以前）には使えません。',
+     rak:'https://item.rakuten.co.jp/world11select/worldselect-0005/', yah:'https://store.shopping.yahoo.co.jp/world1select/worldselect-0005.html'},
+  c:{em:'🐆', name:'時間に追われる チーター', trait:'いつも全力ダッシュ。待つのがちょっと苦手。', ser:'02',
+     say:'急いでるのに、ぜんぜん充電がふえない…。ケーブルのせいかな？　それとも充電器かな？',
+     mame:'<strong>急速充電は「ケーブル」だけ速くしても速くなりません。</strong>昔からある1A（5W）の充電器だと、流れる電気は20Wの充電器の約4分の1。iPhone なら20W以上で約30分で50%まで充電できます（Apple公表）。まず充電器の「W」を見てみて。',
+     pname:'USB-C 240W 急速充電ケーブル（L字・回転）', price:'',
+     why:'240Wまで流せる太い道のケーブル。L字なので、充電しながらスマホを横持ちしても手に当たりにくい形です。',
+     honest:'<b>正直ポイント：</b>速さを決めるのは充電器です。相手が1A（5W）の充電器を使っていたら、20W以上の充電器とセットで贈るのがおすすめ。',
+     rak:'https://item.rakuten.co.jp/world11select/60w-6in1cable/', yah:'https://store.shopping.yahoo.co.jp/world1select/60w-6in1cable.html'},
+  o:{em:'🦉', name:'デスクこだわり フクロウ', trait:'机まわりは自分の城。すっきり整えたい人。', ser:'08',
+     say:'ぼくの机、ケーブルがごちゃごちゃで…。スマホを立てて置けたら、もっとすっきりするのにな。',
+     mame:'USB-C ケーブルは見た目が同じでも、<strong>60Wまでのものと240Wまで流せるものがあります。</strong>違いは、中に「eマーカー」という小さなチップが入っているかどうか。',
+     pname:'スタンド付き USB-C ケーブル 240W', price:'目安 1,000円台',
+     why:'ケーブル自体がスマホスタンドになるので、充電しながら動画やビデオ通話ができます。机の上が1つ片づきます。',
+     honest:'<b>正直ポイント：</b>在庫が少なめです。売り切れのときは、同じ240Wの L字ケーブルも候補に。',
+     rak:'https://item.rakuten.co.jp/world11select/cable-240w-stand-usbc/', yah:'https://store.shopping.yahoo.co.jp/world1select/cable-240w-stand-usbc.html'},
+  n:{em:'🐈', name:'Apple Watch 相棒 ネコ', trait:'身軽が好き。手首の相棒を大事にしている人。', ser:'03',
+     say:'Apple Watch の充電器、いつもどこかに行っちゃうんだ…。旅行のときも1個で済んだらいいのに。',
+     mame:'Apple Watch は、毎晩つけっぱなしで充電しても<strong>Watch のほうで充電のしかたを調整</strong>してくれます（バッテリー充電の最適化）。だから「満タンになったらすぐ外す」は、しなくて大丈夫。',
+     pname:'Apple Watch ＋ AirPods 急速充電器（USB-C 直差し）', price:'目安 2,000円台',
+     why:'Apple Watch と AirPods をこれ1つで充電。小さいので、旅行や出張のポーチにも入ります。',
+     honest:'<b>正直ポイント：</b>iPhone や iPad 本体は充電できません。Watch と AirPods 専用です。',
+     rak:'https://item.rakuten.co.jp/world11select/dual-charger/', yah:'https://store.shopping.yahoo.co.jp/world1select/dual-charger.html'},
+  i:{em:'🦜', name:'外で見まくり インコ', trait:'お出かけ大好き。いつでもスマホで調べもの。', ser:'09',
+     say:'外だと画面が光って見えないよ〜。指のあとも、けっこう目立つんだよね…。',
+     mame:'さらさらした「つや消し（アンチグレア）フィルム」は、<strong>表面の細かいデコボコで光をちらして</strong>映りこみをへらしています。指のすべりもよくなるので、ゲームが好きな人にも人気。',
+     pname:'iPhone さらさらアンチグレアフィルム ＋ 2in1 充電ケーブル セット', price:'',
+     why:'外でも画面が見やすく、指紋も目立ちにくいフィルムに、充電ケーブルをつけたセット。贈り物でも「ちょうどいい」と言われる組み合わせです。',
+     honest:'<b>正直ポイント：</b>つや消しは、光沢フィルムにくらべて画面がほんの少し白っぽく見えます。写真の色にこだわる人には光沢のほうが向いています。機種は商品ページで選べます。',
+     rak:'https://item.rakuten.co.jp/world11select/set-film-2in1-06/', yah:'https://store.shopping.yahoo.co.jp/world1select/set-film-2in1-06.html'},
+  r:{em:'🐿️', name:'ためこみ整理 リス', trait:'写真もデータも、大事にとっておく人。', ser:'01',
+     say:'写真がいっぱいで、スマホの中がパンパン…。カメラのSDカードからも、すぐ取りこめたらなあ。',
+     mame:'SDカードに書いてある<strong>「U3」や「V30」は、書きこみの速さの目安</strong>です。4K動画をとるなら U3／V30 以上が安心。容量（GB）だけで選ぶと、動画がとぎれることがあります。',
+     pname:'Type-C カードリーダー（SD／microSD 対応）', price:'目安 1,000円台',
+     why:'スマホやiPadに挿すだけで、カメラのSDカードの写真をそのまま取りこめます。パソコンがなくても整理できます。',
+     honest:'<b>正直ポイント：</b>差し込み口は Type-C です。Lightning の iPhone には挿せません。',
+     rak:'https://item.rakuten.co.jp/world11select/ws-ic-cardreader/', yah:'https://store.shopping.yahoo.co.jp/world1select/ws-ic-cardreader.html'},
+  u:{em:'🐇', name:'おしゃれ探求 ウサギ', trait:'かわいいものに目がない、トレンド好き。', ser:'05',
+     say:'色がいっぱいあると、どれにしようか迷っちゃうよね。いろんな色をちょっとずつ試せたらいいのに。',
+     mame:'アイシャドウの<strong>「ラメ」と「パール」は、つぶの大きさのちがい</strong>。つぶが大きいとキラキラ、小さいとしっとりしたツヤに見えます。',
+     pname:'アイシャドウパレット（FOCALLURE）', price:'目安 2,000円台',
+     why:'ラメとマットがひとつにまとまったパレット。「どの色が似合うかな」と選ぶ楽しさごと贈れます。',
+     honest:'<b>正直ポイント：</b>楽天では取り扱いがなく、Yahoo! ショッピングだけの販売です。肌に合うかは人それぞれなので、使い始めは少しずつ。',
+     rak:'', yah:'https://store.shopping.yahoo.co.jp/world1select/cosme-006.html'}
+};
+var ORDER = ['p','c','o','n','i','r','u'];
+
+var cur = 0, occ = 'xmas', picks = [];
+
+function $(id){ return document.getElementById(id); }
+function show(id){
+  ['intro','quiz','result'].forEach(function(k){ $(k).classList.toggle('on', k===id); });
+  try{ window.scrollTo({top:0,behavior:'smooth'}); }catch(_){ window.scrollTo(0,0); }
+}
+function startQuiz(o){ occ = o; cur = 0; picks = []; show('quiz'); render(); }
+function render(){
+  var q = Q[cur], d = $('dots'), i;
+  d.innerHTML = '';
+  for (i = 0; i < Q.length; i++){ var b = document.createElement('i'); if (i < cur) b.className = 'done'; d.appendChild(b); }
+  $('qno').textContent = 'Q' + (cur+1) + ' / ' + Q.length;
+  $('qno').style.setProperty('--i',0); $('qno').classList.remove('wsm-rise'); void $('qno').offsetWidth; $('qno').classList.add('wsm-rise');
+  var qt = $('qtext'); qt.innerHTML = ''; var sp = document.createElement('span'); sp.className = 'wsm-mask-in'; sp.textContent = q.t; qt.appendChild(sp);
+  var box = $('opts'); box.innerHTML = '';
+  q.o.forEach(function(op, k){
+    var btn = document.createElement('button'); btn.type = 'button';
+    btn.innerHTML = '<span class="em" aria-hidden="true">' + op.e + '</span><span></span>';
+    btn.lastChild.textContent = op.x;
+    btn.className = 'wsm-rise'; btn.style.setProperty('--i', k+1);
+    btn.onclick = function(){ choose(k, btn); };
+    box.appendChild(btn);
+  });
+  $('backBtn').style.visibility = cur > 0 ? 'visible' : 'hidden';
+}
+function choose(k, btn){
+  if (btn) btn.classList.add('picked');
+  picks[cur] = k;
+  setTimeout(function(){
+    if (cur < Q.length - 1){ cur++; render(); } else { showResult(); }
+  }, 260);
+}
+function goBack(){ if (cur > 0){ cur--; picks.length = cur; render(); } }
+function score(){
+  var s = {}; ORDER.forEach(function(k){ s[k] = 0; });
+  picks.forEach(function(k, qi){ var w = Q[qi].o[k].s; for (var t in w) s[t] += w[t]; });
+  var best = ORDER[0]; ORDER.forEach(function(k){ if (s[k] > s[best]) best = k; });
+  return best;
+}
+function showResult(){
+  var k = score(), t = T[k];
+  $('rOcc').textContent = OCC[occ].label;
+  $('rName').innerHTML = '<span class="em" aria-hidden="true">' + t.em + '</span>' + t.name + '<small>タイプ</small>';
+  $('rTrait').textContent = t.trait;
+  $('rSerImg').src = '../img/serecchi_' + (occ === 'xmas' && k === 'p' ? '06' : t.ser) + '.webp';
+  $('rSerImg').alt = 'セレっち';
+  $('rSer').textContent = t.say;
+  $('rMame').innerHTML = t.mame;
+  $('rPname').textContent = t.pname;
+  $('rPrice').textContent = t.price ? t.price + '（モールによって変わります）' : '';
+  $('rWhy').textContent = t.why;
+  $('rHonest').innerHTML = t.honest;
+  var html = '';
+  if (t.rak) html += '<a class="rak" href="' + t.rak + '?' + U + 'result_' + k + '" target="_blank" rel="noopener">楽天で見る</a>';
+  if (t.yah) html += '<a class="yah" href="' + t.yah + '?' + U + 'result_' + k + '" target="_blank" rel="noopener">Yahoo!で見る</a>';
+  $('rBtns').innerHTML = html;
+  $('rNote').textContent = 'World Select（楽天・Yahoo! ショッピング店）の商品ページが開きます。';
+  var others = (window.WS_GIFT_OTHERS && window.WS_GIFT_OTHERS[k]) || [];
+  $('rOthers').innerHTML = others.length ? ('<p class="note">ほかのお店のおすすめ（広告）</p>' + others.map(function(o){ return '<a href="' + o.url + '" target="_blank" rel="noopener sponsored">' + o.name + '</a>'; }).join('<br>')) : '';
+  var url = 'https://quiz.fds.co.jp/gift-uranai/';
+  var txt = 'ガジェット占いで「' + t.name + 'タイプ」でした！ あの人にぴったりの贈り物がわかる5問';
+  $('share').innerHTML =
+    '<a href="https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(url) + '" target="_blank" rel="noopener">LINEで送る</a>' +
+    '<a href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(txt) + '&url=' + encodeURIComponent(url) + '" target="_blank" rel="noopener">Xでシェア</a>';
+  show('result');
+  var kids = $('result').children;
+  for (var i = 0; i < kids.length; i++){ kids[i].style.setProperty('--i', i*1.5); kids[i].classList.remove('wsm-rise'); void kids[i].offsetWidth; kids[i].classList.add('wsm-rise'); }
+  try { if (typeof gtag === 'function') gtag('event','gift_type',{gift_type:k, occasion:occ}); } catch(_){}
+}
+function restart(){ show('intro'); }
+</script>
+</body>
+</html>
