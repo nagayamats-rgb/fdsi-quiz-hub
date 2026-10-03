@@ -164,7 +164,16 @@ document.addEventListener("click",function(e){
   .again{appearance:none;border:2px solid var(--g-main);background:#fff;color:var(--g-main);font:inherit;font-weight:700;border-radius:999px;padding:11px 26px;cursor:pointer}
   .share{display:flex;gap:10px;justify-content:center;margin-top:14px}
   .share a{font-size:13px;font-weight:700;text-decoration:none;color:var(--g-ink);border:1px solid var(--g-line);background:#fff;border-radius:999px;padding:8px 14px}
-  .others{margin-top:6px;font-size:14px}
+  .oth{margin-top:16px;padding-top:14px;border-top:1px dashed var(--g-line)}
+  .oth-h{font-size:13px;font-weight:700;margin:0 0 8px;color:var(--g-ink)}
+  .pr{display:inline-block;background:#C8453B;color:#fff;font-size:11px;font-weight:700;border-radius:4px;padding:1px 6px;margin-right:6px;vertical-align:1px}
+  .oth-a{display:block;font-weight:700;color:var(--g-main-700);text-decoration:underline;font-size:15px}
+  .oth-w{font-size:13px;color:var(--g-ink2);margin:2px 0 8px}
+  .sh-h{font-size:13px;font-weight:700;color:var(--g-ink2);margin:0 0 8px;width:100%}
+  .share{flex-direction:column;align-items:stretch;text-align:left}
+  .share a.sh-a{display:block;border-radius:14px;padding:12px 14px}
+  .share a.sh-a b{display:block;font-size:15px}.share a.sh-a span{display:block;font-size:12px;font-weight:400;color:var(--g-ink2)}
+  .share a.line{border-color:#06C755}.share a.line b{color:#05a648}
   .types{font-size:13px;color:var(--g-ink2);text-align:center;margin-top:22px}
   footer{text-align:center;margin-top:30px;padding-top:16px;border-top:1px solid var(--g-line);font-size:12px;color:var(--g-ink2)}
   footer a{color:var(--g-ink2)}
@@ -229,7 +238,7 @@ document.addEventListener("click",function(e){
       <div class="others" id="rOthers"></div>
     </div>
     <div class="after">
-      <button type="button" class="again" onclick="restart()">ほかの人も占う</button>
+      <button type="button" class="again" id="selfTry" style="display:none;margin-right:8px" onclick="restart()">自分でも占ってみる</button><button type="button" class="again" onclick="restart()">ほかの人も占う</button>
       <div class="share" id="share"></div>
     </div>
   </section>
@@ -333,6 +342,18 @@ var T = {
      rak:'', yah:'https://store.shopping.yahoo.co.jp/world1select/cosme-006.html'}
 };
 var ORDER = ['p','c','o','n','i','r','u'];
+/* ほかのお店のおすすめ（Amazon アソシエイト。World Select で扱っていない物だけ。検索結果へのリンクで、特定の商品の良し悪しは書かない） */
+var AMZ = function(q){ return 'https://www.amazon.co.jp/s?k=' + encodeURIComponent(q) + '&tag=mayumichi2525-22'; };
+window.WS_GIFT_OTHERS = {
+  p:[{name:'MagSafe 対応のモバイルバッテリー', q:'モバイルバッテリー MagSafe 対応', why:'外出先でも充電できるように'}],
+  c:[{name:'USB-C 充電器（PD 30W 以上）', q:'USB-C 充電器 PD 30W', why:'ケーブルと一緒に贈ると、速さが本当に変わります'}],
+  o:[{name:'デスク下のケーブル収納トレー', q:'ケーブルトレー デスク 配線収納', why:'机の下のごちゃごちゃを隠せます'}],
+  n:[{name:'Apple Watch のバンド', q:'Apple Watch バンド', why:'毎日つける物なので、気分を変えられるのがうれしい'}],
+  i:[{name:'スマホ ショルダーストラップ', q:'スマホ ショルダー ストラップ', why:'両手があくので、お出かけがラクになります'}],
+  r:[{name:'SDカード（U3・V30）', q:'SDカード V30 U3 128GB', why:'カードリーダーと一緒に。動画をとるならV30以上'}],
+  u:[{name:'LED付き 卓上ミラー', q:'LED 卓上ミラー 化粧', why:'メイクの色が正しく見えるあかり付き'}]
+};
+Object.keys(window.WS_GIFT_OTHERS).forEach(function(k){ window.WS_GIFT_OTHERS[k].forEach(function(o){ o.url = AMZ(o.q); }); });
 
 var cur = 0, occ = 'xmas', picks = [];
 
@@ -374,9 +395,10 @@ function score(){
   var best = ORDER[0]; ORDER.forEach(function(k){ if (s[k] > s[best]) best = k; });
   return best;
 }
-function showResult(){
-  var k = score(), t = T[k];
-  $('rOcc').textContent = OCC[occ].label;
+function showResult(){ paintResult(score(), false); }
+function paintResult(k, shared){
+  var t = T[k];
+  $('rOcc').textContent = (shared ? '相談で届いた占い結果｜' : '') + OCC[occ].label;
   $('rName').innerHTML = '<span class="em" aria-hidden="true">' + t.em + '</span>' + t.name + '<small>タイプ</small>';
   $('rTrait').textContent = t.trait;
   $('rSerImg').src = '../img/serecchi_' + (occ === 'xmas' && k === 'p' ? '06' : t.ser) + '.webp';
@@ -393,18 +415,34 @@ function showResult(){
   $('rBtns').innerHTML = html;
   $('rNote').textContent = 'World Select（楽天・Yahoo! ショッピング店）の商品ページが開きます。';
   var others = (window.WS_GIFT_OTHERS && window.WS_GIFT_OTHERS[k]) || [];
-  $('rOthers').innerHTML = others.length ? ('<p class="note">ほかのお店のおすすめ（広告）</p>' + others.map(function(o){ return '<a href="' + o.url + '" target="_blank" rel="noopener sponsored">' + o.name + '</a>'; }).join('<br>')) : '';
-  var url = 'https://quiz.fds.co.jp/gift-uranai/';
-  var txt = 'ガジェット占いで「' + t.name + 'タイプ」でした！ あの人にぴったりの贈り物がわかる5問';
+  $('rOthers').innerHTML = others.length ? ('<div class="oth"><p class="oth-h"><span class="pr">PR</span>一緒に贈るなら（ほかのお店の商品）</p>' + others.map(function(o){ return '<a class="oth-a" href="' + o.url + '" target="_blank" rel="nofollow sponsored noopener">' + o.name + ' を Amazon で探す →</a><p class="oth-w">' + o.why + '</p>'; }).join('') + '<p class="note">World Select では扱っていない商品です。リンク先は Amazon の検索結果で、購入されると当サイトに紹介料が入ります。</p></div>') : '';
+  var base = 'https://quiz.fds.co.jp/gift-uranai/';
+  var consult = base + '?r=' + k + '&o=' + occ + '&utm_source=line&utm_medium=share&utm_campaign=gift-uranai&utm_content=consult';
+  var invite  = base + '?utm_source=line&utm_medium=share&utm_campaign=gift-uranai&utm_content=invite';
+  var inviteX = base + '?utm_source=x&utm_medium=share&utm_campaign=gift-uranai&utm_content=invite';
+  var occWord = {xmas:'クリスマスプレゼント', bday:'誕生日プレゼント', thanks:'お礼の品'}[occ];
+  var msgConsult = occWord + 'を相談させて！ ガジェット占いで「' + t.name + 'タイプ」と出て、おすすめは「' + t.pname + '」だって。どう思う？';
+  var msgInvite = '大切な人への贈り物が5問でわかる「ガジェット占い」。やってみて！';
   $('share').innerHTML =
-    '<a href="https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(url) + '" target="_blank" rel="noopener">LINEで送る</a>' +
-    '<a href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(txt) + '&url=' + encodeURIComponent(url) + '" target="_blank" rel="noopener">Xでシェア</a>';
+    '<p class="sh-h">この結果をどうする？</p>' +
+    '<a class="sh-a line" data-m="consult" href="https://line.me/R/share?text=' + encodeURIComponent(msgConsult + '\n' + consult) + '" target="_blank" rel="noopener"><b>家族や友だちに相談する</b><span>LINE で、この結果のページを送ります</span></a>' +
+    '<a class="sh-a line" data-m="invite" href="https://line.me/R/share?text=' + encodeURIComponent(msgInvite + '\n' + invite) + '" target="_blank" rel="noopener"><b>友だちにも占ってもらう</b><span>LINE で、占いのはじめのページを送ります</span></a>' +
+    '<a class="sh-a x" data-m="x" href="https://twitter.com/intent/tweet?text=' + encodeURIComponent('ガジェット占いで「' + t.name + 'タイプ」でした！ あの人にぴったりの贈り物がわかる5問') + '&url=' + encodeURIComponent(inviteX) + '" target="_blank" rel="noopener"><b>X でシェア</b><span>占いのはじめのページを紹介します</span></a>' +
+    '<p class="note">※ 贈る相手ご本人に送ると、プレゼントがバレちゃうかも。</p>';
+  Array.prototype.forEach.call($('share').querySelectorAll('.sh-a'), function(a){ a.addEventListener('click', function(){ try { if (typeof gtag === 'function') gtag('event','gift_share',{method:a.getAttribute('data-m'), gift_type:k}); } catch(_){} }); });
+  var me = $('selfTry'); if (me) me.style.display = shared ? 'inline-block' : 'none';
   show('result');
   var kids = $('result').children;
   for (var i = 0; i < kids.length; i++){ kids[i].style.setProperty('--i', i*1.5); kids[i].classList.remove('wsm-rise'); void kids[i].offsetWidth; kids[i].classList.add('wsm-rise'); }
-  try { if (typeof gtag === 'function') gtag('event','gift_type',{gift_type:k, occasion:occ}); } catch(_){}
+  if (!shared) { try { if (typeof gtag === 'function') gtag('event','gift_type',{gift_type:k, occasion:occ}); } catch(_){} }
 }
-function restart(){ show('intro'); }
+function restart(){ try { history.replaceState(null, '', location.pathname); } catch(_){} show('intro'); }
+(function(){
+  try {
+    var q = new URLSearchParams(location.search), r = q.get('r'), o = q.get('o');
+    if (r && T[r]) { if (OCC[o]) occ = o; paintResult(r, true); try { if (typeof gtag === 'function') gtag('event','gift_shared_open',{gift_type:r}); } catch(_){} }
+  } catch(_) {}
+})();
 </script>
 </body>
 </html>

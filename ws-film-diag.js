@@ -54,9 +54,9 @@
       if (w === 'eye') return {p:P.blue, why:'画面の青い光の一部をカットするフィルムです。',
         honest:'対応している機種が限られます。お使いの機種があるか、商品ページで確かめてください。'};
       if (w === 'peep') return {p:null, why:'',
-        honest:'ごめんなさい、のぞき見防止フィルムは World Select では扱っていません。外での見やすさなら、つや消しフィルムが役に立ちます。', alt:P.ag};
+        honest:'ごめんなさい、のぞき見防止フィルムは World Select では扱っていません。外での見やすさなら、つや消しフィルムが役に立ちます。', alt:P.ag, amz:{n:'iPhone のぞき見防止フィルム', q:'iPhone のぞき見防止 ガラスフィルム'}};
       return {p:null, why:'',
-        honest:'ごめんなさい、iPhone 用の光沢（クリア）フィルムは今は扱っていません。指紋や映りこみが気になるなら、つや消しフィルムがあります。', alt:P.ag};
+        honest:'ごめんなさい、iPhone 用の光沢（クリア）フィルムは今は扱っていません。指紋や映りこみが気になるなら、つや消しフィルムがあります。', alt:P.ag, amz:{n:'iPhone 光沢（クリア）ガラスフィルム', q:'iPhone ガラスフィルム 光沢 高透過'}};
     }
     if (d === 'ipad') return {p:P.ipad, why:'映りこみと指紋をへらすつや消しタイプです。',
       honest:({photo:'つや消しなので、画面がほんの少し白っぽく見えます。', eye:'ブルーライトカット専用ではなく、つや消しタイプです。', peep:'のぞき見防止ではありません。'}[w] || '') + '対応世代は商品ページで確かめてください。'};
@@ -90,6 +90,7 @@
   '.wsfd .r{background:#BF0000}.wsfd .y{background:#E60033}' +
   '.wsfd .mm{font-size:14px}.wsfd .mm b{background:linear-gradient(transparent 62%,#EADFF0 62%)}' +
   '.wsfd .lb{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--m);margin:0 0 4px}' +
+  '.wsfd .amz{margin-top:14px;padding-top:12px;border-top:1px dashed var(--l)}.wsfd .amh{font-size:13px;font-weight:700;margin:0 0 4px}.wsfd .pr{display:inline-block;background:#C8453B;color:#fff;font-size:11px;font-weight:700;border-radius:4px;padding:1px 6px;margin-right:6px}.wsfd .amz a{font-weight:700;color:#654873;text-decoration:underline}.wsfd .amn{font-size:11px;color:var(--k2);margin:4px 0 0}' +
   '.wsfd .again{appearance:none;background:none;border:0;color:var(--m);font:inherit;font-size:14px;font-weight:700;cursor:pointer;padding:6px 0;text-decoration:underline}' +
   '@keyframes wsfdUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}' +
   '.wsfd .up{animation:wsfdUp .6s var(--e) both;animation-delay:calc(var(--i,0)*.06s)}' +
@@ -117,6 +118,7 @@
     h += '<p class="hon"><b>正直ポイント：</b>' + esc(r.honest) + '</p>';
     if (r.p) h += btns(r.p, tag);
     else if (r.alt) h += '<p class="pn">' + esc(r.alt.n) + '</p>' + btns(r.alt, tag + '_alt');
+    if (r.amz) h += '<div class="amz"><p class="amh"><span class="pr">PR</span>ほかのお店で探すなら</p><a href="https://www.amazon.co.jp/s?k=' + encodeURIComponent(r.amz.q) + '&tag=mayumichi2525-22" target="_blank" rel="nofollow sponsored noopener">' + esc(r.amz.n) + ' を Amazon で探す →</a><p class="amn">World Select では扱っていない商品です。リンク先は Amazon の検索結果で、購入されると紹介料が入ります。</p></div>';
     h += '</div><div class="card mm up" style="--i:2"><p class="lb">明日だれかに言いたい豆知識</p>' + MAME[a.q1] + '</div>';
     h += '<button type="button" class="again">もう一度診断する</button>';
     root.innerHTML = '<div class="wsfd">' + h + '</div>';
