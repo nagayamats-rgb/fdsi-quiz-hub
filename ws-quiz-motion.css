@@ -1,0 +1,55 @@
+/* ws-quiz-motion.css — クイズの「動き」骨組み（試作 2026-10-03）
+   参考: fds.co.jp の動き（下から浮かぶ・時差つき・線が伸びる・同じ緩急）
+   仕組み: ws-quiz-motion.js が html に .wsm を付けた時だけ動く。JS が止まれば今の見た目のまま。 */
+:root{
+  --wsm-ease: cubic-bezier(.19,1,.22,1);   /* fds.co.jp と同じ緩急（速く出てゆっくり止まる） */
+  --wsm-ease-line: cubic-bezier(.5,0,0,1); /* 線が伸びる時の緩急 */
+  --wsm-step: .06s;                        /* 時差の刻み */
+  --wsm-line: var(--c-mauve, #8C6E9A);
+}
+
+/* ① 下から浮かぶ（設問・選択肢・結果の各部品） */
+@keyframes wsm-rise{
+  from{transform:translateY(18px);opacity:0}
+  to{transform:none;opacity:1}
+}
+.wsm .wsm-rise{animation:wsm-rise .7s var(--wsm-ease) both;animation-delay:calc(var(--i,0) * var(--wsm-step))}
+
+/* ② 設問文は「枠の下から押し上がる」（fds.co.jp の見出しと同じ型） */
+@keyframes wsm-mask{from{transform:translateY(105%)}to{transform:none}}
+.wsm .wsm-mask{display:block;overflow:clip}
+.wsm .wsm-mask>.wsm-mask-in{display:block;animation:wsm-mask .75s var(--wsm-ease) both}
+
+/* ③ 解説は上から開く（今は一瞬で出る） */
+@keyframes wsm-open{from{clip-path:inset(0 0 100% 0);opacity:.2}to{clip-path:inset(0);opacity:1}}
+.wsm .explanation.show{animation:wsm-open .55s var(--wsm-ease) both}
+
+/* ④ 正解の選択肢に下線が伸びる */
+.wsm .option{position:relative}
+.wsm .option.correct::after{content:"";position:absolute;left:16px;right:16px;bottom:8px;height:2px;
+  background:currentColor;transform-origin:left;animation:wsm-line .6s var(--wsm-ease-line) .1s both}
+@keyframes wsm-line{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+/* 不正解は小さく揺れる（1回だけ） */
+@keyframes wsm-nudge{0%,100%{transform:none}30%{transform:translateX(-4px)}60%{transform:translateX(3px)}}
+.wsm .option.wrong{animation:wsm-nudge .35s ease-out}
+
+/* ⑤ 進み具合の線も同じ緩急で */
+.wsm .progress-fill{transition:width .6s var(--wsm-ease-line)}
+
+/* ⑥ 結果: 「関連商品」の見出しの下に線が伸びて、商品ボタンへ目を運ぶ */
+.wsm .wsm-cta-label{position:relative;display:inline-block;padding-bottom:6px}
+.wsm .wsm-cta-label::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;
+  background:var(--wsm-line);transform:scaleX(0);transform-origin:left}
+.wsm .wsm-cta-label.wsm-on::after{transform:scaleX(1);transition:transform .7s var(--wsm-ease-line) .15s}
+
+/* ⑦ スクロールで入ってきたら浮かぶ（下の「World Select で探す」枠） */
+.wsm [data-wsm-reveal]{opacity:0;transform:translateY(24px)}
+.wsm [data-wsm-reveal].wsm-in{opacity:1;transform:none;
+  transition:opacity .8s var(--wsm-ease),transform .8s var(--wsm-ease)}
+
+/* 動きを減らす設定の人には一切動かさない */
+@media (prefers-reduced-motion: reduce){
+  .wsm *, .wsm *::after{animation:none !important;transition:none !important}
+  .wsm [data-wsm-reveal]{opacity:1 !important;transform:none !important}
+  .wsm .wsm-cta-label::after{transform:scaleX(1)}
+}
