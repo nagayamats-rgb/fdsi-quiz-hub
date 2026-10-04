@@ -1,8 +1,8 @@
 # World Select Quiz Hub
 
-> iPhone / iPad / Android アクセサリ（充電ケーブル・充電器・保護フィルム・ケース・カードリーダー等）の「選び方・見分け方」が学べる無料のクイズ＆診断サイト。運営は iPhone/Apple Watch アクセサリ専門のセレクトショップ「World Select」（有限会社FDSi）。全18種・426問。各クイズの結果から楽天・Yahoo!・公式ストア（worldselect.net）の該当商品へ案内します。
+> iPhone / iPad / Android アクセサリ（充電ケーブル・充電器・保護フィルム・ケース・カードリーダー等）の「選び方・見分け方」が学べる無料のクイズ＆診断サイト。運営は iPhone/Apple Watch アクセサリ専門のセレクトショップ「World Select」（有限会社FDSi）。全20種・434問。各クイズの結果から楽天・Yahoo!・公式ストア（worldselect.net）の該当商品へ案内します。
 
-## クイズ・診断（全18種）
+## クイズ・診断（全20種）
 
 - [テク雑学マラソン (100問)](https://quiz.fds.co.jp/marathon/): USB、スマートフォン、AI、宇宙技術など幅広いテーマから出題。あなたのテック知識を試しましょう
 - [ガジェット検定アカデミー (77問)](https://quiz.fds.co.jp/academy/): USB-C規格、ワイヤレス充電の仕組み、カメラ保護の知識まで。あなたはマスターになれる？
@@ -22,6 +22,8 @@
 - [保護フィルム選び方上級検定 (15問)](https://quiz.fds.co.jp/film-pro/): ガラス？TPU？アンチグレア？硬度9H？
 - [USB-Cハブ・ドック選び方検定 (15問)](https://quiz.fds.co.jp/hub-guide/): HDMI出力？LAN？電力供給？
 - [充電ケーブル検定 (10問)](https://quiz.fds.co.jp/cable-master/): 3in1・L字コネクタ・eMarker・USB PD3.1・USB4/Thunderboltまで、買い物前に知っておきたい規格の違いがわかります
+- [ガジェット占い (5問)](https://quiz.fds.co.jp/gift-uranai/): 贈る相手のクセを5つ選ぶだけ。7つのタイプから、ぴったりの贈り物ガジェットと豆知識がわかります
+- [あなたに合うフィルム診断 (2〜3問)](https://quiz.fds.co.jp/film-diag/): つや消し（アンチグレア）・ブルーライトカット・のぞき見防止のどれが合うか、弱点も正直に提案します
 
 ## リンク集
 
