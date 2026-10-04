@@ -507,6 +507,7 @@ document.addEventListener("click",function(e){
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Quiz Hub","item":"https://quiz.fds.co.jp/"},{"@type":"ListItem","position":2,"name":"充電スタイル診断","item":"https://quiz.fds.co.jp/charging/"}]}
 </script>
 <!-- /WS_SCHEMA_BC -->
+<link rel="stylesheet" href="../ws-quiz-motion.css">
 </head>
 <body>
 <!-- WS_BREADCRUMB -->
@@ -537,7 +538,7 @@ document.addEventListener("click",function(e){
         <h1 style="font-size: 32px; font-weight: 700; margin-bottom: 12px; color: var(--c-text);">充電スタイル診断</h1>
         <p style="font-size: 16px; color: var(--c-text2); margin-bottom: 30px;">あなたの充電スタイルをチェック！</p>
         <p style="font-size: 14px; color: var(--c-text3); margin-bottom: 40px; line-height: 1.8;">
-          15の質問に答えるだけで、あなたの充電スタイルがわかります。<br>ミニマリスト派？パワフル派？マルチデバイス派？モバイル派？
+          7つの質問に答えるだけで、あなたの充電スタイルがわかります。<br>ミニマリスト派？パワフル派？マルチデバイス派？モバイル派？
         </p>
         <button class="btn btn-primary" id="startBtn" style="max-width: 100%;">診断をはじめる</button>
       </div>
@@ -546,11 +547,11 @@ document.addEventListener("click",function(e){
     <!-- QUIZ SCREEN -->
     <div class="screen" id="quizScreen">
       <div class="quiz__bar"><div class="container">
-        <div class="quiz__barrow"><span class="qcount"><b id="progressText">Question 1 / 15</b></span><span class="quiz__title-mini">充電スタイル診断</span></div>
+        <div class="quiz__barrow"><span class="qcount"><b id="progressText">Question 1 / 7</b></span><span class="quiz__title-mini">充電スタイル診断</span></div>
         <div class="progress"><div class="progress__fill" id="progressFill"></div></div>
       </div></div>
       <div class="container"><div class="quiz__grid">
-        <aside class="quiz__aside"><div class="quiz__bignum">CHARGE<b>診断</b></div><div class="quiz__asidecard"><span class="badge">充電スタイル診断</span><p>15問であなたの充電スタイルを判定します。</p><div class="quiz__visual" aria-hidden="true"></div></div></aside>
+        <aside class="quiz__aside"><div class="quiz__bignum">CHARGE<b>診断</b></div><div class="quiz__asidecard"><span class="badge">充電スタイル診断</span><p>7問であなたの充電スタイルを判定します。</p><div class="quiz__visual" aria-hidden="true"></div></div></aside>
         <section class="question">
           <h2 class="question__h" id="questionTitle"></h2>
           <div class="options-grid" id="optionsGrid"></div>
@@ -683,11 +684,11 @@ document.addEventListener("click",function(e){
     <div class="footer-col">
       <div class="footer-col-title">&#127918; &#12463;&#12452;&#12474;</div>
     <a href="/marathon/">&#127939; テク雑学マラソン (100問)</a>
-    <a href="/academy/">&#127891; ガジェット検定 (60問)</a>
-    <a href="/digital/">&#128200; デジタル偏差値 (15問)</a>
-    <a href="/travel/">&#9992; 旅行スタイル診断 (10問)</a>
-    <a href="/survival/">&#128680; 旅先サバイバル (3分岐)</a>
-    <a href="/gadget/">&#129504; ガジェットオタク度 (10問)</a>
+    <a href="/academy/">&#127891; ガジェット検定 (77問)</a>
+    <a href="/digital/">&#128200; デジタル偏差値 (24問)</a>
+    <a href="/travel/">&#9992; 旅行スタイル診断 (15問)</a>
+    <a href="/survival/">&#128680; 旅先サバイバル (20問)</a>
+    <a href="/gadget/">&#129504; ガジェットオタク度 (20問)</a>
     <a href="/charging-master/">&#128267; 充電マスター検定 (25問)</a>
     <a href="/film/">&#128241; フィルム選び方クイズ (10問)</a>
     <a href="/charge-finder/">&#128279; 最適ケーブル診断 (8問)</a>
@@ -905,16 +906,16 @@ document.addEventListener("click",function(e){
       var savedTheme = localStorage.getItem('ws-theme');
       if (savedTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
-        document.getElementById('themeToggle').textContent = '&#9790;';
+        document.getElementById('themeToggle').textContent = '\u263E';
       } else if (savedTheme === 'light') {
         document.documentElement.setAttribute('data-theme', 'light');
-        document.getElementById('themeToggle').textContent = '&#9788;';
+        document.getElementById('themeToggle').textContent = '\u263C';
       } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.setAttribute('data-theme', 'dark');
-        document.getElementById('themeToggle').textContent = '&#9790;';
+        document.getElementById('themeToggle').textContent = '\u263E';
       } else {
         document.documentElement.setAttribute('data-theme', 'light');
-        document.getElementById('themeToggle').textContent = '&#9788;';
+        document.getElementById('themeToggle').textContent = '\u263C';
       }
     }
 
@@ -1359,317 +1360,9 @@ body{
 </head>
 <body>
 
-<button class="theme-toggle" id="themeToggle" aria-label="テーマ切替">
-  <span class="icon-sun">&#9788;</span>
-  <span class="icon-moon">&#9790;</span>
-</button>
+<!-- 2026-10-04 削除: 同じIDを持つ旧版の診断（15問・14問分のデータ）が本文の後ろに重なって入っており、
+     上の診断の最後でエラーになり結果画面に進めなかった。表示される診断（7問）だけを残した。 -->
 
-<div class="page-wrapper">
-  <div class="quiz-card">
-    <div id="quizScreen">
-      <h1 class="quiz-title">充電スタイル診断</h1>
-      <p class="quiz-subtitle">15問であなたの充電ライフスタイルを診断</p>
-
-      <div class="progress-wrap">
-        <div class="progress-label">
-          <span class="progress-step" id="pStep">1 / 15</span>
-          <span class="progress-pct" id="pPct">7%</span>
-        </div>
-        <div class="progress-track">
-          <div class="progress-fill" id="pBar" style="width:14.3%"></div>
-        </div>
-      </div>
-
-      <div class="q-section" id="qSection">
-        <div class="q-badge" id="qBadge">Q1</div>
-        <div class="q-text" id="qText"></div>
-        <div class="options" id="opts"></div>
-      </div>
-
-      <div class="btn-row">
-        <button class="btn btn-ghost hidden" id="prevBtn">&#8592; 戻る</button>
-        <button class="btn btn-primary" id="nextBtn" disabled>次へ &#8594;</button>
-      </div>
-    </div>
-
-    <div id="resultScreen" class="result hidden">
-      <h2>診断結果</h2>
-      <p class="result-sub">あなたの充電ライフスタイルは</p>
-
-      <div class="type-card">
-        <div class="type-icon" id="typeIcon"></div>
-        <div class="type-title" id="typeTitle"></div>
-        <div class="type-sub" id="typeSub"></div>
-        <div class="type-desc" id="typeDesc"></div>
-      </div>
-
-      <div class="advice">
-        <div class="advice-title">おすすめの充電器</div>
-        <div id="adviceText"></div>
-      </div>
-
-      <div class="products">
-        <div class="products-title">World Select で見つけよう</div>
-        <div class="product-list" id="productList"></div>
-      </div>
-
-      <div class="share-row">
-        <a class="share-btn share-x" id="shareX" target="_blank" rel="noopener">&#120143; シェア</a>
-        <a class="share-btn share-line" id="shareLine" target="_blank" rel="noopener">LINE シェア</a>
-      </div>
-
-      <div class="act-row">
-        <button class="act-btn act-retake" onclick="location.reload()">もう一度やる</button>
-        <a class="act-btn act-hub" href="/">Quiz Hub に戻る</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<script>
-(function(){
-  var toggle = document.getElementById('themeToggle');
-  var html = document.documentElement;
-  var saved = localStorage.getItem('ws-theme');
-  if(saved) html.setAttribute('data-theme', saved);
-
-  toggle.addEventListener('click', function(){
-    var isDark = html.getAttribute('data-theme') === 'dark' ||
-      (!html.hasAttribute('data-theme') && window.matchMedia('(prefers-color-scheme:dark)').matches);
-    var next = isDark ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem('ws-theme', next);
-  });
-})();
-
-var Q = [
-  {t:"普段使っているデバイスは？", o:[
-    {icon:"&#128241;",text:"iPhoneだけ",s:{m:2,p:0,u:0,b:1}},
-    {icon:"&#8986;",text:"iPhone + Apple Watch",s:{m:0,p:0,u:2,b:1}},
-    {icon:"&#127911;",text:"iPhone + AirPods + Apple Watch",s:{m:0,p:0,u:3,b:1}},
-    {icon:"&#128187;",text:"iPhone + iPad or MacBook",s:{m:0,p:2,u:1,b:1}}
-  ]},
-  {t:"1日のスマホ使用時間は？", o:[
-    {icon:"&#128564;",text:"2時間以下",s:{m:3,p:0,u:0,b:0}},
-    {icon:"&#128522;",text:"3〜5時間",s:{m:1,p:1,u:1,b:1}},
-    {icon:"&#128517;",text:"6時間以上",s:{m:0,p:3,u:1,b:2}},
-    {icon:"&#129327;",text:"ほぼ一日中",s:{m:0,p:3,u:1,b:3}}
-  ]},
-  {t:"外出先でバッテリーが切れた経験は？", o:[
-    {icon:"&#9989;",text:"ほとんどない",s:{m:2,p:1,u:0,b:0}},
-    {icon:"&#128528;",text:"たまにある",s:{m:0,p:1,u:1,b:2}},
-    {icon:"&#128561;",text:"しょっちゅう…",s:{m:0,p:2,u:0,b:3}},
-    {icon:"&#128267;",text:"モバブ常備で大丈夫",s:{m:0,p:1,u:0,b:3}}
-  ]},
-  {t:"充電するタイミングは？", o:[
-    {icon:"&#127769;",text:"寝る前にポンと置くだけ",s:{m:3,p:0,u:1,b:0}},
-    {icon:"&#9889;",text:"減ったらすぐ急速充電！",s:{m:0,p:3,u:0,b:1}},
-    {icon:"&#128268;",text:"デスクで常につなぎっぱなし",s:{m:0,p:2,u:2,b:0}},
-    {icon:"&#127919;",text:"隙間時間にちょこちょこ",s:{m:1,p:1,u:1,b:2}}
-  ]},
-  {t:"デスク周りのケーブル状況は？", o:[
-    {icon:"&#10024;",text:"ケーブルレス！ワイヤレス派",s:{m:3,p:0,u:1,b:0}},
-    {icon:"&#128207;",text:"必要最低限でスッキリ",s:{m:2,p:1,u:0,b:0}},
-    {icon:"&#127744;",text:"正直カオス…",s:{m:0,p:1,u:2,b:0}},
-    {icon:"&#127968;",text:"デスクより外出先が多い",s:{m:0,p:0,u:0,b:3}}
-  ]},
-  {t:"充電器に一番求めることは？", o:[
-    {icon:"&#127912;",text:"見た目がスマート",s:{m:3,p:0,u:0,b:0}},
-    {icon:"&#128640;",text:"とにかく速い！",s:{m:0,p:3,u:0,b:1}},
-    {icon:"&#129302;",text:"複数デバイスを一度に充電",s:{m:0,p:0,u:3,b:0}},
-    {icon:"&#127890;",text:"持ち運びやすさ",s:{m:0,p:0,u:0,b:3}}
-  ]},
-  {t:"旅行や出張の頻度は？", o:[
-    {icon:"&#127968;",text:"ほぼ家にいる",s:{m:2,p:1,u:1,b:0}},
-    {icon:"&#128643;",text:"通勤・通学で毎日移動",s:{m:0,p:1,u:0,b:2}},
-    {icon:"&#9992;",text:"月に1〜2回は遠出",s:{m:0,p:0,u:0,b:3}},
-    {icon:"&#127758;",text:"出張族/旅行大好き",s:{m:0,p:0,u:0,b:3}}
-  ]},
-  {t:"旅行先でのスマホ充電、あなたのスタイルは？", o:[
-    {icon:"&#127769;",text:"ホテルに着いたら普通に充電",s:{m:2,p:0,u:0,b:1}},
-    {icon:"&#128179;",text:"モバイルバッテリーは必須",s:{m:0,p:1,u:0,b:3}},
-    {icon:"&#128268;",text:"3in1ケーブルで全デバイス一本化",s:{m:0,p:0,u:3,b:0}},
-    {icon:"&#9889;",text:"240W急速充電でカフェ滞在10分",s:{m:0,p:3,u:0,b:1}}
-  ]},
-  {t:"ベッドサイドの充電環境は？", o:[
-    {icon:"&#10024;",text:"枕元にケーブル1本あれば十分",s:{m:3,p:0,u:0,b:0}},
-    {icon:"&#128187;",text:"スマホとイヤホンの2本は常備",s:{m:0,p:0,u:1,b:1}},
-    {icon:"&#8986;",text:"MagSafe充電器でワイヤレス派",s:{m:2,p:0,u:0,b:0}},
-    {icon:"&#128267;",text:"3in1スタンドでiPhone+Watch+AirPods同時",s:{m:0,p:0,u:3,b:0}}
-  ]},
-  {t:"ケーブルの見た目、気にする？", o:[
-    {icon:"&#128640;",text:"使えればなんでもいい",s:{m:1,p:2,u:0,b:0}},
-    {icon:"&#127912;",text:"色は揃えたいかな",s:{m:2,p:0,u:1,b:0}},
-    {icon:"&#10003;",text:"LED付きや回転コネクタが好き",s:{m:1,p:1,u:1,b:0}},
-    {icon:"&#128566;",text:"ケーブルマネジメントは美学",s:{m:3,p:0,u:1,b:0}}
-  ]},
-  {t:"カフェで仕事中、コンセントが1つしかない。どうする？", o:[
-    {icon:"&#9989;",text:"スマホの充電は帰ってから",s:{m:2,p:0,u:0,b:0}},
-    {icon:"&#128525;",text:"PCだけ充電する",s:{m:0,p:3,u:0,b:0}},
-    {icon:"&#127763;",text:"2in1ケーブルでPCとスマホ同時",s:{m:0,p:1,u:2,b:0}},
-    {icon:"&#128512;",text:"USB-Cハブで全デバイス給電",s:{m:0,p:2,u:2,b:1}}
-  ]},
-  {t:"新幹線での過ごし方と充電は？", o:[
-    {icon:"&#128521;",text:"スマホだけ充電できれば十分",s:{m:3,p:0,u:0,b:0}},
-    {icon:"&#128536;",text:"PCも充電したい",s:{m:0,p:2,u:0,b:0}},
-    {icon:"&#128512;",text:"PC+スマホ+イヤホン全部充電",s:{m:0,p:0,u:3,b:0}},
-    {icon:"&#9889;",text:"USB-C PD対応アダプタで最速充電",s:{m:0,p:3,u:0,b:0}}
-  ]},
-  {t:"充電ケーブルを選ぶ時、最も重視するのは？", o:[
-    {icon:"&#128176;",text:"価格が安いこと",s:{m:3,p:0,u:0,b:0}},
-    {icon:"&#128207;",text:"長さがちょうどいいこと",s:{m:1,p:1,u:1,b:1}},
-    {icon:"&#128640;",text:"急速充電（PD）対応であること",s:{m:0,p:3,u:1,b:0}},
-    {icon:"&#9099;",text:"Thunderbolt対応で映像出力も可能",s:{m:0,p:2,u:0,b:2}}
-  ]},
-  {t:"理想の充電環境を一言で表すと？", o:[
-    {icon:"&#10024;",text:"シンプル・イズ・ベスト",s:{m:3,p:0,u:0,b:0}},
-    {icon:"&#128075;",text:"便利で快適",s:{m:0,p:2,u:2,b:1}},
-    {icon:"&#128187;",text:"ワイヤレスでスマート",s:{m:2,p:0,u:2,b:0}},
-    {icon:"&#9889;",text:"最速・最効率・全自動",s:{m:0,p:3,u:0,b:2}}
-  ]}
-];
-
-var TYPES = {
-  m:{title:"ミニマリスト充電派",sub:"Less is More. シンプルが一番。",icon:"&#10024;",
-    desc:"充電環境もスッキリ派。ケーブルのゴチャゴチャが嫌いで、ワイヤレスで「置くだけ」がベスト。必要最小限のアイテムでスマートに暮らしたいタイプ。",
-    advice:"MagSafe対応ワイヤレス充電器なら、ケーブル1本でデスクがスッキリ。スタンド型なら時計代わりにも。<div class=\"exp-link\"><a href=\"https://worldselect.net/products/magsafe-charger-2?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charging\" target=\"_blank\" rel=\"noopener\">▶ MagSafe充電スタンドをチェック</a></div> <a href=\"https://store.shopping.yahoo.co.jp/world1select/ws-magsafe-charger-15w-2.html?utm_source=fds_quiz&utm_medium=quiz_ec_link&utm_campaign=charging\" target=\"_blank\" style=\"display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:12px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle\">Yahoo</a>",
-    products:["MagSafe ワイヤレス充電スタンド","MagSafe ウォレット","Apple 純正 USB-C充電ケーブル"]},
-  p:{title:"パワフル急速充電派",sub:"Speed is Justice. 速さこそ正義。",icon:"&#9889;",
-    desc:"バッテリー残量20%からの急速充電が日常。30分でどれだけ回復できるかが勝負。PD対応は必須条件。",
-    advice:"60W〜100WのPD対応充電器と高品質ケーブルの組み合わせが鍵。ケーブルがボトルネックのケースも多い。<div class=\"exp-link\"><a href=\"https://worldselect.net/products/cable-240w-stand-usbc?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charging\" target=\"_blank\" rel=\"noopener\">▶ 240W USB-Cケーブルをチェック</a></div> <a href=\"https://search.rakuten.co.jp/search/mall/cable-240w-stand-usbc/?sid=400067&utm_source=fds_quiz&utm_medium=quiz_ec_link&utm_campaign=charging\" target=\"_blank\" style=\"display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:12px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle\">楽天</a> <a href=\"https://store.shopping.yahoo.co.jp/world1select/cable-240w-stand-usbc.html?utm_source=fds_quiz&utm_medium=quiz_ec_link&utm_campaign=charging\" target=\"_blank\" style=\"display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:12px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle\">Yahoo</a>",
-    products:["USB-C PD 65W急速充電器","USB-C ナイロン編みケーブル（2m）","USB-C 対応モバイルバッテリー 25000mAh"]},
-  u:{title:"マルチデバイス充電派",sub:"All in One. 全部まとめて充電。",icon:"&#128267;",
-    desc:"iPhone、Apple Watch、AirPods…Appleデバイスだらけ。「全部1台で充電できたら」が口癖のあなた。",
-    advice:"3in1充電ステーションで寝る前にポンポンポン。朝にはすべてフル充電でデスクもスッキリ。<div class=\"exp-link\"><a href=\"https://worldselect.net/products/60w-6in1cable?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charging\" target=\"_blank\" rel=\"noopener\">▶ マルチケーブルをチェック</a></div> <a href=\"https://store.shopping.yahoo.co.jp/world1select/60w-6in1cable.html?utm_source=fds_quiz&utm_medium=quiz_ec_link&utm_campaign=charging\" target=\"_blank\" style=\"display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:12px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle\">Yahoo</a>",
-    products:["3in1 充電スタンド（iPhone + Watch + AirPods）","Lightning to USB-C ケーブル","USB-C ハブ（複数ポート対応）"]},
-  b:{title:"外出モバイル充電派",sub:"Always Ready. いつでもフル充電。",icon:"&#127758;",
-    desc:"移動が多いあなたにとってバッテリー切れは死活問題。モバイルバッテリーはお守りのような存在。",
-    advice:"軽量かつ大容量のモバイルバッテリーと短めケーブルの組み合わせが最強。<div class=\"exp-link\"><a href=\"https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=charging\" target=\"_blank\" rel=\"noopener\">▶ モバイルバッテリーをチェック</a></div>",
-    products:["モバイルバッテリー 20000mAh（軽量コンパクト）","USB-C ケーブル 1m（ポーチ用）","カラビナ付きケーブル巻き取り機"]}
-};
-
-var cur = 0, ans = new Array(15);
-
-function render(){
-  var q = Q[cur];
-  document.getElementById('qBadge').textContent = 'Q' + (cur+1);
-  document.getElementById('qText').textContent = q.t;
-  document.getElementById('pStep').textContent = (cur+1) + ' / 15';
-  var pct = Math.round((cur+1)/15*100);
-  document.getElementById('pPct').textContent = pct + '%';
-  document.getElementById('pBar').style.width = pct + '%';
-
-  var c = document.getElementById('opts');
-  c.innerHTML = '';
-  for (var i = 0; i < q.o.length; i++) {
-    var opt = q.o[i];
-    var d = document.createElement('div');
-    d.className = 'opt' + (ans[cur] === i ? ' selected' : '');
-    d.setAttribute('data-oidx', i);
-    d.innerHTML = '<div class="opt-header"><div class="opt-radio"></div><div class="opt-icon">' + opt.icon + '</div><div class="opt-content"><div class="opt-label">' + opt.text + '</div></div></div>';
-    c.appendChild(d);
-  }
-
-  var sec = document.getElementById('qSection');
-  sec.style.animation = 'none';
-  sec.offsetHeight;
-  sec.style.animation = 'fadeUp .35s ease-out';
-
-  var pb = document.getElementById('prevBtn');
-  pb.classList.toggle('hidden', cur === 0);
-  var nb = document.getElementById('nextBtn');
-  nb.disabled = ans[cur] === undefined;
-  nb.innerHTML = cur === 14 ? '結果を見る &#10003;' : '次へ &#8594;';
-}
-
-document.getElementById('nextBtn').onclick = function(){
-  if(cur < 14){ cur++; render(); }
-  else showResult();
-};
-document.getElementById('prevBtn').onclick = function(){
-  if(cur > 0){ cur--; render(); }
-};
-
-/* iOS Safari touch event delegation for style quiz */
-(function(){
-  var optsEl = document.getElementById('opts');
-  var touchMoved = false;
-  optsEl.addEventListener('touchstart', function(){ touchMoved = false; }, false);
-  optsEl.addEventListener('touchmove', function(){ touchMoved = true; }, false);
-  optsEl.addEventListener('touchend', function(e){
-    if(touchMoved) return;
-    var t = e.target;
-    while(t && t !== optsEl){
-      if(t.getAttribute('data-oidx') !== null){
-        e.preventDefault();
-        ans[cur] = parseInt(t.getAttribute('data-oidx'), 10);
-        render();
-        return;
-      }
-      t = t.parentNode;
-    }
-  }, false);
-  optsEl.addEventListener('click', function(e){
-    var t = e.target;
-    while(t && t !== optsEl){
-      if(t.getAttribute('data-oidx') !== null){
-        ans[cur] = parseInt(t.getAttribute('data-oidx'), 10);
-        render();
-        return;
-      }
-      t = t.parentNode;
-    }
-  }, false);
-})();
-
-function showResult(){
-  var scores = {m:0, p:0, u:0, b:0};
-  for(var i=0; i<15; i++){
-    var opt = Q[i].o[ans[i]];
-    scores.m += opt.s.m;
-    scores.p += opt.s.p;
-    scores.u += opt.s.u;
-    scores.b += opt.s.b;
-  }
-
-  var winner = 'm';
-  var maxScore = scores.m;
-  for(var key in scores){
-    if(scores[key] > maxScore){
-      maxScore = scores[key];
-      winner = key;
-    }
-  }
-
-  var type = TYPES[winner];
-
-  document.getElementById('quizScreen').classList.add('hidden');
-  document.getElementById('resultScreen').classList.remove('hidden');
-
-  document.getElementById('typeIcon').textContent = type.icon;
-  document.getElementById('typeTitle').textContent = type.title;
-  document.getElementById('typeSub').textContent = type.sub;
-  document.getElementById('typeDesc').textContent = type.desc;
-  document.getElementById('adviceText').innerHTML = type.advice;
-
-  var pl = document.getElementById('productList');
-  pl.innerHTML = type.products.map(p => `<div class="product-item">${p}</div>`).join('');
-
-  var msg = '充電スタイル診断で「' + type.title + '」でした！';
-  var url = 'https://quiz.fds.co.jp/charging/';
-  document.getElementById('shareX').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(msg) + '%20' + url;
-  document.getElementById('shareLine').href = 'https://line.me/R/msg/text/' + encodeURIComponent(msg + ' ' + url);
-
-  fetch(window.location.href, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    body: 'result_type=' + winner
-  });
-}
-
-render();
-</script>
 
 <style id="ws-violet-redesign">/*WS_VIOLET_REDESIGN*/
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Red+Hat+Display:wght@700;800&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap');
@@ -1697,5 +1390,6 @@ h1,h2,h3,h4,.q-text,.q-title,.qtext,.question-text,.question,.card-title,.hero-t
   .options-grid,.options,.opts{max-width:760px;margin-left:auto;margin-right:auto}
 }
 </style>
+<script src="../ws-quiz-motion.js"></script>
 </body>
 </html>

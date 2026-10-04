@@ -82,7 +82,6 @@
       padding: 20px;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
     }
     .header {
       display: flex;
@@ -144,7 +143,8 @@
       opacity: 1;
       transition: opacity 0.3s, transform 0.3s;
     }
-    .question-section.hidden {
+    .question-section.hidden,
+    .result-screen.hidden {
       display: none;
     }
     .question-title {
@@ -477,6 +477,7 @@ document.addEventListener("click",function(e){
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Quiz Hub","item":"https://quiz.fds.co.jp/"},{"@type":"ListItem","position":2,"name":"旅行スタイル診断","item":"https://quiz.fds.co.jp/travel/"}]}
 </script>
 <!-- /WS_SCHEMA_BC -->
+<link rel="stylesheet" href="../ws-quiz-motion.css">
 </head>
 <body>
 <!-- WS_BREADCRUMB -->
@@ -506,7 +507,7 @@ document.addEventListener("click",function(e){
 
       <div id="questionScreen" class="question-section">
         <div class="quiz__grid">
-          <aside class="quiz__aside"><div class="quiz__bignum">TRAVEL<b>診断</b></div><div class="quiz__asidecard"><span class="badge">旅行スタイル診断</span><p>10問であなたの旅行タイプを判定します。</p><div class="quiz__visual" aria-hidden="true"></div></div></aside>
+          <aside class="quiz__aside"><div class="quiz__bignum">TRAVEL<b>診断</b></div><div class="quiz__asidecard"><span class="badge">旅行スタイル診断</span><p>15問であなたの旅行タイプを判定します。</p><div class="quiz__visual" aria-hidden="true"></div></div></aside>
           <section class="question">
             <h2 class="question__h" id="questionText"></h2>
             <div class="options" id="optionsContainer"></div>
@@ -549,7 +550,7 @@ document.addEventListener("click",function(e){
               <div class="prod-name">2in1 USB-C &amp; Lightning 100Wケーブル</div>
               <div class="prod-desc">予備ケーブルに最適。急速充電でスマホもPCも対応</div>
               <div class="prod-links">
-                公式ストア
+                <a href="https://worldselect.net/?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel" target="_blank" rel="noopener" class="prod-a prod-s">公式ストア</a>
                 <a href="https://www.rakuten.co.jp/world11select/?utm_source=fds_quiz&utm_medium=quiz_ec_link&utm_campaign=travel" target="_blank" rel="noopener" class="prod-a prod-r">楽天</a>
                 <a href="https://store.shopping.yahoo.co.jp/world1select/?utm_source=fds_quiz&utm_medium=quiz_ec_link&utm_campaign=travel" target="_blank" rel="noopener" class="prod-a prod-y">Yahoo!</a>
               </div>
@@ -779,7 +780,7 @@ document.addEventListener("click",function(e){
         name: 'ソロ探検家タイプ',
         icon: '🧘',
         color: '#6366f1',
-        description: '自分だけの時間と空間を大切にする旅人。秘境や穴場を見つける才能があります。<span class=<span class=\"exp-link\"><a href=\"https://worldselect.net/products/ws101?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel\" target=\"_blank\" rel=\"noopener\">\u25b6 USBポート付きビジネスリュックを見る</a> <a href=\"https://item.rakuten.co.jp/world11select/ws101/?utm_source=fds_quiz&utm_medium=quiz_ec_link&utm_campaign=travel\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle\">楽天</a><a href=\"https://store.shopping.yahoo.co.jp/world1select/ws101.html?utm_source=fds_quiz&utm_medium=quiz_ec_link&utm_campaign=travel\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle\">Yahoo!</a></span>"exp-link"><a href="https://worldselect.net/products/dogtravel-1?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel" target="_blank" rel="noopener">▶ ペット旅行グッズ</a></span>'
+        description: '自分だけの時間と空間を大切にする旅人。秘境や穴場を見つける才能があります。<span class="exp-link"><a href=\"https://worldselect.net/products/ws101?utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=travel\" target=\"_blank\" rel=\"noopener\">\u25b6 USBポート付きビジネスリュックを見る</a> <a href=\"https://item.rakuten.co.jp/world11select/ws101/?utm_source=fds_quiz&utm_medium=quiz_ec_link&utm_campaign=travel\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:4px;vertical-align:middle\">楽天</a><a href=\"https://store.shopping.yahoo.co.jp/world1select/ws101.html?utm_source=fds_quiz&utm_medium=quiz_ec_link&utm_campaign=travel\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:2px 8px;background:#dc2626;color:#fff;border-radius:99px;font-size:10px;font-weight:700;text-decoration:none;margin-left:2px;vertical-align:middle\">Yahoo!</a></span>'
       },
       active: {
         name: 'アクティブ冒険家タイプ',
@@ -902,7 +903,6 @@ document.addEventListener("click",function(e){
       document.getElementById('resultBadge').style.backgroundColor = result.color;
       document.getElementById('resultBadge').textContent = result.icon;
       document.getElementById('resultType').textContent = result.name;
-      document.getElementById('resultType').style.color = result.color;
       document.getElementById('resultDescription').innerHTML = result.description;
 
       var shareText = '私は「' + result.name + '」でした！あなたの旅行スタイルは？ #旅行スタイル診断';
@@ -1033,11 +1033,11 @@ document.addEventListener("click",function(e){
     <div class="footer-col">
       <div class="footer-col-title">&#127918; &#12463;&#12452;&#12474;</div>
     <a href="/marathon/">&#127939; テク雑学マラソン (100問)</a>
-    <a href="/academy/">&#127891; ガジェット検定 (60問)</a>
-    <a href="/digital/">&#128200; デジタル偏差値 (15問)</a>
-    <a href="/survival/">&#128680; 旅先サバイバル (3分岐)</a>
+    <a href="/academy/">&#127891; ガジェット検定 (77問)</a>
+    <a href="/digital/">&#128200; デジタル偏差値 (24問)</a>
+    <a href="/survival/">&#128680; 旅先サバイバル (20問)</a>
     <a href="/charging/">&#128267; 充電スタイル診断 (7問)</a>
-    <a href="/gadget/">&#129504; ガジェットオタク度 (10問)</a>
+    <a href="/gadget/">&#129504; ガジェットオタク度 (20問)</a>
     <a href="/charging-master/">&#128267; 充電マスター検定 (25問)</a>
     <a href="/film/">&#128241; フィルム選び方クイズ (10問)</a>
     <a href="/charge-finder/">&#128279; 最適ケーブル診断 (8問)</a>
@@ -1065,5 +1065,6 @@ document.addEventListener("click",function(e){
   </div>
 </div>
 </footer>
+<script src="../ws-quiz-motion.js"></script>
 </body>
 </html>

@@ -22,16 +22,21 @@
 
 /* ③ 解説は上から開く（今は一瞬で出る） */
 @keyframes wsm-open{from{clip-path:inset(0 0 100% 0);opacity:.2}to{clip-path:inset(0);opacity:1}}
-.wsm .explanation.show{animation:wsm-open .55s var(--wsm-ease) both}
+.wsm .explanation.show,.wsm .explanation-box.show{animation:wsm-open .55s var(--wsm-ease) both}
+/* 次へボタンが「解答後に現れる」型（marathon / academy） */
+.wsm .next-button.show,.wsm #quizButtons .button{animation:wsm-rise .5s var(--wsm-ease) both}
 
 /* ④ 正解の選択肢に下線が伸びる */
-.wsm .option{position:relative}
-.wsm .option.correct::after{content:"";position:absolute;left:16px;right:16px;bottom:8px;height:2px;
+.wsm .option,.wsm .option-button{position:relative}
+.wsm .option.correct::after,.wsm .option-button.correct::after{content:"";position:absolute;left:16px;right:16px;bottom:8px;height:2px;
   background:currentColor;transform-origin:left;animation:wsm-line .6s var(--wsm-ease-line) .1s both}
 @keyframes wsm-line{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 /* 不正解は小さく揺れる（1回だけ） */
 @keyframes wsm-nudge{0%,100%{transform:none}30%{transform:translateX(-4px)}60%{transform:translateX(3px)}}
-.wsm .option.wrong{animation:wsm-nudge .35s ease-out}
+.wsm .option.wrong,.wsm .option.incorrect,.wsm .option-button.wrong{animation:wsm-nudge .35s ease-out}
+/* 診断型（正誤なし）: 選んだ選択肢が小さく弾む */
+@keyframes wsm-pop{0%{transform:scale(.97)}60%{transform:scale(1.015)}100%{transform:none}}
+.wsm .option-btn.selected,.wsm .op.sel,.wsm .option.selected:not(.correct):not(.wrong):not(.incorrect){animation:wsm-pop .32s var(--wsm-ease)}
 
 /* ⑤ 進み具合の線も同じ緩急で */
 .wsm .progress-fill{transition:width .6s var(--wsm-ease-line)}
