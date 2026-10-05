@@ -178,12 +178,46 @@ document.addEventListener("click",function(e){
   footer{text-align:center;margin-top:30px;padding-top:16px;border-top:1px solid var(--g-line);font-size:12px;color:var(--g-ink2)}
   footer a{color:var(--g-ink2)}
   @media (prefers-reduced-motion: reduce){.occ button,.dots i{transition:none}}
+
+  /* 2026-10-06 線アイコン化＋文字の段差（ロカブル準拠） */
+  :root{--g-head:#262B36;--g-body:#4E5462;--g-sub:#7A808C}
+  .wsi{display:block}
+  .logo{display:flex;align-items:center;gap:6px}.logo .wsi{width:20px;height:20px}
+  h1{color:var(--g-head);font-weight:800;letter-spacing:-.01em}
+  .lead{color:var(--g-body)}
+  .label{color:var(--g-head);font-size:15px}
+  .occ button{color:var(--g-head)}
+  .occ button span{display:grid;place-items:center;width:44px;height:44px;margin:0 auto 8px;border-radius:14px;background:var(--g-tint);color:var(--g-main);font-size:0}
+  .occ button span .wsi{width:24px;height:24px}
+  .qtext{color:var(--g-head);font-weight:800;font-size:21px;letter-spacing:-.01em}
+  .opts button{color:var(--g-head);font-weight:500}
+  .opts button .em{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--g-tint);color:var(--g-main);font-size:0}
+  .opts button .em .wsi{width:22px;height:22px}
+  .opts button.picked .em{background:rgba(255,255,255,.18);color:#fff}
+  .res-name{color:var(--g-head)}
+  .res-name .em{display:grid;place-items:center;width:76px;height:76px;margin:6px auto 12px;border-radius:24px;background:#fff;color:var(--g-main);box-shadow:0 8px 24px -10px rgba(136,97,154,.55);font-size:0}
+  .res-name .em .wsi{width:38px;height:38px;stroke-width:1.6}
+  .res-name small{font-size:13px;font-weight:500;color:var(--g-sub);letter-spacing:.06em}
+  .res-trait{color:var(--g-body)}
+  .mame h2,.gift h2{display:flex;align-items:center;gap:8px;font-size:17px;letter-spacing:0;color:var(--g-head);font-weight:800;margin:0 0 10px}
+  .mame h2::before,.gift h2::before{content:"";width:4px;height:18px;border-radius:2px;background:var(--g-main);flex:none}
+  .mame p,.gift .why{color:var(--g-body);line-height:1.85}
+  .gift .pname{color:var(--g-head)}
+  .gift .price,.note,.oth-w,.res-occ{color:var(--g-sub)}
+  .bubble{color:var(--g-body)}
+
+  .res-name .tyimg{display:block;width:176px;height:176px;margin:4px auto 12px;object-fit:contain;background:#fff;border-radius:36px;padding:6px;box-shadow:0 10px 28px -14px rgba(136,97,154,.6)}
+  .types{margin-top:26px}
+  .types-h{font-size:15px;font-weight:800;color:var(--g-head);margin:0 0 10px;text-align:center}
+  .types-row{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px 6px}
+  .types-row li{text-align:center;font-size:12px;color:var(--g-sub);font-weight:500}
+  .types-row img{display:block;width:72px;height:72px;margin:0 auto 4px;object-fit:contain;background:#fff;border-radius:18px;padding:3px}
 </style>
 </head>
 <body>
 <div class="wrap">
   <nav class="crumb" aria-label="パンくずリスト"><a href="/">Quiz Hub</a> › ガジェット占い</nav>
-  <div class="top"><div class="logo">🧩 Quiz Hub</div><a href="/">← 一覧に戻る</a></div>
+  <div class="top"><div class="logo"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z" /></svg>Quiz Hub</div><a href="/">← 一覧に戻る</a></div>
 
   <!-- はじめ -->
   <section class="screen on" id="intro">
@@ -195,11 +229,11 @@ document.addEventListener("click",function(e){
     </div>
     <p class="label">どんな贈り物？</p>
     <div class="occ">
-      <button type="button" onclick="startQuiz('xmas')"><span>🎄</span>クリスマス</button>
-      <button type="button" onclick="startQuiz('bday')"><span>🎂</span>誕生日</button>
-      <button type="button" onclick="startQuiz('thanks')"><span>💐</span>ちょっとしたお礼</button>
+      <button type="button" onclick="startQuiz('xmas')"><span><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z" /> <path d="M12 22v-3" /></svg></span>クリスマス</button>
+      <button type="button" onclick="startQuiz('bday')"><span><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" /> <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" /> <path d="M2 21h20" /> <path d="M7 8v3" /> <path d="M12 8v3" /> <path d="M17 8v3" /> <path d="M7 4h.01" /> <path d="M12 4h.01" /> <path d="M17 4h.01" /></svg></span>誕生日</button>
+      <button type="button" onclick="startQuiz('thanks')"><span><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1" /> <circle cx="12" cy="8" r="2" /> <path d="M12 10v12" /> <path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z" /> <path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z" /></svg></span>ちょっとしたお礼</button>
     </div>
-    <p class="types">タイプ：ペンギン／チーター／フクロウ／ネコ／インコ／リス／ウサギ</p>
+    <div class="types"><p class="types-h">どのタイプが出るかな？</p><ul class="types-row"><li><img src="../img/gift_p_penguin.webp" width="72" height="72" alt="" loading="lazy"><span>ペンギン</span></li><li><img src="../img/gift_c_cheetah.webp" width="72" height="72" alt="" loading="lazy"><span>チーター</span></li><li><img src="../img/gift_o_owl.webp" width="72" height="72" alt="" loading="lazy"><span>フクロウ</span></li><li><img src="../img/gift_n_cat.webp" width="72" height="72" alt="" loading="lazy"><span>ネコ</span></li><li><img src="../img/gift_i_parakeet.webp" width="72" height="72" alt="" loading="lazy"><span>インコ</span></li><li><img src="../img/gift_r_squirrel.webp" width="72" height="72" alt="" loading="lazy"><span>リス</span></li><li><img src="../img/gift_u_rabbit.webp" width="72" height="72" alt="" loading="lazy"><span>ウサギ</span></li></ul></div>
   </section>
 
   <!-- 質問 -->
@@ -247,93 +281,96 @@ document.addEventListener("click",function(e){
 </div>
 
 <script>
+var WSI={"alarm-clock": "<circle cx=\"12\" cy=\"13\" r=\"8\" /> <path d=\"M12 9v4l2 2\" /> <path d=\"M5 3 2 6\" /> <path d=\"m22 6-3-3\" /> <path d=\"M6.38 18.7 4 21\" /> <path d=\"M17.64 18.67 20 21\" />", "battery-low": "<path d=\"M22 14v-4\" /> <path d=\"M6 14v-4\" /> <rect x=\"2\" y=\"6\" width=\"16\" height=\"12\" rx=\"2\" />", "cable": "<path d=\"M17 19a1 1 0 0 1-1-1v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a1 1 0 0 1-1 1z\" /> <path d=\"M17 21v-2\" /> <path d=\"M19 14V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V10\" /> <path d=\"M21 21v-2\" /> <path d=\"M3 5V3\" /> <path d=\"M4 10a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a2 2 0 0 1-2 2z\" /> <path d=\"M7 5V3\" />", "cake": "<path d=\"M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8\" /> <path d=\"M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1\" /> <path d=\"M2 21h20\" /> <path d=\"M7 8v3\" /> <path d=\"M12 8v3\" /> <path d=\"M17 8v3\" /> <path d=\"M7 4h.01\" /> <path d=\"M12 4h.01\" /> <path d=\"M17 4h.01\" />", "camera": "<path d=\"M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z\" /> <circle cx=\"12\" cy=\"13\" r=\"3\" />", "circle-help": "<circle cx=\"12\" cy=\"12\" r=\"10\" /> <path d=\"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3\" /> <path d=\"M12 17h.01\" />", "coffee": "<path d=\"M10 2v2\" /> <path d=\"M14 2v2\" /> <path d=\"M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1\" /> <path d=\"M6 2v2\" />", "dumbbell": "<path d=\"M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z\" /> <path d=\"m2.5 21.5 1.4-1.4\" /> <path d=\"m20.1 3.9 1.4-1.4\" /> <path d=\"M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z\" /> <path d=\"m9.6 14.4 4.8-4.8\" />", "flower-2": "<path d=\"M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1\" /> <circle cx=\"12\" cy=\"8\" r=\"2\" /> <path d=\"M12 10v12\" /> <path d=\"M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z\" /> <path d=\"M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z\" />", "folder-open": "<path d=\"m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2\" />", "gamepad-2": "<line x1=\"6\" x2=\"10\" y1=\"11\" y2=\"11\" /> <line x1=\"8\" x2=\"8\" y1=\"9\" y2=\"13\" /> <line x1=\"15\" x2=\"15.01\" y1=\"12\" y2=\"12\" /> <line x1=\"18\" x2=\"18.01\" y1=\"10\" y2=\"10\" /> <path d=\"M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z\" />", "gift": "<path d=\"M12 7v14\" /> <path d=\"M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8\" /> <path d=\"M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5\" /> <rect x=\"3\" y=\"7\" width=\"18\" height=\"4\" rx=\"1\" />", "hand": "<path d=\"M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2\" /> <path d=\"M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2\" /> <path d=\"M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8\" /> <path d=\"M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15\" />", "image": "<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\" /> <circle cx=\"9\" cy=\"9\" r=\"2\" /> <path d=\"m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21\" />", "lamp-desk": "<path d=\"M10.293 2.293a1 1 0 0 1 1.414 0l2.5 2.5 5.994 1.227a1 1 0 0 1 .506 1.687l-7 7a1 1 0 0 1-1.687-.506l-1.227-5.994-2.5-2.5a1 1 0 0 1 0-1.414z\" /> <path d=\"m14.207 4.793-3.414 3.414\" /> <path d=\"M3 20a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z\" /> <path d=\"m9.086 6.5-4.793 4.793a1 1 0 0 0-.18 1.17L7 18\" />", "lightbulb": "<path d=\"M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5\" /> <path d=\"M9 18h6\" /> <path d=\"M10 22h4\" />", "map": "<path d=\"M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z\" /> <path d=\"M15 5.764v15\" /> <path d=\"M9 3.236v15\" />", "message-circle": "<path d=\"M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719\" />", "monitor": "<rect width=\"20\" height=\"14\" x=\"2\" y=\"3\" rx=\"2\" /> <line x1=\"8\" x2=\"16\" y1=\"21\" y2=\"21\" /> <line x1=\"12\" x2=\"12\" y1=\"17\" y2=\"21\" />", "palette": "<path d=\"M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z\" /> <circle cx=\"13.5\" cy=\"6.5\" r=\".5\" fill=\"currentColor\" /> <circle cx=\"17.5\" cy=\"10.5\" r=\".5\" fill=\"currentColor\" /> <circle cx=\"6.5\" cy=\"12.5\" r=\".5\" fill=\"currentColor\" /> <circle cx=\"8.5\" cy=\"7.5\" r=\".5\" fill=\"currentColor\" />", "plug": "<path d=\"M12 22v-5\" /> <path d=\"M15 8V2\" /> <path d=\"M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z\" /> <path d=\"M9 8V2\" />", "smile": "<path d=\"M15 10V9\" /> <path d=\"M16.472 15a6 6 0 01-8.943 0\" /> <path d=\"M9 10V9\" /> <circle cx=\"12\" cy=\"12\" r=\"10\" />", "sparkles": "<path d=\"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z\" /> <path d=\"M20 2v4\" /> <path d=\"M22 4h-4\" /> <circle cx=\"4\" cy=\"20\" r=\"2\" />", "sun": "<circle cx=\"12\" cy=\"12\" r=\"4\" /> <path d=\"M12 2v2\" /> <path d=\"M12 20v2\" /> <path d=\"m4.93 4.93 1.41 1.41\" /> <path d=\"m17.66 17.66 1.41 1.41\" /> <path d=\"M2 12h2\" /> <path d=\"M20 12h2\" /> <path d=\"m6.34 17.66-1.41 1.41\" /> <path d=\"m19.07 4.93-1.41 1.41\" />", "timer": "<line x1=\"10\" x2=\"14\" y1=\"2\" y2=\"2\" /> <line x1=\"12\" x2=\"15\" y1=\"14\" y2=\"11\" /> <circle cx=\"12\" cy=\"14\" r=\"8\" />", "tree-pine": "<path d=\"m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z\" /> <path d=\"M12 22v-3\" />", "watch": "<path d=\"M12 10v2.2l1.6 1\" /> <path d=\"m16.13 7.66-.81-4.05a2 2 0 0 0-2-1.61h-2.68a2 2 0 0 0-2 1.61l-.78 4.05\" /> <path d=\"m7.88 16.36.8 4a2 2 0 0 0 2 1.61h2.72a2 2 0 0 0 2-1.61l.81-4.05\" /> <circle cx=\"12\" cy=\"12\" r=\"6\" />"};
+var TIMG={"battery-low": "p_penguin", "timer": "c_cheetah", "lamp-desk": "o_owl", "watch": "n_cat", "sun": "i_parakeet", "folder-open": "r_squirrel", "sparkles": "u_rabbit"};
+function ic(n){return '<svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(WSI[n]||'')+'</svg>';}
 var OCC = {
-  xmas:   {label:'🎄 クリスマスに贈るなら', ser:'06'},
-  bday:   {label:'🎂 誕生日に贈るなら',     ser:'04'},
-  thanks: {label:'💐 ちょっとしたお礼なら',  ser:'11'}
+  xmas:   {ic:'tree-pine', label:'クリスマスに贈るなら', ser:'06'},
+  bday:   {ic:'cake', label:'誕生日に贈るなら',     ser:'04'},
+  thanks: {ic:'flower-2', label:'ちょっとしたお礼なら',  ser:'11'}
 };
 
 /* 質問: 選んだ答えに「タイプの点」がつく。p=ペンギン c=チーター o=フクロウ n=ネコ i=インコ r=リス u=ウサギ */
 var Q = [
   {t:'その人のスマホの電池、だいたい何%？', o:[
-    {e:'🪫', x:'いつも20%以下。「充電させて」が口ぐせ', s:{p:3,c:1}},
-    {e:'🔌', x:'モバイルバッテリーを持ち歩いている', s:{p:2,i:1}},
-    {e:'🙂', x:'わりといつも満タンにしている', s:{o:2,n:1}},
-    {e:'🤔', x:'気にしたことがない', s:{r:1,u:1}}
+    {e:'battery-low', x:'いつも20%以下。「充電させて」が口ぐせ', s:{p:3,c:1}},
+    {e:'plug', x:'モバイルバッテリーを持ち歩いている', s:{p:2,i:1}},
+    {e:'smile', x:'わりといつも満タンにしている', s:{o:2,n:1}},
+    {e:'circle-help', x:'気にしたことがない', s:{r:1,u:1}}
   ]},
   {t:'休みの日のその人は、何をしていそう？', o:[
-    {e:'☕', x:'カフェや街にお出かけ', s:{i:3,u:1}},
-    {e:'🖥️', x:'家で机まわりを整えたり、作業したり', s:{o:3}},
-    {e:'📷', x:'写真や動画をたくさん撮っている', s:{r:3,i:1}},
-    {e:'💄', x:'メイクやおしゃれを楽しんでいる', s:{u:3}},
-    {e:'🏃', x:'運動やジムで体を動かしている', s:{n:3,c:1}}
+    {e:'coffee', x:'カフェや街にお出かけ', s:{i:3,u:1}},
+    {e:'monitor', x:'家で机まわりを整えたり、作業したり', s:{o:3}},
+    {e:'camera', x:'写真や動画をたくさん撮っている', s:{r:3,i:1}},
+    {e:'palette', x:'メイクやおしゃれを楽しんでいる', s:{u:3}},
+    {e:'dumbbell', x:'運動やジムで体を動かしている', s:{n:3,c:1}}
   ]},
   {t:'その人の手首に、Apple Watch はついている？', o:[
-    {e:'⌚', x:'ついている', s:{n:4}},
-    {e:'✋', x:'ついていない', s:{}},
-    {e:'❓', x:'わからない', s:{}}
+    {e:'watch', x:'ついている', s:{n:4}},
+    {e:'hand', x:'ついていない', s:{}},
+    {e:'circle-help', x:'わからない', s:{}}
   ]},
   {t:'その人の口ぐせに近いのは？', o:[
-    {e:'⏰', x:'「時間ない！急いで！」', s:{c:3}},
-    {e:'🌀', x:'「ケーブルからまった〜」', s:{o:2,p:1}},
-    {e:'☀️', x:'「まぶしくて画面が見えない」', s:{i:3}},
-    {e:'🗂️', x:'「あのデータどこだっけ？」', s:{r:3}},
-    {e:'✨', x:'「これ、かわいい〜！」', s:{u:3}}
+    {e:'alarm-clock', x:'「時間ない！急いで！」', s:{c:3}},
+    {e:'cable', x:'「ケーブルからまった〜」', s:{o:2,p:1}},
+    {e:'sun', x:'「まぶしくて画面が見えない」', s:{i:3}},
+    {e:'folder-open', x:'「あのデータどこだっけ？」', s:{r:3}},
+    {e:'sparkles', x:'「これ、かわいい〜！」', s:{u:3}}
   ]},
   {t:'スマホでいちばんよく使っていそうなのは？', o:[
-    {e:'💬', x:'仕事の連絡やメール', s:{c:2,o:1}},
-    {e:'🗺️', x:'地図や乗りかえ案内', s:{i:2,c:1}},
-    {e:'🎮', x:'動画やゲーム', s:{p:2,i:1}},
-    {e:'🤳', x:'SNSや写真', s:{u:2,r:1}}
+    {e:'message-circle', x:'仕事の連絡やメール', s:{c:2,o:1}},
+    {e:'map', x:'地図や乗りかえ案内', s:{i:2,c:1}},
+    {e:'gamepad-2', x:'動画やゲーム', s:{p:2,i:1}},
+    {e:'image', x:'SNSや写真', s:{u:2,r:1}}
   ]}
 ];
 
 var U = 'utm_source=fds_quiz&utm_medium=quiz_link&utm_campaign=gift-uranai&utm_content=';
 /* タイプと贈り物（URLは 2026-09-28 の実在確認済みの台帳から。推測で作らない） */
 var T = {
-  p:{em:'🐧', name:'充電ギリギリ ペンギン', trait:'いつも電池とたたかう、がんばり屋さん。', ser:'07',
+  p:{em:'battery-low', name:'充電ギリギリ ペンギン', trait:'いつも電池とたたかう、がんばり屋さん。', ser:'07',
      say:'ぼくもよく電池が切れて、ぺたんってなっちゃう…。何台もまとめて充電できたら助かるのになあ。',
      mame:'スマホの電池は、0%まで使い切るより<strong>20〜80%のあいだで使うほうが長持ちしやすい</strong>と言われています。「使い切ってから充電」は、昔の電池の話なんです。',
      pname:'3in2 マルチ充電ケーブル（全端子 Type-C）', price:'目安 1,000円台',
      why:'1本でスマホ・イヤホン・タブレットなど最大3台に同時に充電できます。家でも職場でも「充電させて」が減ります。',
      honest:'<b>正直ポイント：</b>差し込み口はすべて Type-C です。Lightning の古い iPhone（14以前）には使えません。',
      rak:'https://item.rakuten.co.jp/world11select/worldselect-0005/', yah:'https://store.shopping.yahoo.co.jp/world1select/worldselect-0005.html'},
-  c:{em:'🐆', name:'時間に追われる チーター', trait:'いつも全力ダッシュ。待つのがちょっと苦手。', ser:'02',
+  c:{em:'timer', name:'時間に追われる チーター', trait:'いつも全力ダッシュ。待つのがちょっと苦手。', ser:'02',
      say:'急いでるのに、ぜんぜん充電がふえない…。ケーブルのせいかな？　それとも充電器かな？',
      mame:'<strong>急速充電は「ケーブル」だけ速くしても速くなりません。</strong>昔からある1A（5W）の充電器だと、流れる電気は20Wの充電器の約4分の1。iPhone なら20W以上で約30分で50%まで充電できます（Apple公表）。まず充電器の「W」を見てみて。',
      pname:'USB-C 240W 急速充電ケーブル（L字・回転）', price:'',
      why:'240Wまで流せる太い道のケーブル。L字なので、充電しながらスマホを横持ちしても手に当たりにくい形です。',
      honest:'<b>正直ポイント：</b>速さを決めるのは充電器です。相手が1A（5W）の充電器を使っていたら、20W以上の充電器とセットで贈るのがおすすめ。',
      rak:'https://item.rakuten.co.jp/world11select/60w-6in1cable/', yah:'https://store.shopping.yahoo.co.jp/world1select/60w-6in1cable.html'},
-  o:{em:'🦉', name:'デスクこだわり フクロウ', trait:'机まわりは自分の城。すっきり整えたい人。', ser:'08',
+  o:{em:'lamp-desk', name:'デスクこだわり フクロウ', trait:'机まわりは自分の城。すっきり整えたい人。', ser:'08',
      say:'ぼくの机、ケーブルがごちゃごちゃで…。スマホを立てて置けたら、もっとすっきりするのにな。',
      mame:'USB-C ケーブルは見た目が同じでも、<strong>60Wまでのものと240Wまで流せるものがあります。</strong>違いは、中に「eマーカー」という小さなチップが入っているかどうか。',
      pname:'スタンド付き USB-C ケーブル 240W', price:'目安 1,000円台',
      why:'ケーブル自体がスマホスタンドになるので、充電しながら動画やビデオ通話ができます。机の上が1つ片づきます。',
      honest:'<b>正直ポイント：</b>在庫が少なめです。売り切れのときは、同じ240Wの L字ケーブルも候補に。',
      rak:'https://item.rakuten.co.jp/world11select/cable-240w-stand-usbc/', yah:'https://store.shopping.yahoo.co.jp/world1select/cable-240w-stand-usbc.html'},
-  n:{em:'🐈', name:'Apple Watch 相棒 ネコ', trait:'身軽が好き。手首の相棒を大事にしている人。', ser:'03',
+  n:{em:'watch', name:'Apple Watch 相棒 ネコ', trait:'身軽が好き。手首の相棒を大事にしている人。', ser:'03',
      say:'Apple Watch の充電器、いつもどこかに行っちゃうんだ…。旅行のときも1個で済んだらいいのに。',
      mame:'Apple Watch は、毎晩つけっぱなしで充電しても<strong>Watch のほうで充電のしかたを調整</strong>してくれます（バッテリー充電の最適化）。だから「満タンになったらすぐ外す」は、しなくて大丈夫。',
      pname:'Apple Watch ＋ AirPods 急速充電器（USB-C 直差し）', price:'目安 2,000円台',
      why:'Apple Watch と AirPods をこれ1つで充電。小さいので、旅行や出張のポーチにも入ります。',
      honest:'<b>正直ポイント：</b>iPhone や iPad 本体は充電できません。Watch と AirPods 専用です。',
      rak:'https://item.rakuten.co.jp/world11select/dual-charger/', yah:'https://store.shopping.yahoo.co.jp/world1select/dual-charger.html'},
-  i:{em:'🦜', name:'外で見まくり インコ', trait:'お出かけ大好き。いつでもスマホで調べもの。', ser:'09',
+  i:{em:'sun', name:'外で見まくり インコ', trait:'お出かけ大好き。いつでもスマホで調べもの。', ser:'09',
      say:'外だと画面が光って見えないよ〜。指のあとも、けっこう目立つんだよね…。',
      mame:'さらさらした「つや消し（アンチグレア）フィルム」は、<strong>表面の細かいデコボコで光をちらして</strong>映りこみをへらしています。指のすべりもよくなるので、ゲームが好きな人にも人気。',
      pname:'iPhone さらさらアンチグレアフィルム ＋ 2in1 充電ケーブル セット', price:'',
      why:'外でも画面が見やすく、指紋も目立ちにくいフィルムに、充電ケーブルをつけたセット。贈り物でも「ちょうどいい」と言われる組み合わせです。',
      honest:'<b>正直ポイント：</b>つや消しは、光沢フィルムにくらべて画面がほんの少し白っぽく見えます。写真の色にこだわる人には光沢のほうが向いています。機種は商品ページで選べます。',
      rak:'https://item.rakuten.co.jp/world11select/set-film-2in1-06/', yah:'https://store.shopping.yahoo.co.jp/world1select/set-film-2in1-06.html'},
-  r:{em:'🐿️', name:'ためこみ整理 リス', trait:'写真もデータも、大事にとっておく人。', ser:'01',
+  r:{em:'folder-open', name:'ためこみ整理 リス', trait:'写真もデータも、大事にとっておく人。', ser:'01',
      say:'写真がいっぱいで、スマホの中がパンパン…。カメラのSDカードからも、すぐ取りこめたらなあ。',
      mame:'SDカードに書いてある<strong>「U3」や「V30」は、書きこみの速さの目安</strong>です。4K動画をとるなら U3／V30 以上が安心。容量（GB）だけで選ぶと、動画がとぎれることがあります。',
      pname:'Type-C カードリーダー（SD／microSD 対応）', price:'目安 1,000円台',
      why:'スマホやiPadに挿すだけで、カメラのSDカードの写真をそのまま取りこめます。パソコンがなくても整理できます。',
      honest:'<b>正直ポイント：</b>差し込み口は Type-C です。Lightning の iPhone には挿せません。',
      rak:'https://item.rakuten.co.jp/world11select/ws-ic-cardreader/', yah:'https://store.shopping.yahoo.co.jp/world1select/ws-ic-cardreader.html'},
-  u:{em:'🐇', name:'おしゃれ探求 ウサギ', trait:'かわいいものに目がない、トレンド好き。', ser:'05',
+  u:{em:'sparkles', name:'おしゃれ探求 ウサギ', trait:'かわいいものに目がない、トレンド好き。', ser:'05',
      say:'色がいっぱいあると、どれにしようか迷っちゃうよね。いろんな色をちょっとずつ試せたらいいのに。',
      mame:'アイシャドウの<strong>「ラメ」と「パール」は、つぶの大きさのちがい</strong>。つぶが大きいとキラキラ、小さいとしっとりしたツヤに見えます。',
      pname:'アイシャドウパレット（FOCALLURE）', price:'目安 2,000円台',
@@ -373,7 +410,7 @@ function render(){
   var box = $('opts'); box.innerHTML = '';
   q.o.forEach(function(op, k){
     var btn = document.createElement('button'); btn.type = 'button';
-    btn.innerHTML = '<span class="em" aria-hidden="true">' + op.e + '</span><span></span>';
+    btn.innerHTML = '<span class="em" aria-hidden="true">' + ic(op.e) + '</span><span></span>';
     btn.lastChild.textContent = op.x;
     btn.className = 'wsm-rise'; btn.style.setProperty('--i', k+1);
     btn.onclick = function(){ choose(k, btn); };
@@ -399,7 +436,7 @@ function showResult(){ paintResult(score(), false); }
 function paintResult(k, shared){
   var t = T[k];
   $('rOcc').textContent = (shared ? '相談で届いた占い結果｜' : '') + OCC[occ].label;
-  $('rName').innerHTML = '<span class="em" aria-hidden="true">' + t.em + '</span>' + t.name + '<small>タイプ</small>';
+  $('rName').innerHTML = '<img class="tyimg" src="../img/gift_' + TIMG[t.em] + '.webp" width="180" height="180" alt="">' + t.name + '<small>タイプ</small>';
   $('rTrait').textContent = t.trait;
   $('rSerImg').src = '../img/serecchi_' + (occ === 'xmas' && k === 'p' ? '06' : t.ser) + '.webp';
   $('rSerImg').alt = 'セレっち';

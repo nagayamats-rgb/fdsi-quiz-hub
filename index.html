@@ -28,6 +28,22 @@
 .scard:hover{transform:translateY(-3px);box-shadow:var(--sh-3);border-color:var(--primary)}
 .scard small{display:block;font-family:var(--font-body);font-weight:440;font-size:12.5px;color:var(--ink-2);letter-spacing:0;margin-top:2px}
 .scard__mk{flex:none;width:42px;height:42px;border-radius:var(--r-md);display:grid;place-items:center;color:#fff;font-size:18px}
+
+/* 2026-10-06 線アイコン化＋文字の段差（ロカブル準拠） */
+a.gcard,a.gcard:hover{text-decoration:none;color:inherit}
+.gcard__emoji{display:grid;place-items:center;width:88px;height:88px;border-radius:24px;background:#fff;color:var(--accent-700);box-shadow:0 1px 2px rgba(54,38,61,.06),0 6px 18px -8px color-mix(in oklab,var(--accent) 45%,transparent);font-size:0;filter:none}
+.gcard__emoji .wsi{width:44px;height:44px;stroke-width:1.6}
+.gcard--feat .gcard__emoji{width:112px;height:112px;border-radius:30px}
+.gcard--feat .gcard__emoji .wsi{width:56px;height:56px}
+.hero__floatemoji{display:inline-grid;place-items:center;font-size:0}
+.hero__floatemoji .wsi{width:22px;height:22px}
+.gcard__icon{display:grid;place-items:center;width:48px;height:48px;margin:20px 20px 0;border-radius:14px;background:var(--accent-050);color:var(--accent-700);font-size:0}
+.gcard__icon .wsi{width:24px;height:24px}
+.gcard__time .wsi{width:14px;height:14px;stroke-width:2}
+.gcard__title,.gcard__h{color:var(--head);font-weight:800;letter-spacing:-.01em}
+.gcard__h{font-size:17px;line-height:1.4;margin:0 0 4px}
+.gcard__desc,.gcard__p{color:#6B6370;font-size:14px;font-weight:400;line-height:1.75}
+.gcard__time{color:#8A8290;font-weight:500}
 </style>
 <!-- WS_GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M781H9VG68"></script>
@@ -165,14 +181,14 @@ document.addEventListener("click",function(e){
       <div class="hero__art" aria-hidden="true">
         <div class="hero__panel"></div>
         <div class="hero__float hero__float--1">
-          <div class="eyebrow"><span class="hero__floatemoji">📈</span> デジタルライフ偏差値</div>
+          <div class="eyebrow"><span class="hero__floatemoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 7h6v6" /> <path d="m22 7-8.5 8.5-5-5L2 17" /></svg></span> デジタルライフ偏差値</div>
           <div class="miniscore">68</div>
         </div>
         <div class="hero__float hero__float--2">
           <div class="opt is-selected"><span class="opt__label">水を飲む</span><span class="opt__check"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
         </div>
         <div class="hero__float hero__float--3">
-          <div class="eyebrow"><span class="hero__floatemoji">🎧</span> おすすめ</div>
+          <div class="eyebrow"><span class="hero__floatemoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3" /></svg></span> おすすめ</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px"><b style="font-family:var(--font-head);color:var(--head)">FocusPods Pro</b><span style="font-family:var(--font-head);font-weight:800;color:var(--head)">¥19,800</span></div>
         </div>
       </div>
@@ -193,188 +209,188 @@ document.addEventListener("click",function(e){
 
         <!-- featured -->
         <a class="gcard gcard--feat" href="/marathon/" style="--accent:var(--c-violet);--accent-700:var(--c-violet-700);--accent-050:var(--c-violet-050)">
-          <div class="gcard__media"><span class="gcard__emoji">📚</span><span class="gcard__q">100問</span></div>
+          <div class="gcard__media"><span class="gcard__emoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v16" /> <path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /></svg></span><span class="gcard__q">100問</span></div>
           <div class="gcard__body">
             <span class="badge">人気 No.1</span>
             <h3 class="gcard__title">テク雑学マラソン</h3>
             <p class="gcard__desc">USB、スマホ、AI、宇宙まで幅広いテック雑学100問に挑戦。どこまで正解できる？</p>
             <div class="gcard__foot">
-              <span class="gcard__time">🕒 約20分・知識</span>
+              <span class="gcard__time"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>約20分・知識</span>
               <span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </div>
         </a>
 
         <a class="gcard" href="/academy/" style="--accent:var(--c-grape);--accent-700:var(--c-grape-700);--accent-050:var(--c-grape-050)">
-          <div class="gcard__media"><span class="gcard__emoji">🎓</span><span class="gcard__q">77問</span></div>
+          <div class="gcard__media"><span class="gcard__emoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /> <path d="M22 10v6" /> <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></svg></span><span class="gcard__q">77問</span></div>
           <div class="gcard__body">
             <span class="badge">大ボリューム</span>
             <h3 class="gcard__title">ガジェット検定アカデミー</h3>
             <p class="gcard__desc">基礎からマスターまで4レベル制。全77問のガジェット知識検定。</p>
-            <div class="gcard__foot"><span class="gcard__time">🕒 約25分・レベル制</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="gcard__foot"><span class="gcard__time"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>約25分・レベル制</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
           </div>
         </a>
 
         <a class="gcard" href="/digital/" style="--accent:var(--c-iris);--accent-700:var(--c-iris-700);--accent-050:var(--c-iris-050)">
-          <div class="gcard__media"><span class="gcard__emoji">📈</span><span class="gcard__q">24問</span></div>
+          <div class="gcard__media"><span class="gcard__emoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 7h6v6" /> <path d="m22 7-8.5 8.5-5-5L2 17" /></svg></span><span class="gcard__q">24問</span></div>
           <div class="gcard__body">
             <span class="badge">偏差値判定</span>
             <h3 class="gcard__title">デジタルライフ偏差値</h3>
             <p class="gcard__desc">充電習慣からセキュリティ対策まで、24問でデジタル活用度を偏差値判定。</p>
-            <div class="gcard__foot"><span class="gcard__time">🕒 約8分・偏差値</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="gcard__foot"><span class="gcard__time"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>約8分・偏差値</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
           </div>
         </a>
 
         <a class="gcard" href="/travel/" style="--accent:var(--c-mauve);--accent-700:var(--c-mauve-700);--accent-050:var(--c-mauve-050)">
-          <div class="gcard__media"><span class="gcard__emoji">✈️</span><span class="gcard__q">15問</span></div>
+          <div class="gcard__media"><span class="gcard__emoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" /></svg></span><span class="gcard__q">15問</span></div>
           <div class="gcard__body">
             <span class="badge">性格診断</span>
             <h3 class="gcard__title">旅行スタイル診断</h3>
             <p class="gcard__desc">15問でソロ派・アクティブ派・グルメ派など5つの旅行タイプを判定。</p>
-            <div class="gcard__foot"><span class="gcard__time">🕒 約3分・診断</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="gcard__foot"><span class="gcard__time"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>約3分・診断</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
           </div>
         </a>
 
         <a class="gcard" href="/survival/" style="--accent:var(--c-plum);--accent-700:var(--c-plum-700);--accent-050:var(--c-plum-050)">
-          <div class="gcard__media"><span class="gcard__emoji">🚨</span><span class="gcard__q">4シナリオ</span></div>
+          <div class="gcard__media"><span class="gcard__emoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18v-6a5 5 0 1 1 10 0v6" /> <path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z" /> <path d="M21 12h1" /> <path d="M18.5 4.5 18 5" /> <path d="M2 12h1" /> <path d="M12 2v1" /> <path d="m4.929 4.929.707.707" /> <path d="M12 12v6" /></svg></span><span class="gcard__q">4シナリオ</span></div>
           <div class="gcard__body">
             <span class="badge">分岐型</span>
             <h3 class="gcard__title">旅先サバイバル</h3>
             <p class="gcard__desc">空港・ホテル・キャンプ・台風の4シナリオ。ガジェットトラブルを切り抜けろ。</p>
-            <div class="gcard__foot"><span class="gcard__time">🕒 約10分・分岐型</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="gcard__foot"><span class="gcard__time"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>約10分・分岐型</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
           </div>
         </a>
 
         <a class="gcard" href="/charging/" style="--accent:var(--c-orchid);--accent-700:var(--c-orchid-700);--accent-050:var(--c-orchid-050)">
-          <div class="gcard__media"><span class="gcard__emoji">⚡</span><span class="gcard__q">7問</span></div>
+          <div class="gcard__media"><span class="gcard__emoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /></svg></span><span class="gcard__q">7問</span></div>
           <div class="gcard__body">
             <span class="badge">性格診断</span>
             <h3 class="gcard__title">充電スタイル診断</h3>
             <p class="gcard__desc">ミニマリスト派？パワフル急速派？7問であなたの充電ライフを診断。</p>
-            <div class="gcard__foot"><span class="gcard__time">🕒 約5分・診断</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="gcard__foot"><span class="gcard__time"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>約5分・診断</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
           </div>
         </a>
 
         <a class="gcard" href="/gadget/" style="--accent:var(--c-violet);--accent-700:var(--c-violet-700);--accent-050:var(--c-violet-050)">
-          <div class="gcard__media"><span class="gcard__emoji">🔧</span><span class="gcard__q">20問</span></div>
+          <div class="gcard__media"><span class="gcard__emoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" /></svg></span><span class="gcard__q">20問</span></div>
           <div class="gcard__body">
             <span class="badge">知識</span>
             <h3 class="gcard__title">ガジェットオタク度チェック</h3>
             <p class="gcard__desc">USB-C、PD、GaN…20問のガジェット知識であなたのオタク度を判定。</p>
-            <div class="gcard__foot"><span class="gcard__time">🕒 約7分・知識</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="gcard__foot"><span class="gcard__time"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>約7分・知識</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
           </div>
         </a>
 
         <a class="gcard" href="/charging-master/" style="--accent:var(--c-grape);--accent-700:var(--c-grape-700);--accent-050:var(--c-grape-050)">
-          <div class="gcard__media"><span class="gcard__emoji">🔋</span><span class="gcard__q">25問</span></div>
+          <div class="gcard__media"><span class="gcard__emoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 7-3 5h4l-3 5" /> <path d="M14.856 6H16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.935" /> <path d="M22 14v-4" /> <path d="M5.14 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2.936" /></svg></span><span class="gcard__q">25問</span></div>
           <div class="gcard__body">
             <span class="badge">NEW</span>
             <h3 class="gcard__title">充電マスター検定</h3>
             <p class="gcard__desc">USB PD、GaN、MagSafe、ケーブルの見分け方…25問で充電知識のレベルを判定。</p>
-            <div class="gcard__foot"><span class="gcard__time">🕒 約7分・知識</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="gcard__foot"><span class="gcard__time"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>約7分・知識</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
           </div>
         </a>
 
         <a class="gcard" href="/photo-skill/" style="--accent:var(--c-iris);--accent-700:var(--c-iris-700);--accent-050:var(--c-iris-050)">
-          <div class="gcard__media"><span class="gcard__emoji">📷</span><span class="gcard__q">20問</span></div>
+          <div class="gcard__media"><span class="gcard__emoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" /> <circle cx="12" cy="13" r="3" /></svg></span><span class="gcard__q">20問</span></div>
           <div class="gcard__body">
             <span class="badge">NEW</span>
             <h3 class="gcard__title">スマホ撮影スキル診断</h3>
             <p class="gcard__desc">構図、ライティング、ジンバル、動画テク…20問で撮影力を5段階判定。</p>
-            <div class="gcard__foot"><span class="gcard__time">🕒 約7分・知識</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="gcard__foot"><span class="gcard__time"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>約7分・知識</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
           </div>
         </a>
 
         <a class="gcard" href="/film/" style="--accent:var(--c-mauve);--accent-700:var(--c-mauve-700);--accent-050:var(--c-mauve-050)">
-          <div class="gcard__media"><span class="gcard__emoji">📱</span><span class="gcard__q">10問</span></div>
+          <div class="gcard__media"><span class="gcard__emoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /> <path d="M12 18h.01" /></svg></span><span class="gcard__q">10問</span></div>
           <div class="gcard__body">
             <span class="badge">NEW</span>
             <h3 class="gcard__title">フィルム選び方クイズ</h3>
             <p class="gcard__desc">アンチグレアと光沢、ガラスとPET、9H硬度…10問でフィルム選びをチェック。</p>
-            <div class="gcard__foot"><span class="gcard__time">🕒 約4分・知識</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="gcard__foot"><span class="gcard__time"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>約4分・知識</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
           </div>
         </a>
 
         <a class="gcard" href="/charge-finder/" style="--accent:var(--c-plum);--accent-700:var(--c-plum-700);--accent-050:var(--c-plum-050)">
-          <div class="gcard__media"><span class="gcard__emoji">🔗</span><span class="gcard__q">診断</span></div>
+          <div class="gcard__media"><span class="gcard__emoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /> <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg></span><span class="gcard__q">診断</span></div>
           <div class="gcard__body">
             <span class="badge">NEW</span>
             <h3 class="gcard__title">USB-C・PD最適ケーブル診断</h3>
             <p class="gcard__desc">用途を答えるだけで、あなたに最適なUSB-C・PD充電ケーブルを提案。</p>
-            <div class="gcard__foot"><span class="gcard__time">🕒 約3分・診断</span><span class="gcard__go">診断する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="gcard__foot"><span class="gcard__time"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>約3分・診断</span><span class="gcard__go">診断する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
           </div>
         </a>
 
         <a class="gcard" href="/watch-guide/" style="--accent:var(--c-violet);--accent-700:var(--c-violet-700);--accent-050:var(--c-violet-050)">
-          <div class="gcard__media"><span class="gcard__emoji">⌚</span><span class="gcard__q">15問</span></div>
+          <div class="gcard__media"><span class="gcard__emoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 10v2.2l1.6 1" /> <path d="m16.13 7.66-.81-4.05a2 2 0 0 0-2-1.61h-2.68a2 2 0 0 0-2 1.61l-.78 4.05" /> <path d="m7.88 16.36.8 4a2 2 0 0 0 2 1.61h2.72a2 2 0 0 0 2-1.61l.81-4.05" /> <circle cx="12" cy="12" r="6" /></svg></span><span class="gcard__q">15問</span></div>
           <div class="gcard__body">
             <h3 class="gcard__title">Apple Watch使いこなし検定</h3>
             <p class="gcard__desc">Series 9/Ultra/SE…あなたはどこまで知っている？Apple Watchの機能・仕様・使い方15問</p>
-            <div class="gcard__foot"><span class="gcard__time">🕒 約5分・知識</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="gcard__foot"><span class="gcard__time"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>約5分・知識</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
           </div>
         </a>
         <a class="gcard" href="/case-guide/" style="--accent:var(--c-grape);--accent-700:var(--c-grape-700);--accent-050:var(--c-grape-050)">
-          <div class="gcard__icon">🧩</div>
+          <div class="gcard__icon"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /> <path d="M12 18h.01" /></svg></div>
           <div class="gcard__body">
             <h3 class="gcard__h">iPhoneケース選び方検定</h3>
             <p class="gcard__p">MagSafe対応？耐衝撃？素材の違いは？iPhoneケースの選び方15問…</p>
           </div>
         </a>
         <a class="gcard" href="/cardreader-guide/" style="--accent:var(--c-iris);--accent-700:var(--c-iris-700);--accent-050:var(--c-iris-050)">
-          <div class="gcard__icon">🧩</div>
+          <div class="gcard__icon"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 16h.01" /> <path d="M2.212 11.577a2 2 0 0 0-.212.896V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5.527a2 2 0 0 0-.212-.896L18.55 5.11A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" /> <path d="M21.946 12.013H2.054" /> <path d="M6 16h.01" /></svg></div>
           <div class="gcard__body">
             <h3 class="gcard__h">カードリーダー選び方検定</h3>
             <p class="gcard__p">CFexpress？SD？UHS-II？転送速度の違いを理解する15問…</p>
           </div>
         </a>
         <a class="gcard" href="/magsafe-guide/" style="--accent:var(--c-plum);--accent-700:var(--c-plum-700);--accent-050:var(--c-plum-050)">
-          <div class="gcard__icon">🧩</div>
+          <div class="gcard__icon"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 15 4 4" /> <path d="M2.352 10.648a1.205 1.205 0 0 0 0 1.704l2.296 2.296a1.205 1.205 0 0 0 1.704 0l6.029-6.029a1 1 0 1 1 3 3l-6.029 6.029a1.205 1.205 0 0 0 0 1.704l2.296 2.296a1.205 1.205 0 0 0 1.704 0l6.365-6.367A1 1 0 0 0 8.716 4.282z" /> <path d="m5 8 4 4" /></svg></div>
           <div class="gcard__body">
             <h3 class="gcard__h">MagSafe完全理解検定</h3>
             <p class="gcard__p">MagSafeの規格・互換性・使い方を徹底確認。知っているようで知らない15問…</p>
           </div>
         </a>
         <a class="gcard" href="/film-pro/" style="--accent:var(--c-mauve);--accent-700:var(--c-mauve-700);--accent-050:var(--c-mauve-050)">
-          <div class="gcard__icon">🧩</div>
+          <div class="gcard__icon"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" /> <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" /> <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></svg></div>
           <div class="gcard__body">
             <h3 class="gcard__h">保護フィルム選び方上級検定</h3>
             <p class="gcard__p">ガラス？TPU？アンチグレア？硬度9H？フィルム選びで失敗しないための15問…</p>
           </div>
         </a>
         <a class="gcard" href="/hub-guide/" style="--accent:var(--c-orchid);--accent-700:var(--c-orchid-700);--accent-050:var(--c-orchid-050)">
-          <div class="gcard__icon">🧩</div>
+          <div class="gcard__icon"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="7" r="1" /> <circle cx="4" cy="20" r="1" /> <path d="M4.7 19.3 19 5" /> <path d="m21 3-3 1 2 2Z" /> <path d="M9.26 7.68 5 12l2 5" /> <path d="m10 14 5 2 3.5-3.5" /> <path d="m18 12 1-1 1 1-1 1Z" /></svg></div>
           <div class="gcard__body">
             <h3 class="gcard__h">USB-Cハブ・ドック選び方検定</h3>
             <p class="gcard__p">HDMI出力？LAN？電力供給？ハブとドックの違いから選び方まで15問…</p>
           </div>
         </a>
         <a class="gcard" href="/cable-master/" style="--accent:var(--c-grape);--accent-700:var(--c-grape-700);--accent-050:var(--c-grape-050)">
-          <div class="gcard__media"><span class="gcard__emoji">🔌</span><span class="gcard__q">10問</span></div>
+          <div class="gcard__media"><span class="gcard__emoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5" /> <path d="M15 8V2" /> <path d="M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z" /> <path d="M9 8V2" /></svg></span><span class="gcard__q">10問</span></div>
           <div class="gcard__body">
             <span class="badge">NEW</span>
             <h3 class="gcard__title">充電ケーブル検定</h3>
             <p class="gcard__desc">3in1・L字・eMarker・PD240W…10問で充電ケーブルの規格知識をチェック。</p>
-            <div class="gcard__foot"><span class="gcard__time">🕒 約4分・知識</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="gcard__foot"><span class="gcard__time"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>約4分・知識</span><span class="gcard__go">挑戦する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
           </div>
         </a>
 
         <a class="gcard" href="/gift-uranai/" style="--accent:var(--c-orchid);--accent-700:var(--c-orchid-700);--accent-050:var(--c-orchid-050)">
-          <div class="gcard__media"><span class="gcard__emoji">🎁</span><span class="gcard__q">5問</span></div>
+          <div class="gcard__media"><span class="gcard__emoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14" /> <path d="M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" /> <path d="M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5" /> <rect x="3" y="7" width="18" height="4" rx="1" /></svg></span><span class="gcard__q">5問</span></div>
           <div class="gcard__body">
             <span class="badge">NEW</span>
             <h3 class="gcard__title">ガジェット占い</h3>
             <p class="gcard__desc">贈る相手のクセを5つ選ぶだけ。7タイプから、ぴったりの贈り物ガジェットと豆知識がわかる。</p>
-            <div class="gcard__foot"><span class="gcard__time">🕒 約2分・診断</span><span class="gcard__go">占ってみる <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="gcard__foot"><span class="gcard__time"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>約2分・診断</span><span class="gcard__go">占ってみる <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
           </div>
         </a>
 
         <a class="gcard" href="/film-diag/" style="--accent:var(--c-mauve);--accent-700:var(--c-mauve-700);--accent-050:var(--c-mauve-050)">
-          <div class="gcard__media"><span class="gcard__emoji">🔍</span><span class="gcard__q">2〜3問</span></div>
+          <div class="gcard__media"><span class="gcard__emoji"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34" /> <circle cx="11" cy="11" r="8" /></svg></span><span class="gcard__q">2〜3問</span></div>
           <div class="gcard__body">
             <span class="badge">NEW</span>
             <h3 class="gcard__title">あなたに合うフィルム診断</h3>
             <p class="gcard__desc">2〜3問で、つや消し・ブルーライトカット・のぞき見防止から合う1枚を提案。弱点も正直に。</p>
-            <div class="gcard__foot"><span class="gcard__time">🕒 約1分・診断</span><span class="gcard__go">診断する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="gcard__foot"><span class="gcard__time"><svg class="wsi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>約1分・診断</span><span class="gcard__go">診断する <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
           </div>
         </a>
 
